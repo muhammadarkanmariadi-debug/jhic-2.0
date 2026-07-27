@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function Headmaster() {
   return (
-    <section id="about-head" className="bg-bg-main py-20 md:py-32">
+    <section id="about-head" className="bg-white py-20 md:py-32">
       <div className="mx-auto w-full max-w-[1400px] px-4 md:px-8">
         <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-20">
           <div className="relative w-full max-w-[400px] lg:w-1/2">

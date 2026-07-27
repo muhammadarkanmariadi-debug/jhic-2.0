@@ -34,17 +34,15 @@ export function Partners() {
         <div className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-[15%] bg-gradient-to-r from-white to-transparent"></div>
         <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-[15%] bg-gradient-to-l from-white to-transparent"></div>
 
-        <div className="flex w-max animate-[marquee_30s_linear_infinite] hover:[animation-play-state:paused]">
+        <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
           {/* First Set */}
           <div className="flex items-center justify-around">
             {partners.map((partner, idx) => (
               <div key={idx} className="mx-10 flex h-[50px] items-center justify-center">
-                <Image
+                <img
                   src={partner.src}
                   alt={partner.name}
-                  width={150}
-                  height={50}
-                  className="h-full w-auto object-contain opacity-60 grayscale transition-all duration-300 hover:scale-110 hover:opacity-100 hover:grayscale-0"
+                  className="h-full w-auto max-w-[150px] object-contain opacity-60 grayscale transition-all duration-300 hover:scale-110 hover:opacity-100 hover:grayscale-0"
                 />
               </div>
             ))}
@@ -53,12 +51,10 @@ export function Partners() {
           <div className="flex items-center justify-around" aria-hidden="true">
             {partners.map((partner, idx) => (
               <div key={idx} className="mx-10 flex h-[50px] items-center justify-center">
-                <Image
+                <img
                   src={partner.src}
                   alt={partner.name}
-                  width={150}
-                  height={50}
-                  className="h-full w-auto object-contain opacity-60 grayscale transition-all duration-300 hover:scale-110 hover:opacity-100 hover:grayscale-0"
+                  className="h-full w-auto max-w-[150px] object-contain opacity-60 grayscale transition-all duration-300 hover:scale-110 hover:opacity-100 hover:grayscale-0"
                 />
               </div>
             ))}

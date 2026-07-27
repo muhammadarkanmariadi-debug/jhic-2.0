@@ -72,9 +72,9 @@ export function Programs() {
 
         {/* Tab Content */}
         <div className="mt-10 md:mt-16">
-          <div className="flex flex-col gap-10 rounded-[32px] border border-border-color bg-white p-6 shadow-sm md:flex-row md:items-center md:gap-16 md:p-12 lg:p-16">
+          <div className="flex flex-col gap-10 rounded-[32px]   p-6  md:flex-row md:items-center md:gap-16 md:p-12 lg:p-16">
             <div className="flex w-full justify-center md:w-1/2">
-              <div className="relative aspect-[4/3] w-full max-w-[500px] overflow-hidden rounded-[24px]">
+              <div className="relative aspect-square w-full max-w-[500px] overflow-hidden rounded-[24px]">
                 <Image
                   src={activeProgram.image}
                   alt={activeProgram.title}

@@ -25,7 +25,7 @@ export function Testimonials() {
   ];
 
   return (
-    <section className="bg-white py-20 md:py-32">
+    <section className="bg-bg-main py-20 md:py-32">
       <div className="mx-auto w-full max-w-[1400px] px-4 md:px-8">
         <div className="mx-auto mb-16 max-w-[640px] text-center">
           <div className="mb-4 inline-flex items-center rounded-full bg-accent/10 px-4 py-1.5 text-[14px] font-bold text-accent">
