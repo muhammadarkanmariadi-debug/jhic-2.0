@@ -21,24 +21,27 @@
     #main-header {
       transition: background 0.3s ease, box-shadow 0.3s ease;
     }
-  
+
     #main-header .main-logo {
       transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.4s ease;
       overflow: hidden;
       display: flex;
       align-items: center;
     }
+
     #main-header.scrolled .main-logo {
       width: 0 !important;
       opacity: 0;
       margin: 0;
       pointer-events: none;
     }
+
     #main-header .pill-nav {
       display: flex;
       align-items: center;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
     #main-header .scrolled-logo-wrapper {
       width: 0;
       opacity: 0;
@@ -47,17 +50,20 @@
       display: flex;
       align-items: center;
     }
+
     #main-header.scrolled .scrolled-logo-wrapper {
       width: 120px;
       opacity: 1;
       margin-right: 16px;
     }
+
     #main-header .nav-actions .btn-primary,
     #main-header .nav-actions .lang-switch {
       transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       overflow: hidden;
       white-space: nowrap;
     }
+
     #main-header.scrolled .nav-actions .btn-primary,
     #main-header.scrolled .nav-actions .lang-switch {
       width: 0 !important;
@@ -68,31 +74,43 @@
       pointer-events: none;
       border: none;
     }
-    @media (max-width: 999px) {
+
+    @media (max-width: 1280px) {
+      #main-header {
+        background-color: #fff;
+        box-shadow: var(--shadow-sm);
+      }
+
       /* Keep main logo on mobile since pill nav is hidden */
       #main-header.scrolled .main-logo {
         width: clamp(140px, 15vw, 180px) !important;
         opacity: 1;
       }
+
       #main-header.scrolled .scrolled-logo-wrapper {
+        display: none !important;
+      }
+
+      #main-header .pill-nav {
         display: none !important;
       }
     }
   </style>
 
   <!-- Header -->
-  <header class="header" id="main-header"
-    style=" ">
-    <div style="max-width:1400px; display:flex; justify-content:space-between; align-items:center; padding: 16px clamp(16px, 4vw, 32px);  margin:0 auto; width: 100%; top: 0; z-index: 60; position: sticky;">
+  <header class="header" id="main-header" style=" ">
+    <div
+      style="max-width:1400px; display:flex; justify-content:space-between; align-items:center; padding: 16px clamp(16px, 4vw, 32px);  margin:0 auto; width: 100%; top: 0; z-index: 60; position: sticky;">
       <!-- Left: Logo -->
       <a href="index.html" class="brand main-logo" style="flex-shrink: 0;">
-        <img src="logo_hitam.png" style="width: clamp(140px, 15vw, 180px); height: auto; min-width: 140px;" alt="Logo" class="brand-logo">
+        <img src="logo_hitam.png" style="width: clamp(140px, 15vw, 180px); height: auto; min-width: 140px;" alt="Logo"
+          class="brand-logo">
       </a>
 
-     
+
       <nav aria-label="Primary" class="nav-links pill-nav"
         style=" background: #ffff; padding: 6px 16px; border-radius: 999px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-light);">
-        
+
         <a href="index.html" class="scrolled-logo-wrapper">
           <img src="logo_hitam.png" alt="Logo" style="width: 120px; height: auto;">
         </a>
@@ -192,84 +210,86 @@
         </button>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu">
-          <a href="index.html" class="mobile-link">Beranda</a>
-          <div class="mobile-dropdown">
-            <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Tentang Kami <svg
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg></a>
-            <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
-              <a href="tentang-kami/profil-sejarah.html" class="mobile-link"
-                style="font-size:14.5px; color:#6B7280;">Profil & Sejarah</a>
-              <a href="tentang-kami/visi-misi.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Visi
-                Misi</a>
-              <a href="tentang-kami/struktur-organisasi.html" class="mobile-link"
-                style="font-size:14.5px; color:#6B7280;">Struktur Organisasi</a>
-              <a href="tentang-kami/akreditasi.html" class="mobile-link"
-                style="font-size:14.5px; color:#6B7280;">Akreditasi</a>
-              <a href="tentang-kami/hubungan-industri.html" class="mobile-link"
-                style="font-size:14.5px; color:#6B7280;">Hubungan Industri</a>
-              <a href="tentang-kami/program-ts.html" class="mobile-link"
-                style="font-size:14.5px; color:#6B7280;">Program
-                TS</a>
-              <a href="tentang-kami/fasilitas.html" class="mobile-link"
-                style="font-size:14.5px; color:#6B7280;">Fasilitas</a>
-              <a href="tentang-kami/prestasi.html" class="mobile-link"
-                style="font-size:14.5px; color:#6B7280;">Prestasi</a>
-            </div>
-          </div>
-          <div class="mobile-dropdown">
-            <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Program <svg
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg></a>
-            <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
-              <a href="program/jurusan.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Profil
-                Jurusan</a>
-              <a href="program/ekstrakurikuler.html" class="mobile-link"
-                style="font-size:14.5px; color:#6B7280;">Ekstrakurikuler</a>
-            </div>
-          </div>
-          <div class="mobile-dropdown">
-            <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Alumni <svg
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg></a>
-            <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
-              <a href="alumni/profil-sebaran.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Profil
-                Sebaran</a>
-              <a href="alumni/testimoni.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Testimoni</a>
-            </div>
-          </div>
-          <div class="mobile-dropdown">
-            <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Informasi <svg
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg></a>
-            <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
-              <a href="informasi/berita.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Berita</a>
-              <a href="informasi/pengumuman-kelulusan.html" class="mobile-link"
-                style="font-size:14.5px; color:#6B7280;">Pengumuman Kelulusan</a>
-              <a href="informasi/penerapan-k3.html" class="mobile-link"
-                style="font-size:14.5px; color:#6B7280;">Penerapan
-                K3</a>
-            </div>
-          </div>
-          <div class="mobile-dropdown">
-            <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Hubungi Kami <svg
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg></a>
-            <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
-              <a href="hubungi-kami/faq.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">FAQ</a>
-              <a href="hubungi-kami/kotak-pertanyaan.html" class="mobile-link"
-                style="font-size:14.5px; color:#6B7280;">Kotak Pertanyaan</a>
-              <a href="hubungi-kami/service-desk.html" class="mobile-link"
-                style="font-size:14.5px; color:#6B7280;">Service Desk</a>
-            </div>
-          </div>
-        </div>
+        <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile Navigation">
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 2px; width: 100%; ">
+            <li><a href="index.html" class="mobile-link" style="display: block;">Beranda</a></li>
+            <li class="mobile-dropdown">
+              <button class="mobile-link flex justify-between items-center dropdown-toggle" aria-expanded="false" style="width: 100%; text-align: left; background: none; border: none; font-family: inherit; cursor: pointer;">Tentang Kami <svg
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg></button>
+              <ul class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px; list-style: none; margin: 0;">
+                <li><a href="tentang-kami/profil-sejarah.html" class="mobile-link"
+                  style="font-size:14.5px; color:#6B7280; display: block;">Profil & Sejarah</a></li>
+                <li><a href="tentang-kami/visi-misi.html" class="mobile-link" style="font-size:14.5px; color:#6B7280; display: block;">Visi
+                  Misi</a></li>
+                <li><a href="tentang-kami/struktur-organisasi.html" class="mobile-link"
+                  style="font-size:14.5px; color:#6B7280; display: block;">Struktur Organisasi</a></li>
+                <li><a href="tentang-kami/akreditasi.html" class="mobile-link"
+                  style="font-size:14.5px; color:#6B7280; display: block;">Akreditasi</a></li>
+                <li><a href="tentang-kami/hubungan-industri.html" class="mobile-link"
+                  style="font-size:14.5px; color:#6B7280; display: block;">Hubungan Industri</a></li>
+                <li><a href="tentang-kami/program-ts.html" class="mobile-link"
+                  style="font-size:14.5px; color:#6B7280; display: block;">Program
+                  TS</a></li>
+                <li><a href="tentang-kami/fasilitas.html" class="mobile-link"
+                  style="font-size:14.5px; color:#6B7280; display: block;">Fasilitas</a></li>
+                <li><a href="tentang-kami/prestasi.html" class="mobile-link"
+                  style="font-size:14.5px; color:#6B7280; display: block;">Prestasi</a></li>
+              </ul>
+            </li>
+            <li class="mobile-dropdown">
+              <button class="mobile-link flex justify-between items-center dropdown-toggle" aria-expanded="false" style="width: 100%; text-align: left; background: none; border: none; font-family: inherit; cursor: pointer;">Program <svg
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg></button>
+              <ul class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px; list-style: none; margin: 0;">
+                <li><a href="program/jurusan.html" class="mobile-link" style="font-size:14.5px; color:#6B7280; display: block;">Profil
+                  Jurusan</a></li>
+                <li><a href="program/ekstrakurikuler.html" class="mobile-link"
+                  style="font-size:14.5px; color:#6B7280; display: block;">Ekstrakurikuler</a></li>
+              </ul>
+            </li>
+            <li class="mobile-dropdown">
+              <button class="mobile-link flex justify-between items-center dropdown-toggle" aria-expanded="false" style="width: 100%; text-align: left; background: none; border: none; font-family: inherit; cursor: pointer;">Alumni <svg
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg></button>
+              <ul class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px; list-style: none; margin: 0;">
+                <li><a href="alumni/profil-sebaran.html" class="mobile-link" style="font-size:14.5px; color:#6B7280; display: block;">Profil
+                  Sebaran</a></li>
+                <li><a href="alumni/testimoni.html" class="mobile-link" style="font-size:14.5px; color:#6B7280; display: block;">Testimoni</a></li>
+              </ul>
+            </li>
+            <li class="mobile-dropdown">
+              <button class="mobile-link flex justify-between items-center dropdown-toggle" aria-expanded="false" style="width: 100%; text-align: left; background: none; border: none; font-family: inherit; cursor: pointer;">Informasi <svg
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg></button>
+              <ul class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px; list-style: none; margin: 0;">
+                <li><a href="informasi/berita.html" class="mobile-link" style="font-size:14.5px; color:#6B7280; display: block;">Berita</a></li>
+                <li><a href="informasi/pengumuman-kelulusan.html" class="mobile-link"
+                  style="font-size:14.5px; color:#6B7280; display: block;">Pengumuman Kelulusan</a></li>
+                <li><a href="informasi/penerapan-k3.html" class="mobile-link"
+                  style="font-size:14.5px; color:#6B7280; display: block;">Penerapan
+                  K3</a></li>
+              </ul>
+            </li>
+            <li class="mobile-dropdown">
+              <button class="mobile-link flex justify-between items-center dropdown-toggle" aria-expanded="false" style="width: 100%; text-align: left; background: none; border: none; font-family: inherit; cursor: pointer;">Hubungi Kami <svg
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg></button>
+              <ul class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px; list-style: none; margin: 0;">
+                <li><a href="hubungi-kami/faq.html" class="mobile-link" style="font-size:14.5px; color:#6B7280; display: block;">FAQ</a></li>
+                <li><a href="hubungi-kami/kotak-pertanyaan.html" class="mobile-link"
+                  style="font-size:14.5px; color:#6B7280; display: block;">Kotak Pertanyaan</a></li>
+                <li><a href="hubungi-kami/service-desk.html" class="mobile-link"
+                  style="font-size:14.5px; color:#6B7280; display: block;">Service Desk</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
 
@@ -1060,13 +1080,9 @@
     <div class="container">
       <div class="footer-grid">
         <div style="max-width:320px;">
-          <div class="brand" style="color:#fff;">
-            <span class="brand-icon">M</span>
-            <span class="brand-text">
-              <span class="brand-title" style="color:#fff;">SMK Telkom Malang</span>
-              <span class="brand-subtitle" style="color:#9CA3AF;">School of Global Digitalent</span>
-            </span>
-          </div>
+          <a href="index.html" class="scrolled-logo-wrapper">
+            <img src="logo_hitam.png" alt="Logo" style="width: 120px; height: auto;">
+          </a>
           <p style="margin-top:18px;font-size:14px;line-height:1.7;color:#9CA3AF;">Pelopor SMK bidang Teknologi dan
             Informatika di Indonesia sejak 1992.</p>
           <div class="social-links">
