@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, Menu, X, ArrowRight, Home, Info, Book, GraduationCap, Bell, Mail } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowRight, Home, Info, Book, GraduationCap, Bell, Mail, Download } from "lucide-react";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,28 +31,46 @@ export function Header() {
     {
       name: "Tentang Kami",
       icon: Info,
-      dropdown: [
-        { name: "Profil & Sejarah", href: "/tentang-kami/profil-sejarah" },
-        { name: "Visi Misi", href: "/tentang-kami/visi-misi" },
-        { name: "Struktur Organisasi", href: "/tentang-kami/struktur-organisasi" },
-        { name: "Akreditasi", href: "/tentang-kami/akreditasi" },
-        { name: "Hubungan Industri", href: "/tentang-kami/hubungan-industri" },
-        { name: "Fasilitas", href: "/tentang-kami/fasilitas" },
-        { name: "Prestasi", href: "/tentang-kami/prestasi" },
-        { name : "Learning Culture", href: "/tentang-kami/learning-culture"}
-     
+      dropdownGroups: [
+        {
+          title: "Profil & Informasi",
+          items: [
+            { name: "Profil & Sejarah", href: "/tentang-kami/profil-sejarah" },
+            { name: "Visi Misi", href: "/tentang-kami/visi-misi" },
+            { name: "Struktur Organisasi", href: "/tentang-kami/struktur-organisasi" },
+            { name: "Akreditasi", href: "/tentang-kami/akreditasi" },
+          ]
+        },
+        {
+          title: "Kemitraan & Capaian",
+          items: [
+            { name: "Hubungan Industri", href: "/tentang-kami/hubungan-industri" },
+            { name: "Prestasi", href: "/tentang-kami/prestasi" },
+            { name: "Fasilitas", href: "/tentang-kami/fasilitas" },
+            { name: "Learning Culture", href: "/tentang-kami/learning-culture" }
+          ]
+        }
       ],
     },
     {
       name: "Program",
       icon: Book,
-      dropdown: [
-        { name: "Profil Jurusan", href: "/program/jurusan" },
-        { name: "Ekstrakurikuler", href: "/program/ekstrakurikuler" },
-        { name: "Program TS 2.1", href: "/program/program-ts" },
-        { name : "ICP International Class Program", href: "/program/icp"},
-        { name: "Program Pendidikan CCP", href: "/program/ccp"}
-        
+      dropdownGroups: [
+        {
+          title: "Akademik",
+          items: [
+            { name: "Profil Jurusan", href: "/program/jurusan" },
+            { name: "Program TS 2.1", href: "/program/program-ts" },
+            { name: "ICP International Class Program", href: "/program/icp" },
+            { name: "Program Pendidikan CCP", href: "/program/ccp" }
+          ]
+        },
+        {
+          title: "Pengembangan Diri",
+          items: [
+            { name: "Ekstrakurikuler", href: "/program/ekstrakurikuler" },
+          ]
+        }
       ],
     },
     {
@@ -66,10 +84,21 @@ export function Header() {
     {
       name: "Informasi",
       icon: Bell,
-      dropdown: [
-        { name: "Berita", href: "/informasi/berita" },
-        { name: "Pengumuman Kelulusan", href: "/informasi/pengumuman-kelulusan" },
-        { name: "Penerapan K3", href: "/informasi/penerapan-k3" },
+      dropdownGroups: [
+        {
+          title: "Publikasi",
+          items: [
+            { name: "Berita", href: "/informasi/berita" },
+            { name: "Pengumuman Kelulusan", href: "/informasi/pengumuman-kelulusan" },
+          ]
+        },
+        {
+          title: "Layanan Siswa",
+          items: [
+            { name: "Penerapan K3", href: "/informasi/penerapan-k3" },
+            { name: "Akomodasi", href: "/informasi/akomodasi" },
+          ]
+        }
       ],
     },
     {
@@ -122,7 +151,7 @@ export function Header() {
           <ul className="flex items-center gap-0.5">
             {navItems.map((item) => (
               <li key={item.name} className="relative group">
-                {item.dropdown ? (
+                {item.dropdownGroups || item.dropdown ? (
                   <>
                     <button
                       className="flex items-center gap-1 whitespace-nowrap rounded-lg px-2.5 py-2 text-[13.5px] font-semibold text-gray-700 hover:bg-gray-100 hover:text-text-main focus-visible:outline-accent/30 focus-visible:outline-2"
@@ -132,15 +161,30 @@ export function Header() {
                       <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />
                     </button>
                     <div className="invisible absolute left-0 top-full mt-2 flex min-w-[200px] flex-col rounded-xl border border-border-light bg-white p-2 text-sm opacity-0 shadow-lg transition-all group-hover:visible group-hover:opacity-100">
-                      {item.dropdown.map((drop) => (
-                        <Link
-                          key={drop.name}
-                          href={drop.href}
-                          className="rounded-lg px-4 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-accent font-medium"
-                        >
-                          {drop.name}
-                        </Link>
-                      ))}
+                      {item.dropdownGroups ? (
+                        <div className="flex gap-2">
+                          {item.dropdownGroups.map(group => (
+                            <div key={group.title} className="flex flex-col min-w-[200px] p-2 border-l first:border-l-0 border-border-light">
+                              <div className="px-2 mb-2 text-[11px] font-extrabold text-gray-400 uppercase tracking-wider">{group.title}</div>
+                              {group.items.map(drop => (
+                                <Link key={drop.name} href={drop.href} className="rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50 hover:text-accent font-medium">
+                                  {drop.name}
+                                </Link>
+                              ))}
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        item.dropdown?.map((drop) => (
+                          <Link
+                            key={drop.name}
+                            href={drop.href}
+                            className="rounded-lg px-4 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-accent font-medium"
+                          >
+                            {drop.name}
+                          </Link>
+                        ))
+                      )}
                     </div>
                   </>
                 ) : (
@@ -154,9 +198,19 @@ export function Header() {
               </li>
             ))}
           </ul>
+          <Link
+            href="/brosur.pdf"
+            className="ml-2 hidden md:inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-accent px-4 py-1.5 text-[13.5px] font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-accent-hover group"
+            download
+          >
+            Unduh Brosur
+            <Download className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5" />
+          </Link>
         </nav>
 
         <div className="flex shrink-0 items-center gap-3">
+
+
           <Link
             href="/ppdb"
             className={`hidden md:inline-flex items-center gap-2 overflow-hidden whitespace-nowrap rounded-full bg-accent px-4 py-0 text-[14px] font-bold text-white shadow-[0_8px_20px_rgba(215,25,32,0.26)] transition-all duration-400 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-accent group ${isScrolled ? "xl:w-0 xl:px-0 xl:opacity-0 xl:pointer-events-none h-0" : "h-[42px]"
@@ -225,7 +279,7 @@ export function Header() {
             <ul className="m-0 flex flex-col p-0">
               {navItems.map((item) => (
                 <li key={item.name} className="border-b border-border-light last:border-none">
-                  {item.dropdown ? (
+                  {item.dropdownGroups || item.dropdown ? (
                     <>
                       <button
                         className={`flex w-full items-center gap-3 rounded-[10px] p-[14px_10px] text-left text-[15.5px] font-bold transition-colors hover:bg-bg-main hover:text-accent focus-visible:bg-bg-main focus-visible:text-accent ${openDropdown === item.name ? "text-accent" : "text-text-main"
@@ -243,20 +297,40 @@ export function Header() {
                         />
                       </button>
                       <div
-                        className={`grid overflow-hidden transition-all duration-350 ease-in-out ${openDropdown === item.name ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                        className={`grid overflow-hidden transition-all duration-350 ease-in-out ${openDropdown === item.name ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                           }`}
                       >
-                        <div className="ml-[27px] border-l-2 border-border-light pl-[12px] min-h-0">
-                          {item.dropdown.map((drop) => (
-                            <Link
-                              key={drop.name}
-                              href={drop.href}
-                              className="block rounded-lg px-[14px] py-[11px] text-[14px] font-semibold text-gray-500 transition-colors hover:bg-bg-main hover:text-accent"
-                              onClick={() => setMobileMenuOpen(false)}
-                            >
-                              {drop.name}
-                            </Link>
-                          ))}
+                        <div className="min-h-0">
+                          <div className="ml-[27px] border-l-2 border-border-light pl-[12px] py-2 mb-2 mt-1">
+                            {item.dropdownGroups ? (
+                              item.dropdownGroups.map((group, idx) => (
+                                <div key={group.title} className={idx !== 0 ? "mt-4" : ""}>
+                                  <div className="px-[14px] mb-1.5 text-[11px] font-extrabold text-gray-400 uppercase tracking-wider">{group.title}</div>
+                                  {group.items.map((drop) => (
+                                    <Link
+                                      key={drop.name}
+                                      href={drop.href}
+                                      className="block rounded-lg px-[14px] py-[9px] text-[14px] font-semibold text-gray-600 transition-colors hover:bg-bg-main hover:text-accent"
+                                      onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                      {drop.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              ))
+                            ) : (
+                              item.dropdown?.map((drop) => (
+                                <Link
+                                  key={drop.name}
+                                  href={drop.href}
+                                  className="block rounded-lg px-[14px] py-[11px] text-[14px] font-semibold text-gray-500 transition-colors hover:bg-bg-main hover:text-accent"
+                                  onClick={() => setMobileMenuOpen(false)}
+                                >
+                                  {drop.name}
+                                </Link>
+                              ))
+                            )}
+                          </div>
                         </div>
                       </div>
                     </>
@@ -278,14 +352,25 @@ export function Header() {
           </div>
 
           <div className="shrink-0 border-t border-border-light bg-gray-50 p-[16px_20px_22px]">
-            <Link
-              href="/ppdb"
-              className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-accent px-4 py-[14px] font-bold text-white transition-colors hover:bg-accent-hover"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Daftar PPDB 2026
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+            <div className="flex flex-col gap-2">
+              <Link
+                href="/brosur.pdf"
+                className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-accent px-4 py-[14px] font-bold text-white transition-colors hover:bg-accent-hover"
+                onClick={() => setMobileMenuOpen(false)}
+                download
+              >
+                Unduh Informasi
+                <Download className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/ppdb"
+                className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-accent px-4 py-[14px] font-bold text-white transition-colors hover:bg-accent-hover"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Daftar PPDB 2026
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
 
             <div className="mt-3 flex w-full justify-center rounded-full border border-border-light bg-white p-1 shadow-sm">
               <button className="flex-1 rounded-full bg-white py-[6px] text-[13px] font-bold text-accent shadow-sm">ID</button>

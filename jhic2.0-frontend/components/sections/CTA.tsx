@@ -3,7 +3,7 @@ import { ArrowRight, Calendar } from "lucide-react";
 
 export function CTA() {
   return (
-    <section id="contact-cta" className="bg-white pb-20">
+    <section id="contact-cta" className="bg-white py-20">
       <div className="mx-auto w-full max-w-[1400px] px-4 md:px-8">
         <div className="relative overflow-hidden rounded-[32px] border border-border-color bg-white p-10 text-center shadow-[0_20px_40px_rgba(0,0,0,0.05)] md:p-16 lg:p-20">
           <div className="relative z-10">

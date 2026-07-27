@@ -123,6 +123,25 @@ export function Programs() {
             </div>
           </div>
         </div>
+        {/* Quiz Promo Banner */}
+        <div className="mt-16 mx-auto max-w-[1000px] bg-accent rounded-3xl p-8 md:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl shadow-accent/20">
+          <div className="max-w-xl">
+            <div className="inline-flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full text-sm font-bold mb-4 backdrop-blur-sm border border-white/20">
+              Baru
+            </div>
+            <h3 className="text-2xl md:text-3xl font-extrabold mb-3 leading-tight text-white">Masih bingung menentukan pilihan?</h3>
+            <p className="text-white/90 text-lg">
+              Temukan jurusan yang paling sesuai dengan karakter dan passion-mu melalui Tes Minat & Bakat interaktif.
+            </p>
+          </div>
+          <Link 
+            href="/program/tes-minat-bakat" 
+            className="shrink-0 bg-white text-accent hover:bg-gray-50 px-8 py-4 rounded-xl font-bold transition-all hover:-translate-y-1 shadow-lg flex items-center gap-2"
+          >
+            Ikuti Tes Sekarang
+            <ArrowRight className="w-5 h-5" />
+          </Link>
+        </div>
       </div>
     </section>
   );
