@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hubungan Industri - SMK Telkom Malang</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="top-static-header"
+    style="display:flex; justify-content:space-between; align-items:center; padding:16px 32px; max-width:1400px; margin:0 auto;">
+    <a href="../index.html" class="brand">
+      <span class="brand-icon">M</span>
+      <span class="brand-text">
+        <span class="brand-title">SMK Telkom Malang</span>
+        <span class="brand-subtitle">School of Global Digitalent</span>
+      </span>
+    </a>
+    <div class="top-actions" style="display:flex; align-items:center; gap:12px;">
+      <a href="../ppdb/landing.html" class="btn-primary">
+        Daftar PPDB
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+            stroke-linejoin="round" width="16" height="16">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </span>
+      </a>
+      <div role="group" aria-label="Ganti bahasa" class="lang-switch">
+        <button class="lang-btn active" aria-pressed="true">ID</button>
+        <button class="lang-btn" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+  <header class="header floating-header" id="main-header">
+    <div class="nav-container rounded-pill">
+      <div class="scrolled-logo" style="display: none;">
+        <a href="../index.html" class="brand" style="transform: scale(0.8); transform-origin: left center; margin: 0;">
+          <span class="brand-icon">M</span>
+          <span class="brand-text">
+            <span class="brand-title">SMK Telkom Malang</span>
+            <span class="brand-subtitle">School of Global Digitalent</span>
+          </span>
+        </a>
+      </div>
+      <nav aria-label="Primary" class="nav-links">
+        <ul>
+          <li><a href="../index.html">Beranda</a></li>
+          <li>
+            <a href="#" aria-haspopup="true" aria-expanded="false">Tentang Kami
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <a href="profil-sejarah.html">Profil & Sejarah</a>
+              <a href="visi-misi.html">Visi Misi</a>
+              <a href="struktur-organisasi.html">Struktur Organisasi</a>
+              <a href="akreditasi.html">Akreditasi</a>
+              <a href="hubungan-industri.html">Hubungan Industri</a>
+              <a href="program-ts.html">Program TS</a>
+              <a href="fasilitas.html">Fasilitas</a>
+              <a href="prestasi.html">Prestasi</a>
+            </div>
+          </li>
+          <li>
+            <a href="#" aria-haspopup="true" aria-expanded="false">Program
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <a href="../program/jurusan.html">Profil Jurusan</a>
+              <a href="../program/ekstrakurikuler.html">Ekstrakurikuler</a>
+            </div>
+          </li>
+          <li>
+            <a href="#" aria-haspopup="true" aria-expanded="false">Alumni
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <a href="../alumni/profil-sebaran.html">Profil Sebaran</a>
+              <a href="../alumni/testimoni.html">Testimoni</a>
+            </div>
+          </li>
+          <li>
+            <a href="#" aria-haspopup="true" aria-expanded="false">Informasi
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <a href="../informasi/berita.html">Berita</a>
+              <a href="../informasi/pengumuman-kelulusan.html">Pengumuman Kelulusan</a>
+              <a href="../informasi/penerapan-k3.html">Penerapan K3</a>
+            </div>
+          </li>
+          <li>
+            <a href="#" aria-haspopup="true" aria-expanded="false">Hubungi Kami
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <a href="../hubungi-kami/faq.html">FAQ</a>
+              <a href="../hubungi-kami/kotak-pertanyaan.html">Kotak Pertanyaan</a>
+              <a href="../hubungi-kami/service-desk.html">Service Desk</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <button id="menu-btn" class="menu-btn" aria-label="Buka menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="22"
+          height="22">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="mobile-menu">
+        <a href="../index.html" class="mobile-link">Beranda</a>
+        <div class="mobile-dropdown">
+          <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Tentang Kami <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg></a>
+          <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
+            <a href="profil-sejarah.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Profil &
+              Sejarah</a>
+            <a href="visi-misi.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Visi Misi</a>
+            <a href="struktur-organisasi.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Struktur
+              Organisasi</a>
+            <a href="akreditasi.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Akreditasi</a>
+            <a href="hubungan-industri.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Hubungan
+              Industri</a>
+            <a href="program-ts.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Program TS</a>
+            <a href="fasilitas.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Fasilitas</a>
+            <a href="prestasi.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Prestasi</a>
+          </div>
+        </div>
+        <div class="mobile-dropdown">
+          <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Program <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg></a>
+          <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
+            <a href="../program/jurusan.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Profil
+              Jurusan</a>
+            <a href="../program/ekstrakurikuler.html" class="mobile-link"
+              style="font-size:14.5px; color:#6B7280;">Ekstrakurikuler</a>
+          </div>
+        </div>
+        <div class="mobile-dropdown">
+          <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Alumni <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg></a>
+          <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
+            <a href="../alumni/profil-sebaran.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Profil
+              Sebaran</a>
+            <a href="../alumni/testimoni.html" class="mobile-link"
+              style="font-size:14.5px; color:#6B7280;">Testimoni</a>
+          </div>
+        </div>
+        <div class="mobile-dropdown">
+          <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Informasi <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg></a>
+          <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
+            <a href="../informasi/berita.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Berita</a>
+            <a href="../informasi/pengumuman-kelulusan.html" class="mobile-link"
+              style="font-size:14.5px; color:#6B7280;">Pengumuman Kelulusan</a>
+            <a href="../informasi/penerapan-k3.html" class="mobile-link"
+              style="font-size:14.5px; color:#6B7280;">Penerapan K3</a>
+          </div>
+        </div>
+        <div class="mobile-dropdown">
+          <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Hubungi Kami <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg></a>
+          <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
+            <a href="../hubungi-kami/faq.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">FAQ</a>
+            <a href="../hubungi-kami/kotak-pertanyaan.html" class="mobile-link"
+              style="font-size:14.5px; color:#6B7280;">Kotak Pertanyaan</a>
+            <a href="../hubungi-kami/service-desk.html" class="mobile-link"
+              style="font-size:14.5px; color:#6B7280;">Service Desk</a>
+          </div>
+        </div>
+        <a href="../ppdb/landing.html" class="btn-primary flex justify-center mt-2" style="height:50px;">Daftar PPDB</a>
+      </div>
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <main>
+    <div class="page-header">
+      <div data-reveal class="ph-concept-container">
+
+        <div class="ph-concept-visual">
+          <div class="ph-concept-circle-dashed"></div>
+          <div class="ph-concept-circle-solid"></div>
+          <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=400&auto=format&fit=crop"
+            alt="Header Visual" class="ph-concept-img">
+        </div>
+
+        <div class="ph-concept-content">
+          <div class="ph-breadcrumb">
+            <span class="eyebrow">Tentang Kami</span>
+            <span class="separator">&gt;</span>
+            <span class="current">Hubungan Industri</span>
+          </div>
+          <h1 class="page-title">Hubungan Industri</h1>
+          <p class="page-subtitle">Kemitraan strategis dengan perusahaan teknologi untuk memastikan lulusan kami siap
+            kerja dan terserap di industri.</p>
+        </div>
+
+      </div>
+    </div>
+    <section class="partners-section">
+      <div data-reveal class="container text-center">
+        <div class="eyebrow">Mitra Industri</div>
+        <h2 class="section-title" style="margin-top:12px;font-size:clamp(20px,2.4vw,28px);">Dipercaya oleh perusahaan
+          teknologi terkemuka</h2>
+        <p class="hero-desc" style="margin-top:14px;">Bekerja sama dengan berbagai perusahaan terkemuka untuk memastikan
+          kurikulum dan lulusan sesuai dengan kebutuhan industri.</p>
+        <style>
+          @keyframes marquee-scroll {
+            0% {
+              transform: translateX(0);
+            }
+
+            100% {
+              transform: translateX(-50%);
+            }
+          }
+
+          .marquee-wrapper {
+            margin-top: 20px;
+            display: flex;
+            width: max-content;
+            animation: marquee-scroll 30s linear infinite;
+          }
+
+          .marquee-wrapper:hover {
+            animation-play-state: paused;
+          }
+
+          .marquee-item {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+          }
+
+          .marquee-logo {
+            height: 50px;
+            object-fit: contain;
+            filter: grayscale(1) opacity(0.6);
+            transition: all 0.3s ease;
+            margin: 0 40px;
+          }
+
+          .marquee-logo:hover {
+            filter: grayscale(0) opacity(1);
+            transform: scale(1.1);
+          }
+        </style>
+
+        <div class="marquee-container" data-marquee style="position: relative; overflow: hidden; margin-bottom: 60px;">
+          <!-- Fade Edges -->
+          <div
+            style="position:absolute; top:0; left:0; bottom:0; width:15%; background:linear-gradient(to right, #F8F9FB, transparent); z-index:2; pointer-events:none;">
+          </div>
+          <div
+            style="position:absolute; top:0; right:0; bottom:0; width:15%; background:linear-gradient(to left, #F8F9FB, transparent); z-index:2; pointer-events:none;">
+          </div>
+
+          <div class="marquee-wrapper">
+            <!-- First Set -->
+            <div class="marquee-item">
+              <img
+                src="https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762938428_Lenovo_Global_Corporate_Logo.png"
+                alt="Lenovo" class="marquee-logo">
+              <img
+                src="https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762937046_fortinet-logo-rgb-black-red-png-1024x281_Medium.png"
+                alt="Fortinet" class="marquee-logo">
+              <img
+                src="https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762937266_Logo-Livin-by-Mandiri-Format-PNG-CDR-EPS-300x183.png"
+                alt="Livin by Mandiri" class="marquee-logo">
+              <img src="https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762938094_MERKLE-logo.png"
+                alt="Merkle" class="marquee-logo">
+              <img
+                src="https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762938130_logo-sevimaplatform-small.png"
+                alt="Sevima" class="marquee-logo">
+              <img
+                src="https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762938049_Logo-Jagoan-Hosting-1_Medium.png"
+                alt="Jagoan Hosting" class="marquee-logo">
+              <img src="https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762937192_box-hill.png"
+                alt="Box Hill" class="marquee-logo">
+              <img src="https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762936954_logo-itc-ittj.png"
+                alt="ITC ITTJ" class="marquee-logo">
+            </div>
+            <!-- Second Set (Duplicate for smooth infinite scroll) -->
+            <div class="marquee-item" aria-hidden="true">
+              <img
+                src="https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762938428_Lenovo_Global_Corporate_Logo.png"
+                alt="Lenovo" class="marquee-logo">
+              <img
+                src="https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762937046_fortinet-logo-rgb-black-red-png-1024x281_Medium.png"
+                alt="Fortinet" class="marquee-logo">
+              <img
+                src="https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762937266_Logo-Livin-by-Mandiri-Format-PNG-CDR-EPS-300x183.png"
+                alt="Livin by Mandiri" class="marquee-logo">
+              <img src="https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762938094_MERKLE-logo.png"
+                alt="Merkle" class="marquee-logo">
+              <img
+                src="https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762938130_logo-sevimaplatform-small.png"
+                alt="Sevima" class="marquee-logo">
+              <img
+                src="https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762938049_Logo-Jagoan-Hosting-1_Medium.png"
+                alt="Jagoan Hosting" class="marquee-logo">
+              <img src="https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762937192_box-hill.png"
+                alt="Box Hill" class="marquee-logo">
+              <img src="https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762936954_logo-itc-ittj.png"
+                alt="ITC ITTJ" class="marquee-logo">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- Industry List Section -->
+    <section class="industry-list-section" style="padding-top: 80px; padding-bottom: 100px; background: #FAFAFA;">
+      <div data-reveal class="container">
+
+        <!-- Bento Stats Grid -->
+        <div class="hi-bento-grid">
+          <div class="hi-bento-card primary">
+            <div class="hi-bento-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <polyline points="16 11 18 13 22 9"></polyline>
+              </svg>
+            </div>
+            <div>
+              <div class="hi-bento-value" id="count-mitra" data-counter="13" data-suffix="+">0+</div>
+              <div class="hi-bento-label">Mitra Industri</div>
+            </div>
+          </div>
+          
+          <div class="hi-bento-card secondary">
+            <div class="hi-bento-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+                <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div>
+              <div class="hi-bento-value" data-counter="5" data-suffix="+">0+</div>
+              <div class="hi-bento-label">Kota Tersebar</div>
+            </div>
+          </div>
+          
+          <div class="hi-bento-card secondary">
+            <div class="hi-bento-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <div>
+              <div class="hi-bento-value" data-counter="8" data-suffix="+">0+</div>
+              <div class="hi-bento-label">Kategori Industri</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Split Layout -->
+        <div class="hi-layout">
+          
+          <!-- Sidebar Filters -->
+          <aside class="hi-sidebar">
+            <div class="hi-filter-group">
+              <div class="hi-search-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" width="18" height="18">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Cari nama mitra...">
+              </div>
+            </div>
+            
+            <div class="hi-filter-group">
+              <div class="hi-filter-title">Kategori Industri</div>
+              <div class="hi-checkbox-list">
+                <label class="hi-checkbox-label">
+                  <input type="checkbox" class="filter-category" value="Network & Infrastructure"> Network & Infrastructure
+                </label>
+                <label class="hi-checkbox-label">
+                  <input type="checkbox" class="filter-category" value="Software House"> Software House
+                </label>
+                <label class="hi-checkbox-label">
+                  <input type="checkbox" class="filter-category" value="Hosting & Cloud"> Hosting & Cloud
+                </label>
+                <label class="hi-checkbox-label">
+                  <input type="checkbox" class="filter-category" value="Creative & Design"> Creative & Design
+                </label>
+              </div>
+            </div>
+            
+            <div class="hi-filter-group">
+              <div class="hi-filter-title">Lokasi Kota</div>
+              <div class="hi-checkbox-list">
+                <label class="hi-checkbox-label">
+                  <input type="checkbox" class="filter-city" value="Surabaya"> Surabaya
+                </label>
+                <label class="hi-checkbox-label">
+                  <input type="checkbox" class="filter-city" value="Malang"> Malang
+                </label>
+                <label class="hi-checkbox-label">
+                  <input type="checkbox" class="filter-city" value="Sidoarjo"> Sidoarjo
+                </label>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Main Grid -->
+          <div class="hi-main">
+            <div class="hi-grid" id="partnerGrid">
+              
+              <!-- Partner 1 -->
+              <div class="hi-card" data-category="Network & Infrastructure" data-city="Surabaya">
+                <div class="hi-card-header">
+                  <img src="https://ui-avatars.com/api/?name=A&background=F3F4F6&color=111&bold=true" alt="Axelbit Logo" class="hi-card-logo">
+                  <div class="hi-card-meta">
+                    <h3 class="hi-card-title">Axelbit</h3>
+                    <span class="hi-category-badge network">Network & Infrastructure</span>
+                  </div>
+                </div>
+                <div class="hi-card-location">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  Jl. Sukomanunggal Tanjung Sari Baru IV, Surabaya
+                </div>
+                <p class="hi-card-desc line-clamp-3">Axelbit merupakan training center di bidang jaringan dan teknologi wireless yang menyediakan pelatihan serta sertifikasi profesional. Fokus utamanya mencakup teknologi seperti Mikrotik, Ubiquiti, dan Cambium.</p>
+                <div class="hi-card-actions">
+                  <a href="#" class="hi-btn-outline">Detail Mitra</a>
+                  <a href="#" class="hi-btn-icon" aria-label="Kunjungi Website" title="Kunjungi Website">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Partner 2 -->
+              <div class="hi-card" data-category="Software House" data-city="Surabaya">
+                <div class="hi-card-header">
+                  <img src="https://ui-avatars.com/api/?name=D&background=F3F4F6&color=111&bold=true" alt="DigiPrener Logo" class="hi-card-logo">
+                  <div class="hi-card-meta">
+                    <h3 class="hi-card-title">DigiPrener</h3>
+                    <span class="hi-category-badge software">Software House</span>
+                  </div>
+                </div>
+                <div class="hi-card-location">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  Taman Bungkul Street No. 25, Surabaya
+                </div>
+                <p class="hi-card-desc line-clamp-3">DigiPrener merupakan perusahaan jasa sistem informasi yang berfokus pada pengembangan, implementasi, dan integrasi solusi digital untuk berbagai kebutuhan organisasi. Berdiri sejak 2016 melayani berbagai segmen.</p>
+                <div class="hi-card-actions">
+                  <a href="#" class="hi-btn-outline">Detail Mitra</a>
+                  <a href="#" class="hi-btn-icon" aria-label="Kunjungi Website" title="Kunjungi Website">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Partner 3 -->
+              <div class="hi-card" data-category="Hosting & Cloud" data-city="Malang">
+                <div class="hi-card-header">
+                  <img src="https://ui-avatars.com/api/?name=J&background=F3F4F6&color=111&bold=true" alt="Jagoan Hosting Logo" class="hi-card-logo">
+                  <div class="hi-card-meta">
+                    <h3 class="hi-card-title">Jagoan Hosting</h3>
+                    <span class="hi-category-badge hosting">Hosting & Cloud</span>
+                  </div>
+                </div>
+                <div class="hi-card-location">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  Komp. Ruko Istana Dinoyo Blok C-2 No. 3-4, Malang
+                </div>
+                <p class="hi-card-desc line-clamp-3">Jagoan Hosting Indonesia merupakan perusahaan penyedia layanan web hosting, domain, dan cloud service di Indonesia. Didukung oleh infrastruktur hardware berstandar enterprise.</p>
+                <div class="hi-card-actions">
+                  <a href="#" class="hi-btn-outline">Detail Mitra</a>
+                  <a href="#" class="hi-btn-icon" aria-label="Kunjungi Website" title="Kunjungi Website">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Partner 4 -->
+              <div class="hi-card" data-category="Creative & Design" data-city="Sidoarjo">
+                <div class="hi-card-header">
+                  <img src="https://ui-avatars.com/api/?name=M&background=F3F4F6&color=111&bold=true" alt="Markaz Design Logo" class="hi-card-logo">
+                  <div class="hi-card-meta">
+                    <h3 class="hi-card-title">Markaz Design</h3>
+                    <span class="hi-category-badge design">Creative & Design</span>
+                  </div>
+                </div>
+                <div class="hi-card-location">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  Jl. Jati Selatan III No.20, Sidoarjo
+                </div>
+                <p class="hi-card-desc line-clamp-3">Markaz Design merupakan konsultan kreatif berbasis di Sidoarjo yang berfokus pada pengembangan UMKM melalui solusi branding dan strategi bisnis. Berdiri sejak 2013, menyediakan layanan visual branding.</p>
+                <div class="hi-card-actions">
+                  <a href="#" class="hi-btn-outline">Detail Mitra</a>
+                  <a href="#" class="hi-btn-icon" aria-label="Kunjungi Website" title="Kunjungi Website">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Partner 5 -->
+              <div class="hi-card" data-category="Network & Infrastructure" data-city="Sidoarjo">
+                <div class="hi-card-header">
+                  <img src="https://ui-avatars.com/api/?name=G&background=F3F4F6&color=111&bold=true" alt="PT Garuda Telekomunikasi Indonesia Logo" class="hi-card-logo">
+                  <div class="hi-card-meta">
+                    <h3 class="hi-card-title">PT Garuda Telekomunikasi</h3>
+                    <span class="hi-category-badge network">Network & Infrastructure</span>
+                  </div>
+                </div>
+                <div class="hi-card-location">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  Jl. Pepelegi Indah No.47, Sidoarjo
+                </div>
+                <p class="hi-card-desc line-clamp-3">PT Garuda Telekomunikasi Indonesia merupakan perusahaan yang bergerak di bidang telekomunikasi dan teknologi informasi. Menyediakan layanan terintegrasi yang mencakup pengembangan infrastruktur.</p>
+                <div class="hi-card-actions">
+                  <a href="#" class="hi-btn-outline">Detail Mitra</a>
+                  <a href="#" class="hi-btn-icon" aria-label="Kunjungi Website" title="Kunjungi Website">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Partner 6 -->
+              <div class="hi-card" data-category="Software House" data-city="Surabaya">
+                <div class="hi-card-header">
+                  <img src="https://ui-avatars.com/api/?name=GI&background=F3F4F6&color=111&bold=true" alt="PT Global Infra Teknologi Logo" class="hi-card-logo">
+                  <div class="hi-card-meta">
+                    <h3 class="hi-card-title">PT Global Infra Teknologi</h3>
+                    <span class="hi-category-badge software">Software House</span>
+                  </div>
+                </div>
+                <div class="hi-card-location">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  Jl. Sisingamangaraja No.53, Surabaya
+                </div>
+                <p class="hi-card-desc line-clamp-3">PT Global Infra Teknologi merupakan perusahaan penyedia layanan internet dan solusi teknologi informasi di Indonesia. Menawarkan layanan pengelolaan IT yang ditujukan untuk korporasi, perhotelan, dll.</p>
+                <div class="hi-card-actions">
+                  <a href="#" class="hi-btn-outline">Detail Mitra</a>
+                  <a href="#" class="hi-btn-icon" aria-label="Kunjungi Website" title="Kunjungi Website">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Empty State (Hidden by default) -->
+            <div class="hi-empty-state" id="emptyState" style="display: none;">
+              <div class="hi-empty-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </div>
+              <h3 class="hi-empty-title">Tidak ada mitra ditemukan</h3>
+              <p class="hi-empty-desc">Coba sesuaikan kata kunci pencarian atau ubah filter kategori dan kota.</p>
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact" class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div style="max-width:320px;">
+          <div class="brand" style="color:#fff;">
+            <span class="brand-icon">M</span>
+            <span class="brand-text">
+              <span class="brand-title" style="color:#fff;">SMK Telkom Malang</span>
+              <span class="brand-subtitle" style="color:#9CA3AF;">School of Global Digitalent</span>
+            </span>
+          </div>
+          <p style="margin-top:18px;font-size:14px;line-height:1.7;color:#9CA3AF;">Pelopor SMK bidang Teknologi dan
+            Informatika di Indonesia sejak 1992.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path
+                  d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+            <a href="#" aria-label="YouTube" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path
+                  d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.5A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.5a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12Zm-13 3V9l5.2 3L10 15Z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="X" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                <path
+                  d="M18.9 2H22l-7.3 8.3L23.3 22h-6.8l-5.3-6.9L5.1 22H2l7.8-8.9L1.1 2h7l4.8 6.3L18.9 2Zm-1.2 18h1.9L7.4 4H5.4l12.3 16Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Menu Utama</div>
+          <div class="footer-links">
+            <a href="#home" class="footer-link">Beranda</a>
+            <a href="#about" class="footer-link">Tentang</a>
+            <a href="#programs" class="footer-link">Program</a>
+            <a href="#news" class="footer-link">Berita</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Aplikasi Siswa</div>
+          <div class="footer-links">
+            <a href="#" class="footer-link">MyLMS</a>
+            <a href="#" class="footer-link">Siakad</a>
+            <a href="#" class="footer-link">Ujian Online</a>
+            <a href="#" class="footer-link">Buku Induk</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Pengunjung Website</div>
+          <div class="footer-links" style="gap:10px;">
+            <div class="flex justify-between items-center" style="gap:12px;">
+              <span class="footer-link" style="font-size:13.5px;">Hari ini</span>
+              <span style="font-weight:800;font-size:14px;color:#fff;">1.297</span>
+            </div>
+            <div class="flex justify-between items-center" style="gap:12px;">
+              <span class="footer-link" style="font-size:13.5px;">Bulan ini</span>
+              <span style="font-weight:800;font-size:14px;color:#fff;">47.827</span>
+            </div>
+            <div class="flex justify-between items-center" style="gap:12px;">
+              <span class="footer-link" style="font-size:13.5px;">Total</span>
+              <span style="font-weight:800;font-size:14px;color:var(--accent);">493.210</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-map-section">
+        <div>
+          <div class="footer-title">Hubungi Kami</div>
+          <div class="footer-links" style="gap:14px;">
+            <div style="display:flex;gap:10px;font-size:13.5px;line-height:1.6;color:#9CA3AF;">
+              <span style="color:var(--accent);flex-shrink:0;margin-top:1px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="17" height="17">
+                  <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </span>
+              Jl. Danau Ranau, Sawojajar, Kec. Kedungkandang, Kota Malang, Jawa Timur 65139
+            </div>
+            <a href="mailto:info@smktelkom-mlg.sch.id" class="footer-link"
+              style="display:flex;gap:10px;font-size:13.5px;">
+              <span style="color:var(--accent);flex-shrink:0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="17" height="17">
+                  <rect x="2" y="4" width="20" height="16" rx="3" />
+                  <path d="m3 6 9 6 9-6" />
+                </svg>
+              </span>
+              info@smktelkom-mlg.sch.id
+            </a>
+            <a href="tel:+62341720510" class="footer-link" style="display:flex;gap:10px;font-size:13.5px;">
+              <span style="color:var(--accent);flex-shrink:0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="17" height="17">
+                  <path
+                    d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7A2 2 0 0 1 22 16.9Z" />
+                </svg>
+              </span>
+              (0341) 720510
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-title">Lokasi Sekolah</div>
+          <div
+            style="margin-top:16px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.1);height:200px;">
+            <iframe title="Lokasi Sekolah"
+              src="https://www.google.com/maps?q=SMK%20Telkom%20Malang%20Jl.%20Danau%20Ranau%20Sawojajar&output=embed"
+              style="border:0;width:100%;height:100%;filter:grayscale(.2);" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div style="font-size:13px;color:#6B7280;">&copy; 2026 SMK Telkom Malang. Seluruh hak cipta dilindungi.</div>
+        <div style="font-size:13px;color:#6B7280;">Akreditasi A &middot; ISO 9001:2015 &middot; Est. 1992</div>
+      </div>
+    </div>
+  </footer>
+    <!-- Filter Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('searchInput');
+      const categoryCheckboxes = document.querySelectorAll('.filter-category');
+      const cityCheckboxes = document.querySelectorAll('.filter-city');
+      const partnerCards = document.querySelectorAll('.hi-card');
+      const emptyState = document.getElementById('emptyState');
+      const partnerGrid = document.getElementById('partnerGrid');
+      
+      function filterPartners() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        
+        // Get active categories
+        const activeCategories = Array.from(categoryCheckboxes)
+          .filter(cb => cb.checked)
+          .map(cb => cb.value);
+          
+        // Get active cities
+        const activeCities = Array.from(cityCheckboxes)
+          .filter(cb => cb.checked)
+          .map(cb => cb.value);
+          
+        let visibleCount = 0;
+        
+        partnerCards.forEach(card => {
+          const title = card.querySelector('.hi-card-title').textContent.toLowerCase();
+          const category = card.getAttribute('data-category');
+          const city = card.getAttribute('data-city');
+          
+          const matchesSearch = title.includes(searchTerm);
+          const matchesCategory = activeCategories.length === 0 || activeCategories.includes(category);
+          const matchesCity = activeCities.length === 0 || activeCities.includes(city);
+          
+          if (matchesSearch && matchesCategory && matchesCity) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        
+        // Show/hide empty state
+        if (visibleCount === 0) {
+          emptyState.style.display = 'flex';
+          partnerGrid.style.display = 'none';
+        } else {
+          emptyState.style.display = 'none';
+          partnerGrid.style.display = 'grid';
+        }
+      }
+      
+      // Event Listeners
+      searchInput.addEventListener('input', filterPartners);
+      categoryCheckboxes.forEach(cb => cb.addEventListener('change', filterPartners));
+      cityCheckboxes.forEach(cb => cb.addEventListener('change', filterPartners));
+    });
+  </script>
+
+  <script src="../scripts/script.js"></script>
+</body>
+
+</html>
+

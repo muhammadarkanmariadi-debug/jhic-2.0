@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PPDB 2026 - SMK Telkom Malang</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  
+  <!-- Header -->
+  <header class="top-static-header" style="display:flex; justify-content:space-between; align-items:center; padding:16px 32px; max-width:1400px; margin:0 auto;">
+    <a href="../index.html" class="brand">
+          <span class="brand-icon">M</span>
+          <span class="brand-text">
+            <span class="brand-title">SMK Telkom Malang</span>
+            <span class="brand-subtitle">School of Global Digitalent</span>
+          </span>
+        </a>
+    <div class="top-actions" style="display:flex; align-items:center; gap:12px;">
+      
+      <div role="group" aria-label="Ganti bahasa" class="lang-switch">
+            <button class="lang-btn active" aria-pressed="true">ID</button>
+            <button class="lang-btn" aria-pressed="false">EN</button>
+          </div>
+    </div>
+  </header>
+  <header class="header floating-header" id="main-header">
+    <div class="nav-container rounded-pill">
+      <div class="scrolled-logo" style="display: none;">
+        <a href="../index.html" class="brand" style="transform: scale(0.8); transform-origin: left center; margin: 0;">
+          <span class="brand-icon">M</span>
+          <span class="brand-text">
+            <span class="brand-title">SMK Telkom Malang</span>
+            <span class="brand-subtitle">School of Global Digitalent</span>
+          </span>
+        </a>
+      </div>
+      <nav aria-label="Primary" class="nav-links">
+          <ul>
+            <li><a href="../index.html">Beranda</a></li>
+            <li>
+              <a href="#" aria-haspopup="true" aria-expanded="false">Tentang Kami
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </a>
+              <div class="dropdown-menu">
+                <a href="../tentang-kami/profil-sejarah.html">Profil & Sejarah</a>
+                <a href="../tentang-kami/visi-misi.html">Visi Misi</a>
+                <a href="../tentang-kami/struktur-organisasi.html">Struktur Organisasi</a>
+                <a href="../tentang-kami/akreditasi.html">Akreditasi</a>
+                <a href="../tentang-kami/hubungan-industri.html">Hubungan Industri</a>
+                <a href="../tentang-kami/program-ts.html">Program TS</a>
+                <a href="../tentang-kami/fasilitas.html">Fasilitas</a>
+                <a href="../tentang-kami/prestasi.html">Prestasi</a>
+              </div>
+            </li>
+            <li>
+              <a href="#" aria-haspopup="true" aria-expanded="false">Program
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </a>
+              <div class="dropdown-menu">
+                <a href="../program/jurusan.html">Profil Jurusan</a>
+                <a href="../program/ekstrakurikuler.html">Ekstrakurikuler</a>
+              </div>
+            </li>
+            <li>
+              <a href="#" aria-haspopup="true" aria-expanded="false">Alumni
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </a>
+              <div class="dropdown-menu">
+                <a href="../alumni/profil-sebaran.html">Profil Sebaran</a>
+                <a href="../alumni/testimoni.html">Testimoni</a>
+              </div>
+            </li>
+            <li>
+              <a href="#" aria-haspopup="true" aria-expanded="false">Hubungi Kami
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </a>
+              <div class="dropdown-menu">
+                <a href="../hubungi-kami/faq.html">FAQ</a>
+                <a href="../hubungi-kami/kotak-pertanyaan.html">Kotak Pertanyaan</a>
+                <a href="../hubungi-kami/service-desk.html">Service Desk</a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      <button id="menu-btn" class="menu-btn" aria-label="Buka menu" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="22" height="22">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="mobile-menu">
+        <a href="../index.html" class="mobile-link">Beranda</a>
+        <div class="mobile-dropdown">
+          <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Tentang Kami <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
+            <a href="../tentang-kami/profil-sejarah.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Profil & Sejarah</a>
+            <a href="../tentang-kami/visi-misi.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Visi Misi</a>
+            <a href="../tentang-kami/struktur-organisasi.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Struktur Organisasi</a>
+            <a href="../tentang-kami/akreditasi.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Akreditasi</a>
+            <a href="../tentang-kami/hubungan-industri.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Hubungan Industri</a>
+            <a href="../tentang-kami/program-ts.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Program TS</a>
+            <a href="../tentang-kami/fasilitas.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Fasilitas</a>
+            <a href="../tentang-kami/prestasi.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Prestasi</a>
+          </div>
+        </div>
+        <div class="mobile-dropdown">
+          <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Program <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
+            <a href="../program/jurusan.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Profil Jurusan</a>
+            <a href="../program/ekstrakurikuler.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Ekstrakurikuler</a>
+          </div>
+        </div>
+        <div class="mobile-dropdown">
+          <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Alumni <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
+            <a href="../alumni/profil-sebaran.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Profil Sebaran</a>
+            <a href="../alumni/testimoni.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Testimoni</a>
+          </div>
+        </div>
+        <div class="mobile-dropdown">
+          <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Hubungi Kami <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
+            <a href="../hubungi-kami/faq.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">FAQ</a>
+            <a href="../hubungi-kami/kotak-pertanyaan.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Kotak Pertanyaan</a>
+            <a href="../hubungi-kami/service-desk.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Service Desk</a>
+          </div>
+        </div>
+        <a href="#" class="btn-primary flex justify-center mt-2" style="height:50px;">Daftar PPDB</a>
+      </div>
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <main>
+    <!-- Hero Section PPDB -->
+    <section class="hero" style="padding-bottom: clamp(60px, 8vw, 120px);">
+      <div aria-hidden="true" class="hero-bg-glow"></div>
+      
+      <div class="hero-content">
+        <div data-reveal>
+          <span class="badge">
+            <span class="badge-dot"></span>Penerimaan Peserta Didik Baru 2026/2027
+          </span>
+          <h1 class="hero-title" style="margin-top:20px;">
+            Gerbang Awal Menuju Karier<br><span class="text-accent">Digital Masa Depan</span>
+          </h1>
+          <p class="hero-desc">
+            Bergabunglah bersama ribuan talenta berbakat. Siapkan dirimu menjadi profesional teknologi yang diandalkan oleh industri global. Kuota terbatas!
+          </p>
+          <div class="hero-actions">
+            <!-- Redirects to live PPDB web -->
+            <a href="https://ppdb.smktelkom-mlg.sch.id" target="_blank" class="btn-primary btn-large">
+              Mulai Pendaftaran
+              <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </a>
+            <a href="#alur" class="btn-secondary btn-large">
+              Cek Alur & Persyaratan
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="alur" class="section" style="background:#F8F9FB;">
+      <div class="container">
+        <div data-reveal class="text-center" style="max-width:680px; margin:0 auto;">
+          <div class="eyebrow">Panduan Pendaftaran</div>
+          <h2 class="section-title">Alur & Persyaratan PPDB</h2>
+          <p class="hero-desc" style="margin-top:14px;">Ikuti panduan langkah demi langkah berikut untuk menyelesaikan proses pendaftaranmu dengan mudah.</p>
+        </div>
+        
+        <style>
+          .timeline-container {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            position: relative;
+            max-width: 900px;
+            margin: 64px auto 0 auto;
+            padding-left: 32px;
+          }
+          .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 11px;
+            width: 2px;
+            background: #E5E7EB;
+            z-index: 1;
+          }
+          @media (min-width: 768px) {
+            .timeline-container {
+              flex-direction: row;
+              padding-left: 0;
+              padding-top: 32px;
+            }
+            .timeline-container::before {
+              top: 11px;
+              left: 0;
+              right: 0;
+              bottom: auto;
+              width: 100%;
+              height: 2px;
+            }
+          }
+          .timeline-step {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            padding-left: 24px;
+            background: transparent;
+            transition: all 0.3s ease;
+          }
+          .timeline-content {
+            background: #fff;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+          }
+          .timeline-step:hover .timeline-content {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(215, 25, 32, 0.2);
+          }
+          @media (min-width: 768px) {
+            .timeline-step {
+              padding-left: 0;
+              padding-top: 40px;
+              text-align: center;
+            }
+          }
+          .timeline-marker {
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            border: 4px solid #F8F9FB;
+            box-shadow: 0 0 0 4px rgba(215, 25, 32, 0.1);
+            transition: all 0.3s ease;
+            z-index: 3;
+          }
+          @media (min-width: 768px) {
+            .timeline-marker {
+              left: 50%;
+              transform: translateX(-50%);
+              top: -38px;
+            }
+          }
+          .timeline-step:hover .timeline-marker {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 6px rgba(215, 25, 32, 0.2);
+          }
+          @media (min-width: 768px) {
+            .timeline-step:hover .timeline-marker {
+              transform: translateX(-50%) scale(1.2);
+            }
+          }
+        </style>
+
+        <div data-reveal class="timeline-container">
+          
+          <div class="timeline-step">
+            <div class="timeline-marker">1</div>
+            <div class="timeline-content">
+              <h3 class="feature-title" style="font-size:18px; margin-bottom:8px;">Registrasi Akun</h3>
+              <p class="feature-desc" style="font-size:14px; margin:0;">Buat akun di portal PPDB, siapkan email aktif dan nomor NISN untuk pendataan awal.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-step">
+            <div class="timeline-marker">2</div>
+            <div class="timeline-content">
+              <h3 class="feature-title" style="font-size:18px; margin-bottom:8px;">Lengkapi Berkas</h3>
+              <p class="feature-desc" style="font-size:14px; margin:0;">Unggah scan rapor SMP, pas foto, dan dokumen pendukung sesuai persyaratan.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-step">
+            <div class="timeline-marker">3</div>
+            <div class="timeline-content">
+              <h3 class="feature-title" style="font-size:18px; margin-bottom:8px;">Tes Seleksi</h3>
+              <p class="feature-desc" style="font-size:14px; margin:0;">Ikuti tes akademik (Matematika & B.Inggris) dan tes minat bakat secara online.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-step">
+            <div class="timeline-marker">4</div>
+            <div class="timeline-content">
+              <h3 class="feature-title" style="font-size:18px; margin-bottom:8px;">Daftar Ulang</h3>
+              <p class="feature-desc" style="font-size:14px; margin:0;">Bagi calon siswa yang dinyatakan lolos, wajib melakukan proses daftar ulang.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Kenapa Memilih Jalur Prestasi -->
+    <section class="section" style="background:#fff; border-top:1px solid var(--border-light);">
+      <div class="container">
+        <div class="headmaster-grid" style="align-items:start;">
+          <div data-reveal>
+            <div class="eyebrow">Jalur Prestasi Terbatas</div>
+            <h2 class="section-title" style="margin-top:12px;">Punya Prestasi Akademik atau Non-Akademik?</h2>
+            <p class="quote-text" style="font-size:16px; margin-top:20px;">Kami memberikan apresiasi kepada calon siswa yang telah mengukir prestasi. Kamu bisa mendaftar melalui Jalur Prestasi dan mendapatkan keuntungan khusus selama proses seleksi.</p>
+            <a href="https://ppdb.smktelkom-mlg.sch.id" target="_blank" class="btn-primary" style="margin-top:24px;">
+              Daftar Jalur Prestasi
+            </a>
+          </div>
+          
+          <div data-reveal class="content-card" style="background:#F8F9FB; border:none;">
+            <h3 class="feature-title" style="font-size:18px;">Persyaratan Umum</h3>
+            <ul style="margin-top:16px; padding-left:20px; display:flex; flex-direction:column; gap:12px; color:var(--text-muted); font-size:15px; line-height:1.6;">
+              <li>Siswa kelas 9 SMP/MTs sederajat tahun ajaran berjalan.</li>
+              <li>Memiliki NISN yang terdaftar di sistem kementerian.</li>
+              <li>Nilai rapor semester 1-5 mata pelajaran Matematika & Bahasa Inggris rata-rata minimal 75.</li>
+              <li>Tidak buta warna (mutlak untuk jurusan RPL dan TKJ).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials (From index.html) -->
+    <section class="section">
+      <div class="container">
+        <div data-reveal style="max-width:640px;">
+          <div class="eyebrow">Testimoni Alumni</div>
+          <h2 class="section-title">Apa kata mereka tentang pengalaman belajar?</h2>
+          <p class="hero-desc" style="margin-top:14px;">Cerita inspiratif dari para alumni kami yang sukses meraih impian mereka.</p>
+        </div>
+        <div data-reveal class="testimonials-grid">
+          <figure class="testimonial-card">
+            <img src="https://www.smktelkom-mlg.sch.id/assets/frontend/images/quote.svg" alt="" class="quote-icon-bg" aria-hidden="true">
+            <div class="stars">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote style="margin:16px 0 0;font-size:15.5px;line-height:1.7;color:#374151;flex:1;">
+              &ldquo;Kurikulum yang selalu up-to-date membuat lulusan SMK Telkom dapat bersaing dan diandalkan perusahaan.&rdquo;
+            </blockquote>
+            <figcaption style="margin-top:22px;display:flex;align-items:center;gap:12px;">
+              <img src="https://www.smktelkom-mlg.sch.id/assets/upload/image/testi/img3.png" alt="Iqbal" style="width:46px;height:46px;border-radius:50%;object-fit:cover;background:#F0F1F4;">
+              <span style="line-height:1.3;">
+                <span style="display:block;font-weight:800;font-size:14.5px;color:#111827;">Iqbal Wahyu Septian</span>
+                <span style="display:block;font-size:13px;font-weight:600;color:#6B7280;">Telkom Akses Malang</span>
+              </span>
+            </figcaption>
+          </figure>
+          
+          <figure class="testimonial-card">
+            <img src="https://www.smktelkom-mlg.sch.id/assets/frontend/images/quote.svg" alt="" class="quote-icon-bg" aria-hidden="true">
+            <div class="stars">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote style="margin:16px 0 0;font-size:15.5px;line-height:1.7;color:#374151;flex:1;">
+              &ldquo;Proyek nyata sejak kelas 10 bikin aku percaya diri langsung masuk dunia kerja.&rdquo;
+            </blockquote>
+            <figcaption style="margin-top:22px;display:flex;align-items:center;gap:12px;">
+              <span style="width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#10B981,#14B8A6);display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px;">NP</span>
+              <span style="line-height:1.3;">
+                <span style="display:block;font-weight:800;font-size:14.5px;color:#111827;">Nadia Putri Ananda</span>
+                <span style="display:block;font-size:13px;font-weight:600;color:#6B7280;">Software Engineer</span>
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section">
+      <div data-reveal class="container">
+        <div class="cta-card">
+          <div aria-hidden="true" class="cta-bg-1"></div>
+          <div aria-hidden="true" class="cta-bg-2"></div>
+          <div style="position:relative;">
+            <h2 style="font-size:clamp(28px,4.4vw,44px);font-weight:800;letter-spacing:-.02em;line-height:1.1;max-width:720px;margin:0 auto;text-wrap:balance;">
+              Langkah pertamamu dimulai di sini.
+            </h2>
+            <p style="margin:18px auto 0;max-width:560px;font-size:clamp(16px,1.7vw,18px);line-height:1.7;color:rgba(255,255,255,.92);">
+              Akses portal PPDB sekarang untuk mengisi formulir dan melengkapi berkas pendaftaranmu.
+            </p>
+            <div class="hero-actions" style="margin-top:34px;">
+              <a href="https://ppdb.smktelkom-mlg.sch.id" target="_blank" class="btn-primary btn-large" style="background:#fff;color:var(--accent);box-shadow:0 14px 30px rgba(0,0,0,.18);">
+                Akses Portal PPDB
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </span>
+              </a>
+              <a href="../hubungi-kami/faq.html" class="btn-outline">Baca FAQ Dulu</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div style="max-width:320px;">
+          <div class="brand" style="color:#fff;">
+            <span class="brand-icon">M</span>
+            <span class="brand-text">
+              <span class="brand-title" style="color:#fff;">SMK Telkom Malang</span>
+              <span class="brand-subtitle" style="color:#9CA3AF;">School of Global Digitalent</span>
+            </span>
+          </div>
+          <p style="margin-top:18px;font-size:14px;line-height:1.7;color:#9CA3AF;">Pelopor SMK bidang Teknologi dan Informatika di Indonesia sejak 1992.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.5A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.5a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12Zm-13 3V9l5.2 3L10 15Z"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <div class="footer-title">Menu Utama</div>
+          <div class="footer-links">
+            <a href="../index.html" class="footer-link">Beranda</a>
+            <a href="../tentang-kami/profil-sejarah.html" class="footer-link">Tentang Kami</a>
+            <a href="../program/jurusan.html" class="footer-link">Program</a>
+            <a href="../berita/list.html" class="footer-link">Berita</a>
+          </div>
+        </div>
+        
+        <div>
+          <div class="footer-title">Aplikasi Siswa</div>
+          <div class="footer-links">
+            <a href="#" class="footer-link">MyLMS</a>
+            <a href="#" class="footer-link">Siakad</a>
+            <a href="#" class="footer-link">Ujian Online</a>
+            <a href="#" class="footer-link">Buku Induk</a>
+          </div>
+        </div>
+        
+        <div>
+          <div class="footer-title">Hubungi Kami</div>
+          <div class="footer-links" style="gap:14px;">
+            <a href="mailto:info@smktelkom-mlg.sch.id" class="footer-link" style="display:flex;gap:10px;font-size:13.5px;">
+              <span style="color:var(--accent);flex-shrink:0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="17" height="17"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m3 6 9 6 9-6"/></svg>
+              </span>
+              info@smktelkom-mlg.sch.id
+            </a>
+            <a href="tel:+62341720510" class="footer-link" style="display:flex;gap:10px;font-size:13.5px;">
+              <span style="color:var(--accent);flex-shrink:0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="17" height="17"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7A2 2 0 0 1 22 16.9Z"/></svg>
+              </span>
+              (0341) 720510
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div style="font-size:13px;color:#6B7280;">&copy; 2026 SMK Telkom Malang. Seluruh hak cipta dilindungi.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../scripts/script.js"></script>
+</body>
+</html>

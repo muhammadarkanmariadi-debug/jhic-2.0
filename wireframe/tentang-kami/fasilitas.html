@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fasilitas - SMK Telkom Malang</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../style.css"></head>
+<body>
+  
+  <!-- Header -->
+  <header class="top-static-header" style="display:flex; justify-content:space-between; align-items:center; padding:16px 32px; max-width:1400px; margin:0 auto;">
+    <a href="../index.html" class="brand">
+          <span class="brand-icon">M</span>
+          <span class="brand-text">
+            <span class="brand-title">SMK Telkom Malang</span>
+            <span class="brand-subtitle">School of Global Digitalent</span>
+          </span>
+        </a>
+    <div class="top-actions" style="display:flex; align-items:center; gap:12px;">
+      <a href="../ppdb/landing.html" class="btn-primary">
+            Daftar PPDB
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </a>
+      <div role="group" aria-label="Ganti bahasa" class="lang-switch">
+            <button class="lang-btn active" aria-pressed="true">ID</button>
+            <button class="lang-btn" aria-pressed="false">EN</button>
+          </div>
+    </div>
+  </header>
+  <header class="header floating-header" id="main-header">
+    <div class="nav-container rounded-pill">
+      <div class="scrolled-logo" style="display: none;">
+        <a href="../index.html" class="brand" style="transform: scale(0.8); transform-origin: left center; margin: 0;">
+          <span class="brand-icon">M</span>
+          <span class="brand-text">
+            <span class="brand-title">SMK Telkom Malang</span>
+            <span class="brand-subtitle">School of Global Digitalent</span>
+          </span>
+        </a>
+      </div>
+      <nav aria-label="Primary" class="nav-links">
+          <ul>
+            <li><a href="../index.html">Beranda</a></li>
+            <li>
+              <a href="#" aria-haspopup="true" aria-expanded="false">Tentang Kami
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </a>
+              <div class="dropdown-menu">
+                <a href="profil-sejarah.html">Profil & Sejarah</a>
+                <a href="visi-misi.html">Visi Misi</a>
+                <a href="struktur-organisasi.html">Struktur Organisasi</a>
+                <a href="akreditasi.html">Akreditasi</a>
+                <a href="hubungan-industri.html">Hubungan Industri</a>
+                <a href="program-ts.html">Program TS</a>
+                <a href="fasilitas.html">Fasilitas</a>
+                <a href="prestasi.html">Prestasi</a>
+              </div>
+            </li>
+            <li>
+              <a href="#" aria-haspopup="true" aria-expanded="false">Program
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </a>
+              <div class="dropdown-menu">
+                <a href="../program/jurusan.html">Profil Jurusan</a>
+                <a href="../program/ekstrakurikuler.html">Ekstrakurikuler</a>
+              </div>
+            </li>
+            <li>
+              <a href="#" aria-haspopup="true" aria-expanded="false">Alumni
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </a>
+              <div class="dropdown-menu">
+                <a href="../alumni/profil-sebaran.html">Profil Sebaran</a>
+                <a href="../alumni/testimoni.html">Testimoni</a>
+              </div>
+            </li>
+            <li>
+              <a href="#" aria-haspopup="true" aria-expanded="false">Informasi
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </a>
+              <div class="dropdown-menu">
+                <a href="../informasi/berita.html">Berita</a>
+                <a href="../informasi/pengumuman-kelulusan.html">Pengumuman Kelulusan</a>
+                <a href="../informasi/penerapan-k3.html">Penerapan K3</a>
+              </div>
+            </li>
+            <li>
+              <a href="#" aria-haspopup="true" aria-expanded="false">Hubungi Kami
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </a>
+              <div class="dropdown-menu">
+                <a href="../hubungi-kami/faq.html">FAQ</a>
+                <a href="../hubungi-kami/kotak-pertanyaan.html">Kotak Pertanyaan</a>
+                <a href="../hubungi-kami/service-desk.html">Service Desk</a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      <button id="menu-btn" class="menu-btn" aria-label="Buka menu" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="22" height="22">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="mobile-menu">
+        <a href="../index.html" class="mobile-link">Beranda</a>
+        <div class="mobile-dropdown">
+          <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Tentang Kami <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
+            <a href="profil-sejarah.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Profil & Sejarah</a>
+            <a href="visi-misi.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Visi Misi</a>
+            <a href="struktur-organisasi.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Struktur Organisasi</a>
+            <a href="akreditasi.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Akreditasi</a>
+            <a href="hubungan-industri.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Hubungan Industri</a>
+            <a href="program-ts.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Program TS</a>
+            <a href="fasilitas.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Fasilitas</a>
+            <a href="prestasi.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Prestasi</a>
+          </div>
+        </div>
+        <div class="mobile-dropdown">
+          <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Program <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
+            <a href="../program/jurusan.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Profil Jurusan</a>
+            <a href="../program/ekstrakurikuler.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Ekstrakurikuler</a>
+          </div>
+        </div>
+        <div class="mobile-dropdown">
+          <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Alumni <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
+            <a href="../alumni/profil-sebaran.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Profil Sebaran</a>
+            <a href="../alumni/testimoni.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Testimoni</a>
+          </div>
+        </div>
+        <div class="mobile-dropdown">
+          <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Informasi <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
+            <a href="../informasi/berita.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Berita</a>
+            <a href="../informasi/pengumuman-kelulusan.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Pengumuman Kelulusan</a>
+            <a href="../informasi/penerapan-k3.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Penerapan K3</a>
+          </div>
+        </div>
+        <div class="mobile-dropdown">
+          <a href="#" class="mobile-link flex justify-between items-center dropdown-toggle">Hubungi Kami <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="mobile-dropdown-content" style="display:none; flex-direction:column; padding-left:16px;">
+            <a href="../hubungi-kami/faq.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">FAQ</a>
+            <a href="../hubungi-kami/kotak-pertanyaan.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Kotak Pertanyaan</a>
+            <a href="../hubungi-kami/service-desk.html" class="mobile-link" style="font-size:14.5px; color:#6B7280;">Service Desk</a>
+          </div>
+        </div>
+        <a href="../ppdb/landing.html" class="btn-primary flex justify-center mt-2" style="height:50px;">Daftar PPDB</a>
+      </div>
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <main>
+    <div class="page-header">
+      <div data-reveal class="ph-concept-container">
+        
+        <div class="ph-concept-visual">
+          <div class="ph-concept-circle-dashed"></div>
+          <div class="ph-concept-circle-solid"></div>
+          <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=400&auto=format&fit=crop" alt="Header Visual" class="ph-concept-img">
+        </div>
+
+        <div class="ph-concept-content">
+          <div class="ph-breadcrumb">
+            <span class="eyebrow">Tentang Kami</span>
+            <span class="separator">&gt;</span>
+            <span class="current">Fasilitas Unggulan</span>
+          </div>
+          <h1 class="page-title">Fasilitas Unggulan</h1>
+          <p class="page-subtitle">Sarana prasarana modern berstandar industri untuk mendukung proses pembelajaran kreatif dan inovatif.</p>
+          <a href="#" class="btn-primary" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-decoration: none; margin-top: 12px; height: 48px; border-radius: 24px; padding: 0 28px;">
+            Jelajahi 
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        
+      </div>
+    </div>
+    
+        <section class="section" style="background:#F8F9FB; padding-top: 60px;">
+      <div data-reveal class="container">
+        
+        <!-- Filter Bar -->
+        <div class="fas-filter-bar">
+          <div class="fas-tabs">
+            <button class="fas-tab-btn active" data-filter="all">Semua</button>
+            <button class="fas-tab-btn" data-filter="lab">Laboratorium & Akademik</button>
+            <button class="fas-tab-btn" data-filter="collab">Ruang Kolaborasi</button>
+            <button class="fas-tab-btn" data-filter="support">Fasilitas Penunjang</button>
+          </div>
+          
+          <div class="fas-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" width="16" height="16">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="fasSearchInput" placeholder="Cari fasilitas...">
+          </div>
+        </div>
+
+        <!-- Facilities Grid -->
+        <div class="fas-grid" id="fasGrid">
+          
+          <!-- Item 1: Mac Lab -->
+          <div class="fas-card" data-category="lab">
+            <div class="fas-badge-featured">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              Unggulan
+            </div>
+            <div class="fas-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop" alt="Laboratorium Apple iMac">
+            </div>
+            <div class="fas-content">
+              <div class="fas-title-group">
+                <div class="fas-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <h3 class="fas-title">Laboratorium Apple iMac</h3>
+              </div>
+              <div class="fas-reveal">
+                <p class="fas-desc">Laboratorium khusus dengan perangkat Apple iMac terbaru untuk mendukung pembelajaran UI/UX Design dan iOS Development dengan standar industri global.</p>
+                <button class="fas-btn fas-detail-btn" data-title="Laboratorium Apple iMac" data-cat-name="Laboratorium & Akademik" data-img="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop" data-desc="Laboratorium khusus dengan perangkat Apple iMac terbaru untuk mendukung pembelajaran UI/UX Design dan iOS Development dengan standar industri global. Dilengkapi dengan 40 unit iMac M1, koneksi internet gigabit, dan proyektor interaktif." data-cap="40 Siswa" data-time="07:00 - 16:00">
+                  Lihat Detail
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: MikroTik -->
+          <div class="fas-card" data-category="lab">
+            <div class="fas-badge-featured">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              Unggulan
+            </div>
+            <div class="fas-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop" alt="MikroTik Academy Lab">
+            </div>
+            <div class="fas-content">
+              <div class="fas-title-group">
+                <div class="fas-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                    <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                    <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                  </svg>
+                </div>
+                <h3 class="fas-title">MikroTik Academy Lab</h3>
+              </div>
+              <div class="fas-reveal">
+                <p class="fas-desc">Fasilitas laboratorium jaringan tersertifikasi langsung oleh MikroTik. Siswa berlatih melakukan konfigurasi jaringan enterprise secara praktikal.</p>
+                <button class="fas-btn fas-detail-btn" data-title="MikroTik Academy Lab" data-cat-name="Laboratorium & Akademik" data-img="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop" data-desc="Fasilitas laboratorium jaringan tersertifikasi langsung oleh MikroTik. Siswa berlatih melakukan konfigurasi jaringan enterprise secara praktikal dengan router board asli dan infrastruktur lengkap." data-cap="36 Siswa" data-time="07:00 - 15:30">
+                  Lihat Detail
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: Coworking -->
+          <div class="fas-card" data-category="collab">
+            <div class="fas-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop" alt="Student Co-working">
+            </div>
+            <div class="fas-content">
+              <div class="fas-title-group">
+                <div class="fas-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <h3 class="fas-title">Student Co-working</h3>
+              </div>
+              <div class="fas-reveal">
+                <p class="fas-desc">Area komunal berkecepatan tinggi untuk kolaborasi gaya startup. Dirancang untuk mendorong inovasi dan pertukaran ide antar siswa.</p>
+                <button class="fas-btn fas-detail-btn" data-title="Student Co-working" data-cat-name="Ruang Kolaborasi" data-img="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" data-desc="Area komunal berkecepatan tinggi untuk kolaborasi gaya startup. Dirancang untuk mendorong inovasi dan pertukaran ide antar siswa dalam suasana yang rileks dan produktif." data-cap="100 Siswa" data-time="08:00 - 17:00">
+                  Lihat Detail
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4: Perpus -->
+          <div class="fas-card" data-category="support">
+            <div class="fas-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=800&auto=format&fit=crop" alt="Perpustakaan Digital">
+            </div>
+            <div class="fas-content">
+              <div class="fas-title-group">
+                <div class="fas-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                  </svg>
+                </div>
+                <h3 class="fas-title">Perpustakaan Digital</h3>
+              </div>
+              <div class="fas-reveal">
+                <p class="fas-desc">Koleksi ribuan buku referensi TI dan akses e-library gratis. Tempat hening untuk riset dan belajar mandiri.</p>
+                <button class="fas-btn fas-detail-btn" data-title="Perpustakaan Digital" data-cat-name="Fasilitas Penunjang" data-img="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1200&auto=format&fit=crop" data-desc="Koleksi ribuan buku referensi TI dan akses e-library gratis. Tempat hening untuk riset dan belajar mandiri, dilengkapi dengan pod-pod kedap suara dan lounge membaca." data-cap="80 Siswa" data-time="07:00 - 16:30">
+                  Lihat Detail
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5: Lapangan -->
+          <div class="fas-card" data-category="support">
+            <div class="fas-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=800&auto=format&fit=crop" alt="Lapangan Terpadu">
+            </div>
+            <div class="fas-content">
+              <div class="fas-title-group">
+                <div class="fas-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                    <path d="M2 12h20"></path>
+                  </svg>
+                </div>
+                <h3 class="fas-title">Lapangan Terpadu</h3>
+              </div>
+              <div class="fas-reveal">
+                <p class="fas-desc">Fasilitas olahraga lengkap untuk menyeimbangkan hardskill dan kebugaran fisik siswa, terdiri dari lapangan basket dan futsal.</p>
+                <button class="fas-btn fas-detail-btn" data-title="Lapangan Terpadu" data-cat-name="Fasilitas Penunjang" data-img="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=1200&auto=format&fit=crop" data-desc="Fasilitas olahraga lengkap untuk menyeimbangkan hardskill dan kebugaran fisik siswa. Mencakup lapangan basket standar FIBA, lapangan futsal sintetis, dan area atletik." data-cap="150 Siswa" data-time="06:00 - 17:30">
+                  Lihat Detail
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6: Masjid -->
+          <div class="fas-card" data-category="support">
+            <div class="fas-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800&auto=format&fit=crop" alt="Masjid Al-Kautsar">
+            </div>
+            <div class="fas-content">
+              <div class="fas-title-group">
+                <div class="fas-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                    <path d="M12 2l7 7v13H5V9z"></path>
+                    <path d="M9 22V12h6v10"></path>
+                  </svg>
+                </div>
+                <h3 class="fas-title">Masjid Al-Kautsar</h3>
+              </div>
+              <div class="fas-reveal">
+                <p class="fas-desc">Sarana ibadah yang nyaman, lapang, dan ber-AC. Menjadi pusat pembinaan karakter Islami siswa SMK Telkom.</p>
+                <button class="fas-btn fas-detail-btn" data-title="Masjid Al-Kautsar" data-cat-name="Fasilitas Penunjang" data-img="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop" data-desc="Sarana ibadah yang nyaman, lapang, dan ber-AC. Menjadi pusat pembinaan karakter Islami siswa SMK Telkom. Dilengkapi dengan perpustakaan mini khusus buku-buku agama." data-cap="600 Jamaah" data-time="24 Jam">
+                  Lihat Detail
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Empty State (Hidden) -->
+        <div class="fas-empty-state" id="fasEmptyState" style="display: none;">
+          <div class="hi-empty-icon" style="background:#FEE2E2; color:#C8102E;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+          <h3 class="hi-empty-title">Fasilitas tidak ditemukan</h3>
+          <p class="hi-empty-desc">Coba gunakan kata kunci lain atau pilih kategori "Semua" untuk melihat seluruh fasilitas.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Fasilitas Lightbox / Modal -->
+    <div class="fas-modal" id="fasModal">
+      <div class="fas-modal-content">
+        <button class="fas-modal-close" id="fasModalClose" aria-label="Tutup Modal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        
+        <img src="" alt="" class="fas-modal-img" id="fmImg">
+        
+        <div class="fas-modal-body">
+          <span class="fas-modal-category" id="fmCat"></span>
+          <h2 class="fas-modal-title" id="fmTitle"></h2>
+          <p class="fas-modal-desc" id="fmDesc"></p>
+          
+          <div class="fas-modal-info">
+            <div class="fas-info-item">
+              <div class="fas-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <div>
+                <div class="fas-info-label">Kapasitas Maksimal</div>
+                <div class="fas-info-value" id="fmCap"></div>
+              </div>
+            </div>
+            <div class="fas-info-item">
+              <div class="fas-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <div>
+                <div class="fas-info-label">Jam Akses</div>
+                <div class="fas-info-value" id="fmTime"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Fasilitas JS Logic -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Elements for Filter & Search
+        const tabBtns = document.querySelectorAll('.fas-tab-btn');
+        const searchInput = document.getElementById('fasSearchInput');
+        const cards = document.querySelectorAll('.fas-card');
+        const grid = document.getElementById('fasGrid');
+        const emptyState = document.getElementById('fasEmptyState');
+        
+        let activeCategory = 'all';
+
+        function filterCards() {
+          const searchTerm = searchInput.value.toLowerCase().trim();
+          let visibleCount = 0;
+          
+          cards.forEach(card => {
+            const title = card.querySelector('.fas-title').textContent.toLowerCase();
+            const category = card.getAttribute('data-category');
+            
+            const matchesSearch = title.includes(searchTerm);
+            const matchesCategory = (activeCategory === 'all' || activeCategory === category);
+            
+            if (matchesSearch && matchesCategory) {
+              card.style.display = 'block';
+              visibleCount++;
+            } else {
+              card.style.display = 'none';
+            }
+          });
+          
+          if (visibleCount === 0) {
+            emptyState.style.display = 'flex';
+            grid.style.display = 'none';
+          } else {
+            emptyState.style.display = 'none';
+            grid.style.display = 'grid';
+          }
+        }
+
+        tabBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeCategory = btn.getAttribute('data-filter');
+            filterCards();
+          });
+        });
+
+        searchInput.addEventListener('input', filterCards);
+
+        // Modal Logic
+        const modal = document.getElementById('fasModal');
+        const closeBtn = document.getElementById('fasModalClose');
+        const detailBtns = document.querySelectorAll('.fas-detail-btn');
+        
+        detailBtns.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Get data with explicit fallbacks for CRUD readiness
+            document.getElementById('fmTitle').textContent = btn.getAttribute('data-title') || 'Judul Fasilitas';
+            document.getElementById('fmCat').textContent = btn.getAttribute('data-cat-name') || 'Kategori';
+            document.getElementById('fmDesc').textContent = btn.getAttribute('data-desc') || 'Deskripsi belum tersedia.';
+            document.getElementById('fmCap').textContent = btn.getAttribute('data-cap') || 'Tidak ada info';
+            document.getElementById('fmTime').textContent = btn.getAttribute('data-time') || 'Tidak ada info';
+            
+            const imgSrc = btn.getAttribute('data-img');
+            const imgEl = document.getElementById('fmImg');
+            if (imgSrc) {
+              imgEl.src = imgSrc;
+              imgEl.style.display = 'block';
+            } else {
+              imgEl.style.display = 'none'; // Sembunyikan jika tidak ada gambar
+            }
+            imgEl.alt = btn.getAttribute('data-title') || 'Gambar Fasilitas';
+            
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          });
+        });
+
+        const closeModal = () => {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+      });
+    </script>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div style="max-width:320px;">
+          <div class="brand" style="color:#fff;">
+            <span class="brand-icon">M</span>
+            <span class="brand-text">
+              <span class="brand-title" style="color:#fff;">SMK Telkom Malang</span>
+              <span class="brand-subtitle" style="color:#9CA3AF;">School of Global Digitalent</span>
+            </span>
+          </div>
+          <p style="margin-top:18px;font-size:14px;line-height:1.7;color:#9CA3AF;">Pelopor SMK bidang Teknologi dan
+            Informatika di Indonesia sejak 1992.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path
+                  d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+            <a href="#" aria-label="YouTube" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path
+                  d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.5A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.5a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12Zm-13 3V9l5.2 3L10 15Z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="X" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                <path
+                  d="M18.9 2H22l-7.3 8.3L23.3 22h-6.8l-5.3-6.9L5.1 22H2l7.8-8.9L1.1 2h7l4.8 6.3L18.9 2Zm-1.2 18h1.9L7.4 4H5.4l12.3 16Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Menu Utama</div>
+          <div class="footer-links">
+            <a href="../index.html" class="footer-link">Beranda</a>
+            <a href="../tentang-kami/profil-sejarah.html" class="footer-link">Tentang</a>
+            <a href="../program/jurusan.html" class="footer-link">Program</a>
+            <a href="../informasi/berita.html" class="footer-link">Berita</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Aplikasi Siswa</div>
+          <div class="footer-links">
+            <a href="#" class="footer-link">MyLMS</a>
+            <a href="#" class="footer-link">Siakad</a>
+            <a href="#" class="footer-link">Ujian Online</a>
+            <a href="#" class="footer-link">Buku Induk</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Pengunjung Website</div>
+          <div class="footer-links" style="gap:10px;">
+            <div class="flex justify-between items-center" style="gap:12px;">
+              <span class="footer-link" style="font-size:13.5px;">Hari ini</span>
+              <span style="font-weight:800;font-size:14px;color:#fff;">1.297</span>
+            </div>
+            <div class="flex justify-between items-center" style="gap:12px;">
+              <span class="footer-link" style="font-size:13.5px;">Bulan ini</span>
+              <span style="font-weight:800;font-size:14px;color:#fff;">47.827</span>
+            </div>
+            <div class="flex justify-between items-center" style="gap:12px;">
+              <span class="footer-link" style="font-size:13.5px;">Total</span>
+              <span style="font-weight:800;font-size:14px;color:var(--accent);">493.210</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-map-section">
+        <div>
+          <div class="footer-title">Hubungi Kami</div>
+          <div class="footer-links" style="gap:14px;">
+            <div style="display:flex;gap:10px;font-size:13.5px;line-height:1.6;color:#9CA3AF;">
+              <span style="color:var(--accent);flex-shrink:0;margin-top:1px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="17" height="17">
+                  <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </span>
+              Jl. Danau Ranau, Sawojajar, Kec. Kedungkandang, Kota Malang, Jawa Timur 65139
+            </div>
+            <a href="mailto:info@smktelkom-mlg.sch.id" class="footer-link"
+              style="display:flex;gap:10px;font-size:13.5px;">
+              <span style="color:var(--accent);flex-shrink:0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="17" height="17">
+                  <rect x="2" y="4" width="20" height="16" rx="3" />
+                  <path d="m3 6 9 6 9-6" />
+                </svg>
+              </span>
+              info@smktelkom-mlg.sch.id
+            </a>
+            <a href="tel:+62341720510" class="footer-link" style="display:flex;gap:10px;font-size:13.5px;">
+              <span style="color:var(--accent);flex-shrink:0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="17" height="17">
+                  <path
+                    d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7A2 2 0 0 1 22 16.9Z" />
+                </svg>
+              </span>
+              (0341) 720510
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-title">Lokasi Sekolah</div>
+          <div
+            style="margin-top:16px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.1);height:200px;">
+            <iframe title="Lokasi Sekolah"
+              src="https://www.google.com/maps?q=SMK%20Telkom%20Malang%20Jl.%20Danau%20Ranau%20Sawojajar&output=embed"
+              style="border:0;width:100%;height:100%;filter:grayscale(.2);" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div style="font-size:13px;color:#6B7280;">&copy; 2026 SMK Telkom Malang. Seluruh hak cipta dilindungi.</div>
+        <div style="font-size:13px;color:#6B7280;">Akreditasi A &middot; ISO 9001:2015 &middot; Est. 1992</div>
+      </div>
+    </div>
+  </footer><script src="../scripts/script.js"></script>
+</body>
+</html>
+
