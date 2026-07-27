@@ -1,4 +1,4 @@
-import { Code2, Server, Gamepad2, Building, Utensils, Bus, Wallet, Home, Coffee, Info } from 'lucide-react';
+﻿import { Code2, Server, Gamepad2, Building, Utensils, Bus, Wallet, Home, Coffee, Info } from 'lucide-react';
 
 // --- Tes Minat Bakat Data ---
 export const quizQuestions = [
@@ -227,5 +227,3 @@ export const foodRecommendations = [
     icon: Info,
   }
 ];
- 
- 
