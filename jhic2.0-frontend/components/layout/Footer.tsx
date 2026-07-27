@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Facebook, Instagram, Youtube, Twitter, MapPin, Mail, Phone } from "lucide-react";
+import {  MapPin, Mail, Phone, Calendar } from "lucide-react";
 
 export function Footer() {
   return (
@@ -17,16 +17,16 @@ export function Footer() {
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a href="#" aria-label="Facebook" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all hover:-translate-y-1 hover:bg-accent hover:shadow-[0_8px_20px_rgba(215,25,32,0.3)]">
-                <Facebook className="h-4 w-4" />
+                <Calendar className="h-4 w-4" />
               </a>
               <a href="#" aria-label="Instagram" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all hover:-translate-y-1 hover:bg-accent hover:shadow-[0_8px_20px_rgba(215,25,32,0.3)]">
-                <Instagram className="h-4 w-4" />
+                <Calendar className="h-4 w-4" />
               </a>
               <a href="#" aria-label="YouTube" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all hover:-translate-y-1 hover:bg-accent hover:shadow-[0_8px_20px_rgba(215,25,32,0.3)]">
-                <Youtube className="h-4 w-4" />
+                <Calendar className="h-4 w-4" />
               </a>
               <a href="#" aria-label="X" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all hover:-translate-y-1 hover:bg-accent hover:shadow-[0_8px_20px_rgba(215,25,32,0.3)]">
-                <Twitter className="h-4 w-4" />
+                <Calendar className="h-4 w-4" />
               </a>
             </div>
           </div>

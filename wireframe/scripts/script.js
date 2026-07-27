@@ -1,32 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Mobile Menu Toggle
   const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuIcon = menuBtn.querySelector('svg');
-  
-  const iconBars = `<line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />`;
-  const iconClose = `<line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />`;
+  const closeBtn = document.getElementById('mobile-menu-close');
+  const menu = document.getElementById('mobile-menu');
+  const backdrop = document.getElementById('mobile-menu-backdrop');
 
-  menuBtn.addEventListener('click', () => {
-    const isActive = mobileMenu.classList.toggle('active');
-    menuBtn.setAttribute('aria-expanded', isActive);
-    menuIcon.innerHTML = isActive ? iconClose : iconBars;
-  });
+  const openMenu = () => {
+    menu.classList.add('active');
+    backdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+  const closeMenu = () => {
+    menu.classList.remove('active');
+    backdrop.classList.remove('active');
+    document.body.style.overflow = '';
+  };
 
-  // Mobile Dropdown Toggle
-  const dropdownToggles = document.querySelectorAll('.mobile-dropdown .dropdown-toggle');
-  dropdownToggles.forEach(toggle => {
-    toggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      const content = toggle.nextElementSibling;
-      const svg = toggle.querySelector('svg');
-      
-      if (content.style.display === 'none' || !content.style.display) {
-        content.style.display = 'flex';
-        svg.style.transform = 'rotate(180deg)';
-      } else {
-        content.style.display = 'none';
-        svg.style.transform = 'rotate(0deg)';
+  menuBtn?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+  backdrop?.addEventListener('click', closeMenu);
+
+  // Accordion: cuma 1 submenu yang boleh terbuka
+  document.querySelectorAll('.mobile-nav-item').forEach((item) => {
+    const toggle = item.querySelector('button.mobile-link-row');
+    if (!toggle) return; // skip item tanpa submenu (Beranda)
+    toggle.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.mobile-nav-item.open').forEach((el) => {
+        el.classList.remove('open');
+        el.querySelector('button.mobile-link-row')?.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
       }
     });
   });

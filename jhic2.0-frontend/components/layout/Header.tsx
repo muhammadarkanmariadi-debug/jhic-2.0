@@ -179,7 +179,7 @@ export function Header() {
 
           {/* Hamburger Menu Button */}
           <button
-            className="relative z-[100] flex h-11 w-11 items-center justify-center rounded-xl border border-border-color bg-white text-text-main xl:hidden"
+            className="relative z-[110] flex h-11 w-11 items-center justify-center rounded-xl border border-border-color bg-white text-text-main xl:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Buka menu"
             aria-expanded={mobileMenuOpen}
@@ -188,12 +188,21 @@ export function Header() {
           </button>
         </div>
 
-        {/* Mobile Sidebar */}
+        {/* Backdrop for Mobile Menu */}
+        <div 
+          className={`fixed inset-0 z-[90] bg-black/20 backdrop-blur-sm transition-all duration-300 xl:hidden ${
+            mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+          }`}
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+
+        {/* Floating Mobile Sidebar */}
         <nav
           id="mobile-menu"
           aria-label="Mobile Navigation"
-          className={`fixed inset-y-0 right-0 z-[90] flex w-[280px] max-w-[85vw] flex-col overflow-y-auto border-l border-border-color bg-white px-4 pb-6 pt-24 shadow-[-8px_0_30px_rgba(0,0,0,0.1)] transition-all duration-300 ease-out xl:hidden ${
-            mobileMenuOpen ? "translate-x-0 visible opacity-100" : "translate-x-full invisible opacity-0"
+          className={`fixed top-[85px] right-4 z-[100] flex w-[320px] max-h-[calc(100vh-100px)] max-w-[calc(100vw-32px)] flex-col overflow-y-auto rounded-[24px] border border-border-color bg-white p-5 shadow-[0_20px_60px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out xl:hidden ${
+            mobileMenuOpen ? "translate-y-0 opacity-100 visible" : "translate-y-[-10px] opacity-0 invisible pointer-events-none"
           }`}
         >
           <ul className="flex w-full flex-col gap-1">
@@ -253,6 +262,7 @@ export function Header() {
             <Link
               href="/ppdb/landing"
               className="flex w-full items-center justify-center gap-2 rounded-full bg-accent py-3 font-bold text-white hover:bg-accent-hover"
+              onClick={() => setMobileMenuOpen(false)}
             >
               Daftar PPDB
               <ArrowRight className="h-4 w-4" />
