@@ -33,9 +33,25 @@ Backend merupakan aplikasi **Node.js** berbasis RESTful API.
 
 ---
 
-## 2. Kontrol Data dan Tipe (Types)
+## 2. Struktur Direktori Frontend (Feature-Sliced Design)
 
-Tipe data terpusat di `jhic2.0-frontend/types/index.ts` untuk memastikan konsistensi _type-safety_ menggunakan TypeScript. Beberapa struktur inti meliputi:
+Frontend menggunakan arsitektur **Feature-Sliced Design (FSD)** di dalam folder `src/` untuk memastikan skalabilitas dan pemisahan logika yang jelas:
+
+- **`app/`**: Konfigurasi Next.js App Router, routing halaman, dan layout global.
+- **`features/`**: Modul fungsional yang berinteraksi langsung dengan _user scenarios_ (contoh: interaksi spesifik pada form pendaftaran PPDB).
+- **`shared/`**: Elemen fundamental yang bisa dipakai berulang, seperti UI *components* (Button, Card), *types*, utilitas, dan konstanta global.
+- **`entities/`**: Entitas bisnis dan domain utama (misal: entitas Berita, Guru, Alumni) beserta komponen UI atomik yang melekat pada entitas tersebut.
+- **`services/`**: Lapisan untuk *fetching* API, integrasi data, dan mock/dummy data.
+- **`configs/`**: Konfigurasi tingkat aplikasi yang bersifat global.
+- **`templates/`**: Pola komposisi layout halaman yang _reusable_.
+- **`widgets/`**: Blok UI kompleks dan mandiri (seperti Header, Footer, Hero, Grid Berita) yang menggabungkan berbagai entitas dan komponen UI.
+- **`stores/`**: Tempat pengelolaan *global state* (misalnya Redux atau Zustand).
+
+---
+
+## 3. Kontrol Data dan Tipe (Types)
+
+Tipe data terpusat di `jhic2.0-frontend/src/shared/types/index.ts` (sebelumnya di `types/`) untuk memastikan konsistensi _type-safety_ menggunakan TypeScript. Beberapa struktur inti meliputi:
 
 - **`NewsItem`**: Berita & Pengumuman (`id`, `title`, `desc`, `image`, `date`, `category`, `author`, `content`).
 - **`EkskulItem`**: Profil Ekstrakurikuler (`id`, `title`, `category`, `img`, `desc`, `schedule`, `coach`).
@@ -50,7 +66,7 @@ Tipe data terpusat di `jhic2.0-frontend/types/index.ts` untuk memastikan konsist
 
 ---
 
-## 3. List Halaman dan Navigasi
+## 4. List Halaman dan Navigasi
 
 Routing aplikasi Frontend diatur dalam arsitektur App Router (`app/`). Sebagian besar halaman utama dikelompokkan ke dalam route group `(main)`.
 
@@ -86,7 +102,7 @@ Routing aplikasi Frontend diatur dalam arsitektur App Router (`app/`). Sebagian 
 
 ---
 
-## 4. List API yang Dibutuhkan
+## 5. List API yang Dibutuhkan
 
 Berdasarkan struktur data dan antarmuka saat ini, berikut adalah Endpoint API yang akan dibutuhkan untuk integrasi antara Frontend dan Backend.
 
@@ -119,7 +135,7 @@ Berdasarkan struktur data dan antarmuka saat ini, berikut adalah Endpoint API ya
 
 ---
 
-## 5. List Sistem Role untuk Pengembangan Kedepan
+## 6. List Sistem Role untuk Pengembangan Kedepan
 
 Sistem backend menggunakan `prisma` sebagai ORM yang dapat dioptimalkan dengan skema otorisasi berbasis _Role-Based Access Control (RBAC)_. Berikut _role_ yang direkomendasikan:
 
@@ -138,6 +154,47 @@ Sistem backend menggunakan `prisma` sebagai ORM yang dapat dioptimalkan dengan s
 5. **Siswa / Alumni (Ekstensi Masa Depan)**
    - **Hak Akses:** Portal pribadi (jika dikembangkan menjadi SIS - Student Information System).
    - **Tugas:** Update data sebaran alumni, melihat rekap nilai, pendaftaran ulang.
+
+---
+
+## 7. Integrasi Eksternal (Data Contracts)
+
+Aplikasi ini mengonsumsi API pihak ketiga untuk fitur-fitur tertentu. Berikut adalah kontrak data yang diterapkan untuk menjamin integrasi yang mulus (Type-Safe).
+
+### Mexpo.id Event API (Trial Class)
+Untuk menampilkan daftar Trial Class, frontend menggunakan data dari platform `mexpo.id` (Management Expo). Struktur datanya direpresentasikan melalui `MexpoEvent` interface:
+
+```typescript
+export interface UserEventRole {
+  role: string;
+  status: string;
+  user_id: string;
+  created_by: string;
+  updated_by: string;
+  verify_at: Date | string;
+}
+
+export interface MexpoEvent {
+  id: string | number;
+  name: string;
+  location: string;
+  description: string;
+  start_date: string;
+  end_date: string;
+  quota: number;
+  organizer_name: string;
+  created_by: string;
+  updated_by: string;
+  photo: string;
+  registration_start: string;
+  registration_deadline: string;
+  approved_by: string;
+  userEventRoles?: UserEventRole[];
+}
+```
+
+- **Penggunaan:** Digunakan di halaman `/program/trial-class`.
+- **Integrasi Frontend:** *Mock data* disediakan di `services/trialClassData.ts`. Di sisi produksi, data ini akan diambil (fetch) secara asinkron dari endpoint API `mexpo.id/events`.
 
 ---
 
