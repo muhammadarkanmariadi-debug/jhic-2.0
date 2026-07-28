@@ -21,6 +21,9 @@ const nextConfig: NextConfig = {
       }
     ],
   },
+  eslint: {
+    ignoreDuringBuilds: process.env.IGNORE_LINT_DURING_BUILD === 'true',
+  },
 };
 
 export default nextConfig;
