@@ -109,7 +109,7 @@ export function Header() {
       dropdown: [
         { name: "FAQ", href: "/hubungi-kami/faq" },
         { name: "Kotak Pertanyaan", href: "/hubungi-kami/kotak-pertanyaan" },
-        { name: "Service Desk", href: "/hubungi-kami/service-desk" },
+      
       ],
     },
   ];
