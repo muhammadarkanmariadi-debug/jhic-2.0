@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { PageHeader } from '@/shared/ui/PageHeader';
 import { ContentCard } from '@/shared/ui/ContentCard';
 import { Modal } from '@/shared/ui/Modal';
+import { Pagination } from '@/shared/ui/Pagination';
 import { Search, ArrowRight, Tag } from 'lucide-react';
 import Image from 'next/image';
 import { telkomProducts } from '@/services/productData';
@@ -165,39 +166,11 @@ export default function ProdukTelkomPage() {
           )}
 
           {/* Pagination */}
-          {totalPages > 1 && (
-            <div className="mt-12 flex items-center justify-center gap-2">
-              <button 
-                onClick={() => handlePageChange(currentPage - 1)}
-                disabled={currentPage === 1}
-                className="w-10 h-10 rounded-xl flex items-center justify-center border border-border-light bg-white text-text-main hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed font-medium transition-colors"
-              >
-                &lt;
-              </button>
-              
-              {Array.from({ length: totalPages }).map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => handlePageChange(i + 1)}
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold transition-all ${
-                    currentPage === i + 1 
-                      ? 'bg-accent text-white shadow-sm' 
-                      : 'border border-border-light bg-white text-text-main hover:bg-gray-50'
-                  }`}
-                >
-                  {i + 1}
-                </button>
-              ))}
-
-              <button 
-                onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage === totalPages}
-                className="w-10 h-10 rounded-xl flex items-center justify-center border border-border-light bg-white text-text-main hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed font-medium transition-colors"
-              >
-                &gt;
-              </button>
-            </div>
-          )}
+          <Pagination 
+            pageCount={totalPages} 
+            currentPage={currentPage} 
+            onPageChange={handlePageChange} 
+          />
           
         </div>
       </section>
