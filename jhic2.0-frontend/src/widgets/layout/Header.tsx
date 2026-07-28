@@ -119,7 +119,7 @@ export function Header() {
       className={`sticky top-0 z-60 w-full transition-all duration-300 ease-in-out ${isScrolled ? "bg-white shadow-sm xl:bg-transparent xl:shadow-none" : ""
         }`}
     >
-      <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between px-4 py-4 md:px-8 xl:py-4">
+      <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between px-4 py-4 md:px-8 xl:py-6">
         {/* Left: Logo */}
         <Link
           href="/"
@@ -150,7 +150,7 @@ export function Header() {
             <Image src="/logo_hitam.png" alt="Logo" width={120} height={34} className="h-auto w-[120px]" />
           </Link>
 
-          <ul className="flex items-center gap-0.5">
+          <ul className="flex items-center gap-0.5 ">
             {navItems.map((item) => (
               <li key={item.name} className="relative group">
                 {item.dropdownGroups || item.dropdown ? (
