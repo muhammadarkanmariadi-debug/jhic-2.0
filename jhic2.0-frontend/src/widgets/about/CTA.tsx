@@ -17,7 +17,7 @@ export function CTA() {
 
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Link
-                href="#"
+                href="/ppdb"
                 className="flex items-center gap-2 rounded-full bg-accent px-8 py-3.5 text-[16px] font-bold text-white shadow-[0_8px_20px_rgba(200,16,46,0.2)] transition-all hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-accent"
               >
                 Daftar PPDB 2026

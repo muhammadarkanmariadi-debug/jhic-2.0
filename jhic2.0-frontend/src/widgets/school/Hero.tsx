@@ -60,7 +60,7 @@ export function Hero() {
           </p>
           <div className="flex w-full flex-col items-center gap-4 sm:flex-row xl:justify-start">
             <Link
-              href="#contact-cta"
+              href="/ppdb"
               className="flex h-14 w-full items-center justify-center gap-2 rounded-xl bg-accent px-8 text-[15.5px] font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-accent sm:w-auto"
             >
               Daftar PPDB 2026
