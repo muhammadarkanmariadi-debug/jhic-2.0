@@ -1,6 +1,6 @@
 # Rules — Backend (jhic2.0-backend)
 
-Specific rules for AI agents working on the **Express backend**. These add to — never override — the universal rules in the root `../RULE.md`.
+Specific rules for AI agents working on the **Express backend**. These add to — never override — the universal rules in the root `../docs/RULE.md`.
 
 ---
 

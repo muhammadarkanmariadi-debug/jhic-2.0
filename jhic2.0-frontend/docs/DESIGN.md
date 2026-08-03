@@ -1,6 +1,6 @@
 # Design — Frontend Design System (jhic2.0-frontend)
 
-The **specific, detailed** design knowledge for the frontend. The source of truth for every value here is **`src/app/globals.css`** (Tailwind CSS v4 `@theme` block). Brand-level context lives in the root `../DESIGN.md`.
+The **specific, detailed** design knowledge for the frontend. The source of truth for every value here is **`src/app/globals.css`** (Tailwind CSS v4 `@theme` block). Brand-level context lives in the root `../docs/DESIGN.md`.
 
 > **Keep in sync:** if you change any token in `globals.css`, update the tables below.
 

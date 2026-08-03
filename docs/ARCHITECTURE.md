@@ -9,19 +9,22 @@ This document defines the **global architecture** shared by both sub-projects an
 ```
 jhic-2.0/                     # Repository root (this document lives here)
 ├── AGENTS.md                 # Entry-point router for AI agents
-├── ARCHITECTURE.md           # THIS FILE — global architecture & knowledge map
-├── DESIGN.md                 # Global design context (brand-level, not token-specific)
-├── RULE.md                   # Universal agent rules (both apps)
-├── SKILL.md                  # Common/universal agent skills
-├── PRD.md                    # Product Requirements v2.0 (Moklet SIGAP) — canonical product source
-├── README.md                 # Thin index pointing to the docs above
+├── README.md                 # Thin index pointing to the docs
+├── docs/                     # Global documentation
+│   ├── README.md             # Global docs index
+│   ├── ARCHITECTURE.md       # THIS FILE — global architecture & knowledge map
+│   ├── DESIGN.md             # Global design context (brand-level, not token-specific)
+│   ├── RULE.md               # Universal agent rules (both apps)
+│   ├── SKILL.md              # Common/universal agent skills
+│   └── PRD.md                # Product Requirements v2.0 (Moklet SIGAP) — canonical product source
 ├── .github/workflows/        # CI pipeline (frontend build check)
 ├── jhic2.0-frontend/         # Next.js web application
-│   ├── AGENTS.md / SKILL.md / DESIGN.md / RULE.md / ARCHITECTURE.md
-│   └── README.md             # Quickstart only
+│   ├── AGENTS.md             # Agent entry point (+ Next.js 16 warning)
+│   ├── README.md             # Quickstart only
+│   └── docs/                 # ARCHITECTURE / DESIGN / RULE / SKILL
 └── jhic2.0-backend/          # Express REST API (currently a stub / planning phase)
-    ├── AGENTS.md / SKILL.md / RULE.md / ARCHITECTURE.md / SCHEMA.md
-    └── package.json
+    ├── AGENTS.md             # Agent entry point
+    └── docs/                 # ARCHITECTURE / SCHEMA / SKILL / RULE
 ```
 
 ---
@@ -100,4 +103,4 @@ SQL Database (MySQL/PostgreSQL) via Prisma ORM
 - **Documentation language:** English for all docs in this repository (PRD.md is a translation of the original Indonesian v2.0 spec).
 - **Naming:** internal feature names use the `Moklet[NamaUnik]` prefix (see PRD §1); UI/navigation labels are plain descriptive Indonesian.
 - **No feature removal:** PRD v2.0 explicitly carries over all v1 features. Do not delete features without an explicit decision.
-- **Docs-code sync:** any change to the database model must update `jhic2.0-backend/SCHEMA.md`; any change to design tokens must update `jhic2.0-frontend/DESIGN.md` and `globals.css`.
+- **Docs-code sync:** any change to the database model must update `jhic2.0-backend/docs/SCHEMA.md`; any change to design tokens must update `jhic2.0-frontend/docs/DESIGN.md` and `globals.css`.

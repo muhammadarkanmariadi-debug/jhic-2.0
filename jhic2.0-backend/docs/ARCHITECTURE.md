@@ -101,4 +101,4 @@ Request → route → middleware (auth/rbac/validate) → controller → service
 - Canonical schema → `SCHEMA.md`
 - Backend skills → `SKILL.md`
 - Backend rules → `RULE.md`
-- Product scope / roles → `../PRD.md`, `../ARCHITECTURE.md` §4
+- Product scope / roles → `../docs/PRD.md`, `../docs/ARCHITECTURE.md` §4

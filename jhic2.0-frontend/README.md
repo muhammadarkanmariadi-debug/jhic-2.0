@@ -2,14 +2,14 @@
 
 JHIC 2.0 is the official web portal for SMK Telkom Malang, rebuilt from the ground up to provide a robust, modern, and interactive experience for students, parents, alumni, and industry partners.
 
-This README is a **quickstart** only. For detailed knowledge, see the docs in this directory:
+This README is a **quickstart** only. For detailed knowledge, see the docs in [`docs/`](./docs/):
 
 - [`AGENTS.md`](./AGENTS.md) — agent entry point + Next.js 16 warning
-- [`ARCHITECTURE.md`](./ARCHITECTURE.md) — fixed FSD structure, routing map, data flow
-- [`DESIGN.md`](./DESIGN.md) — design system & tokens
-- [`RULE.md`](./RULE.md) — frontend-specific agent rules
-- [`SKILL.md`](./SKILL.md) — frontend-specific agent skills
-- Product scope, sitemap & roles → [`../PRD.md`](../PRD.md) and [`../ARCHITECTURE.md`](../ARCHITECTURE.md)
+- [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) — fixed FSD structure, routing map, data flow
+- [`docs/DESIGN.md`](./docs/DESIGN.md) — design system & tokens
+- [`docs/RULE.md`](./docs/RULE.md) — frontend-specific agent rules
+- [`docs/SKILL.md`](./docs/SKILL.md) — frontend-specific agent skills
+- Product scope, sitemap & roles → [`../docs/PRD.md`](../docs/PRD.md) and [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md)
 
 ## 🚀 Tech Stack
 

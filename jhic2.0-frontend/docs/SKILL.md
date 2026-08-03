@@ -1,6 +1,6 @@
 # SKILL — Frontend Agent Skills (jhic2.0-frontend)
 
-Frontend-specific skills and library conventions for AI agents. Common/monorepo skills are in the root `../SKILL.md`.
+Frontend-specific skills and library conventions for AI agents. Common/monorepo skills are in the root `../docs/SKILL.md`.
 
 > Versions are current and breaking — **always verify against the installed packages** and `node_modules/next/dist/docs/`.
 

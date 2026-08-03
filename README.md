@@ -18,21 +18,23 @@ This is a monorepo containing the **JHIC 2.0** web portal for SMK Telkom Malang 
 
 ## Documentation Index
 
+> Global documentation is organized under [`docs/`](./docs/). See [`docs/README.md`](./docs/README.md) for the index.
+
 | Document | Purpose |
 |---|---|
 | [`AGENTS.md`](./AGENTS.md) | Entry-point router for AI agents working in this repo |
-| [`PRD.md`](./PRD.md) | Product Requirements v2.0 (Moklet SIGAP) — features, sitemap, roles |
-| [`ARCHITECTURE.md`](./ARCHITECTURE.md) | Global architecture, repo layout, knowledge-source hierarchy, RBAC model |
-| [`DESIGN.md`](./DESIGN.md) | Global design context & brand-level principles |
-| [`RULE.md`](./RULE.md) | Universal agent rules for both apps |
-| [`SKILL.md`](./SKILL.md) | Common agent skills for working in this monorepo |
+| [`docs/PRD.md`](./docs/PRD.md) | Product Requirements v2.0 (Moklet SIGAP) — features, sitemap, roles |
+| [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) | Global architecture, repo layout, knowledge-source hierarchy, RBAC model |
+| [`docs/DESIGN.md`](./docs/DESIGN.md) | Global design context & brand-level principles |
+| [`docs/RULE.md`](./docs/RULE.md) | Universal agent rules for both apps |
+| [`docs/SKILL.md`](./docs/SKILL.md) | Common agent skills for working in this monorepo |
 
 ## Sub-Projects
 
 | Path | Description | Docs |
 |---|---|---|
-| [`jhic2.0-frontend/`](./jhic2.0-frontend/) | Next.js 16 (App Router) web application | [`AGENTS.md`](./jhic2.0-frontend/AGENTS.md), [`SKILL.md`](./jhic2.0-frontend/SKILL.md), [`DESIGN.md`](./jhic2.0-frontend/DESIGN.md), [`RULE.md`](./jhic2.0-frontend/RULE.md), [`ARCHITECTURE.md`](./jhic2.0-frontend/ARCHITECTURE.md), [`README.md`](./jhic2.0-frontend/README.md) |
-| [`jhic2.0-backend/`](./jhic2.0-backend/) | Express REST API (currently a stub — planning phase) | [`AGENTS.md`](./jhic2.0-backend/AGENTS.md), [`SKILL.md`](./jhic2.0-backend/SKILL.md), [`RULE.md`](./jhic2.0-backend/RULE.md), [`ARCHITECTURE.md`](./jhic2.0-backend/ARCHITECTURE.md), [`SCHEMA.md`](./jhic2.0-backend/SCHEMA.md) |
+| [`jhic2.0-frontend/`](./jhic2.0-frontend/) | Next.js 16 (App Router) web application | [`AGENTS.md`](./jhic2.0-frontend/AGENTS.md), [`docs/`](./jhic2.0-frontend/docs/) (ARCHITECTURE, DESIGN, RULE, SKILL), [`README.md`](./jhic2.0-frontend/README.md) |
+| [`jhic2.0-backend/`](./jhic2.0-backend/) | Express REST API (currently a stub — planning phase) | [`AGENTS.md`](./jhic2.0-backend/AGENTS.md), [`docs/`](./jhic2.0-backend/docs/) (ARCHITECTURE, SCHEMA, SKILL, RULE) |
 
 ## Quick Start
 

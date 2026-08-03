@@ -6,15 +6,15 @@ Entry point for AI agents working in the **Express backend**.
 
 ## Read first (in order)
 
-1. **`ARCHITECTURE.md`** — target Express layered architecture, auth/RBAC flow, env vars.
-2. **`SCHEMA.md`** — the canonical, documented database schema (planned; to be implemented in Prisma).
-3. **`SKILL.md`** — backend-specific agent skills (Express 5, Prisma 7, JWT/RBAC, bcrypt).
-4. **`RULE.md`** — backend-specific hard rules.
-5. **Root `../PRD.md`** — product scope (v2.0 modules like MokletKurikulum, MokletHubin, MokletSPMB) and the RBAC role list (`../ARCHITECTURE.md` §4).
+1. **`docs/ARCHITECTURE.md`** — target Express layered architecture, auth/RBAC flow, env vars.
+2. **`docs/SCHEMA.md`** — the canonical, documented database schema (planned; to be implemented in Prisma).
+3. **`docs/SKILL.md`** — backend-specific agent skills (Express 5, Prisma 7, JWT/RBAC, bcrypt).
+4. **`docs/RULE.md`** — backend-specific hard rules.
+5. **Root `../docs/PRD.md`** — product scope (v2.0 modules like MokletKurikulum, MokletHubin, MokletSPMB) and the RBAC role list (`../docs/ARCHITECTURE.md` §4).
 
 ## Critical pointers
 
 - **Stack (from `package.json`):** Express `^5.2.1`, Prisma `^7.9.0`, bcryptjs, cors, dotenv. Node 20, CommonJS (`"type": "commonjs"`).
 - ⚠️ `package.json` includes a suspicious dependency `"prisma-client": "^0.0.0"` — verify/remove it before implementing.
-- **No schema yet.** `SCHEMA.md` is the agreed design; `prisma/schema.prisma` must be created from it.
-- **RBAC roles** are defined by the PRD (Super Admin, Admin Konten, Admin SPMB, Admin Support, Admin Kurikulum, Admin Hubin) — see root `ARCHITECTURE.md` §4.
+- **No schema yet.** `docs/SCHEMA.md` is the agreed design; `prisma/schema.prisma` must be created from it.
+- **RBAC roles** are defined by the PRD (Super Admin, Admin Konten, Admin SPMB, Admin Support, Admin Kurikulum, Admin Hubin) — see root `../docs/ARCHITECTURE.md` §4.

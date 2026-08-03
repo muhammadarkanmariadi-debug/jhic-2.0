@@ -11,13 +11,13 @@ Entry point for AI agents working in the **Next.js frontend**. Read this before 
 ## Read first (in order)
 
 1. **`AGENTS.md`** (this file) — the critical Next.js 16 warning above + this router.
-2. **`ARCHITECTURE.md`** — the fixed Feature-Sliced Design (FSD) structure, real routing map, and data flow.
-3. **`DESIGN.md`** — the design system (tokens from `src/app/globals.css`, component inventory).
-4. **`RULE.md`** — frontend-specific hard rules.
-5. **`SKILL.md`** — frontend-specific agent skills (Next 16, Tailwind v4, RHF/Zod, Recharts).
+2. **`docs/ARCHITECTURE.md`** — the fixed Feature-Sliced Design (FSD) structure, real routing map, and data flow.
+3. **`docs/DESIGN.md`** — the design system (tokens from `src/app/globals.css`, component inventory).
+4. **`docs/RULE.md`** — frontend-specific hard rules.
+5. **`docs/SKILL.md`** — frontend-specific agent skills (Next 16, Tailwind v4, RHF/Zod, Recharts).
 6. **`README.md`** — quickstart only (install/build/lint/CI).
 
-For product scope, roles, and the v2.0 sitemap, see the **root** `../PRD.md` and `../ARCHITECTURE.md`.
+For product scope, roles, and the v2.0 sitemap, see the **root** `../docs/PRD.md` and `../docs/ARCHITECTURE.md`.
 
 ## Critical pointers
 

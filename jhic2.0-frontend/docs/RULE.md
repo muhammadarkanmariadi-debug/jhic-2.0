@@ -1,6 +1,6 @@
 # Rules — Frontend (jhic2.0-frontend)
 
-Specific rules for AI agents working on the **Next.js frontend**. These add to — never override — the universal rules in the root `../RULE.md`.
+Specific rules for AI agents working on the **Next.js frontend**. These add to — never override — the universal rules in the root `../docs/RULE.md`.
 
 ---
 

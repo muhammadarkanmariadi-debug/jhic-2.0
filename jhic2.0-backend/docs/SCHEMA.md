@@ -8,7 +8,7 @@ The **canonical, documented** database schema for JHIC 2.0.
 - All tables use `String` UUID `id` (`@default(uuid())`), `createdAt`/`updatedAt` audit fields.
 - Soft-delete-friendly: destructive admin actions may use a `deletedAt` column.
 - Money/numbers as `Int` (IDR rupiah) unless noted.
-- Roles/permissions follow the root `PRD.md` §3.10 and `ARCHITECTURE.md` §4.
+- Roles/permissions follow the root `../docs/PRD.md` §3.10 and `../docs/ARCHITECTURE.md` §4.
 - Naming follows Prisma style: `snake_case` for `@map` columns, camelCase for fields.
 
 ---
@@ -150,7 +150,7 @@ The **canonical, documented** database schema for JHIC 2.0.
 - `flow` Json? — alur pendaftaran.
 - `updatedBy`?, timestamps.
 
-> ⚠️ **No registrant data is stored here.** Registration & tracking live in the Foundation's system (root `PRD.md` §3.7). The `Admin SPMB` role only manages landing content.
+> ⚠️ **No registrant data is stored here.** Registration & tracking live in the Foundation's system (root `../docs/PRD.md` §3.7). The `Admin SPMB` role only manages landing content.
 
 ---
 

@@ -18,7 +18,7 @@ These are **hard rules** for any AI agent working anywhere in this repository (f
 
 ## 3. Documentation Rules
 
-7. **Keep docs in sync with code.** If you change the database model → update `jhic2.0-backend/SCHEMA.md`. If you change design tokens → update `jhic2.0-frontend/DESIGN.md` and `globals.css`. If you change routes → update the relevant `ARCHITECTURE.md`.
+7. **Keep docs in sync with code.** If you change the database model → update `jhic2.0-backend/docs/SCHEMA.md`. If you change design tokens → update `jhic2.0-frontend/docs/DESIGN.md` and `globals.css`. If you change routes → update the relevant `ARCHITECTURE.md`.
 8. **Documentation language is English** across the repository.
 9. **Don't duplicate knowledge.** Put shared knowledge in root docs, app-specific knowledge in the sub-project docs, and reference (don't copy) across files.
 

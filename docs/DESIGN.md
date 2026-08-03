@@ -1,6 +1,6 @@
 # Design — JHIC 2.0 Global Design Context
 
-This document captures **design context at the product/brand level** — the *why* behind the visual language. It deliberately stays **non-specific about tokens and components**; the authoritative, detailed design system lives in **`jhic2.0-frontend/DESIGN.md`** and its source of truth, **`jhic2.0-frontend/src/app/globals.css`**.
+This document captures **design context at the product/brand level** — the *why* behind the visual language. It deliberately stays **non-specific about tokens and components**; the authoritative, detailed design system lives in **`jhic2.0-frontend/docs/DESIGN.md`** and its source of truth, **`jhic2.0-frontend/src/app/globals.css`**.
 
 ---
 
@@ -29,13 +29,13 @@ This document captures **design context at the product/brand level** — the *wh
 | Depth | Soft shadows; a subtle red glow (`shadow-accent`) on primary actions |
 | Motion | Subtle hover lifts, smooth transitions, a marquee for scrolling content |
 
-> Full token tables (colors, type scale, spacing, radius, shadows, containers, animation) are in `jhic2.0-frontend/DESIGN.md` §Tokens.
+> Full token tables (colors, type scale, spacing, radius, shadows, containers, animation) are in `jhic2.0-frontend/docs/DESIGN.md` §Tokens.
 
 ## 4. Where Design Knowledge Lives
 
 | Concern | Location |
 |---|---|
-| Design tokens & component library | `jhic2.0-frontend/DESIGN.md` + `jhic2.0-frontend/src/app/globals.css` |
+| Design tokens & component library | `jhic2.0-frontend/docs/DESIGN.md` + `jhic2.0-frontend/src/app/globals.css` |
 | Brand narrative & principles | This file (root `DESIGN.md`) |
 | Public assets (logos, images) | `jhic2.0-frontend/public/` |
 | Feature/product design intent | `PRD.md` |
@@ -45,4 +45,4 @@ This document captures **design context at the product/brand level** — the *wh
 - **Never hardcode colors/shadows** — use the tokens from `globals.css` (e.g. `accent`, `surface`, `shadow-md`).
 - **Reuse existing shared components** in `src/shared/ui/` instead of re-implementing patterns.
 - **When the brand and the PRD conflict**, the PRD governs product decisions; visual tokens govern styling decisions.
-- **Keep docs in sync:** any change to the token system must update `globals.css` **and** `jhic2.0-frontend/DESIGN.md`.
+- **Keep docs in sync:** any change to the token system must update `globals.css` **and** `jhic2.0-frontend/docs/DESIGN.md`.

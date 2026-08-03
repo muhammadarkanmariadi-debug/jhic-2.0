@@ -110,5 +110,5 @@ Page (src/app/...)  →  Widget (src/widgets/...)  →  shared/ui + shared/types
 - Design system & tokens → `DESIGN.md`
 - Frontend rules → `RULE.md`
 - Frontend skills → `SKILL.md`
-- Global architecture, RBAC, knowledge hierarchy → `../ARCHITECTURE.md`
-- Product scope & v2 sitemap → `../PRD.md`
+- Global architecture, RBAC, knowledge hierarchy → `../docs/ARCHITECTURE.md`
+- Product scope & v2 sitemap → `../docs/PRD.md`

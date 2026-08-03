@@ -26,7 +26,7 @@ Backend-specific skills and library conventions for AI agents building the JHIC 
 ## 2. RBAC Skill
 
 - Map roles → permissions (optionally with `@casl/ability`).
-- RBAC roles (root `PRD.md` §3.10): `SUPER_ADMIN`, `ADMIN_KONTEN`, `ADMIN_SPMB`, `ADMIN_SUPPORT`, `ADMIN_KURIKULUM`, `ADMIN_HUBIN`.
+- RBAC roles (root `../docs/PRD.md` §3.10): `SUPER_ADMIN`, `ADMIN_KONTEN`, `ADMIN_SPMB`, `ADMIN_SUPPORT`, `ADMIN_KURIKULUM`, `ADMIN_HUBIN`.
 - Enforce via a reusable `requirePermission('news:create')` middleware; combine with the auth middleware.
 
 ## 3. Config & Middleware Skills
