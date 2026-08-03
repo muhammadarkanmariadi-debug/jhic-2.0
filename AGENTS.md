@@ -11,6 +11,7 @@ Welcome. This is the entry router for AI agents working in the **JHIC 2.0** mono
 3. **`docs/RULE.md`** — Universal hard rules every agent must obey.
 4. **`docs/DESIGN.md`** — Global design context (brand-level).
 5. **`docs/SKILL.md`** — Common agent skills for working in this repo.
+6. **`docs/SCRUM.md`** — Sprint planning, developer roles, and Scrum methodology for this project.
 
 > `README.md` is a thin index — use it to navigate, not as a source of truth. All detailed knowledge lives in `docs/`.
 
@@ -22,6 +23,7 @@ Welcome. This is the entry router for AI agents working in the **JHIC 2.0** mono
 |---|---|
 | Deciding what a feature should do | `docs/PRD.md` |
 | Understanding how the repo is structured | `docs/ARCHITECTURE.md` (root) |
+| Planning sprints, tasks, or viewing developer assignments | `docs/SCRUM.md` |
 | Working in the **frontend** | `jhic2.0-frontend/AGENTS.md` → `jhic2.0-frontend/docs/{SKILL,DESIGN,RULE,ARCHITECTURE}.md` |
 | Working in the **backend** | `jhic2.0-backend/AGENTS.md` → `jhic2.0-backend/docs/{SKILL,RULE,ARCHITECTURE,SCHEMA}.md` |
 | Styling / visual design | `jhic2.0-frontend/docs/DESIGN.md` + `jhic2.0-frontend/src/app/globals.css` |

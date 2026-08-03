@@ -109,7 +109,7 @@ export function Header() {
       dropdown: [
         { name: "FAQ", href: "/hubungi-kami/faq" },
         { name: "Kotak Pertanyaan", href: "/hubungi-kami/kotak-pertanyaan" },
-      
+
       ],
     },
   ];
@@ -201,12 +201,12 @@ export function Header() {
             ))}
           </ul>
           <Link
-            href="/brosur.pdf"
+            href="/ppdb"
             className="ml-2 hidden md:inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-accent px-4 py-1.5 text-[13.5px] font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-accent-hover group"
-            download
+
           >
-            Unduh Brosur
-            <Download className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5" />
+            Daftar PPDB
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5" />
           </Link>
         </nav>
 
@@ -214,12 +214,13 @@ export function Header() {
 
 
           <Link
-            href="/ppdb"
+            href="/brosur.pdf"
             className={`hidden md:inline-flex items-center gap-2 overflow-hidden whitespace-nowrap rounded-full bg-accent px-4 py-0 text-[14px] font-bold text-white shadow-[0_8px_20px_rgba(215,25,32,0.26)] transition-all duration-400 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-accent group ${isScrolled ? "xl:w-0 xl:px-0 xl:opacity-0 xl:pointer-events-none h-0" : "h-[42px]"
               }`}
+            download
           >
-            Daftar PPDB
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            Unduh Brosur
+            <Download className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
 
           <div
