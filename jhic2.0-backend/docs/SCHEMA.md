@@ -85,44 +85,70 @@ The **canonical, documented** database schema for JHIC 2.0.
 
 ---
 
-## 3. Programs & Curriculum (v2: MokletKurikulum / MokletKarir)
+## 3. Jurusan, Programs & Curriculum (v2: MokletKurikulum / MokletKarir)
 
-### `Program` (Jurusan / Program studi)
+> **Important distinction:** `Jurusan` and `Program` are two separate entities.
+> - **Jurusan** (majors): RPL, TKJ, PG. Shown on the `/program/jurusan` hub (tabs). Owns curriculum versioning (MokletKurikulum) and career content (MokletKarir). Never individual navbar links.
+> - **Program** (special programs): TS, ICP, CCP, + future curriculum-created ones. Individual pages (`/program/[slug]`). **`isFeatured` curates which appear in the navbar** (max 3).
+
+### `Jurusan` (Major — e.g. RPL, TKJ, PG)
 | Field | Type | Notes |
 |---|---|---|
-| id | String @id | |
-| code | String @unique | e.g. `RPL`, `TKJ` |
-| title | String | |
+| id | String @id | uuid |
+| code | String @unique | e.g. `RPL`, `TKJ`, `PG` |
+| title | String | e.g. "Rekayasa Perangkat Lunak" |
 | description | String | |
 | headOfProgram | String? | |
 | features | Json | `JurusanDetail[]` (title, desc, icon) |
 | careerProspects | Json? | string[] |
 | image / heroImage | String? | |
-| curriculum | Json? | `{title, icon}[]` |
+| curriculum | Json? | `{title, icon}[]` — summary curriculum items |
 | careers | Json? | `{title, description, icon, ...}[]` |
 | icon | String? | icon key |
-| sortOrder | Int | |
+| careerPortalUrl | String? | link to Pak Yniko's career website |
+| sortOrder | Int | display order in hub tabs |
 | isActive | Boolean | |
 | timestamps | DateTime | |
 
-### `CurriculumVersion` (MokletKurikulum — versioning)
+**Relations:** Jurusan 1:N CurriculumVersion; Jurusan 1:N CareerSection; Jurusan 1:N JobVacancy / Scholarship (filter per jurusan).
+
+### `Program` (Special Program — e.g. TS, ICP, CCP)
+| Field | Type | Notes |
+|---|---|---|
+| id | String @id | uuid |
+| title | String | e.g. "International Class Program (ICP)" |
+| slug | String @unique | URL-safe, e.g. `icp`, `program-ts`, `ccp` |
+| navLabel | String? | Short UI label for navbar (plain descriptive, never internal `Moklet*` name per PRD §1). Falls back to `title` if null. |
+| description | String | page excerpt |
+| content | String? | full HTML body (WYSIWYG) |
+| features | Json? | `{ title, desc, icon }[]` — feature cards on the program page |
+| image | String? | hero/cover image |
+| icon | String? | icon key (for nav/cards) |
+| isFeatured | Boolean @default(false) | **curates navbar only** — max 3 featured shown in nav. Not-featured ≠ hidden; the hub and full catalog still list all programs. |
+| sortOrder | Int @default(0) | display order (navbar + catalog) |
+| isActive | Boolean @default(true) | |
+| timestamps | DateTime | |
+| `@@index([isFeatured, sortOrder])` | | composite index for the featured-nav query |
+
+> **Semantics:** `isFeatured` controls navbar visibility **only**. The `/program/jurusan` hub and any program catalog page still list **all** active programs. Setting `isFeatured = false` does not hide or delete a program — it only removes it from the navbar's "Program Unggulan" group. Admin Kurikulum manages both jurusan curriculum and program CRUD (including the `isFeatured` toggle).
+
+### `CurriculumVersion` (MokletKurikulum — versioning, per Jurusan)
 | Field | Type | Notes |
 |---|---|---|
 | id | String @id | |
-| programId | String | FK → Program |
+| jurusanId | String | FK → Jurusan |
 | label | String | e.g. `Kurikulum 2026` |
 | academicYear | String | e.g. `2026/2027` |
-| version | Int | incrementing per program |
-| isActive | Boolean | only one active per program |
+| version | Int | incrementing per jurusan |
+| isActive | Boolean | only one active per jurusan |
 | subjectStructure | Json | mapel structure (subjects, lesson hours) |
 | competencyDetails | Json | kompetensi keahlian |
 | lastUpdatedBy | String? | FK → User (Admin Kurikulum) |
 | publishedAt | DateTime? | |
 | timestamps | DateTime | |
 
-### `CareerSection` (MokletKarir — per program)
-- `id`, `programId` FK, `type` (enum: `TIMELINE` / `PROSPEK`), `content` Json (timeline per semester/grade OR expertise + career paths + salary ranges), `sortOrder`, `updatedBy`?, timestamps.
-- Career portal link stored on `Program` (e.g. `careerPortalUrl`).
+### `CareerSection` (MokletKarir — per Jurusan)
+- `id`, `jurusanId` FK → Jurusan, `type` (enum: `TIMELINE` / `PROSPEK`), `content` Json (timeline per semester/grade OR expertise + career paths + salary ranges), `sortOrder`, `updatedBy`?, timestamps.
 
 ---
 
@@ -132,10 +158,10 @@ The **canonical, documented** database schema for JHIC 2.0.
 `id`, `title`, `description`, `organizer`?, `location`?, `registrationStart`/`registrationDeadline` DateTime?, `date`?, `level`?, `source` (enum: `INTERNAL` / `EXTERNAL`), `link`?, `image`?, `isPublished` Boolean, timestamps.
 
 ### `JobVacancy` (MokletLoker — Lowongan Kerja)
-`id`, `title`, `company` (partner name), `description`, `programId`? FK (filter per jurusan), `location`?, `salaryRange` String?, `applicationDeadline` DateTime?, `contact`?, `link`?, `isPublished` Boolean, timestamps.
+`id`, `title`, `company` (partner name), `description`, `jurusanId`? FK → Jurusan (filter per jurusan), `location`?, `salaryRange` String?, `applicationDeadline` DateTime?, `contact`?, `link`?, `isPublished` Boolean, timestamps.
 
 ### `Scholarship` (MokletBeasiswa — Info Beasiswa)
-`id`, `title`, `description`, `provider` (sekolah/pemerintah/mitra), `programId`? FK, `deadline` DateTime?, `requirements` Json?, `link`?, `image`?, `isPublished` Boolean, timestamps.
+`id`, `title`, `description`, `provider` (sekolah/pemerintah/mitra), `jurusanId`? FK → Jurusan, `deadline` DateTime?, `requirements` Json?, `link`?, `image`?, `isPublished` Boolean, timestamps.
 
 ---
 
@@ -173,7 +199,7 @@ The **canonical, documented** database schema for JHIC 2.0.
 ## 7. Alumni
 
 ### `AlumniRecord` (Profil & Sebaran Alumni)
-`id`, `name`, `graduationYear` Int, `programId`? FK, `city`/`province` (sebaran), `company`?, `position`?, `contactable` Boolean, `createdAt`/`updatedAt`.
+`id`, `name`, `graduationYear` Int, `jurusanId`? FK → Jurusan, `city`/`province` (sebaran), `company`?, `position`?, `contactable` Boolean, `createdAt`/`updatedAt`.
 
 > Distribution analytics (recharts) aggregate this table; testimonial content lives in `Testimonial`.
 
@@ -216,3 +242,4 @@ The **canonical, documented** database schema for JHIC 2.0.
 | Date | Change | By |
 |---|---|---|
 | — | Initial planned schema (from frontend types + PRD v2.0) | docs restructure |
+| — | Split `Program` into `Jurusan` + `Program`; added `isFeatured`/`navLabel`/`sortOrder` + composite index on `Program` for featured-nav curation; renamed FKs from `programId` to `jurusanId` on CurriculumVersion, CareerSection, JobVacancy, Scholarship, AlumniRecord | featured-nav proposal |

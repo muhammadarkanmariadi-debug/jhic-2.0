@@ -24,9 +24,16 @@ Specific rules for AI agents working on the **Next.js frontend**. These add to �
 10. **Tailwind v4 is CSS-first.** No `tailwind.config.js` — configure via `@theme` in CSS. Don't create a JS config.
 11. **TypeScript strictness.** Types come first; avoid `any`; use the `@/` alias (`@/shared/...`, `@/widgets/...`).
 
-## 4. Quality Rules
+## 4. Navigation & Featured Program Rules
 
-12. **Keep the build green.** CI runs `npm run build` on `main`; keep `npm run lint` clean locally.
-13. **No dead links/routes.** If you rename a route, update every `<Link>`/`href` and the routing map in `ARCHITECTURE.md`.
-14. **Accessibility.** Preserve focus-visible rings, semantic HTML, and `aria-label`s on icon-only buttons (see Footer social links pattern).
-15. **Design-consistent behavior.** Match the interaction conventions in `DESIGN.md` §5 (hover lift, accent glow, focus rings).
+12. **Never hardcode program links in `Header.tsx`.** Static nav items (Profil Jurusan, Kurikulum, Ekstrakurikuler, Trial Class) stay hardcoded. Special programs (TS/ICP/CCP/etc.) must come from the featured-programs API via the server layout — not as hardcoded `<Link>` items.
+13. **Featured programs are server-fetched.** The `(main)/layout.tsx` fetches featured programs server-side with ISR + `revalidateTag("nav-programs")`. Do not add client-side fetches to `Header`.
+14. **Revalidate on mutation.** After any program create/update/delete in the admin CMS, call `revalidateTag("nav-programs")` to bust the nav cache. Never rely on TTL alone for admin-triggered changes.
+15. **Graceful degradation.** If the featured-programs fetch fails, `Header` receives `[]` and renders only static items. Never let the nav break because of a backend error.
+
+## 5. Quality Rules
+
+16. **Keep the build green.** CI runs `npm run build` on `main`; keep `npm run lint` clean locally.
+17. **No dead links/routes.** If you rename a route, update every `<Link>`/`href` and the routing map in `ARCHITECTURE.md`.
+18. **Accessibility.** Preserve focus-visible rings, semantic HTML, and `aria-label`s on icon-only buttons (see Footer social links pattern).
+19. **Design-consistent behavior.** Match the interaction conventions in `DESIGN.md` §5 (hover lift, accent glow, focus rings).

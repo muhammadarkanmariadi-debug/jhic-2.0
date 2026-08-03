@@ -53,6 +53,7 @@ Principle: `Moklet[Nama]` stays as the **internal name** (documentation, code, S
   - Jurusan (major profiles + "Karir & Prospek Kerja" [MokletKarir]: learning timeline, expertise, career prospects, salary ranges)
   - "Kurikulum" [MokletKurikulum] (active curriculum per major, version & academic year)
   - Ekstrakurikuler, Program TS, ICP, CCP, Trial Class
+  - *Navigation note:* The Program navbar shows static links (Profil Jurusan, Kurikulum, Ekstrakurikuler, Trial Class) plus a dynamic **"Program Unggulan"** group — max 3 special programs marked `isFeatured` by Admin Kurikulum. Programs not featured still appear in the full catalog; featured only curates the navigation.
 - **Hubungan Industri** [MokletHubin]
   - Direktori Mitra Industri (Industry Partner Directory)
   - "Info Lomba" [MokletLomba]
@@ -136,7 +137,7 @@ Principle: `Moklet[Nama]` stays as the **internal name** (documentation, code, S
 ### 3.10 Admin Management System (Backend & Dashboard) *(existing, roles added)*
 - **RBAC** — existing roles: Super Admin, Admin Konten, Admin PPDB→**Admin SPMB**, Admin Support
 - **New roles:**
-  - **Admin Kurikulum** — manages MokletKurikulum content
+  - **Admin Kurikulum** — manages MokletKurikulum content AND Program CRUD (create/update/delete special programs, including `isFeatured` toggle for navbar curation)
   - **Admin Hubin** — manages MokletLomba, MokletLoker, MokletBeasiswa
 - JWT authentication + password encryption (existing, kept)
 - WYSIWYG Content Editor (existing, kept)
@@ -145,5 +146,7 @@ Principle: `Moklet[Nama]` stays as the **internal name** (documentation, code, S
 
 ## 4. Implementation Notes
 - All new features follow the **Moklet[NamaUnik]** prefix as an **internal name only**, consistent with the overall **SIGAP** theme (Sistem Informasi Gerbang Pendidikan — Education Gateway Information System) — see UI label mapping in §1.
+- **Jurusan vs Program distinction:** Jurusan (RPL/TKJ/PG) are majors — shown on the Profil Jurusan hub with tabs, owning curriculum versioning and career content. Programs (TS/ICP/CCP) are special programs — shown as individual pages (`/program/[slug]`). `isFeatured` (max 3) curates which programs appear in the navbar; all others remain visible in the catalog. Admin Kurikulum manages both.
+- **Featured-program navigation method:** fetched server-side in the layout (ISR + `revalidateTag`), serialized into the SSR HTML. No client-side fetch, no loading gap, no layout shift. See `jhic2.0-frontend/docs/ARCHITECTURE.md` §4.1.
 - Modules needing further decisions before development: the form of integration with Pak Yniko's career website (link vs API), and the exact link/endpoint of the Foundation's registration portal for the **MokletSPMB** redirect.
 - Recommended MVP priority: MokletKurikulum, MokletSPMB (landing page), MokletKarir — because they directly answer the strongest validation complaints before supporting features (MokletBot, MokletUlasan, MokletHubin) are added in later phases.
