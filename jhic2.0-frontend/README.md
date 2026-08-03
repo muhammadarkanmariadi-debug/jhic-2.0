@@ -2,28 +2,24 @@
 
 JHIC 2.0 is the official web portal for SMK Telkom Malang, rebuilt from the ground up to provide a robust, modern, and interactive experience for students, parents, alumni, and industry partners.
 
+This README is a **quickstart** only. For detailed knowledge, see the docs in this directory:
+
+- [`AGENTS.md`](./AGENTS.md) — agent entry point + Next.js 16 warning
+- [`ARCHITECTURE.md`](./ARCHITECTURE.md) — fixed FSD structure, routing map, data flow
+- [`DESIGN.md`](./DESIGN.md) — design system & tokens
+- [`RULE.md`](./RULE.md) — frontend-specific agent rules
+- [`SKILL.md`](./SKILL.md) — frontend-specific agent skills
+- Product scope, sitemap & roles → [`../PRD.md`](../PRD.md) and [`../ARCHITECTURE.md`](../ARCHITECTURE.md)
+
 ## 🚀 Tech Stack
 
 - **Framework:** Next.js 16.2 (App Router)
 - **UI Library:** React 19
 - **Language:** TypeScript
-- **Styling:** Tailwind CSS v4 (Utility-first)
+- **Styling:** Tailwind CSS v4 (utility-first, CSS-first config)
 - **Icons & Visuals:** Lucide React, Recharts
 - **Forms & Validation:** React Hook Form, Zod
-- **Components:** React Paginate (Reusable Pagination)
-
-## 📁 Architecture (Feature-Sliced Design)
-
-The project leverages a strict Feature-Sliced Design (FSD) architecture within the `src/` directory to ensure modularity and scalability:
-
-- **`src/app/`** - Next.js App Router definitions, routing, and global layouts.
-- **`src/shared/`** - Reusable elements including UI components (Buttons, Pagination, Cards, Modals), central TypeScript interfaces (`types/index.ts`), and utilities.
-- **`src/features/`** - Functional modules handling specific user interactions.
-- **`src/entities/`** - Core business entities and atomic UI components (e.g., News, Alumni, Programs).
-- **`src/services/`** - Data fetching, API integrations, and robust dummy data mapping.
-- **`src/widgets/`** - Complex, self-contained UI blocks (Headers, Footers, Data Grids) combining multiple entities.
-
-> **Note:** For a deep dive into the architectural plan, API endpoints, and RBAC strategies, please refer to the detailed [SKILL.md](../SKILL.md) file.
+- **Components:** React Paginate (reusable pagination)
 
 ## 🛠️ Getting Started
 
@@ -60,5 +56,5 @@ Visit [http://localhost:3000](http://localhost:3000) in your browser to view the
 
 ## ⚙️ Continuous Integration
 
-This repository includes an automated GitHub Action pipeline (`.github/workflows/build-check.yml`). 
+This repository includes an automated GitHub Action pipeline (`.github/workflows/build-check.yml`).
 Whenever a commit is pushed or a pull request is opened against the `main` branch, the CI pipeline triggers an automated `npm run build` to verify compilation and structural integrity. Linting is strategically decoupled during CI builds to prioritize structural validation, while remaining strictly enforceable locally via `npm run lint`.
