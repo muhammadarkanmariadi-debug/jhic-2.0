@@ -9,12 +9,14 @@ Backend-specific skills and library conventions for AI agents building the JHIC 
 ## 1. Core Stack Skills
 
 ### Node.js + Express 5
-- Node 20, CommonJS (`"type": "commonjs"`).
+- Node 22, ESM (`"type": "module"`). Dev via `tsx watch src/server.ts`; build via `tsc` (NodeNext).
 - Express `^5.2.1` — Express 5 has breaking changes vs 4 (new router/path syntax, async error handling changes). Verify against installed docs before relying on Express 4 patterns.
 - Structure: routes → middleware → controllers → services → Prisma (see `ARCHITECTURE.md` §2).
 
 ### Prisma 7
-- Prisma 7 uses the new `prisma-client` generator (output path required). Migrations via `prisma migrate`.
+- Prisma 7 uses the new `prisma-client` generator (output path required → `src/generated/prisma`); run `npx prisma generate` after schema changes.
+- The datasource `url` lives in `prisma.config.ts` — **not** in `schema.prisma`.
+- `PrismaClient` is constructed with a driver adapter (`PrismaMariaDb` from `@prisma/adapter-mariadb`) — no automatic env URL.
 - Define models in `prisma/schema.prisma`; the canonical documented schema is `SCHEMA.md` — **keep them in sync**.
 - Query with `select` to avoid leaking sensitive fields (e.g. `passwordHash`).
 
@@ -40,14 +42,14 @@ Backend-specific skills and library conventions for AI agents building the JHIC 
 
 - RESTful, plural nouns, `/api` prefix (see `ARCHITECTURE.md` §3 for the endpoint list).
 - Public endpoints vs admin endpoints (JWT + RBAC protected).
-- v2 modules: curriculum versioning, hubin (lomba/loker/beasiswa), SPMB landing content, bot intents, feedback.
+- v2 modules: curriculum versioning, hubin (lomba/loker/beasiswa), SPMB landing content, bot intents, feedback. Implemented: `featured-programs` + `program-umum` CRUD (see `ARCHITECTURE.md` §3).
 
 ## 5. Security Skills
 
 - Never log or return password hashes/tokens.
 - Never commit `.env`; use `.env.example`.
 - Rate-limit login endpoints (planned).
-- Sanitize/validate WYSIWYG HTML content before storing/serving (XSS).
+- Sanitize/validate WYSIWYG HTML content before storing/serving (XSS) — **applies to `News.content` only**. Program Umum/curriculum content is **structured JSON** (`ProgramUmumProgram.sections`) with plain-text fields — no HTML, so no sanitization needed there.
 
 ## 6. Verification Checklist
 

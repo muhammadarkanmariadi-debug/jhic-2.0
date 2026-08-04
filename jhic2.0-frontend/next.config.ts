@@ -18,6 +18,44 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "logo.clearbit.com"
+      },
+      // Curriculum microsite reference (kurikulum.smktelkom-mlg.sch.id)
+      {
+        protocol: "https",
+        hostname: "kurikulum.smktelkom-mlg.sch.id"
+      },
+      // Konsentrasi expertise-track images (reference detail pages)
+      {
+        protocol: "https",
+        hostname: "msoft.team"
+      },
+      {
+        protocol: "https",
+        hostname: "miro.medium.com"
+      },
+      {
+        protocol: "https",
+        hostname: "encrypted-tbn0.gstatic.com"
+      },
+      {
+        protocol: "https",
+        hostname: "static.vecteezy.com"
+      },
+      {
+        protocol: "https",
+        hostname: "www.shutterstock.com"
+      },
+      {
+        protocol: "https",
+        hostname: "www.coursesonline.co.uk"
+      },
+      {
+        protocol: "https",
+        hostname: "www.chi.ac.uk"
+      },
+      {
+        protocol: "https",
+        hostname: "www.dot.co.id"
       }
     ],
   },

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, Menu, X, ArrowRight, Home, Info, Book, GraduationCap, Bell, Mail, Download } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowRight, Home, Info, Book, GraduationCap, Bell, Mail, Download, Compass } from "lucide-react";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,6 +38,7 @@ export function Header() {
             { name: "Profil & Sejarah", href: "/tentang-kami/profil-sejarah" },
             { name: "Visi Misi", href: "/tentang-kami/visi-misi" },
             { name: "Struktur Organisasi", href: "/tentang-kami/struktur-organisasi" },
+            { name: "Profil Guru", href: "/tentang-kami/profil-guru" },
             { name: "Akreditasi", href: "/tentang-kami/akreditasi" },
           ]
         },
@@ -57,21 +58,32 @@ export function Header() {
       icon: Book,
       dropdownGroups: [
         {
-          title: "Akademik",
+          title: "Program",
           items: [
-            { name: "Profil Jurusan", href: "/program/jurusan" },
-            { name: "Program TS 2.1", href: "/program/program-ts" },
-            { name: "ICP International Class Program", href: "/program/icp" },
-            { name: "Program Pendidikan CCP", href: "/program/ccp" },
-            { name: "Trial Class", href: "/program/trial-class" }
+            { name: "Program Umum", href: "/program/program-umum" },
+            { name: "Program Konsentrasi Keahlian", href: "/program/profil-konsentrasi-keahlian" },
+            { name: "Persiapan Kelulusan", href: "/program/persiapan-kelulusan" },
+            { name: "Program ICP", href: "/program/icp" },
+            { name: "Program Reguler", href: "/program/reguler" },
+            { name: "Karir & Prospek Kerja", href: "/karir" },
           ]
         },
         {
-          title: "Pengembangan Diri",
+          title: "Program Unggulan",
           items: [
-            { name: "Ekstrakurikuler", href: "/program/ekstrakurikuler" },
+            { name: "Coding Class Program (CCP)", href: "/program/ccp" },
+            { name: "Teknologi Siber 2.1", href: "/program/program-ts" },
+            { name: "Trial Class", href: "/trial-class" },
           ]
         }
+      ],
+    },
+    {
+      name: "Kehidupan Siswa",
+      icon: Compass,
+      dropdown: [
+        { name: "Ekstrakurikuler", href: "/program/ekstrakurikuler" },
+        { name: "Organisasi", href: "/organisasi" },
       ],
     },
     {
@@ -91,14 +103,16 @@ export function Header() {
           items: [
             { name: "Berita", href: "/informasi/berita" },
             { name: "Pengumuman Kelulusan", href: "/informasi/pengumuman-kelulusan" },
+            { name: "Cek Status Kelulusan", href: "/informasi/cek-status-kelulusan" },
+            { name: "Info Lomba", href: "/informasi/lomba" },
             { name: "Produk Telkom", href: "/informasi/produk" },
           ]
         },
         {
-          title: "Layanan Siswa",
+          title: "Layanan",
           items: [
             { name: "Penerapan K3", href: "/informasi/penerapan-k3" },
-            { name: "Akomodasi", href: "/informasi/akomodasi" },
+            { name: "Akomodasi", href: "/akomodasi" },
           ]
         }
       ],
@@ -109,7 +123,6 @@ export function Header() {
       dropdown: [
         { name: "FAQ", href: "/hubungi-kami/faq" },
         { name: "Kotak Pertanyaan", href: "/hubungi-kami/kotak-pertanyaan" },
-
       ],
     },
   ];
@@ -119,7 +132,7 @@ export function Header() {
       className={`sticky top-0 z-60 w-full transition-all duration-300 ease-in-out ${isScrolled ? "bg-white shadow-sm xl:bg-transparent xl:shadow-none" : ""
         }`}
     >
-      <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between px-4 py-4 md:px-8 xl:py-6">
+      <div className="mx-auto flex w-full  items-center justify-between px-4 py-4 md:px-8 xl:py-6">
         {/* Left: Logo */}
         <Link
           href="/"
@@ -201,11 +214,11 @@ export function Header() {
             ))}
           </ul>
           <Link
-            href="/ppdb"
+            href="/spmb"
             className="ml-2 hidden md:inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-accent px-4 py-1.5 text-[13.5px] font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-accent-hover group"
 
           >
-            Daftar PPDB
+            Daftar SPMB
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5" />
           </Link>
         </nav>
@@ -366,11 +379,11 @@ export function Header() {
                 <Download className="h-4 w-4" />
               </Link>
               <Link
-                href="/ppdb"
+                href="/spmb"
                 className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-accent px-4 py-[14px] font-bold text-white transition-colors hover:bg-accent-hover"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Daftar PPDB 2026
+                Daftar SPMB 2026
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

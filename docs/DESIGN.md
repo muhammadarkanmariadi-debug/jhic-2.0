@@ -13,12 +13,20 @@ This document captures **design context at the product/brand level** — the *wh
 ## 2. Global Design Principles
 
 1. **Dynamic & aesthetic ("wow factor").** Modern interface with a strong first impression; micro-animations and glassmorphism-style surfaces keep visitors engaged.
-2. **All-in-one gateway.** News portal, major profiles, aptitude test, and admission (SPMB) funnel into a single, coherent experience.
+2. **All-in-one gateway.** News portal, major profiles (Konsentrasi Keahlian), aptitude test, and admission (SPMB) funnel into a single, coherent experience.
 3. **CMS-driven.** Content is managed by school staff (Humas), so the visual system must remain consistent even as content changes.
 4. **Parent-friendly.** Information (e.g. alumni distribution, living-cost guides) must be clear and trustworthy, not just visually flashy.
 5. **Consistent and token-based.** Design is expressed through the centralized token system in `globals.css`, never ad-hoc values.
 
-## 3. Visual Language at a Glance
+## 3. Specific Feature Design Constraints (v2)
+
+To ensure long-term maintainability and alignment with the curriculum team's feedback, the following feature-level constraints must be followed:
+
+- **Profil Guru (MokletGuru)**: Must be rendered as **individual profile cards**, taking layout reference from https://smktelkom-sda.sch.id/profil-guru. Do not render as an org chart. Grouping/filtering (productive vs non-productive/staff, hierarchical level) is handled via the position/category fields, not via chart structure.
+- **Program ICP & Reguler**: Both pages must use the **exact same UI template/component**. The layout for the Program Description, Learning Journey, and Profil Lulusan must be identical. Only the data passed to the component differs (with ICP getting an additional block for full-stack+mobile expertise). This is to ensure consistent branding and single-point maintenance.
+- **Konsentrasi Keahlian Pages**: Sections for Partner Sinkronisasi Kurikulum, Expertise, and Sertifikasi must be seamlessly integrated into the specific `Konsentrasi Keahlian` page layout.
+
+## 4. Visual Language at a Glance
 
 | Aspect | Direction |
 |---|---|
@@ -31,7 +39,7 @@ This document captures **design context at the product/brand level** — the *wh
 
 > Full token tables (colors, type scale, spacing, radius, shadows, containers, animation) are in `jhic2.0-frontend/docs/DESIGN.md` §Tokens.
 
-## 4. Where Design Knowledge Lives
+## 5. Where Design Knowledge Lives
 
 | Concern | Location |
 |---|---|
@@ -40,7 +48,7 @@ This document captures **design context at the product/brand level** — the *wh
 | Public assets (logos, images) | `jhic2.0-frontend/public/` |
 | Feature/product design intent | `PRD.md` |
 
-## 5. Design Constraints & Guidance for Agents
+## 6. Design Constraints & Guidance for Agents
 
 - **Never hardcode colors/shadows** — use the tokens from `globals.css` (e.g. `accent`, `surface`, `shadow-md`).
 - **Reuse existing shared components** in `src/shared/ui/` instead of re-implementing patterns.

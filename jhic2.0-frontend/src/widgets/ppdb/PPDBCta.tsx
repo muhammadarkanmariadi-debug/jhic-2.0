@@ -18,7 +18,7 @@ export function PPDBCta() {
           Langkah pertamamu dimulai di sini.
         </h2>
         <p className="text-white/90 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto">
-          Akses portal PPDB sekarang untuk mengisi formulir dan melengkapi berkas pendaftaranmu.
+          Akses portal SPMB sekarang untuk mengisi formulir dan melengkapi berkas pendaftaranmu.
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -27,7 +27,7 @@ export function PPDBCta() {
             target="_blank"
             className="w-full sm:w-auto bg-white hover:bg-gray-50 text-accent font-extrabold px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2 text-lg"
           >
-            Akses Portal PPDB
+            Akses Portal SPMB
             <ArrowRight className="w-5 h-5" />
           </Link>
           <Link 

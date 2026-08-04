@@ -14,7 +14,7 @@ export default function TesMinatBakatPage() {
 
   const breadcrumbItems = [
     { label: "Beranda", href: "/" },
-    { label: "Program", href: "/program/jurusan" },
+    { label: "Program", href: "/program/profil-konsentrasi-keahlian" },
     { label: "Tes Minat & Bakat" },
   ];
 
@@ -147,10 +147,10 @@ export default function TesMinatBakatPage() {
 
                 <div className="flex flex-col sm:flex-row gap-4 items-center">
                   <Link 
-                    href={`/program/jurusan`} 
+                    href={`/program/profil-konsentrasi-keahlian`} 
                     className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 bg-accent text-white py-3.5 px-6 rounded-xl font-bold hover:bg-accent-hover transition-colors shadow-[0_8px_20px_rgba(215,25,32,0.26)] hover:shadow-accent"
                   >
-                    Lihat Profil Jurusan
+                    Lihat Profil Konsentrasi
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                   <button 

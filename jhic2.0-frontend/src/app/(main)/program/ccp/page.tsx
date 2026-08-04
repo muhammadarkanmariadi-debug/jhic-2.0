@@ -77,7 +77,7 @@ export default function CCPPage() {
             <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-10">
                Belajar langsung dari praktisi, bangun portofoliomu, dan melangkah pasti menuju masa depan.
             </p>
-            <a href="/ppdb" className="inline-flex items-center gap-2 bg-white text-accent hover:bg-surface-alt font-extrabold px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+            <a href="/spmb" className="inline-flex items-center gap-2 bg-white text-accent hover:bg-surface-alt font-extrabold px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
                Gabung CCP Sekarang
             </a>
          </div>

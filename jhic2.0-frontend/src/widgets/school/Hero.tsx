@@ -12,7 +12,7 @@ export function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentWord((prev) => (prev + 1) % words.length);
-    }, 1500);
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 
@@ -35,7 +35,7 @@ export function Hero() {
         {/* Text Content */}
         <div className="relative z-10 flex max-w-[650px] flex-col items-center text-center xl:items-start xl:text-left">
           <span className="mb-6 flex w-fit items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-3 py-1.5 text-sm font-bold text-accent">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse"></span>
+         
             Terakreditasi A &middot; ISO 9001:2015
           </span>
           <p className="mb-2 text-lg font-bold tracking-tight text-gray-800 md:text-xl">
@@ -60,10 +60,10 @@ export function Hero() {
           </p>
           <div className="flex w-full flex-col items-center gap-4 sm:flex-row xl:justify-start">
             <Link
-              href="/ppdb"
+              href="/spmb"
               className="flex h-14 w-full items-center justify-center gap-2 rounded-xl bg-accent px-8 text-[15.5px] font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-accent sm:w-auto"
             >
-              Daftar PPDB 2026
+              Daftar SPMB 2026
               <ArrowRight className="h-5 w-5" />
             </Link>
             <Link
@@ -80,28 +80,7 @@ export function Hero() {
         <div className="relative z-10 flex w-full max-w-[500px] items-center justify-center xl:max-w-[600px]">
           {/* Glow Effect */}
           <div className="absolute left-1/2 top-1/2 -z-10 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-[80px] md:h-[400px] md:w-[400px]"></div>
-          
-          {/* Floating Card Left */}
-          <div className="absolute -left-4 top-10 flex animate-bounce items-center gap-3 rounded-2xl border border-white/50 bg-white/70 px-4 py-3 shadow-lg backdrop-blur-md md:-left-10" style={{ animationDuration: "3s" }}>
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-white">
-              <Trophy className="h-5 w-5" />
-            </span>
-            <div>
-              <div className="text-sm font-extrabold text-text-main">Juara 1</div>
-              <div className="text-xs font-bold text-gray-500">LKS Nasional</div>
-            </div>
-          </div>
-
-          {/* Floating Card Right */}
-          <div className="absolute -right-4 bottom-10 flex animate-bounce items-center gap-3 rounded-2xl border border-white/50 bg-white/70 px-4 py-3 shadow-lg backdrop-blur-md md:-right-10" style={{ animationDuration: "4s", animationDelay: "1s" }}>
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-white">
-              <Code className="h-5 w-5" />
-            </span>
-            <div>
-              <div className="text-sm font-extrabold text-text-main">3 Program</div>
-              <div className="text-xs font-bold text-gray-500">Berbasis Industri</div>
-            </div>
-          </div>
+      
 
           <Image
             src="https://www.smktelkom-mlg.sch.id/assets/frontend/images/image_depan_new.png"

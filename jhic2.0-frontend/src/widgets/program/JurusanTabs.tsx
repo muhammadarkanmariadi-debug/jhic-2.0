@@ -1,58 +1,18 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import { Code2, Server, Gamepad2, Database, GitMerge, Layout, Network, DatabaseBackup, Gamepad, Paintbrush, FileCode2 } from 'lucide-react';
+import { Code2, Server, Database, GitMerge, Layout, Network, DatabaseBackup, Gamepad, Paintbrush, FileCode2 } from 'lucide-react';
 import { programDetails } from '@/services/dummyData';
 import { AutoCarousel } from '@/shared/ui/AutoCarousel';
+import { ProgramCode } from '@/shared/types';
 
-export function JurusanTabs() {
-  const [activeTab, setActiveTab] = useState<'rpl' | 'tkj' | 'pg'>('rpl');
-
+export function JurusanTabs({ active }: { active: ProgramCode }) {
   return (
     <div className="w-full">
-      {/* Tab Navigation */}
-      <div className="flex justify-center w-full mb-16">
-        <div className="flex gap-1 bg-white border border-border-light rounded-full p-1 shadow-sm">
-          <button
-            onClick={() => setActiveTab('rpl')}
-            className={`px-8 py-2.5 rounded-full text-[15px] font-bold flex items-center gap-2 transition-all ${
-              activeTab === 'rpl'
-                ? 'bg-accent text-white shadow-md'
-                : 'text-text-muted hover:bg-surface-alt'
-            }`}
-          >
-            <Code2 className="w-4 h-4" />
-            RPL
-          </button>
-          <button
-            onClick={() => setActiveTab('tkj')}
-            className={`px-8 py-2.5 rounded-full text-[15px] font-bold flex items-center gap-2 transition-all ${
-              activeTab === 'tkj'
-                ? 'bg-accent text-white shadow-md'
-                : 'text-text-muted hover:bg-surface-alt'
-            }`}
-          >
-            <Server className="w-4 h-4" />
-            TKJ
-          </button>
-          <button
-            onClick={() => setActiveTab('pg')}
-            className={`px-8 py-2.5 rounded-full text-[15px] font-bold flex items-center gap-2 transition-all ${
-              activeTab === 'pg'
-                ? 'bg-accent text-white shadow-md'
-                : 'text-text-muted hover:bg-surface-alt'
-            }`}
-          >
-            <Gamepad2 className="w-4 h-4" />
-            PG
-          </button>
-        </div>
-      </div>
-
       <div className="relative">
         {/* RPL Pane */}
-        {activeTab === 'rpl' && (
+        {active === 'RPL' && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
             {/* Hero */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
@@ -134,7 +94,7 @@ export function JurusanTabs() {
         )}
 
         {/* TKJ Pane */}
-        {activeTab === 'tkj' && (
+        {active === 'TKJ' && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
              {/* Hero */}
              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
@@ -214,7 +174,7 @@ export function JurusanTabs() {
         )}
 
         {/* PG Pane */}
-        {activeTab === 'pg' && (
+        {active === 'PG' && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
              {/* Hero */}
              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">

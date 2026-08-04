@@ -12,15 +12,15 @@ export function CTA() {
             </h2>
             <p className="mx-auto mt-5 max-w-[560px] text-[16px] leading-[1.7] text-gray-600 md:text-[18px]">
               Bergabunglah dengan ribuan Mokleter dari seluruh Indonesia.<br />
-              Pendaftaran PPDB 2026 telah dibuka.
+              Pendaftaran SPMB 2026 telah dibuka.
             </p>
 
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Link
-                href="/ppdb"
+                href="/spmb"
                 className="flex items-center gap-2 rounded-full bg-accent px-8 py-3.5 text-[16px] font-bold text-white shadow-[0_8px_20px_rgba(200,16,46,0.2)] transition-all hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-accent"
               >
-                Daftar PPDB 2026
+                Daftar SPMB 2026
                 <ArrowRight className="h-5 w-5" />
               </Link>
               <Link

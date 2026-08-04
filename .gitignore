@@ -12,6 +12,9 @@ out/
 build/
 dist/
 
+# Prisma generated client (regenerated via `npx prisma generate`)
+jhic2.0-backend/src/generated/
+
 # Misc
 .DS_Store
 *.pem

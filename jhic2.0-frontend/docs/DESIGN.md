@@ -106,7 +106,7 @@ The **specific, detailed** design knowledge for the frontend. The source of trut
 ## 4. Widget Patterns (`src/widgets/`)
 
 - **Layout:** `Header` (sticky, dropdown menus, scroll state, mobile menu) + `Footer` (4-column, contact/social).
-- **Domain blocks:** `school/` (Hero, Features, Headmaster, FasilitasGrid, FAQAccordion), `program/` (Programs, JurusanTabs, EkskulGrid, PrestasiGrid, GraduationCheck), `news/` (News, NewsGrid, NewsHighlightCarousel), `alumni/` (AlumniDistribution, Testimonials, TestimonialMarquee), `about/` (CTA, Partners, K3Table), `contact/` (ContactFormSection, ServiceDeskGrid), `ppdb/` (PPDBCta, PPDBTimeline, PPDBPrestasi).
+- **Domain blocks:** `school/` (Hero, Features, Headmaster, FasilitasGrid, FAQAccordion), `program/` (Programs, JurusanTabs, EkskulGrid, PrestasiGrid, GraduationCheck, CurriculumSyncSections, FeaturedPrograms), `news/` (News, NewsGrid, NewsHighlightCarousel), `alumni/` (AlumniDistribution, Testimonials, TestimonialMarquee), `about/` (CTA, Partners, K3Table), `contact/` (ContactFormSection, ServiceDeskGrid), `ppdb/` (PPDBCta, PPDBTimeline, PPDBPrestasi), `akomodasi/` (LivingCostCalculator). *Planned (JHI-16):* `admin/` (TabList, TabForm, SectionEditor — structured block editor).
 
 ## 5. Interaction & Motion Conventions
 

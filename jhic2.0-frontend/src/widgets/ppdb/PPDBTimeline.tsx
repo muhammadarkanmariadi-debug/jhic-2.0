@@ -8,7 +8,7 @@ export function PPDBTimeline() {
     {
       id: 1,
       title: 'Registrasi Akun',
-      description: 'Buat akun di portal PPDB, siapkan email aktif dan nomor NISN untuk pendataan awal.',
+      description: 'Buat akun di portal SPMB, siapkan email aktif dan nomor NISN untuk pendataan awal.',
       icon: <UserPlus className="w-6 h-6" />
     },
     {

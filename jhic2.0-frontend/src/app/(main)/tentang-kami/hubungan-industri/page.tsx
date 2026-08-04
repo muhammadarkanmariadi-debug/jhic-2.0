@@ -2,10 +2,11 @@
 
 import React, { useState } from 'react';
 import { Card } from '@/shared/ui/Card';
-import { Building2, MapPin, Layers, ExternalLink } from 'lucide-react';
+import { Building2, MapPin, Layers, ExternalLink, Briefcase, GraduationCap, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { PageHeader } from '@/shared/ui/PageHeader';
 import { Partners } from '@/widgets/about/Partners';
+import Link from 'next/link';
 
 export default function HubunganIndustri() {
   const breadcrumbItems = [
@@ -86,7 +87,56 @@ export default function HubunganIndustri() {
         description="Kemitraan strategis dengan perusahaan teknologi untuk memastikan lulusan kami siap kerja dan terserap di industri."
       />
 
-      <Partners />
+      {/* Hub sub-menu: Direktori Mitra / Loker / Beasiswa */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="container max-w-[1200px] mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Link
+              href="#direktori"
+              className="group rounded-2xl border border-border-light bg-white p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex items-center gap-5"
+            >
+              <div className="w-14 h-14 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-white transition-colors">
+                <Building2 className="w-7 h-7" />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-extrabold text-text-main">Direktori Mitra</h3>
+                <p className="text-sm text-text-muted">Jelajahi mitra industri kami.</p>
+              </div>
+              <ArrowRight className="w-5 h-5 text-accent" />
+            </Link>
+            <Link
+              href="/loker"
+              className="group rounded-2xl border border-border-light bg-white p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex items-center gap-5"
+            >
+              <div className="w-14 h-14 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-white transition-colors">
+                <Briefcase className="w-7 h-7" />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-extrabold text-text-main">Info Lowongan Kerja</h3>
+                <p className="text-sm text-text-muted">Peluang karier dari mitra industri.</p>
+              </div>
+              <ArrowRight className="w-5 h-5 text-accent" />
+            </Link>
+            <Link
+              href="/beasiswa"
+              className="group rounded-2xl border border-border-light bg-white p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex items-center gap-5"
+            >
+              <div className="w-14 h-14 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-white transition-colors">
+                <GraduationCap className="w-7 h-7" />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-extrabold text-text-main">Info Beasiswa</h3>
+                <p className="text-sm text-text-muted">Beasiswa untuk siswa berprestasi.</p>
+              </div>
+              <ArrowRight className="w-5 h-5 text-accent" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section id="direktori" className="scroll-mt-20">
+        <Partners />
+      </section>
 
       <section className="py-16 md:py-24 bg-surface">
          <div className="container max-w-[1200px] mx-auto px-4 md:px-6">

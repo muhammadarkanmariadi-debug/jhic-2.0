@@ -21,35 +21,35 @@ export const programDetails = {
         title: "Software Engineer",
         description: "Membangun sistem perangkat lunak yang kompleks, scalable, dan efisien untuk kebutuhan bisnis dan industri.",
         icon: Code2,
-        iconBgClass: "bg-red-500",
+        iconBgClass: "bg-accent",
         iconColorClass: "text-white"
       },
       {
         title: "Web Developer",
         description: "Merancang dan mengembangkan situs web atau aplikasi web yang responsif dan interaktif.",
         icon: Layout,
-        iconBgClass: "bg-red-500",
+        iconBgClass: "bg-accent",
         iconColorClass: "text-white"
       },
       {
         title: "Mobile Developer",
         description: "Menciptakan aplikasi mobile inovatif untuk platform Android maupun iOS.",
         icon: Smartphone,
-        iconBgClass: "bg-red-500",
+        iconBgClass: "bg-accent",
         iconColorClass: "text-white"
       },
       {
         title: "UI/UX Designer",
         description: "Mendesain antarmuka pengguna yang estetis dan pengalaman pengguna yang nyaman.",
         icon: Palette,
-        iconBgClass: "bg-red-500",
+        iconBgClass: "bg-accent",
         iconColorClass: "text-white"
       },
       {
         title: "Systems Analyst",
         description: "Menganalisis kebutuhan sistem bisnis dan merancang solusi IT yang tepat sasaran.",
         icon: Search,
-        iconBgClass: "bg-red-500",
+        iconBgClass: "bg-accent",
         iconColorClass: "text-white"
       }
     ]
@@ -73,35 +73,35 @@ export const programDetails = {
         title: "Network Engineer",
         description: "Mengelola perangkat jaringan, instalasi infrastruktur, dan mengatasi permasalahan (*troubleshooting*) konektivitas.",
         icon: Network,
-        iconBgClass: "bg-red-500",
+        iconBgClass: "bg-accent",
         iconColorClass: "text-white"
       },
       {
         title: "Cloud Engineer",
         description: "Membangun dan memelihara infrastruktur server berbasis cloud (seperti AWS atau Google Cloud).",
         icon: Cloud,
-        iconBgClass: "bg-red-500",
+        iconBgClass: "bg-accent",
         iconColorClass: "text-white"
       },
       {
         title: "DevOps Engineer",
         description: "Mengotomatisasi proses deployment perangkat lunak dan mengelola infrastruktur TI secara efisien.",
         icon: GitMerge,
-        iconBgClass: "bg-red-500",
+        iconBgClass: "bg-accent",
         iconColorClass: "text-white"
       },
       {
         title: "Cyber Security Analyst",
         description: "Memantau dan mengamankan jaringan dari serangan siber serta menjaga integritas data.",
         icon: ShieldCheck,
-        iconBgClass: "bg-red-500",
+        iconBgClass: "bg-accent",
         iconColorClass: "text-white"
       },
       {
         title: "System Administrator",
         description: "Mengonfigurasi dan memastikan server perusahaan beroperasi dengan stabil 24/7.",
         icon: Terminal,
-        iconBgClass: "bg-red-500",
+        iconBgClass: "bg-accent",
         iconColorClass: "text-white"
       }
     ]
@@ -125,35 +125,35 @@ export const programDetails = {
         title: "Game Developer",
         description: "Menulis kode logika interaktif, menyusun pergerakan karakter, dan menyatukan elemen visual ke dalam aplikasi game jadi.",
         icon: Code2,
-        iconBgClass: "bg-red-500",
+        iconBgClass: "bg-accent",
         iconColorClass: "text-white"
       },
       {
         title: "Game Designer",
         description: "Merancang aturan bermain (gameplay mechanics), menyusun narasi, dan menciptakan skenario level.",
         icon: Gamepad,
-        iconBgClass: "bg-red-500",
+        iconBgClass: "bg-accent",
         iconColorClass: "text-white"
       },
       {
         title: "Game Artist",
         description: "Menciptakan konsep visual, gambar 2D, atau antarmuka yang menarik untuk lingkungan permainan.",
         icon: Palette,
-        iconBgClass: "bg-red-500",
+        iconBgClass: "bg-accent",
         iconColorClass: "text-white"
       },
       {
         title: "3D Modeler",
         description: "Membuat aset visual tiga dimensi mulai dari karakter, lingkungan, properti, hingga memberikan tekstur.",
         icon: Paintbrush,
-        iconBgClass: "bg-red-500",
+        iconBgClass: "bg-accent",
         iconColorClass: "text-white"
       },
       {
         title: "QA Tester",
         description: "Memainkan game untuk mencari kutu (bugs), memverifikasi alur, dan memastikan kualitas produk akhir.",
         icon: Bug,
-        iconBgClass: "bg-red-500",
+        iconBgClass: "bg-accent",
         iconColorClass: "text-white"
       }
     ]

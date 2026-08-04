@@ -2,6 +2,7 @@
 **Education Gateway Information System — SMK Telkom Malang**
 
 > This document revises the v1.0 feature structure based on validation/feedback results (curriculum, prototype review, hubin, PPDB→SPMB, chatbot). **No legacy features are removed** — everything is carried over, partially restructured/strengthened, with new modules added per findings.
+> **Note on Terminology**: This version uses "Konsentrasi Keahlian" (and "Profil Konsentrasi Keahlian") replacing the former terms "Jurusan" or "Major", adhering to the official hierarchy: Program Keahlian → Kompetensi Keahlian → Konsentrasi Keahlian.
 
 ---
 
@@ -12,25 +13,26 @@
 | Curriculum data exists but is not communicated | Content is "buried", no dedicated page | New module **MokletKurikulum** |
 | Curriculum info is out of date | No sync/versioning mechanism | Versioning system + Curriculum Admin role |
 | Prototype feedback: Pak Yniko's career site, major timelines, career & salary expectations | Study programs are not explained down to career outcomes | New module **MokletKarir** (3 sub-features) |
-| Hubin: competitions, industry, job vacancies, scholarships | v1 "Hubungan Industri" module is only a partner directory, narrow | Module **MokletHubin** expanded to 4 sub-features |
+| Hubin: competitions, industry, job vacancies, scholarships | v1 "Hubungan Industri" module is only a partner directory, narrow | Module **MokletHubin** expanded |
 | PPDB needs re-evaluation | The old registration flow may not be relevant to the rebuild | Simplified into a **landing page** + renamed **MokletSPMB** |
-| Parents need access | ~~Parent portal~~ — registration & tracking lives in the foundation's (yayasan) system, not this website | **Cancelled** (see note §3.7) |
+| Parents need access | ~~Parent portal~~ — registration & tracking lives in the foundation's (yayasan) system, not this website | **Cancelled** (see note §3.9) |
 | Need a feedback loop | No structured way to collect user feedback | New feature **MokletUlasan** |
 | Chatbot | No fast automated response service yet | New feature **MokletBot** |
 | Unique feature names may disrupt navigation | `Moklet[Nama]` is not self-explanatory for casual visitors | Split into 2 layers: **Internal Name** vs **Navigation Label (UI)** — see §1 |
+| Structural flattening required | Some menus are too nested and hard to maintain | Restructured "Program" to flat siblings; separated Information, Accommodation, Organizations, etc. |
 
 ---
 
 ## 1. Internal Name vs Navigation Label (UI) Mapping
 
-Principle: `Moklet[Nama]` stays as the **internal name** (documentation, code, SIGAP ecosystem branding), but is **not** shown verbatim in the navigation menu. Visitors see descriptive labels in plain language, so they don't have to "learn" internal terms first to understand menu contents.
+Principle: `Moklet[Nama]` stays as the **internal name** (documentation, code, SIGAP ecosystem branding), but is **not** shown verbatim in the navigation menu. Visitors see plain language labels.
 
 | Internal Name (dev/docs) | Navigation / UI Label (seen by visitors) |
 |---|---|
 | MokletKurikulum | Kurikulum (Curriculum) |
 | MokletKarir | Karir & Prospek Kerja (Careers & Job Prospects) |
-| MokletTimeline | Timeline Belajar (Learning Timeline) — sub-section of major pages |
-| MokletProspek | Prospek Karier & Gaji (Career Prospects & Salary) — sub-section of major pages |
+| MokletTimeline | Timeline Belajar (Learning Timeline) |
+| MokletProspek | Prospek Karier & Gaji (Career Prospects & Salary) |
 | MokletHubin | Hubungan Industri (Industry Relations) |
 | MokletLomba | Info Lomba (Competition Info) |
 | MokletLoker | Info Lowongan Kerja (Job Vacancies) |
@@ -39,8 +41,6 @@ Principle: `Moklet[Nama]` stays as the **internal name** (documentation, code, S
 | MokletBot | Chat / Tanya Cepat (Chat / Quick Questions) |
 | MokletUlasan | Beri Masukan / Feedback (Give Feedback) |
 
-> "Moklet"/"SIGAP" branding can still be shown to the public separately — e.g. in the footer ("Powered by Moklet SIGAP") or on an "About the System" page — not as per-item menu text.
-
 ---
 
 ## 2. Sitemap & Navigation v2.0
@@ -48,102 +48,90 @@ Principle: `Moklet[Nama]` stays as the **internal name** (documentation, code, S
 
 - **Beranda (Home)**
 - **Tentang Kami (About Us)**
-  - Profil & Sejarah, Visi & Misi, Struktur Organisasi, Akreditasi, Fasilitas, Prestasi, Learning Culture
-- **Program & Kurikulum** *(combined, strengthened)*
-  - Jurusan (major profiles + "Karir & Prospek Kerja" [MokletKarir]: learning timeline, expertise, career prospects, salary ranges)
-  - "Kurikulum" [MokletKurikulum] (active curriculum per major, version & academic year)
-  - Ekstrakurikuler, Program TS, ICP, CCP, Trial Class
+  - Profil & Sejarah, Visi & Misi, Struktur Organisasi, Profil Guru, Akreditasi, Fasilitas, Prestasi, Learning Culture
+- **Program**
+  - Profil Konsentrasi Keahlian (formerly Jurusan)
+  - Program ICP
+  - Program Reguler
+  - Program Kokurikuler (Dynamic name, editable per year)
+  - Program Sertifikasi
 - **Hubungan Industri** [MokletHubin]
   - Direktori Mitra Industri (Industry Partner Directory)
-  - "Info Lomba" [MokletLomba]
   - "Info Lowongan Kerja" [MokletLoker]
   - "Info Beasiswa" [MokletBeasiswa]
+- **Ekstrakurikuler**
+  - Daftar Ekstrakurikuler
+- **Organisasi**
+  - Daftar Sub-organisasi & CTA ke Moklet Org
 - **Alumni**
   - Profil Sebaran (Distribution Profile), Testimoni
 - **Informasi (Information)**
-  - Berita, Pengumuman Kelulusan, Penerapan K3, Akomodasi
+  - Berita, Pengumuman Kelulusan, Cek Status Kelulusan, Brosur/Dokumen Unduhan, Info Lomba [MokletLomba]
+- **Akomodasi (Accommodation)**
+  - Rekomendasi Kos, Tempat Makan/Catering, Kalkulasi Biaya Hidup
+- **Trial Class**
+  - Hubungan ke Portofolio Karya Siswa
 - **Hubungi Kami (Contact Us)**
-  - FAQ, Kotak Pertanyaan, Service Desk, "Chat / Tanya Cepat" [MokletBot]
-  - "Beri Masukan" [MokletUlasan]
+  - FAQ, Kotak Pertanyaan, Service Desk, "Chat / Tanya Cepat" [MokletBot], "Beri Masukan" [MokletUlasan]
 - **SPMB** [MokletSPMB] *(formerly PPDB)*
-  - Landing page: Info Gelombang (Batch Info), Alur & Syarat Pendaftaran (Flow & Requirements)
-  - CTA → redirect to the Foundation's official registration portal
+  - Landing page & CTA redirect
 
 ---
 
 ## 3. Feature Detail per Module
 
-### 3.1 Public Information Portal *(existing, kept)*
-- Program & Major Catalog
-- Extracurricular Catalog
-- Facilities & Achievements Showcase
-- Industry Relations Directory
+### 3.1 Profil Guru & Staf (MokletGuru)
+- **Display**: Individual profile cards, not an org chart. Layout takes reference from https://smktelkom-sda.sch.id/profil-guru.
+- **Categorization**: Separates productive teachers from non-productive/staff, and hierarchical levels (Principal, VP/Waka, standard teachers).
+- **Maintenance**: Updateable by division admins (RBAC). Position field controls grouping/sorting within the profile card grid.
 
-### 3.2 MokletKurikulum *(new — UI label: "Kurikulum")*
-**Problem addressed:** curriculum data exists internally but is not communicated publicly, and the website version is often outdated.
-- Curriculum page per major (subject structure, lesson hours, vocational competencies)
-- **Curriculum versioning**: active academic-year/edition label + last update date
-- Dedicated admin panel (role **Admin Kurikulum**) so content updates don't depend on developers — website info always in sync with official curriculum documents
-- (Optional phase 2) Archive of previous curriculum versions for transparency
+### 3.2 Profil Konsentrasi Keahlian & MokletKarir
+- **Partner Sinkronisasi Kurikulum**: Tied to the specific academic year for versioning. Used for curriculum sync, separate from general recruitment partners.
+- **Expertise & Sertifikasi**: Defined and CRUD-able per Konsentrasi Keahlian.
+- **MokletTimeline & MokletProspek**: Sub-features explaining the learning journey and career outcomes.
 
-### 3.3 MokletKarir *(new — UI label: "Karir & Prospek Kerja")*
-**Problem addressed:** prospective students/parents don't know what a major will "become" — they need a connection to the real working world.
+### 3.3 Program Pages (ICP vs Reguler vs Kokurikuler vs Sertifikasi)
+- **ICP and Reguler Templates**: Both use the **exact same UI template component** consisting of Program Description, Learning Journey (Grades 10/11/12), and Alumni Profile (Profil Lulusan).
+  - *Differences*: ICP includes an additional section rendering all expertise (full stack + mobile) and international cooperation details. Reguler explicitly shows choice of 1 expertise.
+- **Kokurikuler**: The name field is editable by admins as it changes yearly (e.g., formerly P5 / texperience).
+- **Sertifikasi**: Tailored for students aiming for abroad work/study (vocational + language certification).
+- **Program Unggulan**: 
+  - **CCP**: Exists as a standalone page.
+  - **TS 2.1**: `[BLOCKED]` - Waiting for confirmation whether this remains a standalone page or is split into expertise sections.
 
-| Sub-feature (internal name) | UI Label | Description |
-|---|---|---|
-| MokletTimeline | Timeline Belajar | Per-major learning timeline (roadmap per semester/grade: what material is learned when) |
-| MokletProspek | Prospek Karier & Gaji | Explanation of the expertise gained, possible career paths, typical hiring target companies, and salary ranges (rates) |
-| Career Portal Integration | (link/button on major pages, no special label) | Integration with Pak Yniko's career website (via official link or API if available) as a reference for further vacancies/careers |
+### 3.4 MokletKurikulum *(UI label: "Kurikulum")*
+- Curriculum page per Konsentrasi Keahlian with versioning (academic year).
+- Admin Kurikulum role manages content.
 
-### 3.4 MokletHubin *(expansion of v1 "Direktori Hubungan Industri" — UI label: "Hubungan Industri")*
-**Problem addressed:** v1 hubin only showed a partner list; feedback asked for broader coverage.
+### 3.5 MokletHubin *(UI label: "Hubungan Industri")*
+- Includes Industry Partner Directory, Job Vacancies, and Scholarships. (Note: Info Lomba is moved to Information).
 
-| Sub-feature (internal name) | UI Label | Description |
-|---|---|---|
-| — | Direktori Industri | Industry partner list & relations (existing, retained) |
-| MokletLomba | Info Lomba | Listing of relevant competitions for students (internal & external) |
-| MokletLoker | Info Lowongan Kerja | Job vacancy board from industry partners, filterable per major |
-| MokletBeasiswa | Info Beasiswa | Listing of scholarship info (from school, government, or industry partners) |
+### 3.6 Informasi & Akomodasi (New Standalone Menus)
+- **Informasi**: Operational details decoupled from the Program menu. Includes News, Graduation Announcements, Pass Status Check, Brochures, and Competition Info (Info Lomba).
+- **Akomodasi**: Helps prospective students map out living costs with Kos recommendations, food spots, and an estimated cost calculator.
 
-### 3.5 News & Announcement Content Management *(existing, kept)*
-- News Articles
-- Graduation Announcements
-- K3 & Accommodation Management
+### 3.7 Ekstrakurikuler & Organisasi
+- **Ekstrakurikuler**: Purely lists extracurricular activities. (Former Moklet Org CTA has been removed from here).
+- **Organisasi**: Details student organizations and explicitly hosts the CTA redirecting to the external Moklet Org portal.
 
-### 3.6 Alumni Module *(existing, kept)*
-- Alumni Profile & Distribution (with analytic charts)
-- Testimonials
+### 3.8 Alumni & Trial Class
+- **Alumni**: Distribution profiles and testimonials (update planned for testimonials).
+- **Trial Class**: Standalone menu connected to the student portfolio mix-pool. 
 
-### 3.7 MokletSPMB *(rebrand from PPDB + simplified into a landing page — UI label: "SPMB")*
-**Problem addressed:** the term PPDB is replaced with SPMB; the registration flow was re-evaluated — actual registration (form, status tracking, etc.) is already handled by a separate system owned by the **Foundation (Yayasan)**, so the school website only acts as a **landing page / initial information**.
-- Batch info, flow, and registration requirements (existing, content stays — informational form, not an active form)
-- CTA/button that redirects users to the Foundation's official registration portal
-- ~~Online registration connected to backend~~ — **removed from scope**, because the registration form is not this website's responsibility
-- ~~MokletOrtu (parent portal)~~ — **cancelled**. Since registration & tracking happen in the foundation's system, parent access needs are automatically covered there, not on the school website
+### 3.9 MokletSPMB *(UI label: "SPMB")*
+- A landing page showing batch info and flow, acting as a gateway.
+- Contains a redirect CTA to the official foundation (Yayasan) registration portal.
+- Registration forms and Parent Portal (MokletOrtu) are **out of scope** here.
 
-> **Implication for §3.10 (Admin Dashboard):** the **Admin SPMB** role only manages landing page content (batch info, requirements, redirect link) — no need to manage registrant data, since that data lives in the foundation's system.
+### 3.10 Interactive Services (MokletBot & MokletUlasan)
+- **MokletBot**: 24/7 automated FAQ responder with escalation to Service Desk.
+- **MokletUlasan**: Structured feedback mechanism across touchpoints.
 
-### 3.8 Interactive Services & Support
-- Inquiry Box *(existing)*
-- Interactive FAQ *(existing)*
-- Service Desk *(existing)*
-- **MokletBot** *(new — UI label: "Chat / Tanya Cepat")*: chatbot to answer common questions (FAQ, SPMB flow, major info) automatically 24/7, with escalation to Service Desk/Admin when out of scope
-- **MokletUlasan** *(new — UI label: "Beri Masukan")*: structured feedback module — can be placed at key touchpoints (after SPMB submission, after reading an article, etc.) so the school has user satisfaction data, not just complaints via the inquiry box
-
-### 3.9 External System Integration *(existing, kept)*
-- Events & Trial Class: Mexpo.id API integration for automated Trial Class
-
-### 3.10 Admin Management System (Backend & Dashboard) *(existing, roles added)*
-- **RBAC** — existing roles: Super Admin, Admin Konten, Admin PPDB→**Admin SPMB**, Admin Support
-- **New roles:**
-  - **Admin Kurikulum** — manages MokletKurikulum content
-  - **Admin Hubin** — manages MokletLomba, MokletLoker, MokletBeasiswa
-- JWT authentication + password encryption (existing, kept)
-- WYSIWYG Content Editor (existing, kept)
-
----
-
-## 4. Implementation Notes
-- All new features follow the **Moklet[NamaUnik]** prefix as an **internal name only**, consistent with the overall **SIGAP** theme (Sistem Informasi Gerbang Pendidikan — Education Gateway Information System) — see UI label mapping in §1.
-- Modules needing further decisions before development: the form of integration with Pak Yniko's career website (link vs API), and the exact link/endpoint of the Foundation's registration portal for the **MokletSPMB** redirect.
-- Recommended MVP priority: MokletKurikulum, MokletSPMB (landing page), MokletKarir — because they directly answer the strongest validation complaints before supporting features (MokletBot, MokletUlasan, MokletHubin) are added in later phases.
+### 3.11 Admin Management System (Backend & Dashboard)
+- **RBAC Model (Role-Based Access Control)**: Divided **per division** to prevent centralized bottlenecks and unauthorized edits.
+  - Examples: Admin Kurikulum, Admin Hubin, Admin Kesiswaan (Ekstra/Organisasi), Admin Humas (Akomodasi/Informasi/Guru/Partner), Admin SPMB, Super Admin.
+  - Log changes per role (optional phase 2 audit trail).
+- JWT auth, encryption, and WYSIWYG editors remain active.
+- **Content editors:**
+  - **Structured content** (Program Umum and other curriculum content, e.g. `ProgramUmumProgram.sections`): edited via a **structured block editor** — a form per section type (paragraph, checklist, cards, tracks, steps, gallery, table, accordion, testimonials, badges, partners) with **plain-text fields**. Stored as structured JSON; no raw HTML → no sanitization surface.
+  - **Free-form HTML content** (News / Announcements): edited via a **WYSIWYG HTML editor** (`react-quill` / `tiptap`), sanitized before storing/serving (XSS).

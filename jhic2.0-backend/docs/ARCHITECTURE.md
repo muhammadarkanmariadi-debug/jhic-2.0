@@ -10,15 +10,15 @@ The **target** architecture for the Express REST API. The backend is currently a
 
 | Concern | Choice |
 |---|---|
-| Runtime | Node.js 20, CommonJS (`"type": "commonjs"`) |
+| Runtime | Node.js 22, ESM (`"type": "module"`, dev via `tsx watch`) |
 | Framework | Express **^5.2.1** |
-| ORM | Prisma **^7.9.0** + `@prisma/client` |
+| ORM | Prisma **^7.9.1** + `@prisma/adapter-mariadb` (driver adapter; MySQL/MariaDB) |
 | Auth | `jsonwebtoken` (JWT, stateless) + `bcryptjs` (hashing) |
 | CORS / env | `cors`, `dotenv` |
 | Uploads *(planned)* | `multer` |
 | Permission engine *(optional)* | `@casl/ability` |
 
-> ⚠️ `package.json` contains `"prisma-client": "^0.0.0"` — this looks like an accidental/placeholder dependency. Verify and remove before implementing.
+> **Prisma 7 notes:** the datasource `url` is configured in `prisma.config.ts` (not `schema.prisma`); the client uses the `prisma-client` generator with output to `src/generated/prisma`; `PrismaClient` is constructed with a driver adapter in `src/server.ts`.
 
 ---
 
@@ -60,16 +60,30 @@ Request → route → middleware (auth/rbac/validate) → controller → service
 ### Public (no auth)
 - `GET /api/news`, `GET /api/news/:id`
 - `GET /api/facilities`, `GET /api/achievements`
-- `GET /api/programs`, `GET /api/extracurriculars`
-- `GET /api/testimonials`, `GET /api/partners`
+- `GET /api/extracurriculars`
+- `GET /api/testimonials`
 - `GET /api/faq`, `GET /api/service-desk/status`
 - `POST /api/inquiries`
 - `POST /api/ppdb/register` → *(v2: SPMB landing, redirect to Foundation portal — no registration data)*
+- ✅ `GET /api/featured-programs` — active Program Unggulan (`src/routes/featuredPrograms.ts`)
+- ✅ `GET /api/program-umum` — active Program Umum tabs (`src/routes/programUmum.ts`)
+- ✅ `GET /api/programs` — active programs + career portal link (`src/routes/programs.ts`, JHI-06)
+- ✅ `GET /api/curriculum-versions` — active curriculum versions (filter: `programId`, `academicYear`)
+- ✅ `GET /api/partners` — industry partner directory (`src/routes/partners.ts`)
+- ✅ `GET /api/loker` — published job vacancies (filter: `programId`) (`src/routes/loker.ts`)
+- ✅ `GET /api/beasiswa` — published scholarships (filter: `programId`) (`src/routes/beasiswa.ts`)
+- ✅ `GET /api/lomba` — published competitions (`src/routes/lomba.ts`)
 
 ### Admin (JWT + RBAC)
-- `POST /api/auth/login`, `POST /api/auth/logout`, `GET /api/auth/me`
-- CRUD routes per resource, e.g. `POST/PUT/DELETE /api/admin/news`, `DELETE /api/admin/facilities/:id`
-- v2 modules: `admin/curriculum`, `admin/hubin/{lomba,loker,beasiswa}`, `admin/spmb` (landing content)
+- ✅ `POST /api/auth/register`, `POST /api/auth/login`, `POST /api/auth/logout`, `GET /api/auth/me` (`src/routes/auth.ts`, JHI-02)
+- ✅ `GET /api/featured-programs/all`, `POST/PUT/DELETE /api/featured-programs[/:id]` — **Admin Kurikulum** (`featuredProgram.manage`)
+- ✅ `GET /api/program-umum/all`, `GET /api/program-umum/:id`, `POST/PUT/DELETE /api/program-umum[/:id]` — **Admin Kurikulum** (`curriculum.manage`)
+- ✅ `POST/PUT/DELETE /api/curriculum-versions[/:id]`, `GET /api/curriculum-versions/all` — **Admin Kurikulum** (`curriculum.manage`, JHI-10)
+- ✅ `POST/PUT/DELETE /api/partners[/:id]` — **Admin Hubin** (`partner.manage`)
+- ✅ `POST/PUT/DELETE /api/loker[/:id]`, `GET /api/loker/all` — **Admin Hubin** (`loker.manage`)
+- ✅ `POST/PUT/DELETE /api/beasiswa[/:id]`, `GET /api/beasiswa/all` — **Admin Hubin** (`beasiswa.manage`)
+- ✅ `POST/PUT/DELETE /api/lomba[/:id]`, `GET /api/lomba/all` — **Admin Humas** (`lomba.manage`)
+- v2 modules: `admin/hubin/{lomba,loker,beasiswa}`, `admin/spmb` (landing content)
 
 ---
 
@@ -78,7 +92,7 @@ Request → route → middleware (auth/rbac/validate) → controller → service
 1. **Register/Login** → hash password with `bcryptjs` → issue **JWT** (stateless, in `Authorization: Bearer <token>`).
 2. **Auth middleware** verifies the JWT and attaches the user.
 3. **RBAC middleware** checks the user's role against required permissions (optionally via `@casl/ability`).
-4. **Roles** (from root `PRD.md` §3.10 / `ARCHITECTURE.md` §4): Super Admin, Admin Konten, Admin SPMB, Admin Support, Admin Kurikulum, Admin Hubin.
+4. **Roles** (from root `PRD.md` §3.11 / `ARCHITECTURE.md` §4): Super Admin, Admin Konten, Admin SPMB, Admin Support, Admin Kurikulum, Admin Hubin, Admin Humas, Admin Kesiswaan. Seeded in `prisma/seed.ts` with per-division `Role.division` + `Permission` keys.
 
 ## 5. Environment Variables
 
