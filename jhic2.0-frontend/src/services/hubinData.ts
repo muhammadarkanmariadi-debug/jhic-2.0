@@ -9,12 +9,12 @@ import {
 // unavailable; shape mirrors the Prisma models (JobVacancy, Scholarship, Competition, Partner).
 
 export const industryPartners: IndustryPartner[] = [
-  { id: "p-1", name: "PT Telkom Indonesia", logo: "https://ui-avatars.com/api/?name=T&background=F3F4F6&color=111&bold=true", url: "https://www.telkom.co.id", isFeatured: true },
-  { id: "p-2", name: "PT DOT Indonesia", logo: "https://ui-avatars.com/api/?name=D&background=F3F4F6&color=111&bold=true", url: "https://www.dot.co.id" },
-  { id: "p-3", name: "Dicoding Indonesia", logo: "https://ui-avatars.com/api/?name=DC&background=F3F4F6&color=111&bold=true", url: "https://www.dicoding.com", isFeatured: true },
-  { id: "p-4", name: "Agate International", logo: "https://ui-avatars.com/api/?name=AG&background=F3F4F6&color=111&bold=true", url: "https://agate.id" },
-  { id: "p-5", name: "Jagoan Hosting", logo: "https://ui-avatars.com/api/?name=J&background=F3F4F6&color=111&bold=true", url: "https://www.jagoanhosting.com" },
-  { id: "p-6", name: "PT Beon Intermedia", logo: "https://ui-avatars.com/api/?name=BI&background=F3F4F6&color=111&bold=true" },
+  { id: "p-1", name: "PT Telkom Indonesia", logo: "/images/avatars/avatar-6589c1a8.png", url: "https://www.telkom.co.id", isFeatured: true },
+  { id: "p-2", name: "PT DOT Indonesia", logo: "/images/avatars/avatar-e12ea859.png", url: "/images/expertise/image.jpg" },
+  { id: "p-3", name: "Dicoding Indonesia", logo: "/images/avatars/avatar-399ae43c.png", url: "https://www.dicoding.com", isFeatured: true },
+  { id: "p-4", name: "Agate International", logo: "/images/avatars/avatar-629344f9.png", url: "https://agate.id" },
+  { id: "p-5", name: "Jagoan Hosting", logo: "/images/avatars/avatar-56ed5008.png", url: "https://www.jagoanhosting.com" },
+  { id: "p-6", name: "PT Beon Intermedia", logo: "/images/avatars/avatar-c50de2d9.png" },
 ];
 
 export const lokerItems: JobVacancyItem[] = [

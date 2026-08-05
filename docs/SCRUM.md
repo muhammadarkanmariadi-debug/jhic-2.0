@@ -79,11 +79,25 @@ The development team consists of 5 developers:
 
 | Task ID | Description | Assignee | Story Points | Priority | Status |
 |---|---|---|---|---|---|
-| JHI-11 | Develop MokletBot Chatbot UI (Floating widget) | Dev 1 | 3 | Medium | To Do |
-| JHI-12 | Integrate MokletBot with backend dialog logic | Dev 2 | 5 | Medium | To Do |
-| JHI-13 | Develop MokletUlasan Feedback Form (Modal/Page) | Dev 3 | 3 | Low | To Do |
-| JHI-14 | Connect MokletUlasan to database for data persistence | Dev 4 | 2 | Low | To Do |
-| JHI-15 | E2E Testing, UI Polish, and Bug Fixing across all modules | Dev 5 | 8 | High | To Do |
+| JHI-11 | Develop MokletBot Chatbot UI (Floating widget) | Dev 1 | 3 | Medium | Done |
+| JHI-12 | Integrate MokletBot with backend dialog logic | Dev 2 | 5 | Medium | Done |
+| JHI-13 | Develop MokletUlasan Feedback Form (Modal/Page) | Dev 3 | 3 | Low | Done |
+| JHI-14 | Connect MokletUlasan to database for data persistence | Dev 4 | 2 | Low | Done |
+| JHI-15 | E2E Testing, UI Polish, and Bug Fixing across all modules | Dev 5 | 8 | High | Done |
+
+> **Sprint 3 notes:**
+> - **MokletBot** is a floating widget on all public pages (`(main)` layout); `POST /api/bot/chat` + `GET /api/bot/intents` proxied with a local keyword-fallback when the API is down.
+> - **MokletUlasan** (`/hubungi-kami/ulasan`) submits via `POST /api/feedback` (public); review via `GET /api/feedback/all` (Admin Support, `SUPPORT_REPLY`).
+> - **JHI-15 polish:** fixed all `Hero.tsx` + `Header.tsx` lint warnings (unused imports, missing effect dep, stray `process` import). Added `npm run smoke` (`scripts/smoke.mjs`) — boots the server and asserts every public endpoint returns non-404. Current run: **13/13 OK** (500 = no DB; `/api/health` = 503 graceful).
+> - **E2E pending DB:** `prisma migrate dev` + `prisma db seed` (which also seeds role/permission, Super Admin, and MokletBot intents).
+
+**Sprint 3 manual E2E checklist** (run after a DB is connected + seeded):
+- [ ] Login as Super Admin at `/login` (default `admin@smktelkom-mlg.sch.id` / `Admin123!`) → redirected to `/admin`.
+- [ ] Admin: create/edit/delete a Program Umum tab; verify it appears on `/program/program-umum`.
+- [ ] Open MokletBot on any page → ask "pendaftaran", "beasiswa", "kurikulum" → relevant answers; verify fallback message for unknown input.
+- [ ] Submit a feedback via `/hubungi-kami/ulasan` → appears in `GET /api/feedback/all` (Admin Support).
+- [ ] Verify `/loker`, `/beasiswa`, `/informasi/lomba`, `/karir` render from API data.
+- [ ] `npm run smoke` (backend) and `npm run build`+`npm run lint` (frontend) pass.
 
 ## Scrum Ceremonies
 

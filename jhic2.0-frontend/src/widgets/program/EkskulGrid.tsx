@@ -21,7 +21,7 @@ const ekskulItems: Ekskul[] = [
     title: 'Moklet Robotics',
     category: 'akademik',
     categoryLabel: 'IT & Keilmuan',
-    img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=400&auto=format&fit=crop',
+    img: '/images/unsplash/photo-1581091226825-a6a2a5aee158.jpg',
     desc: 'Wadah bagi siswa untuk mengeksplorasi dunia robotika, mekatronika, dan IoT.'
   },
   {
@@ -29,7 +29,7 @@ const ekskulItems: Ekskul[] = [
     title: 'Moklet Animation Club',
     category: 'akademik',
     categoryLabel: 'IT & Keilmuan',
-    img: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=400&auto=format&fit=crop',
+    img: '/images/unsplash/photo-1511512578047-dfb367046420.jpg',
     desc: 'Berfokus pada pengembangan animasi 2D dan 3D, serta desain karakter.'
   },
   {
@@ -37,7 +37,7 @@ const ekskulItems: Ekskul[] = [
     title: 'Basket Moklet',
     category: 'olahraga',
     categoryLabel: 'Olahraga',
-    img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=400&auto=format&fit=crop',
+    img: '/images/unsplash/photo-1546519638-68e109498ffc.jpg',
     desc: 'Ekstrakurikuler unggulan di bidang olahraga yang telah banyak meraih prestasi.'
   },
   {
@@ -45,7 +45,7 @@ const ekskulItems: Ekskul[] = [
     title: 'Futsal Club',
     category: 'olahraga',
     categoryLabel: 'Olahraga',
-    img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=400&auto=format&fit=crop',
+    img: '/images/unsplash/photo-1534438327276-14e5300c3a48.jpg',
     desc: 'Membina bakat futsal siswa melalui latihan rutin dan partisipasi kompetisi.'
   },
   {
@@ -53,7 +53,7 @@ const ekskulItems: Ekskul[] = [
     title: 'Paduan Suara (Choir)',
     category: 'seni',
     categoryLabel: 'Seni & Budaya',
-    img: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=400&auto=format&fit=crop',
+    img: '/images/unsplash/photo-1514320291840-2e0a9bf2a9ae.jpg',
     desc: 'Tim paduan suara yang sering tampil di berbagai acara resmi sekolah dan kompetisi.'
   },
   {
@@ -61,7 +61,7 @@ const ekskulItems: Ekskul[] = [
     title: 'Pramuka',
     category: 'kepanduan',
     categoryLabel: 'Kepanduan',
-    img: 'https://images.unsplash.com/photo-1523580494112-071d192c6b45?q=80&w=400&auto=format&fit=crop',
+    img: '/images/unsplash/photo-1556438064-2d7646166914.jpg',
     desc: 'Membentuk karakter disiplin, tangguh, dan mandiri melalui kegiatan kepanduan.'
   }
 ];

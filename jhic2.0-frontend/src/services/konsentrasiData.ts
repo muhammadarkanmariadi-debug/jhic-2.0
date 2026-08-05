@@ -1,6 +1,6 @@
 import { ContentSection, CurriculumTab } from "@/shared/types";
 
-const K = "https://kurikulum.smktelkom-mlg.sch.id";
+const K = "/images/kurikulum";
 
 export interface KonsentrasiCard {
   slug: string;
@@ -28,7 +28,7 @@ export const konsentrasiCards: KonsentrasiCard[] = [
             items: [
               {
                 title: "Mobile (Flutter)",
-                image: "https://msoft.team/wp-content/uploads/2022/09/flutter.jpg",
+                image: "/images/expertise/flutter.jpg",
                 points: [
                   "Memahami Konsep Dasar Flutter",
                   "Menguasai Bahasa Pemrograman Dart",
@@ -44,7 +44,7 @@ export const konsentrasiCards: KonsentrasiCard[] = [
               },
               {
                 title: "Laravel - Next.js",
-                image: "https://miro.medium.com/v2/resize:fit:1400/1*5zbjAY6BL_u-OXF0_ZAPtw.jpeg",
+                image: "/images/expertise/1_5zbjAY6BL_u-OXF0_ZAPtw.jpeg",
                 points: [
                   "Menguasai Dasar-dasar Laravel",
                   "Mengelola Basis Data",
@@ -62,7 +62,7 @@ export const konsentrasiCards: KonsentrasiCard[] = [
               },
               {
                 title: "Nest.js - Next.js",
-                image: "https://miro.medium.com/v2/resize:fit:1400/1*q2zEonBaQItTIfVlyjKZIw.png",
+                image: "/images/expertise/1_q2zEonBaQItTIfVlyjKZIw.png",
                 points: [
                   "Memahami Dasar-dasar NestJS",
                   "Mengelola Basis Data",
@@ -91,7 +91,7 @@ export const konsentrasiCards: KonsentrasiCard[] = [
             items: [
               {
                 title: "Cloud Computing Operations",
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv59WgoDXb5ouTwnb2nSFyKtf3Nrl3IHmJM6zJ5ThnwBGop5URiPOaVzjglRXCtfRsR2o&usqp=CAU",
+                image: "/images/expertise/images.jpg",
                 description: "Proses mengelola, mengirim, dan menggunakan perangkat lunak di lingkungan komputasi awan.",
                 points: [
                   "Mengembangkan solusi otomatisasi",
@@ -102,7 +102,7 @@ export const konsentrasiCards: KonsentrasiCard[] = [
               },
               {
                 title: "Cloud Computing Developer",
-                image: "https://static.vecteezy.com/system/resources/previews/010/568/330/original/cloud-technology-polygonal-wireframe-cloud-storage-sign-with-on-dark-blue-cloud-computing-big-data-center-future-infrastructure-digital-ai-concept-virtual-hosting-symbol-vector.jpg",
+                image: "/images/expertise/cloud-technology-polygonal-wireframe-cloud-storage-sign-with-on-dark-blue-cloud-computing-big-data-center-future-infrastructure-digital-ai-concept-virtual-hosting-symbol-vector.jpg",
                 description: "Membuat dan merawat fitur, fungsi perangkat lunak, basis data, dan aplikasi pada teknologi cloud.",
                 points: [
                   "Merencanakan pengembangan layanan",
@@ -113,7 +113,7 @@ export const konsentrasiCards: KonsentrasiCard[] = [
               },
               {
                 title: "Cyber Security",
-                image: "https://www.shutterstock.com/shutterstock/videos/3442153991/thumb/12.jpg?ip=x480",
+                image: "/images/expertise/12.jpg",
                 description: "Melindungi sistem komputer, jaringan, dan data dari ancaman digital.",
                 points: [
                   "Security Vulnerabilities",
@@ -125,7 +125,7 @@ export const konsentrasiCards: KonsentrasiCard[] = [
               },
               {
                 title: "Network & System Administrator",
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvhNLEKFIvTsappOE0dCHfNqJCXLiSwQ83p4lXAYv9fii8nsOEk2r1kXlEfGrjzUNOx28&usqp=CAU",
+                image: "/images/expertise/images.jpg",
                 description: "Pengelolaan, pemeliharaan, dan keamanan jaringan komputer serta sistem operasi organisasi.",
                 points: [
                   "Konfigurasi dan pemeliharaan perangkat",
@@ -150,7 +150,7 @@ export const konsentrasiCards: KonsentrasiCard[] = [
             items: [
               {
                 title: "Game Artist",
-                image: "https://www.coursesonline.co.uk/wp-content/uploads/Subject-Game-Development.jpeg?height=485&dpr=2",
+                image: "/images/expertise/Subject-Game-Development.jpeg",
                 description: "Menciptakan elemen visual dalam permainan video: karakter, lingkungan, objek, dan efek khusus.",
                 points: [
                   "Konsep dan desain (2D dan 3D)",
@@ -163,7 +163,6 @@ export const konsentrasiCards: KonsentrasiCard[] = [
               },
               {
                 title: "Game Programmer",
-                image: "https://www.chi.ac.uk/app/uploads/2021/10/21-Game-coding-14-1024x576.jpg",
                 description: "Menulis kode yang menggerakkan permainan video.",
                 points: [
                   "Pengembangan mekanika permainan",
@@ -308,22 +307,22 @@ export const konsentrasiCards: KonsentrasiCard[] = [
           {
             name: "PT. DOT Indonesia",
             desc: "Menyediakan solusi digital berkualitas dengan metodologi agile untuk membantu perusahaan dan startup.",
-            logo: "https://www.dot.co.id/images/img-metadata.webp",
+            logo: "/images/expertise/img-metadata.webp",
           },
           {
             name: "PT. Sekawan Media Informatika",
             desc: "Perusahaan software development dan IT consultant terbaik di Indonesia untuk berbagai industri.",
-            logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1Jgrqs6rNNgHsH62Pjhfz5jFOCs-YoVubLw&s",
+            logo: "/images/expertise/images.png",
           },
           {
             name: "PT. Lanius Inovasi Indonesia",
             desc: "Perusahaan teknologi Machine Vision yang fokus membantu perusahaan memasuki Industry 4.0.",
-            logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO29nTZHGzhUajID2F_9h2-zY9HIpCwC6keQ&s",
+            logo: "/images/expertise/images.jpg",
           },
           {
             name: "PT. Cendana Teknika Utama",
             desc: "Penyedia solusi ERP dengan rangkaian software terlengkap untuk berbagai jenis industri.",
-            logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnW3dF6SSHVT3waLQAz1I9niEzbH4kQIdRGw&s",
+            logo: "/images/expertise/images.png",
           },
         ],
       },

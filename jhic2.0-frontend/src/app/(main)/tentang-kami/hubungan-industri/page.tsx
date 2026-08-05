@@ -21,7 +21,7 @@ export default function HubunganIndustri() {
       city: 'Surabaya',
       address: 'Jl. Sukomanunggal Tanjung Sari Baru IV, Surabaya',
       desc: 'Axelbit merupakan training center di bidang jaringan dan teknologi wireless yang menyediakan pelatihan serta sertifikasi profesional. Fokus utamanya mencakup teknologi seperti Mikrotik, Ubiquiti, dan Cambium.',
-      logo: 'https://ui-avatars.com/api/?name=A&background=F3F4F6&color=111&bold=true'
+      logo: '/images/avatars/avatar-e359c730.png'
     },
     {
       name: 'DigiPrener',
@@ -29,7 +29,7 @@ export default function HubunganIndustri() {
       city: 'Surabaya',
       address: 'Taman Bungkul Street No. 25, Surabaya',
       desc: 'DigiPrener merupakan perusahaan jasa sistem informasi yang berfokus pada pengembangan, implementasi, dan integrasi solusi digital untuk berbagai kebutuhan organisasi. Berdiri sejak 2016 melayani berbagai segmen.',
-      logo: 'https://ui-avatars.com/api/?name=D&background=F3F4F6&color=111&bold=true'
+      logo: '/images/avatars/avatar-e12ea859.png'
     },
     {
       name: 'Jagoan Hosting',
@@ -37,7 +37,7 @@ export default function HubunganIndustri() {
       city: 'Malang',
       address: 'Komp. Ruko Istana Dinoyo Blok C-2 No. 3-4, Malang',
       desc: 'Jagoan Hosting Indonesia merupakan perusahaan penyedia layanan web hosting, domain, dan cloud service di Indonesia. Didukung oleh infrastruktur hardware berstandar enterprise.',
-      logo: 'https://ui-avatars.com/api/?name=J&background=F3F4F6&color=111&bold=true'
+      logo: '/images/avatars/avatar-56ed5008.png'
     },
     {
       name: 'Markaz Design',
@@ -45,7 +45,7 @@ export default function HubunganIndustri() {
       city: 'Sidoarjo',
       address: 'Jl. Jati Selatan III No.20, Sidoarjo',
       desc: 'Markaz Design merupakan konsultan kreatif berbasis di Sidoarjo yang berfokus pada pengembangan UMKM melalui solusi branding dan strategi bisnis. Berdiri sejak 2013, menyediakan layanan visual branding.',
-      logo: 'https://ui-avatars.com/api/?name=M&background=F3F4F6&color=111&bold=true'
+      logo: '/images/avatars/avatar-c8e7593b.png'
     }
   ];
 

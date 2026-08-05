@@ -7,8 +7,8 @@ export const programDetails = {
     desc: "Membangun aplikasi web dan mobile dari nol sesuai standar industri, mulai dari desain antarmuka hingga rilis produk.",
     longDesc: "Mempersiapkan siswa menjadi software engineer handal yang mampu merancang, mengembangkan, dan memelihara aplikasi di berbagai platform. Lulusan RPL dibekali dengan kemampuan coding modern untuk menciptakan solusi teknologi terkini.",
     tags: ["Web Dev", "Mobile Dev", "UI/UX"],
-    image: "https://www.smktelkom-mlg.sch.id/assets/frontend/images/code.png",
-    heroImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop",
+    image: "/images/school/assets/frontend/images/code.png",
+    heroImage: "/images/unsplash/photo-1555066931-4365d14bab8c.jpg",
     icon: Code2,
     curriculum: [
       { title: 'Pemrograman Web\ndan Perangkat Bergerak', icon: Layout },
@@ -60,8 +60,8 @@ export const programDetails = {
     desc: "Merancang infrastruktur jaringan, cloud computing, dan keamanan siber untuk kebutuhan perusahaan modern.",
     longDesc: "Membentuk tenaga profesional di bidang infrastruktur IT, jaringan komunikasi data, sistem server, hingga keamanan siber. Lulusan TKJ disiapkan untuk menjaga nadi dunia digital tetap berdetak kencang.",
     tags: ["Networking", "Cloud", "Cyber Security"],
-    image: "https://www.smktelkom-mlg.sch.id/assets/frontend/images/network.png",
-    heroImage: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop",
+    image: "/images/school/assets/frontend/images/network.png",
+    heroImage: "/images/unsplash/photo-1544197150-b99a580bb7a8.jpg",
     icon: Server,
     curriculum: [
       { title: 'Teknologi Jaringan\nBerbasis Luas (WAN)', icon: Network },
@@ -112,8 +112,8 @@ export const programDetails = {
     desc: "Mendesain, membangun, dan merilis gim 2D & 3D dari konsep hingga produk yang siap dimainkan.",
     longDesc: "Fokus pada kreasi dan pengembangan produk interaktif (game). Siswa diajarkan bagaimana merancang permainan, aset 2D/3D, logika pemrograman, dan pengolahan audio untuk industri kreatif digital.",
     tags: ["Game Design", "2D / 3D", "Unity"],
-    image: "https://www.smktelkom-mlg.sch.id/assets/frontend/images/gim.png",
-    heroImage: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=800&auto=format&fit=crop",
+    image: "/images/school/assets/frontend/images/gim.png",
+    heroImage: "/images/unsplash/photo-1552820728-8b83bb6b773f.jpg",
     icon: Gamepad2,
     curriculum: [
       { title: 'Desain Game\n& Skenario', icon: Gamepad },
@@ -399,7 +399,7 @@ export const newsData = [
     date: '12 Oktober 2026',
     title: 'Siswa SMK Telkom Malang Sabet Juara 1 LKS Nasional Bidang IT',
     desc: 'Prestasi membanggakan kembali diraih oleh siswa SMK Telkom Malang yang berhasil menjadi juara pertama dalam Lomba Kompetensi Siswa (LKS) Nasional.',
-    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop',
+    image: '/images/unsplash/photo-1523240795612-9a054b0db644.jpg',
     content: [
       "Pelestarian budaya lokal tidak lagi harus dilakukan melalui cara-cara konvensional. Dua siswa Jurusan Pengembangan Gim SMK Telkom Malang membuktikan bahwa teknologi dapat menjadi jembatan yang efektif untuk mengenalkan budaya kepada generasi muda. Lewat inovasi board game berbasis Augmented Reality (AR) bernama Nwasena Seri Batik Malang, mereka menghadirkan pengalaman belajar batik yang interaktif, menyenangkan, sekaligus relevan dengan dunia anak-anak masa kini.",
       "Inovasi tersebut dikembangkan oleh Alyan Riqha dan Naura Sahrina, siswa kelas XI Jurusan Pengembangan Gim SMK Telkom Malang. Nwasena memadukan permainan papan dengan teknologi Augmented Reality (AR), yaitu teknologi yang memproyeksikan objek digital seperti gambar 3D maupun 2D, teks, dan animasi ke dunia nyata secara real-time melalui gawai.",
@@ -415,7 +415,7 @@ export const newsData = [
     date: '06 March 2026',
     title: 'Belajar Teknologi dengan Standar Global di SMK Telkom Malang',
     desc: 'SMK Telkom Malang terus berinovasi dalam memberikan pembelajaran berbasis standar industri global kepada siswanya.',
-    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop',
+    image: '/images/unsplash/photo-1517048676732-d65bc937f952.jpg',
     content: [
       "Pembelajaran di SMK Telkom Malang kini semakin terintegrasi dengan standar global. Hal ini diwujudkan dengan sertifikasi internasional yang diwajibkan bagi seluruh siswa di berbagai jurusan.",
       "Langkah ini bertujuan untuk memastikan bahwa lulusan tidak hanya siap kerja di tingkat nasional, tetapi juga mampu bersaing di kancah internasional."
@@ -430,7 +430,7 @@ export const newsData = [
     date: '19 July 2026',
     title: 'Siswa Jurusan Pengembangan Gim Ciptakan Edukasi AR',
     desc: 'Inovasi menarik dari siswa jurusan Pengembangan Gim yang menciptakan game edukasi berbasis Augmented Reality untuk mengenalkan budaya lokal.',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop',
+    image: '/images/unsplash/photo-1555066931-4365d14bab8c.jpg',
     content: [
       "Pelestarian budaya lokal tidak lagi harus dilakukan melalui cara-cara konvensional. Dua siswa Jurusan Pengembangan Gim SMK Telkom Malang membuktikan bahwa teknologi dapat menjadi jembatan yang efektif untuk mengenalkan budaya kepada generasi muda. Lewat inovasi board game berbasis Augmented Reality (AR) bernama Nwasena Seri Batik Malang, mereka menghadirkan pengalaman belajar batik yang interaktif, menyenangkan, sekaligus relevan dengan dunia anak-anak masa kini.",
       "Inovasi tersebut dikembangkan oleh Alyan Riqha dan Naura Sahrina, siswa kelas XI Jurusan Pengembangan Gim SMK Telkom Malang. Nwasena memadukan permainan papan dengan teknologi Augmented Reality (AR), yaitu teknologi yang memproyeksikan objek digital seperti gambar 3D maupun 2D, teks, dan animasi ke dunia nyata secara real-time melalui gawai.",
@@ -446,7 +446,7 @@ export const newsData = [
     date: '28 September 2026',
     title: 'Sertifikasi Internasional MikroTik untuk Siswa TKJ',
     desc: 'Kegiatan sertifikasi ini diikuti oleh lebih dari 100 siswa kelas XII jurusan TKJ sebagai bekal sebelum mereka terjun ke dunia industri dan profesional.',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop',
+    image: '/images/unsplash/photo-1517694712202-14dd9538aa97.jpg',
     content: [
       "Dalam rangka meningkatkan kompetensi lulusan, SMK Telkom Malang kembali mengadakan program sertifikasi internasional MikroTik bagi siswa kelas XII jurusan TKJ.",
       "Program ini diharapkan dapat menjadi nilai tambah yang signifikan bagi siswa saat mereka memasuki dunia kerja nanti."
@@ -461,7 +461,7 @@ export const newsData = [
     date: '15 September 2026',
     title: 'Kunjungan Industri ke Kantor Pusat Tokopedia',
     desc: 'Rombongan siswa RPL mendapatkan wawasan langsung mengenai kultur kerja startup unicorn dan proses pengembangan perangkat lunak berskala besar.',
-    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=600&auto=format&fit=crop',
+    image: '/images/unsplash/photo-1511512578047-dfb367046420.jpg',
     content: [
       "Sebanyak 50 siswa jurusan Rekayasa Perangkat Lunak berkesempatan melakukan kunjungan industri ke kantor pusat Tokopedia di Jakarta.",
       "Selama kunjungan, siswa diajak berkeliling melihat suasana kerja di perusahaan teknologi terkemuka dan mendapatkan sesi sharing langsung dari para engineers Tokopedia."

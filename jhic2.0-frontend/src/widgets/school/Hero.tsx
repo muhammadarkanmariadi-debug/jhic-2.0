@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronRight, Trophy, Code } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 
 export function Hero() {
   const words = ["Berstandar Global", "Berakhlak", "Kreatif", "Inovatif"];
@@ -14,7 +14,7 @@ export function Hero() {
       setCurrentWord((prev) => (prev + 1) % words.length);
     }, 2000);
     return () => clearInterval(interval);
-  }, []);
+  }, [words.length]);
 
   return (
     <section className="relative overflow-hidden bg-bg-main pb-16 pt-12 md:pb-24 md:pt-20 xl:pt-15">
@@ -83,7 +83,7 @@ export function Hero() {
       
 
           <Image
-            src="https://www.smktelkom-mlg.sch.id/assets/frontend/images/image_depan_new.png"
+            src="/images/hero/image_depan_new.webp"
             alt="Siswa berprestasi SMK Telkom Malang"
             width={600}
             height={600}

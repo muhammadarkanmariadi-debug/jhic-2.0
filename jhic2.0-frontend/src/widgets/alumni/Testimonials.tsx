@@ -7,13 +7,13 @@ export function Testimonials() {
       text: "Kurikulum yang selalu up-to-date membuat lulusan SMK Telkom dapat bersaing dan diandalkan perusahaan.",
       name: "Iqbal Wahyu Septian",
       role: "Telkom Akses Malang",
-      image: "https://www.smktelkom-mlg.sch.id/assets/upload/image/testi/img3.png",
+      image: "/images/school/assets/upload/image/testi/img3.png",
     },
     {
       text: "Bangga menjadi bagian SMK Telkom Malang. Fasilitas lengkap dan pendidikan attitude mempersiapkan saya di dunia kerja.",
       name: "Dandy Purba Cantaka",
       role: "SIP Jakarta",
-      image: "https://www.smktelkom-mlg.sch.id/assets/upload/image/testi/img2.png",
+      image: "/images/school/assets/upload/image/testi/img2.png",
     },
     {
       text: "Proyek nyata sejak kelas 10 bikin aku percaya diri langsung masuk dunia kerja.",

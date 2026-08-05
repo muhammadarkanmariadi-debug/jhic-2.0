@@ -49,7 +49,7 @@ export default function StrukturOrganisasi() {
               <OrgNode 
                 title="Kepala Sekolah" 
                 name="Rahmat Dwi Djatmiko, S.Kom., M.M." 
-                image="https://www.smktelkom-mlg.sch.id/assets/frontend/images/image1001.png"
+                image="/images/school/assets/frontend/images/image1001.png"
               />
             </div>
           </div>

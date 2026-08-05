@@ -123,7 +123,7 @@ export default function AkomodasiPage() {
               <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-square lg:aspect-auto lg:h-[600px] border border-border-light">
                 <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-blue-500/20 mix-blend-multiply z-10"></div>
                 <Image
-                  src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=2069&auto=format&fit=crop"
+                  src="/images/unsplash/photo-1555854877-bab0e564b8d5.jpg"
                   alt="Ilustrasi Kos dan Tempat Tinggal"
                   fill
                   className="object-cover transition-transform duration-700 hover:scale-105"

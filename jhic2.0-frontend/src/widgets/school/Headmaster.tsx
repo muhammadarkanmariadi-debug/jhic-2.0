@@ -9,7 +9,7 @@ export function Headmaster() {
             <div className="absolute -left-6 -top-6 h-full w-full rounded-[32px] bg-accent/10 md:-left-8 md:-top-8"></div>
             <div className="relative overflow-hidden rounded-[32px] border border-border-color bg-white">
               <Image
-                src="https://www.smktelkom-mlg.sch.id/assets/frontend/images/image1001.png"
+                src="/images/school/assets/frontend/images/image1001.png"
                 alt="Kepala Sekolah SMK Telkom Malang"
                 width={500}
                 height={600}

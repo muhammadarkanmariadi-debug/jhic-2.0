@@ -1,6 +1,6 @@
 import { CurriculumTab } from "@/shared/types";
 
-const K = "https://kurikulum.smktelkom-mlg.sch.id";
+const K = "/images/kurikulum";
 
 // Mirror of kurikulum.smktelkom-mlg.sch.id/persiapan-kelulusan.html
 export const persiapanKelulusanTabs: CurriculumTab[] = [

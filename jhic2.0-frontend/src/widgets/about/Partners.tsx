@@ -1,14 +1,14 @@
 import Image from 'next/image';
 export function Partners() {
   const partners = [
-    { name: "Lenovo", src: "https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762938428_Lenovo_Global_Corporate_Logo.png" },
-    { name: "Fortinet", src: "https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762937046_fortinet-logo-rgb-black-red-png-1024x281_Medium.png" },
-    { name: "Livin by Mandiri", src: "https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762937266_Logo-Livin-by-Mandiri-Format-PNG-CDR-EPS-300x183.png" },
-    { name: "Merkle", src: "https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762938094_MERKLE-logo.png" },
-    { name: "Sevima", src: "https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762938130_logo-sevimaplatform-small.png" },
-    { name: "Jagoan Hosting", src: "https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762938049_Logo-Jagoan-Hosting-1_Medium.png" },
-    { name: "Box Hill", src: "https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762937192_box-hill.png" },
-    { name: "ITC ITTJ", src: "https://www.smktelkom-mlg.sch.id/assets/upload/image/thumbs/1762936954_logo-itc-ittj.png" },
+    { name: "Lenovo", src: "/images/school/assets/upload/image/thumbs/1762938428_Lenovo_Global_Corporate_Logo.png" },
+    { name: "Fortinet", src: "/images/school/assets/upload/image/thumbs/1762937046_fortinet-logo-rgb-black-red-png-1024x281_Medium.png" },
+    { name: "Livin by Mandiri", src: "/images/school/assets/upload/image/thumbs/1762937266_Logo-Livin-by-Mandiri-Format-PNG-CDR-EPS-300x183.png" },
+    { name: "Merkle", src: "/images/school/assets/upload/image/thumbs/1762938094_MERKLE-logo.png" },
+    { name: "Sevima", src: "/images/school/assets/upload/image/thumbs/1762938130_logo-sevimaplatform-small.png" },
+    { name: "Jagoan Hosting", src: "/images/school/assets/upload/image/thumbs/1762938049_Logo-Jagoan-Hosting-1_Medium.png" },
+    { name: "Box Hill", src: "/images/school/assets/upload/image/thumbs/1762937192_box-hill.png" },
+    { name: "ITC ITTJ", src: "/images/school/assets/upload/image/thumbs/1762936954_logo-itc-ittj.png" },
   ];
 
   return (

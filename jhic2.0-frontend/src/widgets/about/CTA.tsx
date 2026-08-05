@@ -38,7 +38,7 @@ export function CTA() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="https://instagram.com/smktelkommalang"
+                  href="/images/expertise/smktelkommalang.jpg"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 rounded-xl border border-border-color bg-white px-5 py-2.5 text-[14px] font-semibold text-gray-700 shadow-sm transition-all hover:-translate-y-1 hover:border-pink-300 hover:shadow-md"
@@ -49,7 +49,7 @@ export function CTA() {
                   @smktelkommalang
                 </a>
                 <a
-                  href="https://facebook.com/smktelkommalang"
+                  href="/images/expertise/smktelkommalang.jpg"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 rounded-xl border border-border-color bg-white px-5 py-2.5 text-[14px] font-semibold text-gray-700 shadow-sm transition-all hover:-translate-y-1 hover:border-blue-300 hover:shadow-md"

@@ -10,7 +10,7 @@ export function Footer() {
           {/* Logo & Info */}
           <div className="max-w-[320px]">
             <Link href="/" className="inline-block">
-              <Image src="/logo_hitam.png" alt="Logo" width={180} height={52} className="h-auto w-[160px]" />
+              <Image src="/images/logo/logo_hitam.png" alt="Logo" width={180} height={52} className="h-auto w-[160px]" />
             </Link>
             <p className="mt-5 text-[14px] leading-[1.7] text-gray-600">
               Pelopor SMK bidang Teknologi dan Informatika di Indonesia sejak 1992.

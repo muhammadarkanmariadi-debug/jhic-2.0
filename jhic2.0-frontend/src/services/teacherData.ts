@@ -1,12 +1,12 @@
 import { TeacherProfile } from "@/shared/types";
 
-// JHI-v2-01 — Profil Guru card data (layout reference: https://smktelkom-sda.sch.id/profil-guru)
+// JHI-v2-01 — Profil Guru card data (layout reference: /images/school/profil-guru.jpg)
 export const teacherProfiles: TeacherProfile[] = [
   {
     id: "t-1",
     name: "Rahmat Dwi Djatmiko, S.Kom., M.M.",
     position: "Kepala Sekolah",
-    image: "https://www.smktelkom-mlg.sch.id/assets/frontend/images/image1001.png",
+    image: "/images/school/assets/frontend/images/image1001.png",
     level: "PRINCIPAL",
     category: "STAFF",
     division: "Pimpinan",

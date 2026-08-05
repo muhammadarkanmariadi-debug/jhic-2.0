@@ -21,7 +21,7 @@ export function JurusanTabs({ active }: { active: ProgramCode }) {
                 <div className="absolute top-0 left-0 right-[20%] bottom-[10%] border-2 border-dashed border-border-color rounded-tl-[40px] rounded-br-[40px] rounded-bl-[40px] pointer-events-none"></div>
                 <div className="absolute bottom-0 left-[10%] w-[85%] h-[95%]">
                   <Image 
-                    src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop"
+                    src="/images/unsplash/photo-1555066931-4365d14bab8c.jpg"
                     alt="RPL Student"
                     fill
                     className="object-cover object-bottom"
@@ -117,7 +117,7 @@ export function JurusanTabs({ active }: { active: ProgramCode }) {
                 <div className="absolute top-0 right-0 left-[20%] bottom-[10%] border-2 border-dashed border-border-color rounded-tr-[40px] rounded-br-[40px] rounded-bl-[40px] pointer-events-none"></div>
                 <div className="absolute bottom-0 right-[10%] w-[85%] h-[95%]">
                   <Image 
-                    src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop"
+                    src="/images/unsplash/photo-1544197150-b99a580bb7a8.jpg"
                     alt="TKJ Student"
                     fill
                     className="object-cover object-bottom"
@@ -183,7 +183,7 @@ export function JurusanTabs({ active }: { active: ProgramCode }) {
                 <div className="absolute top-0 left-0 right-[20%] bottom-[10%] border-2 border-dashed border-border-color rounded-tl-[40px] rounded-br-[40px] rounded-bl-[40px] pointer-events-none"></div>
                 <div className="absolute bottom-0 left-[10%] w-[85%] h-[95%]">
                   <Image 
-                    src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=800&auto=format&fit=crop"
+                    src="/images/unsplash/photo-1552820728-8b83bb6b773f.jpg"
                     alt="PG Student"
                     fill
                     className="object-cover object-bottom"

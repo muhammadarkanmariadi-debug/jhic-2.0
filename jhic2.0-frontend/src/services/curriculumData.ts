@@ -22,7 +22,7 @@ export const curriculumSyncPartners: CurriculumSyncPartner[] = [
   {
     id: "sp-1",
     name: "PT Telkom Indonesia",
-    logo: "https://www.smktelkom-mlg.sch.id/assets/frontend/images/logo-telkom.png",
+    logo: "",
     academicYear: "2025/2026",
     description:
       "Mitra sinkronisasi kurikulum bidang jaringan & telekomunikasi. Perbaruan struktur kurikulum TKJ mengikuti kebutuhan industri.",
@@ -31,7 +31,7 @@ export const curriculumSyncPartners: CurriculumSyncPartner[] = [
   {
     id: "sp-2",
     name: "Dicoding Indonesia",
-    logo: "https://www.smktelkom-mlg.sch.id/assets/frontend/images/logo-dicoding.png",
+    logo: "",
     academicYear: "2025/2026",
     description:
       "Mitra sinkronisasi kurikulum pengembangan perangkat lunak (RPL) dengan standar global learning path Dicoding Academy.",
@@ -40,7 +40,7 @@ export const curriculumSyncPartners: CurriculumSyncPartner[] = [
   {
     id: "sp-3",
     name: "Agate International",
-    logo: "https://www.smktelkom-mlg.sch.id/assets/frontend/images/logo-agate.png",
+    logo: "",
     academicYear: "2024/2025",
     description:
       "Mitra sinkronisasi kurikulum game development (PG) — pipeline produksi game, aset 2D/3D, dan game engine.",
@@ -116,7 +116,7 @@ export const regulerContent: ProgramPageContent = {
   tagline: "Membangun Kompetensi Sesuai Minat dan Bakat Siswa",
   description:
     "Program Reguler adalah jalur utama pendidikan di SMK Telkom Malang. Siswa memilih satu Konsentrasi Keahlian (RPL, TKJ, atau Pengembangan Gim) dan menempuh pembelajaran terstruktur selama 3 tahun dengan kurikulum Link & Match bersama industri.",
-  image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop",
+  image: "/images/unsplash/photo-1522202176988-66273c2fd55f.jpg",
   learningJourney: [
     {
       grade: "Kelas 10",
@@ -162,7 +162,7 @@ export const icpContent: ProgramPageContent = {
   tagline: "Mempersiapkan Lulusan dengan Daya Saing Global",
   description:
     "Program ICP mengintegrasikan standar kompetensi nasional dengan kurikulum berstandar internasional. Siswa belajar dalam lingkungan bilingual, mendalami seluruh expertise (full stack & mobile), dan dibekali sertifikasi internasional serta jalur studi ke luar negeri.",
-  image: "https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?q=80&w=800&auto=format&fit=crop",
+  image: "/images/unsplash/photo-1507537297725-24a1c029d3ca.jpg",
   learningJourney: [
     {
       grade: "Kelas 10",

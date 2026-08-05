@@ -12,21 +12,21 @@ export function TestimonialMarquee() {
       name: "Budi Santoso",
       role: "Software Engineer, Tokopedia",
       text: "SMK Telkom Malang memberikan fondasi logika pemrograman yang sangat kuat. Saat saya melanjutkan kuliah dan masuk dunia kerja, hardskill yang diajarkan di Moklet sangat relevan dengan kebutuhan industri.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop"
+      image: "/images/unsplash/photo-1507003211169-0a1dd7228f2d.jpg"
     },
     {
       id: 2,
       name: "Siti Aminah",
       role: "Network Security, Telkomsel",
       text: "Karakter disiplin 'Attitude is Everything' benar-benar mengubah cara saya bekerja. Tidak hanya belajar ngoding, kami diajarkan cara berkomunikasi, bekerja dalam tim, dan etika profesional.",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop"
+      image: "/images/unsplash/photo-1494790108377-be9c29b29330.jpg"
     },
     {
       id: 3,
       name: "Agus Pratama",
       role: "Frontend Dev, GoTo",
       text: "Berkat kurikulum yang sinkron dengan industri, saya bisa langsung mendapatkan pekerjaan impian sebelum ijazah keluar melalui program rekrutmen sekolah. Fasilitasnya super lengkap!",
-      image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=150&auto=format&fit=crop"
+      image: "/images/unsplash/photo-1599566150163-29194dcaad36.jpg"
     }
   ];
 

@@ -10,6 +10,8 @@ import { partnersRouter } from "./routes/partners.js";
 import { lokerRouter } from "./routes/loker.js";
 import { beasiswaRouter } from "./routes/beasiswa.js";
 import { lombaRouter } from "./routes/lomba.js";
+import { botRouter } from "./routes/bot.js";
+import { feedbackRouter } from "./routes/feedback.js";
 import { prisma } from "./lib/prisma.js";
 
 dotenv.config();
@@ -41,6 +43,8 @@ app.use("/api/partners", partnersRouter);
 app.use("/api/loker", lokerRouter);
 app.use("/api/beasiswa", beasiswaRouter);
 app.use("/api/lomba", lombaRouter);
+app.use("/api/bot", botRouter);
+app.use("/api/feedback", feedbackRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

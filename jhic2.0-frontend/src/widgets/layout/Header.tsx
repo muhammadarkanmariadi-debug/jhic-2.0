@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, Menu, X, ArrowRight, Home, Info, Book, GraduationCap, Bell, Mail, Download, Compass } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowRight, Home, Info, Book, GraduationCap, Bell, Download } from "lucide-react";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -73,19 +73,19 @@ export function Header() {
           items: [
             { name: "Coding Class Program (CCP)", href: "/program/ccp" },
             { name: "Teknologi Siber 2.1", href: "/program/program-ts" },
-            { name: "Trial Class", href: "/trial-class" },
+
+          ]
+        },
+        {
+          title: "Non Akademik",
+          items: [
+            { name: "Ekstrakurikuler", href: "/program/ekstrakurikuler" },
+            { name: "Organisasi", href: "/organisasi" },
           ]
         }
       ],
     },
-    {
-      name: "Kehidupan Siswa",
-      icon: Compass,
-      dropdown: [
-        { name: "Ekstrakurikuler", href: "/program/ekstrakurikuler" },
-        { name: "Organisasi", href: "/organisasi" },
-      ],
-    },
+
     {
       name: "Alumni",
       icon: GraduationCap,
@@ -113,18 +113,16 @@ export function Header() {
           items: [
             { name: "Penerapan K3", href: "/informasi/penerapan-k3" },
             { name: "Akomodasi", href: "/akomodasi" },
+            { name: "FAQ", href: "/hubungi-kami/faq" },
+            { name: "Kotak Pertanyaan", href: "/hubungi-kami/kotak-pertanyaan" },
+            { name: "Beri Masukan", href: "/hubungi-kami/ulasan" },
           ]
-        }
+        },
+
       ],
     },
-    {
-      name: "Hubungi Kami",
-      icon: Mail,
-      dropdown: [
-        { name: "FAQ", href: "/hubungi-kami/faq" },
-        { name: "Kotak Pertanyaan", href: "/hubungi-kami/kotak-pertanyaan" },
-      ],
-    },
+    { name: "Trial Class", href: "/trial-class", icon: Home },
+
   ];
 
   return (
@@ -140,7 +138,7 @@ export function Header() {
             }`}
         >
           <Image
-            src="/logo_hitam.png"
+            src="/images/logo/logo_hitam.png"
             alt="Logo SMK Telkom Malang"
             width={120}
             height={50}
@@ -160,7 +158,7 @@ export function Header() {
             className={`flex items-center overflow-hidden transition-all duration-400 ease-in-out ${isScrolled ? "mr-4 w-[120px] opacity-100" : "w-0 opacity-0"
               }`}
           >
-            <Image src="/logo_hitam.png" alt="Logo" width={120} height={34} className="h-auto w-[120px]" />
+            <Image src="/images/logo/logo_hitam.png" alt="Logo" width={120} height={34} className="h-auto w-[120px]" />
           </Link>
 
           <ul className="flex items-center gap-0.5 ">
@@ -227,12 +225,12 @@ export function Header() {
 
 
           <Link
-            href="/brosur.pdf"
+            href="/spmb"
             className={`hidden md:inline-flex items-center gap-2 overflow-hidden whitespace-nowrap rounded-full bg-accent px-4 py-0 text-[14px] font-bold text-white shadow-[0_8px_20px_rgba(215,25,32,0.26)] transition-all duration-400 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-accent group ${isScrolled ? "xl:w-0 xl:px-0 xl:opacity-0 xl:pointer-events-none h-0" : "h-[42px]"
               }`}
             download
           >
-            Unduh Brosur
+            Daftar SPMB
             <Download className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
 
@@ -279,7 +277,7 @@ export function Header() {
           {/* Top Section */}
           <div className="flex shrink-0 items-center justify-between border-b border-border-light px-5 py-[18px]">
             <Link href="/" className="block" onClick={() => setMobileMenuOpen(false)}>
-              <Image src="/logo_hitam.png" alt="Logo" width={110} height={31} className="h-auto w-[110px]" />
+              <Image src="/images/logo/logo_hitam.png" alt="Logo" width={110} height={31} className="h-auto w-[110px]" />
             </Link>
             <button
               className="grid h-[38px] w-[38px] place-items-center rounded-[10px] bg-gray-100 text-gray-700 transition-colors hover:bg-accent hover:text-white"

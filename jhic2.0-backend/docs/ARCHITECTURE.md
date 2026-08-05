@@ -73,6 +73,8 @@ Request → route → middleware (auth/rbac/validate) → controller → service
 - ✅ `GET /api/loker` — published job vacancies (filter: `programId`) (`src/routes/loker.ts`)
 - ✅ `GET /api/beasiswa` — published scholarships (filter: `programId`) (`src/routes/beasiswa.ts`)
 - ✅ `GET /api/lomba` — published competitions (`src/routes/lomba.ts`)
+- ✅ `GET /api/bot/intents`, `POST /api/bot/chat` — MokletBot dialog (`src/routes/bot.ts`, JHI-12)
+- ✅ `POST /api/feedback` — submit MokletUlasan feedback (`src/routes/feedback.ts`, JHI-14)
 
 ### Admin (JWT + RBAC)
 - ✅ `POST /api/auth/register`, `POST /api/auth/login`, `POST /api/auth/logout`, `GET /api/auth/me` (`src/routes/auth.ts`, JHI-02)
@@ -83,6 +85,7 @@ Request → route → middleware (auth/rbac/validate) → controller → service
 - ✅ `POST/PUT/DELETE /api/loker[/:id]`, `GET /api/loker/all` — **Admin Hubin** (`loker.manage`)
 - ✅ `POST/PUT/DELETE /api/beasiswa[/:id]`, `GET /api/beasiswa/all` — **Admin Hubin** (`beasiswa.manage`)
 - ✅ `POST/PUT/DELETE /api/lomba[/:id]`, `GET /api/lomba/all` — **Admin Humas** (`lomba.manage`)
+- ✅ `GET /api/feedback/all`, `PATCH /api/feedback/:id/status` — **Admin Support** (`support.reply`)
 - v2 modules: `admin/hubin/{lomba,loker,beasiswa}`, `admin/spmb` (landing content)
 
 ---

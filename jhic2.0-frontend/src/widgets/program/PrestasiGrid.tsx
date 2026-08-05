@@ -19,7 +19,7 @@ const prestasiItems: PrestasiItem[] = [
     category: 'akademik',
     level: 'Tingkat Nasional',
     meta: 'Tim TKJ SMK Telkom Malang • 2025',
-    img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=400&auto=format&fit=crop'
+    img: '/images/unsplash/photo-1517245386807-bb43f82c33c4.jpg'
   },
   {
     id: '2',
@@ -27,7 +27,7 @@ const prestasiItems: PrestasiItem[] = [
     category: 'akademik',
     level: 'Tingkat Nasional',
     meta: 'Tim RPL SMK Telkom Malang • 2024',
-    img: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=400&auto=format&fit=crop'
+    img: '/images/unsplash/photo-1504384308090-c894fdcc538d.jpg'
   },
   {
     id: '3',
@@ -35,7 +35,7 @@ const prestasiItems: PrestasiItem[] = [
     category: 'non-akademik',
     level: 'Tingkat Provinsi',
     meta: 'Tim Basket Putra Moklet • 2024',
-    img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=400&auto=format&fit=crop'
+    img: '/images/unsplash/photo-1546519638-68e109498ffc.jpg'
   },
   {
     id: '4',
@@ -43,7 +43,7 @@ const prestasiItems: PrestasiItem[] = [
     category: 'akademik',
     level: 'Tingkat Nasional',
     meta: 'Tim Animasi SMK Telkom Malang • 2024',
-    img: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=400&auto=format&fit=crop'
+    img: '/images/unsplash/photo-1550745165-9bc0b252726f.jpg'
   }
 ];
 

@@ -81,7 +81,7 @@ Most public pages live in the `(main)` route group (shared Header/Footer layout)
 /(main)/akomodasi                       (standalone menu)
 /(main)/trial-class                     (standalone menu)
 /(main)/hubungi-kami/
-    faq, kotak-pertanyaan, service-desk
+    faq, kotak-pertanyaan, ulasan (Beri Masukan), service-desk
 /(main)/spmb                            (SPMB landing — gateway to yayasan portal; redirect: ppdb → /spmb)
 /login                                  (admin login)
 ```
@@ -94,7 +94,9 @@ Most public pages live in the `(main)` route group (shared Header/Footer layout)
 /admin/program-umum/[id]            → edit tab (structured block editor, plain text)
 ```
 
-> **v2 note:** The curriculum microsite (reference: kurikulum.smktelkom-mlg.sch.id) is mirrored under `/program/` (program-umum, profil-konsentrasi-keahlian + konsentrasi/[slug], persiapan-kelulusan). MokletHubin expansion is live (`/loker`, `/beasiswa`, `/informasi/lomba`, hub page). Remaining v2 targets (from `PRD.md` §2): `hubungi-kami/{bot,ulasan}`.
+> **v2 note:** The curriculum microsite (reference: kurikulum.smktelkom-mlg.sch.id) is mirrored under `/program/` (program-umum, profil-konsentrasi-keahlian + konsentrasi/[slug], persiapan-kelulusan). MokletHubin expansion is live (`/loker`, `/beasiswa`, `/informasi/lomba`, hub page). MokletBot is a floating widget on public pages; MokletUlasan at `/hubungi-kami/ulasan`. All Sprint 1–3 v2 targets are implemented.
+
+> **Assets:** All images are served **locally** from `/public/images/` (no remote hosts — `next.config.ts` `remotePatterns` is empty). Structure: `logo/`, `hero/`, `unsplash/`, `school/`, `avatars/`, `expertise/`, `kurikulum/`, `organisasi/`. Migration utilities live in `scripts/` (`download-images.mjs`, `replace-images.mjs`, `verify-local-images.mjs`); `scripts/image-map.json` records the URL→path mapping.
 
 ---
 

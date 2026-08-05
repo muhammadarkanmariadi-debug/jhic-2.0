@@ -65,6 +65,25 @@ async function main() {
     console.log(`Seeded Super Admin: ${adminEmail}`);
   }
 
+  // 4. MokletBot intents (JHI-12)
+  const botIntents = [
+    { intent: "pendaftaran", keywords: ["pendaftaran", "ppdb", "spmb", "daftar", "masuk smk"], answer: "Pendaftaran SPMB dilakukan melalui portal resmi yayasan. Kunjungi halaman SPMB untuk alur dan persyaratan lengkapnya.", escalateTo: null },
+    { intent: "konsentrasi", keywords: ["jurusan", "konsentrasi", "rpl", "tkj", "gim", "program"], answer: "SMK Telkom Malang memiliki 3 konsentrasi keahlian: RPL, TKJ, dan Pengembangan Gim. Lihat halaman Program Konsentrasi Keahlian untuk detailnya.", escalateTo: null },
+    { intent: "biaya", keywords: ["biaya", "akomodasi", "kos", "harga", "bayar", "hidup"], answer: "Estimasi biaya hidup dapat dilihat di halaman Akomodasi, termasuk rekomendasi kos dan kalkulator biaya bulanan.", escalateTo: null },
+    { intent: "beasiswa", keywords: ["beasiswa", "bantuan", "keringanan", "prestasi"], answer: "Info beasiswa tersedia di halaman Info Beasiswa.", escalateTo: null },
+    { intent: "loker", keywords: ["kerja", "lowongan", "karier", "magang", "loker"], answer: "Info lowongan kerja dan magang tersedia di halaman Info Lowongan Kerja serta Karir & Prospek Kerja.", escalateTo: null },
+    { intent: "kurikulum", keywords: ["kurikulum", "sertifikasi", "expertise", "umum"], answer: "Kurikulum dijelaskan pada menu Program — Program Umum, Program Konsentrasi Keahlian, dan Persiapan Kelulusan.", escalateTo: null },
+    { intent: "kontak", keywords: ["kontak", "hubungi", "telepon", "email", "alamat", "bantuan"], answer: "Anda dapat menghubungi kami melalui halaman Hubungi Kami, atau menunggu koneksi ke tim Service Desk.", escalateTo: "Service Desk" },
+  ];
+  for (const b of botIntents) {
+    await prisma.botIntent.upsert({
+      where: { intent: b.intent },
+      update: { keywords: b.keywords, answer: b.answer, escalateTo: b.escalateTo, isActive: true },
+      create: { intent: b.intent, keywords: b.keywords, answer: b.answer, escalateTo: b.escalateTo, isActive: true },
+    });
+  }
+  console.log(`Seeded ${botIntents.length} MokletBot intents.`);
+
   console.log(`Seeded ${roles.length} division-scoped roles and permissions.`);
 }
 
