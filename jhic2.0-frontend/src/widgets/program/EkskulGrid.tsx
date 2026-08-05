@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { Search, X } from 'lucide-react';
 import { ContentCard } from '@/shared/ui/ContentCard';
+import { usePagination } from '@/shared/hooks/usePagination';
+import { Pagination } from '@/shared/ui/Pagination';
 
 interface Ekskul {
   id: string;
@@ -77,6 +79,10 @@ export function EkskulGrid() {
     return matchesTab && matchesSearch;
   });
 
+  const { currentItems, paginationProps, startIndex, endIndex, totalItems } = usePagination(filteredItems, {
+    itemsPerPage: 6,
+  });
+
   return (
     <>
       <div className="max-w-2xl mx-auto mb-10 relative">
@@ -113,7 +119,7 @@ export function EkskulGrid() {
 
       {filteredItems.length > 0 ? (
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-         {filteredItems.map(item => (
+         {currentItems.map(item => (
             <ContentCard 
               key={item.id}
               image={item.img}
@@ -134,6 +140,11 @@ export function EkskulGrid() {
             <p className="text-text-muted">Coba gunakan kata kunci lain.</p>
          </div>
       )}
+
+      <Pagination
+        {...paginationProps}
+        infoText={`Menampilkan ${startIndex + 1}–${endIndex} dari ${totalItems} ekstrakurikuler`}
+      />
 
       {/* Modal */}
       {selectedEkskul && (

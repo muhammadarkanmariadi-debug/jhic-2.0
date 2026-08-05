@@ -5,6 +5,7 @@ import { PageHeader } from '@/shared/ui/PageHeader';
 import { ContentCard } from '@/shared/ui/ContentCard';
 import { Modal } from '@/shared/ui/Modal';
 import { Pagination } from '@/shared/ui/Pagination';
+import { usePagination } from '@/shared/hooks/usePagination';
 import { Search, ArrowRight, Tag } from 'lucide-react';
 import Image from 'next/image';
 import { telkomProducts } from '@/services/productData';
@@ -18,17 +19,7 @@ export default function ProdukTelkomPage() {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [activeCategory, setActiveCategory] = useState("Semua");
-  const [currentPage, setCurrentPage] = useState(1);
   const [selectedProduct, setSelectedProduct] = useState<typeof telkomProducts[0] | null>(null);
-  const itemsPerPage = 6;
-  const [prevSearchTerm, setPrevSearchTerm] = useState("");
-  const [prevCategory, setPrevCategory] = useState("Semua");
-
-  if (searchTerm !== prevSearchTerm || activeCategory !== prevCategory) {
-    setPrevSearchTerm(searchTerm);
-    setPrevCategory(activeCategory);
-    setCurrentPage(1);
-  }
 
   // Extract unique categories
   const categories = ["Semua", ...Array.from(new Set(telkomProducts.map(p => p.category)))];
@@ -40,15 +31,10 @@ export default function ProdukTelkomPage() {
     return matchesSearch && matchesCategory;
   });
 
-  // Pagination logic
-  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentProducts = filteredProducts.slice(startIndex, startIndex + itemsPerPage);
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const { currentItems: currentProducts, paginationProps, startIndex, endIndex, totalItems } = usePagination(
+    filteredProducts,
+    { itemsPerPage: 6 }
+  );
 
 
 
@@ -166,10 +152,9 @@ export default function ProdukTelkomPage() {
           )}
 
           {/* Pagination */}
-          <Pagination 
-            pageCount={totalPages} 
-            currentPage={currentPage} 
-            onPageChange={handlePageChange} 
+          <Pagination
+            {...paginationProps}
+            infoText={`Menampilkan ${startIndex + 1}–${endIndex} dari ${totalItems} produk`}
           />
           
         </div>

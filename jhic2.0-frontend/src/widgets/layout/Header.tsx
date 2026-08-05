@@ -130,7 +130,7 @@ export function Header() {
       className={`sticky top-0 z-60 w-full transition-all duration-300 ease-in-out ${isScrolled ? "bg-white shadow-sm xl:bg-transparent xl:shadow-none" : ""
         }`}
     >
-      <div className="mx-auto flex w-full  items-center justify-between px-4 py-4 md:px-8 xl:py-6">
+      <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-4 py-4 md:px-8 xl:py-6">
         {/* Left: Logo */}
         <Link
           href="/"

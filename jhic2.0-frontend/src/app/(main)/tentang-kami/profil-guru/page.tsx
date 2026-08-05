@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { PageHeader } from "@/shared/ui/PageHeader";
+import { Pagination } from "@/shared/ui/Pagination";
+import { usePagination } from "@/shared/hooks/usePagination";
 import { UserRound } from "lucide-react";
 import { teacherProfiles, teacherCategoryLabels } from "@/services/teacherData";
 
@@ -22,6 +24,10 @@ export default function ProfilGuruPage() {
     activeFilter === "ALL"
       ? teacherProfiles
       : teacherProfiles.filter((t) => t.category === activeFilter);
+
+  const { currentItems, paginationProps, startIndex, endIndex, totalItems } = usePagination(filtered, {
+    itemsPerPage: 9,
+  });
 
   return (
     <main>
@@ -55,7 +61,7 @@ export default function ProfilGuruPage() {
 
           {/* Teacher card grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filtered.map((teacher) => (
+            {currentItems.map((teacher) => (
               <div
                 key={teacher.id}
                 className="rounded-2xl border border-border-light bg-white shadow-sm overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all"
@@ -91,6 +97,11 @@ export default function ProfilGuruPage() {
               Belum ada data guru pada kategori ini.
             </p>
           )}
+
+          <Pagination
+            {...paginationProps}
+            infoText={`Menampilkan ${startIndex + 1}–${endIndex} dari ${totalItems} guru`}
+          />
         </div>
       </section>
     </main>

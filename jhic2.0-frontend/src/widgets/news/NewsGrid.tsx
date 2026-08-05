@@ -3,8 +3,10 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Search, ChevronRight, ChevronLeft } from 'lucide-react';
+import { Search, ChevronRight } from 'lucide-react';
 import { newsData } from '@/services/dummyData';
+import { usePagination } from '@/shared/hooks/usePagination';
+import { Pagination } from '@/shared/ui/Pagination';
 
 export function NewsGrid() {
   const [filter, setFilter] = useState('all');
@@ -16,6 +18,10 @@ export function NewsGrid() {
     const matchesFilter = filter === 'all' || news.category === filter;
     const matchesSearch = news.title.toLowerCase().includes(search.toLowerCase()) || news.desc.toLowerCase().includes(search.toLowerCase());
     return matchesFilter && matchesSearch;
+  });
+
+  const { currentItems, paginationProps, startIndex, endIndex, totalItems } = usePagination(filteredNews, {
+    itemsPerPage: 6,
   });
 
   return (
@@ -57,7 +63,7 @@ export function NewsGrid() {
       {/* Grid */}
       {filteredNews.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {filteredNews.map((news) => (
+          {currentItems.map((news) => (
             <Link key={news.id} href={`/informasi/berita/${news.slug}`} className="bg-white rounded-2xl overflow-hidden border border-border-light shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group flex flex-col h-full">
               <div className="relative h-48 overflow-hidden">
                 <Image src={news.image} alt={news.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -90,21 +96,12 @@ export function NewsGrid() {
         </div>
       )}
 
-      {/* Pagination (Static) */}
+      {/* Pagination */}
       {filteredNews.length > 0 && (
-        <div className="flex justify-center items-center gap-2 mt-16">
-          <button className="w-10 h-10 rounded-xl border border-border-light flex items-center justify-center text-text-muted hover:bg-surface-alt transition-colors disabled:opacity-50">
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button className="w-10 h-10 rounded-xl bg-accent text-white font-bold flex items-center justify-center">1</button>
-          <button className="w-10 h-10 rounded-xl border border-border-light flex items-center justify-center text-text-main font-semibold hover:bg-surface-alt transition-colors">2</button>
-          <button className="w-10 h-10 rounded-xl border border-border-light flex items-center justify-center text-text-main font-semibold hover:bg-surface-alt transition-colors">3</button>
-          <span className="px-2 text-text-muted">...</span>
-          <button className="w-10 h-10 rounded-xl border border-border-light flex items-center justify-center text-text-main font-semibold hover:bg-surface-alt transition-colors">8</button>
-          <button className="w-10 h-10 rounded-xl border border-border-light flex items-center justify-center text-text-muted hover:bg-surface-alt transition-colors">
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
+        <Pagination
+          {...paginationProps}
+          infoText={`Menampilkan ${startIndex + 1}–${endIndex} dari ${totalItems} berita`}
+        />
       )}
     </div>
   );

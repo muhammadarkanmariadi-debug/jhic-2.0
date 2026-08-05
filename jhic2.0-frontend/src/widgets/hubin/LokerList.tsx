@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { JobVacancyItem } from "@/shared/types";
+import { usePagination } from "@/shared/hooks/usePagination";
+import { Pagination } from "@/shared/ui/Pagination";
 import { Briefcase, MapPin, Calendar, ExternalLink, Search, Wallet } from "lucide-react";
 
 const programOptions = [
@@ -20,6 +22,10 @@ export function LokerList({ items }: { items: JobVacancyItem[] }) {
     const matchesQ = haystack.includes(q.toLowerCase());
     const matchesP = program === "ALL" || (i.programCode ?? "UMUM") === program;
     return matchesQ && matchesP;
+  });
+
+  const { currentItems, paginationProps, startIndex, endIndex, totalItems } = usePagination(filtered, {
+    itemsPerPage: 6,
   });
 
   return (
@@ -59,7 +65,7 @@ export function LokerList({ items }: { items: JobVacancyItem[] }) {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {filtered.map((job) => (
+          {currentItems.map((job) => (
             <div
               key={job.id}
               className="rounded-2xl border border-border-light bg-white p-6 shadow-sm hover:shadow-md transition-all flex flex-col"
@@ -120,6 +126,11 @@ export function LokerList({ items }: { items: JobVacancyItem[] }) {
           ))}
         </div>
       )}
+
+      <Pagination
+        {...paginationProps}
+        infoText={`Menampilkan ${startIndex + 1}–${endIndex} dari ${totalItems} lowongan`}
+      />
     </div>
   );
 }

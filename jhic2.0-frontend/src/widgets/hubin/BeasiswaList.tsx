@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { ScholarshipItem } from "@/shared/types";
+import { usePagination } from "@/shared/hooks/usePagination";
+import { Pagination } from "@/shared/ui/Pagination";
 import { GraduationCap, Calendar, ExternalLink, CheckCircle2 } from "lucide-react";
 
 const programOptions = [
@@ -17,6 +19,10 @@ export function BeasiswaList({ items }: { items: ScholarshipItem[] }) {
   const filtered = items.filter(
     (i) => program === "ALL" || (i.programCode ?? "UMUM") === program
   );
+
+  const { currentItems, paginationProps, startIndex, endIndex, totalItems } = usePagination(filtered, {
+    itemsPerPage: 6,
+  });
 
   return (
     <div className="w-full">
@@ -44,7 +50,7 @@ export function BeasiswaList({ items }: { items: ScholarshipItem[] }) {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((b) => (
+          {currentItems.map((b) => (
             <div
               key={b.id}
               className="rounded-2xl border border-border-light bg-white p-6 shadow-sm hover:shadow-md transition-all flex flex-col"
@@ -94,6 +100,11 @@ export function BeasiswaList({ items }: { items: ScholarshipItem[] }) {
           ))}
         </div>
       )}
+
+      <Pagination
+        {...paginationProps}
+        infoText={`Menampilkan ${startIndex + 1}–${endIndex} dari ${totalItems} beasiswa`}
+      />
     </div>
   );
 }

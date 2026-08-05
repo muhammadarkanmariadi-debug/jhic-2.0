@@ -58,7 +58,7 @@ export function Hero() {
           <p className="mb-10 text-base leading-[1.6] text-gray-600 md:text-lg">
             Pelopor SMK bidang Teknologi dan Informatika di Indonesia sejak 1992. Belajar coding, jaringan, dan gim langsung dari standar industri.
           </p>
-          <div className="flex w-full flex-col items-center gap-4 sm:flex-row xl:justify-start">
+          <div className="flex w-full flex-col max-w-lg mx-auto lg:mx-0  items-center gap-4 sm:flex-row xl:justify-start">
             <Link
               href="/spmb"
               className="flex h-14 w-full items-center justify-center gap-2 rounded-xl bg-accent px-8 text-[15.5px] font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-accent sm:w-auto"

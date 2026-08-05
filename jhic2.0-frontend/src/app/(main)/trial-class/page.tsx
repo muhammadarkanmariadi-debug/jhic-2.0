@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { PageHeader } from "@/shared/ui/PageHeader";
 import { Card } from "@/shared/ui/Card";
 import { Pagination } from "@/shared/ui/Pagination";
+import { usePagination } from "@/shared/hooks/usePagination";
 import { Search, Calendar, User, ArrowRight, Tag } from "lucide-react";
 import Image from "next/image";
 import { trialClasses } from "@/services/trialClassData";
@@ -15,15 +16,6 @@ export default function TrialClassPage() {
   ];
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [prevSearchTerm, setPrevSearchTerm] = useState("");
-
-  if (searchTerm !== prevSearchTerm) {
-    setPrevSearchTerm(searchTerm);
-    setCurrentPage(1);
-  }
-
-  const itemsPerPage = 6;
 
   // Filter based on search term
   const filteredClasses = trialClasses.filter((c) =>
@@ -31,15 +23,10 @@ export default function TrialClassPage() {
     c.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Pagination logic
-  const totalPages = Math.ceil(filteredClasses.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentClasses = filteredClasses.slice(startIndex, startIndex + itemsPerPage);
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const { currentItems: currentClasses, paginationProps, startIndex, endIndex, totalItems } = usePagination(
+    filteredClasses,
+    { itemsPerPage: 6 }
+  );
 
   return (
     <main className="bg-bg-main min-h-screen">
@@ -144,9 +131,8 @@ export default function TrialClassPage() {
 
           {/* Pagination */}
           <Pagination
-            pageCount={totalPages}
-            currentPage={currentPage}
-            onPageChange={handlePageChange}
+            {...paginationProps}
+            infoText={`Menampilkan ${startIndex + 1}–${endIndex} dari ${totalItems} kelas`}
           />
         </div>
       </section>

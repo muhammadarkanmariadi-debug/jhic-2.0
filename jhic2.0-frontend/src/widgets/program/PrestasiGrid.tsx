@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { ContentCard } from '@/shared/ui/ContentCard';
+import { usePagination } from '@/shared/hooks/usePagination';
+import { Pagination } from '@/shared/ui/Pagination';
 
 interface PrestasiItem {
   id: string;
@@ -54,6 +56,10 @@ export function PrestasiGrid() {
     activeTab === 'all' || item.category === activeTab
   );
 
+  const { currentItems, paginationProps, startIndex, endIndex, totalItems } = usePagination(filteredItems, {
+    itemsPerPage: 6,
+  });
+
   return (
     <>
       <div className="flex flex-wrap justify-center gap-3 mb-12">
@@ -77,7 +83,7 @@ export function PrestasiGrid() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredItems.map(item => (
+        {currentItems.map(item => (
           <ContentCard 
             key={item.id}
             image={item.img}
@@ -88,6 +94,11 @@ export function PrestasiGrid() {
           />
         ))}
       </div>
+
+      <Pagination
+        {...paginationProps}
+        infoText={`Menampilkan ${startIndex + 1}–${endIndex} dari ${totalItems} prestasi`}
+      />
     </>
   );
 }

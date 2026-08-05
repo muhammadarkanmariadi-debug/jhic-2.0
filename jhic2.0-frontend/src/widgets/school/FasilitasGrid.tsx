@@ -6,6 +6,8 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { Search, X, User, Clock } from 'lucide-react';
 import { ContentCard } from '@/shared/ui/ContentCard';
+import { usePagination } from '@/shared/hooks/usePagination';
+import { Pagination } from '@/shared/ui/Pagination';
 
 interface Facility {
   id: string;
@@ -102,6 +104,10 @@ export function FasilitasGrid() {
     return matchesTab && matchesSearch;
   });
 
+  const { currentItems, paginationProps, startIndex, endIndex, totalItems } = usePagination(filteredFacilities, {
+    itemsPerPage: 6,
+  });
+
   return (
     <>
       <div className="mb-10 flex flex-col md:flex-row md:items-center justify-between gap-6 bg-white p-4 rounded-2xl border border-border-light shadow-sm">
@@ -139,7 +145,7 @@ export function FasilitasGrid() {
 
       {filteredFacilities.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredFacilities.map(facility => (
+          {currentItems.map(facility => (
              <ContentCard 
                key={facility.id}
                image={facility.img}
@@ -160,6 +166,11 @@ export function FasilitasGrid() {
           <p className="text-text-muted">Coba gunakan kata kunci lain atau pilih kategori "Semua".</p>
         </div>
       )}
+
+      <Pagination
+        {...paginationProps}
+        infoText={`Menampilkan ${startIndex + 1}–${endIndex} dari ${totalItems} fasilitas`}
+      />
 
       {/* Modal */}
       {selectedFacility && (
