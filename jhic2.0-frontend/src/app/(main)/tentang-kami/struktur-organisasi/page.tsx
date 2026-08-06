@@ -49,7 +49,7 @@ export default function StrukturOrganisasi() {
               <OrgNode 
                 title="Kepala Sekolah" 
                 name="Rahmat Dwi Djatmiko, S.Kom., M.M." 
-                image="https://www.smktelkom-mlg.sch.id/assets/frontend/images/image1001.png"
+                image="/images/school/assets/frontend/images/image1001.png"
               />
             </div>
           </div>
@@ -181,7 +181,7 @@ export default function StrukturOrganisasi() {
              <div className="absolute top-0 left-[130px] w-[2px] h-6 bg-black -z-10"></div>
 
              <div className="pt-6 flex justify-start">
-               <div className="w-[260px] md:w-[280px] bg-white rounded-xl overflow-hidden shadow-md border border-accent relative z-10 flex items-center p-4">
+               <div className="w-[260px] md:w-[280px] bg-surface rounded-xl overflow-hidden shadow-md border border-accent relative z-10 flex items-center p-4">
                  <div className="shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center text-accent mr-4">
                    <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -198,8 +198,8 @@ export default function StrukturOrganisasi() {
           </div>
 
           {/* Legend Box */}
-          <div className="absolute bottom-10 right-10 bg-white border border-border-light rounded-xl shadow-md p-4 w-[280px]">
-            <div className="bg-accent text-white text-center py-1 font-bold text-sm mb-4 rounded">Keterangan</div>
+          <div className="absolute bottom-10 right-10 bg-surface border border-border-light rounded-xl shadow-md p-4 w-[280px]">
+            <div className="bg-accent text-text-inverse text-center py-1 font-bold text-sm mb-4 rounded">Keterangan</div>
             <div className="flex items-center gap-3 mb-2">
                <div className="w-12 border-t-[2px] border-black"></div>
                <span className="text-sm font-semibold">Garis Komando</span>

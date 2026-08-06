@@ -12,7 +12,7 @@ export default function Akreditasi() {
     {
       title: (
         <div className="flex items-center gap-6">
-          <div className="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 bg-gradient-to-br from-accent to-red-500 text-white flex items-center justify-center font-extrabold text-4xl md:text-5xl" style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}>
+          <div className="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 bg-gradient-to-br from-accent to-red-500 text-text-inverse flex items-center justify-center font-extrabold text-4xl md:text-5xl" style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}>
             A
           </div>
           <div className="flex-1">
@@ -30,7 +30,7 @@ export default function Akreditasi() {
     {
       title: (
         <div className="flex items-center gap-6">
-          <div className="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 bg-gray-900 text-white flex items-center justify-center font-extrabold text-2xl md:text-3xl rounded-[30px]" style={{ borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%' }}>
+          <div className="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 bg-neutral-900 text-text-inverse flex items-center justify-center font-extrabold text-2xl md:text-3xl rounded-[30px]" style={{ borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%' }}>
             ISO
           </div>
           <div className="flex-1">
@@ -48,7 +48,7 @@ export default function Akreditasi() {
     {
       title: (
         <div className="flex items-center gap-6">
-          <div className="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 bg-green-500 text-white flex items-center justify-center font-extrabold text-3xl md:text-4xl rounded-2xl transform rotate-45">
+          <div className="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 bg-green-500 text-text-inverse flex items-center justify-center font-extrabold text-3xl md:text-4xl rounded-lg transform rotate-45">
             <span className="-rotate-45">PK</span>
           </div>
           <div className="flex-1">

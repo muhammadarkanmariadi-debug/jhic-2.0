@@ -74,7 +74,7 @@ export function AutoCarousel({
         <>
           <button
             onClick={scrollLeftBtn}
-            className="absolute top-1/2 -translate-y-1/2 -left-5 w-10 h-10 rounded-full bg-white shadow-md border border-gray-100 text-gray-600 flex items-center justify-center hover:bg-gray-50 hover:text-accent transition-colors z-10 opacity-0 group-hover:opacity-100 lg:flex hidden"
+            className="absolute top-1/2 -translate-y-1/2 -left-5 w-10 h-10 rounded-full bg-surface shadow-md border border-neutral-100 text-neutral-600 flex items-center justify-center hover:bg-neutral-50 hover:text-accent transition-colors z-10 opacity-0 group-hover:opacity-100 lg:flex hidden"
             aria-label="Scroll left"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -82,7 +82,7 @@ export function AutoCarousel({
 
           <button
             onClick={scrollRightBtn}
-            className="absolute top-1/2 -translate-y-1/2 -right-5 w-10 h-10 rounded-full bg-white shadow-md border border-gray-100 text-gray-600 flex items-center justify-center hover:bg-gray-50 hover:text-accent transition-colors z-10 opacity-0 group-hover:opacity-100 lg:flex hidden"
+            className="absolute top-1/2 -translate-y-1/2 -right-5 w-10 h-10 rounded-full bg-surface shadow-md border border-neutral-100 text-neutral-600 flex items-center justify-center hover:bg-neutral-50 hover:text-accent transition-colors z-10 opacity-0 group-hover:opacity-100 lg:flex hidden"
             aria-label="Scroll right"
           >
             <ChevronRight className="w-5 h-5" />

@@ -20,6 +20,32 @@
   --color-accent-text: #ffffff;
   --color-secondary-action: #ffffff;
 
+  /* Color — neutral / gray ramp (DC-03) */
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #F9FAFB;
+  --color-neutral-100: #F3F4F6;
+  --color-neutral-200: #E5E7EB;
+  --color-neutral-300: #D1D5DB;
+  --color-neutral-400: #9CA3AF;
+  --color-neutral-500: #6B7280;
+  --color-neutral-600: #4B5563;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1F2937;
+  --color-neutral-900: #111827;
+
+  /* Color — semantic (DC-03) */
+  --color-success: #16A34A;
+  --color-success-strong: #15803D;
+  --color-success-soft: #F0FDF4;
+  --color-error: #DC2626;
+  --color-error-strong: #B91C1C;
+  --color-error-soft: #FEF2F2;
+  --color-error-border: #FECACA;
+  --color-warning: #D97706;
+  --color-warning-soft: #FFFBEB;
+  --color-info: #2563EB;
+  --color-info-soft: #EFF6FF;
+
   /* Typography */
   --font-sans: var(--font-plus-jakarta), system-ui, sans-serif;
   
@@ -30,6 +56,11 @@
   --text-xl: 24px;
   --text-2xl: clamp(26px, 3.6vw, 38px);
   --text-3xl: clamp(32px, 5.6vw, 60px);
+
+  /* Display scale (DC-06) — additive, for large hero/page headings only. */
+  --text-display-sm: clamp(34px, 4.2vw, 48px);
+  --text-display-md: clamp(44px, 5.4vw, 64px);
+  --text-display-lg: clamp(56px, 6.6vw, 88px);
 
   /* Spacing */
   --space-1: 4px;
@@ -87,6 +118,25 @@
 }
 
 @layer utilities {
-  /* other utilities if any */
+  /* DC-09: token-backed page containers (mirror --container-max / --container-hero) */
+  .container-main {
+    margin-inline: auto;
+    width: 100%;
+    max-width: var(--container-max);
+    padding-inline: 1rem;
+  }
+  .container-hero {
+    margin-inline: auto;
+    width: 100%;
+    max-width: var(--container-hero);
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-main,
+    .container-hero {
+      padding-inline: 1.5rem;
+    }
+  }
 }
 

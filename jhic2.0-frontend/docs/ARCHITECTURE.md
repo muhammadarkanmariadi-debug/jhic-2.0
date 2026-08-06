@@ -19,7 +19,7 @@ The fixed and consistent architecture for the **Next.js** frontend. This documen
 | Pagination | `react-paginate` |
 | Fonts | `next/font/google` — Plus Jakarta Sans |
 
-> **Not installed (planned/recommended):** WYSIWYG editor for Admin CMS — `react-quill` or `tiptap` (see root `PRD.md` §3.10). Framer Motion is mentioned in older docs but is **not** in `package.json`.
+> **Not installed (planned/recommended):** WYSIWYG editor (`react-quill` / `tiptap`) for the **News** admin only (see root `PRD.md` §3.11). **Program Umum does NOT use a rich-text editor** — it uses a structured block editor with plain-text fields (see `../docs/SCRUM.md` **JHI-16**). Framer Motion is mentioned in older docs but is **not** in `package.json`.
 
 ---
 
@@ -59,23 +59,50 @@ Most public pages live in the `(main)` route group (shared Header/Footer layout)
 ```
 /                                   Home (Beranda)
 /(main)/tentang-kami/
-    profil-sejarah, visi-misi, struktur-organisasi, akreditasi,
-    fasilitas, prestasi, hubungan-industri, learning-culture
+    profil-sejarah, visi-misi, struktur-organisasi, profil-guru,
+    akreditasi, fasilitas, prestasi, hubungan-industri, learning-culture
 /(main)/program/
+<<<<<<< HEAD
     jurusan (hub — RPL/TKJ/PG tabs), [slug] (dynamic — TS/ICP/CCP/etc),
     program-ts, icp, ccp (v1 static — migrate to [slug]),
     ekstrakurikuler, tes-minat-bakat, trial-class
+=======
+    program-umum, profil-konsentrasi-keahlian, persiapan-kelulusan,
+    konsentrasi/[slug] (6 detail pages), icp, reguler, ccp,
+    program-ts, ekstrakurikuler, tes-minat-bakat
+    redirects: jurusan → profil-konsentrasi-keahlian,
+               kokurikuler → program-umum, sertifikasi → program-umum,
+               trial-class → /trial-class
+/(main)/karir                           (Karir & Prospek Kerja — MokletKarir)
+/(main)/organisasi                      (split from Ekstrakurikuler)
+>>>>>>> 15545e1c538bd293ea9ab1d42cf5cf1e1f64d4f2
 /(main)/alumni/
     profil-sebaran, testimoni
 /(main)/informasi/
     berita (list + [slug] detail), pengumuman-kelulusan,
-    penerapan-k3, akomodasi, produk
+    cek-status-kelulusan, lomba, penerapan-k3, produk
+    redirect: akomodasi → /akomodasi
+/(main)/loker                           (Info Lowongan Kerja — MokletHubin)
+/(main)/beasiswa                        (Info Beasiswa — MokletHubin)
+/(main)/akomodasi                       (standalone menu)
+/(main)/trial-class                     (standalone menu)
 /(main)/hubungi-kami/
-    faq, kotak-pertanyaan, service-desk
-/(main)/ppdb                          (→ v2 target: SPMB landing, see PRD)
+    faq, kotak-pertanyaan, ulasan (Beri Masukan), service-desk
+/(main)/spmb                            (SPMB landing — gateway to yayasan portal; redirect: ppdb → /spmb)
+/login                                  (admin login)
 ```
 
-**v2 target additions** (not yet implemented — from `PRD.md` §2): `kurikulum`, `hubungan-industri/{lomba,loker,beasiswa}`, `hubungi-kami/{bot,ulasan}`, and renaming `ppdb` → `spmb`.
+**Admin area** (JHI-16 — requires JWT auth JHI-02):
+```
+/admin                              → admin shell (sidebar) + auth guard
+/admin/program-umum                 → Program Umum tab list (CRUD)
+/admin/program-umum/new             → create tab (meta + block editor)
+/admin/program-umum/[id]            → edit tab (structured block editor, plain text)
+```
+
+> **v2 note:** The curriculum microsite (reference: kurikulum.smktelkom-mlg.sch.id) is mirrored under `/program/` (program-umum, profil-konsentrasi-keahlian + konsentrasi/[slug], persiapan-kelulusan). MokletHubin expansion is live (`/loker`, `/beasiswa`, `/informasi/lomba`, hub page). MokletBot is a floating widget on public pages; MokletUlasan at `/hubungi-kami/ulasan`. All Sprint 1–3 v2 targets are implemented.
+
+> **Assets:** All images are served **locally** from `/public/images/` (no remote hosts — `next.config.ts` `remotePatterns` is empty). Structure: `logo/`, `hero/`, `unsplash/`, `school/`, `avatars/`, `expertise/`, `kurikulum/`, `organisasi/`. Migration utilities live in `scripts/` (`download-images.mjs`, `replace-images.mjs`, `verify-local-images.mjs`); `scripts/image-map.json` records the URL→path mapping.
 
 **Dynamic program pages** (`/(main)/program/[slug]`):
 - Uses `generateStaticParams` from the programs API + ISR to prerender each program page at build/first-visit.

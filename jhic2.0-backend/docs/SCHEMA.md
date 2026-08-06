@@ -31,8 +31,9 @@ The **canonical, documented** database schema for JHIC 2.0.
 | Field | Type | Notes |
 |---|---|---|
 | id | String @id | uuid |
-| name | String @unique | e.g. `SUPER_ADMIN`, `ADMIN_KONTEN`, `ADMIN_SPMB`, `ADMIN_SUPPORT`, `ADMIN_KURIKULUM`, `ADMIN_HUBIN` |
+| name | String @unique | e.g. `SUPER_ADMIN`, `ADMIN_KONTEN`, `ADMIN_SPMB`, `ADMIN_SUPPORT`, `ADMIN_KURIKULUM`, `ADMIN_HUBIN`, `ADMIN_HUMAS`, `ADMIN_KESISWAAN` |
 | description | String? | |
+| division | String? | Division scope (JHI-v2-10): `SUPER_ADMIN` / `KONTEN` / `SPMB` / `SUPPORT` / `KURIKULUM` / `HUBIN` / `KESISWAAN` / `HUMAS` |
 
 ### `Permission` & `RolePermission`
 - `Permission`: `id`, `key` (unique, e.g. `news:create`), `description`.
@@ -83,6 +84,8 @@ The **canonical, documented** database schema for JHIC 2.0.
 ### `TeacherProfile` (Guru & Staf)
 `id`, `name`, `position`, `image`, `description`?, `sortOrder`, timestamps.
 
+> **v2 addition (per curriculum feedback):** displayed as **profile cards** (layout reference: https://smktelkom-sda.sch.id/profil-guru), not an org chart. Requires `level` (PRINCIPAL / VP / TEACHER) and `category` (PRODUCTIVE / NON_PRODUCTIVE / STAFF) fields for grouping/filtering within the card grid. `division` is a string label for now — to become an FK to a `Division` entity once division-based RBAC (JHI-v2-10) introduces it. Admin Humas maintains this content.
+
 ---
 
 ## 3. Jurusan, Programs & Curriculum (v2: MokletKurikulum / MokletKarir)
@@ -104,6 +107,7 @@ The **canonical, documented** database schema for JHIC 2.0.
 | image / heroImage | String? | |
 | curriculum | Json? | `{title, icon}[]` — summary curriculum items |
 | careers | Json? | `{title, description, icon, ...}[]` |
+| careerPortalUrl | String? | JHI-06: external career portal link (MokletKarir), exposed via `GET /api/programs` |
 | icon | String? | icon key |
 | careerPortalUrl | String? | link to Pak Yniko's career website |
 | sortOrder | Int | display order in hub tabs |
@@ -149,6 +153,25 @@ The **canonical, documented** database schema for JHIC 2.0.
 
 ### `CareerSection` (MokletKarir — per Jurusan)
 - `id`, `jurusanId` FK → Jurusan, `type` (enum: `TIMELINE` / `PROSPEK`), `content` Json (timeline per semester/grade OR expertise + career paths + salary ranges), `sortOrder`, `updatedBy`?, timestamps.
+
+### `CurriculumSyncPartner` (JHI-v2-02 — Partner Sinkronisasi Kurikulum)
+- `id`, `name`, `logo`?, `academicYear` (**required** — partner tied to a specific year for versioning, e.g. `2025/2026`), `description`?, `programCode`? (RPL/TKJ/PG), `isActive` Boolean, timestamps.
+
+### `Expertise` (JHI-v2-02)
+- `id`, `programCode` (RPL/TKJ/PG), `name`, `description`, `isIcp` Boolean (ICP = full-stack + mobile), `sortOrder`, timestamps.
+
+### `Certification` (JHI-v2-02)
+- `id`, `programCode` (RPL/TKJ/PG), `name`, `level` (enum: `NASIONAL` / `INTERNASIONAL`), `provider`, timestamps.
+
+### `FeaturedProgram` (JHI-v2-05 — Program Unggulan)
+- `id`, `name`, `slug` unique, `description`, `programId`? (link to curriculum `Program`), `isActive` Boolean, `ctaLabel`?, `sortOrder`, timestamps.
+- CRUD API: `jhic2.0-backend/src/routes/featuredPrograms.ts` (Admin Kurikulum only; public GET returns active only).
+
+### `ProgramUmumProgram` (Program Umum content)
+- `id`, `key` unique (tab key: `bilingual` / `tahfidz` / `moklet-serve` / `factory-tour` / `idea-challenge` / `sertifikasi-bahasa`), `label`, `intro`?, `icon`? (lucide key), `sections` Json (`ContentSection[]`), `isActive` Boolean, `sortOrder`, `updatedBy`?, timestamps.
+- CRUD API: `jhic2.0-backend/src/routes/programUmum.ts` — public GET returns active tabs; Admin Kurikulum (`curriculum.manage`) can create/update/delete. Planned `GET /api/program-umum/:id` for the admin edit screen (JHI-16).
+- Frontend: `jhic2.0-frontend/src/services/programUmum.ts` fetches from `/api/program-umum` with static fallback to `programUmumData.ts`.
+- Admin editing uses a **structured block editor (plain text)** per section type — no WYSIWYG/HTML (see root `docs/SCRUM.md` **JHI-16**).
 
 ---
 

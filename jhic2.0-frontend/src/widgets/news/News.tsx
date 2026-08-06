@@ -26,7 +26,7 @@ export function News() {
             <h2 className="mb-4 text-3xl md:text-4xl font-extrabold leading-[1.2] tracking-tight text-text-main">
               Kabar dari Moklet
             </h2>
-            <p className="text-base md:text-lg leading-[1.6] text-gray-600">
+            <p className="text-base md:text-lg leading-[1.6] text-neutral-600">
               Ikuti informasi, prestasi, dan kegiatan terbaru dari SMK Telkom Malang.
             </p>
           </div>
@@ -47,8 +47,8 @@ export function News() {
               onClick={() => setActiveFilter(cat)}
               className={`rounded-full px-5 py-2 text-sm font-semibold transition-all ${
                 activeFilter === cat
-                  ? "bg-text-main text-white"
-                  : "border border-border-color bg-white text-gray-600 hover:border-gray-300 hover:text-text-main"
+                  ? "bg-text-main text-text-inverse"
+                  : "border border-border-color bg-surface text-neutral-600 hover:border-neutral-300 hover:text-text-main"
               }`}
             >
               {cat}
@@ -61,7 +61,7 @@ export function News() {
           {filteredNews.map((news, idx) => (
             <article
               key={idx}
-              className="group flex flex-col overflow-hidden rounded-[24px] border border-border-color bg-white shadow-sm transition-all hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg"
+              className="group flex flex-col overflow-hidden rounded-[24px] border border-border-color bg-surface shadow-sm transition-all hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden">
                 <Image
@@ -75,7 +75,7 @@ export function News() {
                 </span>
               </div>
               <div className="flex flex-1 flex-col p-6">
-                <div className="mb-3 text-xs font-semibold text-gray-400">
+                <div className="mb-3 text-xs font-semibold text-neutral-400">
                   {news.date}
                 </div>
                 <h3 className="mb-4 text-lg font-bold leading-[1.4] text-text-main transition-colors group-hover:text-accent">

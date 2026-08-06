@@ -1,58 +1,18 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import { Code2, Server, Gamepad2, Database, GitMerge, Layout, Network, DatabaseBackup, Gamepad, Paintbrush, FileCode2 } from 'lucide-react';
+import { Code2, Server, Database, GitMerge, Layout, Network, DatabaseBackup, Gamepad, Paintbrush, FileCode2 } from 'lucide-react';
 import { programDetails } from '@/services/dummyData';
 import { AutoCarousel } from '@/shared/ui/AutoCarousel';
+import { ProgramCode } from '@/shared/types';
 
-export function JurusanTabs() {
-  const [activeTab, setActiveTab] = useState<'rpl' | 'tkj' | 'pg'>('rpl');
-
+export function JurusanTabs({ active }: { active: ProgramCode }) {
   return (
     <div className="w-full">
-      {/* Tab Navigation */}
-      <div className="flex justify-center w-full mb-16">
-        <div className="flex gap-1 bg-white border border-border-light rounded-full p-1 shadow-sm">
-          <button
-            onClick={() => setActiveTab('rpl')}
-            className={`px-8 py-2.5 rounded-full text-[15px] font-bold flex items-center gap-2 transition-all ${
-              activeTab === 'rpl'
-                ? 'bg-accent text-white shadow-md'
-                : 'text-text-muted hover:bg-surface-alt'
-            }`}
-          >
-            <Code2 className="w-4 h-4" />
-            RPL
-          </button>
-          <button
-            onClick={() => setActiveTab('tkj')}
-            className={`px-8 py-2.5 rounded-full text-[15px] font-bold flex items-center gap-2 transition-all ${
-              activeTab === 'tkj'
-                ? 'bg-accent text-white shadow-md'
-                : 'text-text-muted hover:bg-surface-alt'
-            }`}
-          >
-            <Server className="w-4 h-4" />
-            TKJ
-          </button>
-          <button
-            onClick={() => setActiveTab('pg')}
-            className={`px-8 py-2.5 rounded-full text-[15px] font-bold flex items-center gap-2 transition-all ${
-              activeTab === 'pg'
-                ? 'bg-accent text-white shadow-md'
-                : 'text-text-muted hover:bg-surface-alt'
-            }`}
-          >
-            <Gamepad2 className="w-4 h-4" />
-            PG
-          </button>
-        </div>
-      </div>
-
       <div className="relative">
         {/* RPL Pane */}
-        {activeTab === 'rpl' && (
+        {active === 'RPL' && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
             {/* Hero */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
@@ -61,7 +21,7 @@ export function JurusanTabs() {
                 <div className="absolute top-0 left-0 right-[20%] bottom-[10%] border-2 border-dashed border-border-color rounded-tl-[40px] rounded-br-[40px] rounded-bl-[40px] pointer-events-none"></div>
                 <div className="absolute bottom-0 left-[10%] w-[85%] h-[95%]">
                   <Image 
-                    src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop"
+                    src="/images/unsplash/photo-1555066931-4365d14bab8c.jpg"
                     alt="RPL Student"
                     fill
                     className="object-cover object-bottom"
@@ -97,8 +57,8 @@ export function JurusanTabs() {
                   { title: 'Algoritma &\nStruktur Data', icon: <GitMerge className="w-5 h-5" /> },
                   { title: 'Pemrograman\nBerorientasi Objek', icon: <Code2 className="w-5 h-5" /> },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 p-4 border border-dashed border-border-color rounded-xl bg-white hover:border-accent transition-colors">
-                    <div className="w-11 h-11 rounded-lg bg-accent text-white flex items-center justify-center shrink-0">
+                  <div key={i} className="flex items-center gap-4 p-4 border border-dashed border-border-color rounded-xl bg-surface hover:border-accent transition-colors">
+                    <div className="w-11 h-11 rounded-lg bg-accent text-text-inverse flex items-center justify-center shrink-0">
                       {item.icon}
                     </div>
                     <span className="text-sm font-bold text-text-muted leading-snug whitespace-pre-line">{item.title}</span>
@@ -117,7 +77,7 @@ export function JurusanTabs() {
                 {programDetails.RPL.careers.map((item, idx) => {
                   const Icon = item.icon;
                   return (
-                    <div key={idx} className="bg-white border border-border-light rounded-2xl p-6 shadow-sm flex flex-col shrink-0 w-[280px] snap-center hover:shadow-md hover:-translate-y-1 transition-all">
+                    <div key={idx} className="bg-surface border border-border-light rounded-lg p-6 shadow-sm flex flex-col shrink-0 w-[280px] snap-center hover:shadow-md hover:-translate-y-1 transition-all">
                       <div className={`w-12 h-12 rounded-xl ${item.iconBgClass} ${item.iconColorClass} flex items-center justify-center mb-5`}>
                         <Icon className="w-6 h-6" />
                       </div>
@@ -134,7 +94,7 @@ export function JurusanTabs() {
         )}
 
         {/* TKJ Pane */}
-        {activeTab === 'tkj' && (
+        {active === 'TKJ' && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
              {/* Hero */}
              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
@@ -157,7 +117,7 @@ export function JurusanTabs() {
                 <div className="absolute top-0 right-0 left-[20%] bottom-[10%] border-2 border-dashed border-border-color rounded-tr-[40px] rounded-br-[40px] rounded-bl-[40px] pointer-events-none"></div>
                 <div className="absolute bottom-0 right-[10%] w-[85%] h-[95%]">
                   <Image 
-                    src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop"
+                    src="/images/unsplash/photo-1544197150-b99a580bb7a8.jpg"
                     alt="TKJ Student"
                     fill
                     className="object-cover object-bottom"
@@ -177,8 +137,8 @@ export function JurusanTabs() {
                   { title: 'Administrasi\nInfrastruktur Jaringan', icon: <Server className="w-5 h-5" /> },
                   { title: 'Administrasi\nSistem Server', icon: <DatabaseBackup className="w-5 h-5" /> },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 p-4 border border-dashed border-border-color rounded-xl bg-white hover:border-accent transition-colors">
-                    <div className="w-11 h-11 rounded-lg bg-accent text-white flex items-center justify-center shrink-0">
+                  <div key={i} className="flex items-center gap-4 p-4 border border-dashed border-border-color rounded-xl bg-surface hover:border-accent transition-colors">
+                    <div className="w-11 h-11 rounded-lg bg-accent text-text-inverse flex items-center justify-center shrink-0">
                       {item.icon}
                     </div>
                     <span className="text-sm font-bold text-text-muted leading-snug whitespace-pre-line">{item.title}</span>
@@ -197,7 +157,7 @@ export function JurusanTabs() {
                 {programDetails.TKJ.careers.map((item, idx) => {
                   const Icon = item.icon;
                   return (
-                    <div key={idx} className="bg-white border border-border-light rounded-2xl p-6 shadow-sm flex flex-col shrink-0 w-[280px] snap-center hover:shadow-md hover:-translate-y-1 transition-all">
+                    <div key={idx} className="bg-surface border border-border-light rounded-lg p-6 shadow-sm flex flex-col shrink-0 w-[280px] snap-center hover:shadow-md hover:-translate-y-1 transition-all">
                       <div className={`w-12 h-12 rounded-xl ${item.iconBgClass} ${item.iconColorClass} flex items-center justify-center mb-5`}>
                         <Icon className="w-6 h-6" />
                       </div>
@@ -214,7 +174,7 @@ export function JurusanTabs() {
         )}
 
         {/* PG Pane */}
-        {activeTab === 'pg' && (
+        {active === 'PG' && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
              {/* Hero */}
              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
@@ -223,7 +183,7 @@ export function JurusanTabs() {
                 <div className="absolute top-0 left-0 right-[20%] bottom-[10%] border-2 border-dashed border-border-color rounded-tl-[40px] rounded-br-[40px] rounded-bl-[40px] pointer-events-none"></div>
                 <div className="absolute bottom-0 left-[10%] w-[85%] h-[95%]">
                   <Image 
-                    src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=800&auto=format&fit=crop"
+                    src="/images/unsplash/photo-1552820728-8b83bb6b773f.jpg"
                     alt="PG Student"
                     fill
                     className="object-cover object-bottom"
@@ -257,8 +217,8 @@ export function JurusanTabs() {
                   { title: 'Pembuatan\nAset 2D & 3D', icon: <Paintbrush className="w-5 h-5" /> },
                   { title: 'Pemrograman\nGame Engine', icon: <FileCode2 className="w-5 h-5" /> },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 p-4 border border-dashed border-border-color rounded-xl bg-white hover:border-accent transition-colors">
-                    <div className="w-11 h-11 rounded-lg bg-accent text-white flex items-center justify-center shrink-0">
+                  <div key={i} className="flex items-center gap-4 p-4 border border-dashed border-border-color rounded-xl bg-surface hover:border-accent transition-colors">
+                    <div className="w-11 h-11 rounded-lg bg-accent text-text-inverse flex items-center justify-center shrink-0">
                       {item.icon}
                     </div>
                     <span className="text-sm font-bold text-text-muted leading-snug whitespace-pre-line">{item.title}</span>
@@ -277,7 +237,7 @@ export function JurusanTabs() {
                 {programDetails.PG.careers.map((item, idx) => {
                   const Icon = item.icon;
                   return (
-                    <div key={idx} className="bg-white border border-border-light rounded-2xl p-6 shadow-sm flex flex-col shrink-0 w-[280px] snap-center hover:shadow-md hover:-translate-y-1 transition-all">
+                    <div key={idx} className="bg-surface border border-border-light rounded-lg p-6 shadow-sm flex flex-col shrink-0 w-[280px] snap-center hover:shadow-md hover:-translate-y-1 transition-all">
                       <div className={`w-12 h-12 rounded-xl ${item.iconBgClass} ${item.iconColorClass} flex items-center justify-center mb-5`}>
                         <Icon className="w-6 h-6" />
                       </div>

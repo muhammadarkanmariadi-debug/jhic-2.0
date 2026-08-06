@@ -60,7 +60,7 @@ export function FAQAccordion() {
     <div className="flex flex-col lg:flex-row gap-10 md:gap-16 items-start">
       
       {/* Sticky Sidebar */}
-      <div className="w-full lg:w-1/3 lg:sticky lg:top-[120px] bg-white rounded-3xl p-6 border border-border-light shadow-sm">
+      <div className="w-full lg:w-1/3 lg:sticky lg:top-[120px] bg-surface rounded-xl p-6 border border-border-light shadow-sm">
         <h3 className="text-xl font-bold text-text-main mb-4">Kategori</h3>
         <ul className="flex flex-col gap-2">
           {sections.map((section) => (
@@ -107,7 +107,7 @@ export function FAQAccordion() {
                 faqs[section.id as keyof typeof faqs].map((faq) => (
                   <div 
                     key={faq.id} 
-                    className={`bg-white border rounded-2xl overflow-hidden transition-all duration-300 ${openFaqId === faq.id ? 'border-accent shadow-sm' : 'border-border-light'}`}
+                    className={`bg-surface border rounded-lg overflow-hidden transition-all duration-300 ${openFaqId === faq.id ? 'border-accent shadow-sm' : 'border-border-light'}`}
                   >
                     <button 
                       onClick={() => toggleFaq(faq.id)}

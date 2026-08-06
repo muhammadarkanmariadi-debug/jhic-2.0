@@ -72,7 +72,7 @@ export default function LearningCulture() {
          <div className="container max-w-[1200px] mx-auto px-4 md:px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                <div className="order-2 md:order-1">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-border-light text-sm font-bold text-accent mb-6">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface border border-border-light text-sm font-bold text-accent mb-6">
                      <span className="w-2 h-2 rounded-full bg-accent"></span>
                      Moklet Learning Culture
                   </div>
@@ -88,8 +88,8 @@ export default function LearningCulture() {
                </div>
                
                <div className="order-1 md:order-2 relative">
-                  <div className="absolute inset-0 bg-accent/5 rounded-3xl -rotate-3 scale-105 transition-transform duration-500"></div>
-                  <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-lg border border-border-light bg-white">
+                  <div className="absolute inset-0 bg-accent/5 rounded-xl -rotate-3 scale-105 transition-transform duration-500"></div>
+                  <div className="relative aspect-square md:aspect-[4/3] rounded-xl overflow-hidden shadow-lg border border-border-light bg-surface">
                      {/* Placeholder for AI Illustration, since we don't have the exact image */}
                      <div className="absolute inset-0 bg-gradient-to-br from-bg-main to-surface-alt flex flex-col items-center justify-center text-center p-8">
                         <BrainCircuit className="w-24 h-24 text-accent mb-6 opacity-80" />
@@ -102,7 +102,7 @@ export default function LearningCulture() {
          </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-white border-t border-border-light">
+      <section className="py-16 md:py-24 bg-surface border-t border-border-light">
          <div className="container max-w-[1200px] mx-auto px-4 md:px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
                <h2 className="text-3xl md:text-4xl font-extrabold text-text-main mb-6">Pilar Budaya Belajar Moklet</h2>
@@ -113,8 +113,8 @@ export default function LearningCulture() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                {coreValues.map((value, index) => (
-                  <Card key={index} className="p-8 hover:-translate-y-2 transition-transform cursor-default h-full flex flex-col bg-surface-alt border-none shadow-none hover:bg-white hover:shadow-xl hover:border-border-light border border-transparent">
-                     <div className="w-14 h-14 rounded-2xl bg-white shadow-sm border border-border-light text-accent flex items-center justify-center mb-6">
+                  <Card key={index} className="p-8 hover:-translate-y-2 transition-transform cursor-default h-full flex flex-col bg-surface-alt border-none shadow-none hover:bg-surface hover:shadow-xl hover:border-border-light border border-transparent">
+                     <div className="w-14 h-14 rounded-lg bg-surface shadow-sm border border-border-light text-accent flex items-center justify-center mb-6">
                         {value.icon}
                      </div>
                      <h3 className="text-xl font-extrabold text-text-main mb-4">{value.title}</h3>
@@ -131,7 +131,7 @@ export default function LearningCulture() {
       <section className="py-16 md:py-24 bg-surface-alt border-t border-border-light">
          <div className="container max-w-[1000px] mx-auto px-4 md:px-6">
             <div className="text-center max-w-3xl mx-auto mb-12">
-               <div className="inline-block bg-accent text-white px-6 py-2 rounded-full font-extrabold text-xl mb-6 shadow-md tracking-widest">
+               <div className="inline-block bg-accent text-text-inverse px-6 py-2 rounded-full font-extrabold text-xl mb-6 shadow-md tracking-widest">
                   ATTITUDE
                </div>
                <h2 className="text-3xl md:text-4xl font-extrabold text-text-main mb-6">Manifesto Budaya Belajar</h2>
@@ -140,16 +140,16 @@ export default function LearningCulture() {
                </p>
 
                {/* Tabs */}
-               <div className="flex inline-flex bg-gray-200 p-1 rounded-2xl shadow-inner mb-8">
+               <div className="flex inline-flex bg-neutral-200 p-1 rounded-lg shadow-inner mb-8">
                   <button 
                     onClick={() => setActiveTab('siswa')}
-                    className={`px-8 py-3 rounded-xl font-bold text-sm md:text-base transition-all ${activeTab === 'siswa' ? 'bg-white text-accent shadow-sm' : 'text-gray-500 hover:text-text-main'}`}
+                    className={`px-8 py-3 rounded-xl font-bold text-sm md:text-base transition-all ${activeTab === 'siswa' ? 'bg-surface text-accent shadow-sm' : 'text-neutral-500 hover:text-text-main'}`}
                   >
                      Untuk Siswa
                   </button>
                   <button 
                     onClick={() => setActiveTab('guru')}
-                    className={`px-8 py-3 rounded-xl font-bold text-sm md:text-base transition-all ${activeTab === 'guru' ? 'bg-white text-accent shadow-sm' : 'text-gray-500 hover:text-text-main'}`}
+                    className={`px-8 py-3 rounded-xl font-bold text-sm md:text-base transition-all ${activeTab === 'guru' ? 'bg-surface text-accent shadow-sm' : 'text-neutral-500 hover:text-text-main'}`}
                   >
                      Untuk Guru
                   </button>
@@ -158,8 +158,8 @@ export default function LearningCulture() {
             
             <div className="flex flex-col gap-6">
                {currentAttitude.map((item, index) => (
-                  <div key={index} className="flex flex-col md:flex-row gap-6 bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-border-light items-start transition-transform hover:-translate-y-1">
-                     <div className="shrink-0 w-16 h-16 md:w-20 md:h-20 bg-accent text-white rounded-2xl flex items-center justify-center text-3xl md:text-4xl font-black shadow-md mt-1">
+                  <div key={index} className="flex flex-col md:flex-row gap-6 bg-surface p-6 md:p-8 rounded-xl shadow-sm border border-border-light items-start transition-transform hover:-translate-y-1">
+                     <div className="shrink-0 w-16 h-16 md:w-20 md:h-20 bg-accent text-text-inverse rounded-lg flex items-center justify-center text-3xl md:text-4xl font-black shadow-md mt-1">
                         {item.letter}
                      </div>
                      <div className="flex-1">

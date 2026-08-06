@@ -30,9 +30,9 @@ export default function VisiMisi() {
            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 min-h-[60vh] items-stretch">
               
               {/* Visi */}
-              <div className="bg-accent rounded-3xl p-10 md:p-16 text-white relative overflow-hidden flex flex-col justify-center">
-                 <div className="absolute inset-0 bg-white/5 pointer-events-none" />
-                 <Target className="w-16 h-16 text-white/20 mb-6" />
+              <div className="bg-accent rounded-xl p-10 md:p-16 text-text-inverse relative overflow-hidden flex flex-col justify-center">
+                 <div className="absolute inset-0 bg-surface/5 pointer-events-none" />
+                 <Target className="w-16 h-16 text-text-inverse/20 mb-6" />
                  <h2 className="text-4xl md:text-5xl font-extrabold mb-8 relative z-10">Visi</h2>
                  <p className="text-xl md:text-2xl font-medium leading-relaxed relative z-10">
                     &quot;Menjadi sekolah unggulan yang menghasilkan lulusan berkarakter, kompeten di bidang teknologi informasi, dan siap bersaing di tingkat global.&quot;
@@ -40,7 +40,7 @@ export default function VisiMisi() {
               </div>
 
               {/* Misi */}
-              <div className="bg-white rounded-3xl p-10 md:p-16 border border-border-color shadow-sm flex flex-col justify-center">
+              <div className="bg-surface rounded-xl p-10 md:p-16 border border-border-color shadow-sm flex flex-col justify-center">
                  <h2 className="text-4xl md:text-5xl font-extrabold mb-8 text-text-main">Misi</h2>
                  <ul className="space-y-6">
                     {misiItems.map((misi, index) => (

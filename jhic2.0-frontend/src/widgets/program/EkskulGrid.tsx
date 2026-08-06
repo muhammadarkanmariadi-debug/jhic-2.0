@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { Search, X } from 'lucide-react';
 import { ContentCard } from '@/shared/ui/ContentCard';
+import { usePagination } from '@/shared/hooks/usePagination';
+import { Pagination } from '@/shared/ui/Pagination';
 
 interface Ekskul {
   id: string;
@@ -21,7 +23,7 @@ const ekskulItems: Ekskul[] = [
     title: 'Moklet Robotics',
     category: 'akademik',
     categoryLabel: 'IT & Keilmuan',
-    img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=400&auto=format&fit=crop',
+    img: '/images/unsplash/photo-1581091226825-a6a2a5aee158.jpg',
     desc: 'Wadah bagi siswa untuk mengeksplorasi dunia robotika, mekatronika, dan IoT.'
   },
   {
@@ -29,7 +31,7 @@ const ekskulItems: Ekskul[] = [
     title: 'Moklet Animation Club',
     category: 'akademik',
     categoryLabel: 'IT & Keilmuan',
-    img: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=400&auto=format&fit=crop',
+    img: '/images/unsplash/photo-1511512578047-dfb367046420.jpg',
     desc: 'Berfokus pada pengembangan animasi 2D dan 3D, serta desain karakter.'
   },
   {
@@ -37,7 +39,7 @@ const ekskulItems: Ekskul[] = [
     title: 'Basket Moklet',
     category: 'olahraga',
     categoryLabel: 'Olahraga',
-    img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=400&auto=format&fit=crop',
+    img: '/images/unsplash/photo-1546519638-68e109498ffc.jpg',
     desc: 'Ekstrakurikuler unggulan di bidang olahraga yang telah banyak meraih prestasi.'
   },
   {
@@ -45,7 +47,7 @@ const ekskulItems: Ekskul[] = [
     title: 'Futsal Club',
     category: 'olahraga',
     categoryLabel: 'Olahraga',
-    img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=400&auto=format&fit=crop',
+    img: '/images/unsplash/photo-1534438327276-14e5300c3a48.jpg',
     desc: 'Membina bakat futsal siswa melalui latihan rutin dan partisipasi kompetisi.'
   },
   {
@@ -53,7 +55,7 @@ const ekskulItems: Ekskul[] = [
     title: 'Paduan Suara (Choir)',
     category: 'seni',
     categoryLabel: 'Seni & Budaya',
-    img: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=400&auto=format&fit=crop',
+    img: '/images/unsplash/photo-1514320291840-2e0a9bf2a9ae.jpg',
     desc: 'Tim paduan suara yang sering tampil di berbagai acara resmi sekolah dan kompetisi.'
   },
   {
@@ -61,7 +63,7 @@ const ekskulItems: Ekskul[] = [
     title: 'Pramuka',
     category: 'kepanduan',
     categoryLabel: 'Kepanduan',
-    img: 'https://images.unsplash.com/photo-1523580494112-071d192c6b45?q=80&w=400&auto=format&fit=crop',
+    img: '/images/unsplash/photo-1556438064-2d7646166914.jpg',
     desc: 'Membentuk karakter disiplin, tangguh, dan mandiri melalui kegiatan kepanduan.'
   }
 ];
@@ -77,6 +79,10 @@ export function EkskulGrid() {
     return matchesTab && matchesSearch;
   });
 
+  const { currentItems, paginationProps, startIndex, endIndex, totalItems } = usePagination(filteredItems, {
+    itemsPerPage: 6,
+  });
+
   return (
     <>
       <div className="max-w-2xl mx-auto mb-10 relative">
@@ -86,7 +92,7 @@ export function EkskulGrid() {
             placeholder="Cari ekstrakurikuler..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-14 pr-6 py-4 rounded-full border border-border-light bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all text-base"
+            className="w-full pl-14 pr-6 py-4 rounded-full border border-border-light bg-surface shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all text-base"
          />
       </div>
 
@@ -102,8 +108,8 @@ export function EkskulGrid() {
             onClick={() => setActiveTab(tab.id as any)}
             className={`px-6 py-2.5 rounded-full font-bold transition-all text-sm ${
               activeTab === tab.id
-                ? 'bg-text-main text-white'
-                : 'bg-white text-text-muted border border-border-color hover:border-text-main hover:text-text-main shadow-sm'
+                ? 'bg-text-main text-text-inverse'
+                : 'bg-surface text-text-muted border border-border-color hover:border-text-main hover:text-text-main shadow-sm'
             }`}
           >
             {tab.label}
@@ -113,7 +119,7 @@ export function EkskulGrid() {
 
       {filteredItems.length > 0 ? (
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-         {filteredItems.map(item => (
+         {currentItems.map(item => (
             <ContentCard 
               key={item.id}
               image={item.img}
@@ -126,14 +132,19 @@ export function EkskulGrid() {
          ))}
          </div>
       ) : (
-         <div className="text-center py-20 bg-white rounded-3xl border border-border-light border-dashed">
-            <div className="w-20 h-20 rounded-full bg-red-100 text-accent flex items-center justify-center mx-auto mb-6">
+         <div className="text-center py-20 bg-surface rounded-xl border border-border-light border-dashed">
+            <div className="w-20 h-20 rounded-full bg-info-soft text-info flex items-center justify-center mx-auto mb-6">
                <Search className="w-10 h-10" />
             </div>
             <h3 className="text-2xl font-extrabold text-text-main mb-2">Tidak ditemukan</h3>
             <p className="text-text-muted">Coba gunakan kata kunci lain.</p>
          </div>
       )}
+
+      <Pagination
+        {...paginationProps}
+        infoText={`Menampilkan ${startIndex + 1}–${endIndex} dari ${totalItems} ekstrakurikuler`}
+      />
 
       {/* Modal */}
       {selectedEkskul && (
@@ -142,10 +153,10 @@ export function EkskulGrid() {
             className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
             onClick={() => setSelectedEkskul(null)}
           ></div>
-          <div className="relative w-full max-w-lg bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh] animate-in fade-in zoom-in-95 duration-200">
+          <div className="relative w-full max-w-lg bg-surface rounded-xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh] animate-in fade-in zoom-in-95 duration-200">
             <button
               onClick={() => setSelectedEkskul(null)}
-              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-black/30 transition-colors"
+              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/10 backdrop-blur-md flex items-center justify-center text-text-inverse hover:bg-black/30 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>

@@ -6,6 +6,8 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { Search, X, User, Clock } from 'lucide-react';
 import { ContentCard } from '@/shared/ui/ContentCard';
+import { usePagination } from '@/shared/hooks/usePagination';
+import { Pagination } from '@/shared/ui/Pagination';
 
 interface Facility {
   id: string;
@@ -26,7 +28,7 @@ const facilities: Facility[] = [
     title: 'Laboratorium Apple iMac',
     category: 'lab',
     categoryLabel: 'Laboratorium & Akademik',
-    img: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop',
+    img: '/images/unsplash/photo-1517048676732-d65bc937f952.jpg',
     desc: 'Laboratorium khusus dengan perangkat Apple iMac terbaru untuk mendukung pembelajaran UI/UX Design dan iOS Development.',
     fullDesc: 'Laboratorium khusus dengan perangkat Apple iMac terbaru untuk mendukung pembelajaran UI/UX Design dan iOS Development dengan standar industri global. Dilengkapi dengan 40 unit iMac M1, koneksi internet gigabit, dan proyektor interaktif.',
     capacity: '40 Siswa',
@@ -38,7 +40,7 @@ const facilities: Facility[] = [
     title: 'MikroTik Academy Lab',
     category: 'lab',
     categoryLabel: 'Laboratorium & Akademik',
-    img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop',
+    img: '/images/unsplash/photo-1558494949-ef010cbdcc31.jpg',
     desc: 'Fasilitas laboratorium jaringan tersertifikasi langsung oleh MikroTik. Siswa berlatih melakukan konfigurasi jaringan enterprise secara praktikal.',
     fullDesc: 'Fasilitas laboratorium jaringan tersertifikasi langsung oleh MikroTik. Siswa berlatih melakukan konfigurasi jaringan enterprise secara praktikal dengan router board asli dan infrastruktur lengkap.',
     capacity: '36 Siswa',
@@ -50,7 +52,7 @@ const facilities: Facility[] = [
     title: 'Student Co-working',
     category: 'collab',
     categoryLabel: 'Ruang Kolaborasi',
-    img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop',
+    img: '/images/unsplash/photo-1522071820081-009f0129c71c.jpg',
     desc: 'Area komunal berkecepatan tinggi untuk kolaborasi gaya startup. Dirancang untuk mendorong inovasi dan pertukaran ide antar siswa.',
     fullDesc: 'Area komunal berkecepatan tinggi untuk kolaborasi gaya startup. Dirancang untuk mendorong inovasi dan pertukaran ide antar siswa dalam suasana yang rileks dan produktif.',
     capacity: '100 Siswa',
@@ -61,7 +63,7 @@ const facilities: Facility[] = [
     title: 'Perpustakaan Digital',
     category: 'support',
     categoryLabel: 'Fasilitas Penunjang',
-    img: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1200&auto=format&fit=crop',
+    img: '/images/unsplash/photo-1507842217343-583bb7270b66.jpg',
     desc: 'Koleksi ribuan buku referensi TI dan akses e-library gratis. Tempat hening untuk riset dan belajar mandiri.',
     fullDesc: 'Koleksi ribuan buku referensi TI dan akses e-library gratis. Tempat hening untuk riset dan belajar mandiri, dilengkapi dengan pod-pod kedap suara dan lounge membaca.',
     capacity: '80 Siswa',
@@ -72,7 +74,7 @@ const facilities: Facility[] = [
     title: 'Lapangan Terpadu',
     category: 'support',
     categoryLabel: 'Fasilitas Penunjang',
-    img: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=1200&auto=format&fit=crop',
+    img: '/images/unsplash/photo-1461896836934-ffe607ba8211.jpg',
     desc: 'Fasilitas olahraga lengkap untuk menyeimbangkan hardskill dan kebugaran fisik siswa, terdiri dari lapangan basket dan futsal.',
     fullDesc: 'Fasilitas olahraga lengkap untuk menyeimbangkan hardskill dan kebugaran fisik siswa. Mencakup lapangan basket standar FIBA, lapangan futsal sintetis, dan area atletik.',
     capacity: '150 Siswa',
@@ -83,7 +85,7 @@ const facilities: Facility[] = [
     title: 'Masjid Al-Kautsar',
     category: 'support',
     categoryLabel: 'Fasilitas Penunjang',
-    img: 'https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop',
+    img: '/images/unsplash/photo-1542838132-92c53300491e.jpg',
     desc: 'Sarana ibadah yang nyaman, lapang, dan ber-AC. Menjadi pusat pembinaan karakter Islami siswa SMK Telkom.',
     fullDesc: 'Sarana ibadah yang nyaman, lapang, dan ber-AC. Menjadi pusat pembinaan karakter Islami siswa SMK Telkom. Dilengkapi dengan perpustakaan mini khusus buku-buku agama.',
     capacity: '600 Jamaah',
@@ -102,9 +104,13 @@ export function FasilitasGrid() {
     return matchesTab && matchesSearch;
   });
 
+  const { currentItems, paginationProps, startIndex, endIndex, totalItems } = usePagination(filteredFacilities, {
+    itemsPerPage: 6,
+  });
+
   return (
     <>
-      <div className="mb-10 flex flex-col md:flex-row md:items-center justify-between gap-6 bg-white p-4 rounded-2xl border border-border-light shadow-sm">
+      <div className="mb-10 flex flex-col md:flex-row md:items-center justify-between gap-6 bg-surface p-4 rounded-lg border border-border-light shadow-sm">
         <div className="flex flex-wrap gap-2">
           {[
             { id: 'all', label: 'Semua' },
@@ -117,7 +123,7 @@ export function FasilitasGrid() {
               onClick={() => setActiveTab(tab.id as any)}
               className={`px-5 py-2.5 rounded-xl text-sm font-bold transition-colors ${
                 activeTab === tab.id
-                  ? 'bg-accent text-white'
+                  ? 'bg-accent text-text-inverse'
                   : 'bg-surface-alt text-text-muted hover:bg-border-color hover:text-text-main'
               }`}
             >
@@ -139,7 +145,7 @@ export function FasilitasGrid() {
 
       {filteredFacilities.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredFacilities.map(facility => (
+          {currentItems.map(facility => (
              <ContentCard 
                key={facility.id}
                image={facility.img}
@@ -152,14 +158,19 @@ export function FasilitasGrid() {
           ))}
         </div>
       ) : (
-        <div className="text-center py-20 bg-white rounded-3xl border border-border-light border-dashed">
-          <div className="w-20 h-20 rounded-full bg-red-100 text-accent flex items-center justify-center mx-auto mb-6">
+        <div className="text-center py-20 bg-surface rounded-xl border border-border-light border-dashed">
+          <div className="w-20 h-20 rounded-full bg-info-soft text-info flex items-center justify-center mx-auto mb-6">
             <Search className="w-10 h-10" />
           </div>
           <h3 className="text-2xl font-extrabold text-text-main mb-2">Fasilitas tidak ditemukan</h3>
           <p className="text-text-muted">Coba gunakan kata kunci lain atau pilih kategori "Semua".</p>
         </div>
       )}
+
+      <Pagination
+        {...paginationProps}
+        infoText={`Menampilkan ${startIndex + 1}–${endIndex} dari ${totalItems} fasilitas`}
+      />
 
       {/* Modal */}
       {selectedFacility && (
@@ -168,10 +179,10 @@ export function FasilitasGrid() {
             className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
             onClick={() => setSelectedFacility(null)}
           ></div>
-          <div className="relative w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh] animate-in fade-in zoom-in-95 duration-200">
+          <div className="relative w-full max-w-4xl bg-surface rounded-xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh] animate-in fade-in zoom-in-95 duration-200">
             <button
               onClick={() => setSelectedFacility(null)}
-              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-text-main transition-colors"
+              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-surface/20 backdrop-blur-md flex items-center justify-center text-text-inverse hover:bg-surface hover:text-text-main transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -195,8 +206,8 @@ export function FasilitasGrid() {
               </p>
               
               <div className="space-y-4">
-                <div className="flex items-center gap-4 p-4 rounded-2xl bg-surface-alt border border-border-light">
-                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-accent shadow-sm flex-shrink-0">
+                <div className="flex items-center gap-4 p-4 rounded-lg bg-surface-alt border border-border-light">
+                  <div className="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-accent shadow-sm flex-shrink-0">
                     <User className="w-5 h-5" />
                   </div>
                   <div>
@@ -204,8 +215,8 @@ export function FasilitasGrid() {
                     <div className="font-extrabold text-text-main">{selectedFacility.capacity}</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-4 p-4 rounded-2xl bg-surface-alt border border-border-light">
-                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-accent shadow-sm flex-shrink-0">
+                <div className="flex items-center gap-4 p-4 rounded-lg bg-surface-alt border border-border-light">
+                  <div className="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-accent shadow-sm flex-shrink-0">
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>

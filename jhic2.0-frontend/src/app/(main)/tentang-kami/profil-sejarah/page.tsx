@@ -62,28 +62,28 @@ export default function ProfilSejarah() {
          <section className="py-16 bg-surface-alt border-t border-border-light">
             <div className="container max-w-[1200px] mx-auto px-4 md:px-6">
                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                  <Card className="text-center hover:-translate-y-1 transition-transform">
+                  <Card className="p-6 text-center hover:-translate-y-1 transition-transform">
                      <div className="w-16 h-16 rounded-xl bg-accent/5 text-accent flex items-center justify-center mx-auto mb-4">
                         <Users className="w-8 h-8" />
                      </div>
                      <div className="text-4xl font-extrabold text-text-main mb-2">3000<span className="text-accent">+</span></div>
                      <div className="text-sm font-semibold text-text-muted">Siswa Aktif</div>
                   </Card>
-                  <Card className="text-center hover:-translate-y-1 transition-transform">
+                  <Card className="p-6 text-center hover:-translate-y-1 transition-transform">
                      <div className="w-16 h-16 rounded-xl bg-accent/5 text-accent flex items-center justify-center mx-auto mb-4">
                         <Calendar className="w-8 h-8" />
                      </div>
                      <div className="text-4xl font-extrabold text-text-main mb-2">1992</div>
                      <div className="text-sm font-semibold text-text-muted">Tahun Berdiri</div>
                   </Card>
-                  <Card className="text-center hover:-translate-y-1 transition-transform">
+                  <Card className="p-6 text-center hover:-translate-y-1 transition-transform">
                      <div className="w-16 h-16 rounded-xl bg-accent/5 text-accent flex items-center justify-center mx-auto mb-4">
                         <Briefcase className="w-8 h-8" />
                      </div>
                      <div className="text-4xl font-extrabold text-text-main mb-2">500<span className="text-accent">+</span></div>
                      <div className="text-sm font-semibold text-text-muted">Mitra Industri</div>
                   </Card>
-                  <Card className="text-center hover:-translate-y-1 transition-transform">
+                  <Card className="p-6 text-center hover:-translate-y-1 transition-transform">
                      <div className="w-16 h-16 rounded-xl bg-accent/5 text-accent flex items-center justify-center mx-auto mb-4">
                         <Award className="w-8 h-8" />
                      </div>
@@ -113,7 +113,7 @@ export default function ProfilSejarah() {
                      </div>
                   </div>
                   <div className="flex-1 w-full">
-                     <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg bg-black">
+                     <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg bg-black">
                         <iframe
                            src="https://www.youtube.com/embed/GaZ7tHSiSco"
                            title="YouTube video player"

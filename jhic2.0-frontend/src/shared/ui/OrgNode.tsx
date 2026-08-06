@@ -11,9 +11,9 @@ interface OrgNodeProps {
 
 export function OrgNode({ title, name, image, className = '' }: OrgNodeProps) {
   return (
-    <div className={`w-[260px] bg-white rounded-xl overflow-hidden shadow-md border border-border-light relative z-10 mx-auto ${className}`}>
+    <div className={`w-[260px] bg-surface rounded-xl overflow-hidden shadow-md border border-border-light relative z-10 mx-auto ${className}`}>
       {/* Header: Jabatan */}
-      <div className="bg-accent text-white py-2 px-3 text-center min-h-[44px] flex items-center justify-center">
+      <div className="bg-accent text-text-inverse py-2 px-3 text-center min-h-[44px] flex items-center justify-center">
         <span className="text-[12px] font-bold leading-tight uppercase">
           {title}
         </span>
@@ -22,7 +22,7 @@ export function OrgNode({ title, name, image, className = '' }: OrgNodeProps) {
       {/* Body: Foto & Nama */}
       <div className="p-3 flex items-center gap-3">
         {/* Foto */}
-        <div className="shrink-0 w-14 h-14 bg-gray-200 rounded-lg overflow-hidden border border-border-light relative">
+        <div className="shrink-0 w-14 h-14 bg-neutral-200 rounded-lg overflow-hidden border border-border-light relative">
           {image ? (
             <Image 
               src={image} 
@@ -32,7 +32,7 @@ export function OrgNode({ title, name, image, className = '' }: OrgNodeProps) {
               sizes="(max-width: 768px) 48px, 56px"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-gray-400">
+            <div className="w-full h-full flex items-center justify-center text-neutral-400">
                {/* User Avatar Placeholder */}
                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />

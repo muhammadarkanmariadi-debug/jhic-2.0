@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { ContentCard } from '@/shared/ui/ContentCard';
+import { usePagination } from '@/shared/hooks/usePagination';
+import { Pagination } from '@/shared/ui/Pagination';
 
 interface PrestasiItem {
   id: string;
@@ -19,7 +21,7 @@ const prestasiItems: PrestasiItem[] = [
     category: 'akademik',
     level: 'Tingkat Nasional',
     meta: 'Tim TKJ SMK Telkom Malang • 2025',
-    img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=400&auto=format&fit=crop'
+    img: '/images/unsplash/photo-1517245386807-bb43f82c33c4.jpg'
   },
   {
     id: '2',
@@ -27,7 +29,7 @@ const prestasiItems: PrestasiItem[] = [
     category: 'akademik',
     level: 'Tingkat Nasional',
     meta: 'Tim RPL SMK Telkom Malang • 2024',
-    img: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=400&auto=format&fit=crop'
+    img: '/images/unsplash/photo-1504384308090-c894fdcc538d.jpg'
   },
   {
     id: '3',
@@ -35,7 +37,7 @@ const prestasiItems: PrestasiItem[] = [
     category: 'non-akademik',
     level: 'Tingkat Provinsi',
     meta: 'Tim Basket Putra Moklet • 2024',
-    img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=400&auto=format&fit=crop'
+    img: '/images/unsplash/photo-1546519638-68e109498ffc.jpg'
   },
   {
     id: '4',
@@ -43,7 +45,7 @@ const prestasiItems: PrestasiItem[] = [
     category: 'akademik',
     level: 'Tingkat Nasional',
     meta: 'Tim Animasi SMK Telkom Malang • 2024',
-    img: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=400&auto=format&fit=crop'
+    img: '/images/unsplash/photo-1550745165-9bc0b252726f.jpg'
   }
 ];
 
@@ -53,6 +55,10 @@ export function PrestasiGrid() {
   const filteredItems = prestasiItems.filter(item => 
     activeTab === 'all' || item.category === activeTab
   );
+
+  const { currentItems, paginationProps, startIndex, endIndex, totalItems } = usePagination(filteredItems, {
+    itemsPerPage: 6,
+  });
 
   return (
     <>
@@ -67,8 +73,8 @@ export function PrestasiGrid() {
             onClick={() => setActiveTab(tab.id as 'all' | 'akademik' | 'non-akademik')}
             className={`px-6 py-3 rounded-full font-bold transition-all ${
               activeTab === tab.id
-                ? 'bg-text-main text-white'
-                : 'bg-white text-text-muted border border-border-color hover:border-text-main hover:text-text-main shadow-sm'
+                ? 'bg-text-main text-text-inverse'
+                : 'bg-surface text-text-muted border border-border-color hover:border-text-main hover:text-text-main shadow-sm'
             }`}
           >
             {tab.label}
@@ -77,7 +83,7 @@ export function PrestasiGrid() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredItems.map(item => (
+        {currentItems.map(item => (
           <ContentCard 
             key={item.id}
             image={item.img}
@@ -88,6 +94,11 @@ export function PrestasiGrid() {
           />
         ))}
       </div>
+
+      <Pagination
+        {...paginationProps}
+        infoText={`Menampilkan ${startIndex + 1}–${endIndex} dari ${totalItems} prestasi`}
+      />
     </>
   );
 }

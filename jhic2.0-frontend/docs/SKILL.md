@@ -49,9 +49,9 @@ Frontend-specific skills and library conventions for AI agents. Common/monorepo 
 
 ## 6. Known Gaps / Pending Decisions
 
-- **WYSIWYG editor** (`react-quill` / `tiptap`) is recommended for the Admin CMS but **not installed**.
+- **WYSIWYG editor** (`react-quill` / `tiptap`) is reserved for the **News** admin; **not installed**. **Program Umum does NOT use rich text** — it uses a structured block editor with plain-text fields (see root `SCRUM.md` **JHI-16**).
 - **Framer Motion** appears in older docs but is **not** in `package.json` — use CSS transitions/animations from `globals.css` instead.
-- **Backend API** does not exist yet — all data is mock.
+- **Backend API is partially live** — `GET /api/program-umum` and `GET /api/featured-programs` exist; the frontend fetches with a static-data fallback (`services/programUmum.ts`). Other modules still use mock data.
 
 ## 7. Verification Checklist
 

@@ -42,7 +42,7 @@ export default function ProgramTS() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                {features.map((feature, index) => (
                   <Card key={index} className="p-8 hover:-translate-y-2 transition-transform cursor-default">
-                     <div className="w-14 h-14 rounded-2xl bg-accent/10 text-accent flex items-center justify-center mb-6">
+                     <div className="w-14 h-14 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-6">
                         {feature.icon}
                      </div>
                      <h3 className="text-xl font-extrabold text-text-main mb-3">{feature.title}</h3>

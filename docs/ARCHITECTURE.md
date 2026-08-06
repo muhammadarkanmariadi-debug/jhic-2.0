@@ -41,7 +41,7 @@ Read in this order; **lower rows are the ground truth when docs and code disagre
 | 4 | **Sub-project DESIGN.md / RULE.md / SCHEMA.md** | Design system, hard rules, database schema. |
 | 5 | **Actual code** | The single source of truth. Docs drift — **always verify against code** before asserting anything. |
 
-> **Drift warning:** the implemented codebase reflects **v1** (e.g. `ppdb`, `tes-minat-bakat`, `trial-class` routes; no Kurikulum/Bot/Ulasan yet), while **PRD.md** defines the **v2.0 target** (SPMB rename, MokletKurikulum, MokletKarir, expanded MokletHubin, MokletBot, MokletUlasan). Do not claim a feature exists just because it is in the PRD — check the code first.
+> **Drift warning:** the implemented codebase reflects **v1** (e.g. `ppdb`, `tes-minat-bakat`, `trial-class` routes; no Kurikulum/Bot/Ulasan yet), while **PRD.md** defines the **v2.0 target** (SPMB rename, MokletKurikulum, MokletKarir, expanded MokletHubin, MokletBot, MokletUlasan, Division-Based RBAC). Do not claim a feature exists just because it is in the PRD — check the code first.
 
 ---
 
@@ -64,16 +64,18 @@ Read in this order; **lower rows are the ground truth when docs and code disagre
 
 ## 4. Role-Based Access Control (RBAC) — Global Model
 
-The canonical role list comes from **PRD v2.0 §3.10** (older README/SKILL docs listed divergent role sets and are **not** authoritative):
+The canonical role list comes from **PRD v2.0 §3.11**. The system utilizes a **per-division granularity** to ensure sections are managed by their respective departments, avoiding centralized bottlenecks.
 
 | Role | Scope |
 |---|---|
 | **Super Admin** | Absolute access: user management, system settings, all modules |
-| **Admin Konten** | CRUD on News, Announcements, Achievements, Extracurriculars, Facilities gallery |
+| **Admin Konten** | CRUD on general News, Announcements, Achievements, Facilities gallery |
 | **Admin SPMB** | Manages SPMB landing page content (batch info, requirements, redirect link). *Not* registrant data (that lives in the Foundation's system). |
-| **Admin Support** | Reads/answers Inquiry Box, Service Desk, and (v2) escalations from MokletBot |
-| **Admin Kurikulum** *(v2, new)* | Manages MokletKurikulum content (curriculum pages + versioning) |
-| **Admin Hubin** *(v2, new)* | Manages MokletLomba, MokletLoker, MokletBeasiswa |
+| **Admin Support** | Reads/answers Inquiry Box, Service Desk, and escalations from MokletBot |
+| **Admin Kurikulum** | Manages MokletKurikulum content, Program Unggulan, and curriculum versioning |
+| **Admin Hubin** | Manages MokletLoker, MokletBeasiswa, and Industry Directories |
+| **Admin Kesiswaan** *(v2, new)* | Manages Ekstrakurikuler, Organisasi, and related student activity content |
+| **Admin Humas** *(v2, new)* | Manages Akomodasi, Informasi (Lomba, Brochures), Profil Guru profile cards, and Partner Sinkronisasi Kurikulum |
 | **Siswa / Alumni** *(future)* | Personal portal (SIS extension) — not yet in scope |
 
 Backend permission checks are intended to be implemented with custom Express middleware (optionally `@casl/ability`).
@@ -98,7 +100,21 @@ SQL Database (MySQL/PostgreSQL) via Prisma ORM
 
 ---
 
-## 6. Cross-Cutting Conventions
+## 6. Schema Entities (v2 — status)
+
+Entities defined in `jhic2.0-backend/docs/SCHEMA.md` and modeled in `prisma/schema.prisma`. ✅ = implemented in schema; ⏳ = still a proposal.
+
+1. ✅ **`TeacherProfile`** (extends the existing model): Manages "Profil Guru" as **profile cards** (layout reference: https://smktelkom-sda.sch.id/profil-guru) with `level`/`category`/`division` for grouping/filtering in the card grid.
+2. ✅ **`CurriculumSyncPartner`**: Tied to `Konsentrasi Keahlian` with a required `academicYear` field for versioning (differs from general recruitment partners).
+3. ✅ **`Expertise` & `Certification`**: Entities linked to a `Konsentrasi Keahlian` (via `programCode`).
+4. ⏳ **`Accommodation`**: Structured data for local Kos recommendations, Catering/Food spots, and an estimated living cost calculator (frontend `/akomodasi` exists with mock data; DB entity not yet modeled).
+5. ⏳ **`InformationCategory`**: To cleanly separate News, Graduation Announcements, Pass Status, Brochures, and Competitions.
+6. ✅ **`FeaturedProgram`**: For "Program Unggulan", dynamically linked to the existing curriculum structure; CRUD API in `jhic2.0-backend/src/routes/featuredPrograms.ts`.
+7. ✅ **`ProgramUmumProgram`**: Program Umum tab content (`key`, `label`, `intro`, `icon`, `sections` JSON, `isActive`, `sortOrder`); CRUD API in `jhic2.0-backend/src/routes/programUmum.ts`. Admin edits via a **structured block editor (plain text)** — see `docs/SCRUM.md` **JHI-16**.
+
+---
+
+## 7. Cross-Cutting Conventions
 
 - **Documentation language:** English for all docs in this repository (PRD.md is a translation of the original Indonesian v2.0 spec).
 - **Naming:** internal feature names use the `Moklet[NamaUnik]` prefix (see PRD §1); UI/navigation labels are plain descriptive Indonesian.

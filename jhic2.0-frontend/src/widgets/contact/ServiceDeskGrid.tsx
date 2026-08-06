@@ -48,9 +48,9 @@ export function ServiceDeskGrid() {
           <Link 
             key={idx} 
             href="#" 
-            className="bg-white border border-border-light rounded-3xl p-8 flex flex-col items-center text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            className="bg-surface border border-border-light rounded-xl p-8 flex flex-col items-center text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
           >
-            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${service.bgColor} ${service.color}`}>
+            <div className={`w-16 h-16 rounded-lg flex items-center justify-center mb-6 ${service.bgColor} ${service.color}`}>
               {service.icon}
             </div>
             <h3 className="text-xl font-bold text-text-main mb-3">{service.title}</h3>

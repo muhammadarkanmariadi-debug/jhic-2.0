@@ -1,0 +1,465 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+// -----------------------------------------
+// 1. Auth & RBAC
+// -----------------------------------------
+model User {
+  id           String    @id @default(uuid())
+  email        String    @unique
+  passwordHash String
+  fullName     String
+  roleId       String
+  role         Role      @relation(fields: [roleId], references: [id])
+  isActive     Boolean   @default(true)
+  lastLoginAt  DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  news        News[]
+  curriculums CurriculumVersion[]
+}
+
+model Role {
+  id          String           @id @default(uuid())
+  name        String           @unique
+  description String?
+  division    String? // Division scope: SUPER_ADMIN | KONTEN | SPMB | SUPPORT | KURIKULUM | HUBIN | KESISWAAN | HUMAS
+  users       User[]
+  permissions RolePermission[]
+}
+
+model Permission {
+  id          String           @id @default(uuid())
+  key         String           @unique
+  description String?
+  roles       RolePermission[]
+}
+
+model RolePermission {
+  roleId       String
+  permissionId String
+  role         Role       @relation(fields: [roleId], references: [id])
+  permission   Permission @relation(fields: [permissionId], references: [id])
+
+  @@id([roleId, permissionId])
+}
+
+// -----------------------------------------
+// 2. Public Content
+// -----------------------------------------
+model News {
+  id          String    @id @default(uuid())
+  title       String
+  slug        String    @unique
+  description String    @db.Text
+  content     String    @db.LongText
+  image       String?
+  category    String
+  status      String    @default("DRAFT") // DRAFT, PUBLISHED, ARCHIVED
+  authorId    String?
+  author      User?     @relation(fields: [authorId], references: [id])
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Facility {
+  id              String   @id @default(uuid())
+  title           String
+  category        String
+  image           String
+  description     String?  @db.Text
+  fullDescription String?  @db.LongText
+  capacity        String?
+  time            String?
+  isFeatured      Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Achievement {
+  id          String    @id @default(uuid())
+  title       String
+  category    String
+  level       String
+  meta        String?
+  image       String?
+  description String?   @db.Text
+  winnerName  String?
+  date        DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Extracurricular {
+  id            String   @id @default(uuid())
+  title         String
+  category      String
+  categoryLabel String?
+  image         String
+  description   String   @db.Text
+  schedule      String?
+  coach         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Partner {
+  id         String   @id @default(uuid())
+  name       String
+  logo       String
+  url        String?
+  isFeatured Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Testimonial {
+  id          String   @id @default(uuid())
+  name        String
+  role        String
+  content     String   @db.Text
+  avatar      String?
+  companyLogo String?
+  isApproved  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model FaqItem {
+  id        String   @id @default(uuid())
+  question  String
+  answer    String   @db.Text
+  category  String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ServiceDeskStatus {
+  id          String   @id @default(uuid())
+  title       String
+  description String   @db.Text
+  status      String   @default("OPERATIONAL") // OPERATIONAL, MAINTENANCE, DEGRADED
+  href        String?
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model TeacherProfile {
+  id          String          @id @default(uuid())
+  name        String
+  position    String
+  image       String
+  description String?         @db.Text
+  level       TeacherLevel    @default(TEACHER)
+  category    TeacherCategory @default(NON_PRODUCTIVE)
+  division    String?
+  sortOrder   Int             @default(0)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+}
+
+enum TeacherLevel {
+  PRINCIPAL
+  VP
+  TEACHER
+}
+
+enum TeacherCategory {
+  PRODUCTIVE
+  NON_PRODUCTIVE
+  STAFF
+}
+
+// -----------------------------------------
+// 3. Programs & Curriculum (MokletKurikulum / MokletKarir)
+// -----------------------------------------
+model Program {
+  id              String   @id @default(uuid())
+  code            String   @unique
+  title           String
+  description     String   @db.Text
+  headOfProgram   String?
+  features        Json?
+  careerProspects Json?
+  image           String?
+  careerPortalUrl String? // JHI-06: external career portal link per program (MokletKarir)
+  curriculum      Json?
+  careers         Json?
+  icon            String?
+  sortOrder       Int      @default(0)
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  curriculumVersions CurriculumVersion[]
+  careerSections     CareerSection[]
+}
+
+model CurriculumVersion {
+  id                String    @id @default(uuid())
+  programId         String
+  program           Program   @relation(fields: [programId], references: [id])
+  label             String
+  academicYear      String
+  version           Int
+  isActive          Boolean   @default(false)
+  subjectStructure  Json
+  competencyDetails Json
+  lastUpdatedBy     String?
+  updatedByUser     User?     @relation(fields: [lastUpdatedBy], references: [id])
+  publishedAt       DateTime?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+model CareerSection {
+  id        String   @id @default(uuid())
+  programId String
+  program   Program  @relation(fields: [programId], references: [id])
+  type      String // TIMELINE, PROSPEK
+  content   Json
+  sortOrder Int      @default(0)
+  updatedBy String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Curriculum v2 entities (JHI-v2-02 / JHI-v2-05)
+model CurriculumSyncPartner {
+  id           String   @id @default(uuid())
+  name         String
+  logo         String?
+  academicYear String // Tied to a specific year for versioning (e.g. "2025/2026")
+  description  String?  @db.Text
+  programCode  String? // RPL | TKJ | PG
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Expertise {
+  id          String   @id @default(uuid())
+  programCode String // RPL | TKJ | PG
+  name        String
+  description String   @db.Text
+  isIcp       Boolean  @default(false)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Certification {
+  id          String   @id @default(uuid())
+  programCode String // RPL | TKJ | PG
+  name        String
+  level       String // NASIONAL | INTERNASIONAL
+  provider    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model FeaturedProgram {
+  id          String   @id @default(uuid())
+  name        String
+  slug        String   @unique
+  description String   @db.Text
+  programId   String?
+  isActive    Boolean  @default(true)
+  ctaLabel    String?
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ProgramUmumProgram {
+  id        String    @id @default(uuid())
+  key       String    @unique // tab key: bilingual | tahfidz | moklet-serve | ...
+  label     String
+  intro     String?   @db.Text
+  icon      String? // lucide icon key for the tab
+  sections  Json // ContentSection[] (paragraph, checklist, cards, steps, gallery, table, accordion, testimonials, badges, partners)
+  isActive  Boolean   @default(true)
+  sortOrder Int       @default(0)
+  updatedBy String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+// -----------------------------------------
+// 4. Hubin Expansion (MokletHubin)
+// -----------------------------------------
+model Competition {
+  id                   String    @id @default(uuid())
+  title                String
+  description          String    @db.Text
+  organizer            String?
+  location             String?
+  registrationStart    DateTime?
+  registrationDeadline DateTime?
+  date                 DateTime?
+  level                String?
+  source               String    @default("INTERNAL") // INTERNAL, EXTERNAL
+  link                 String?
+  image                String?
+  isPublished          Boolean   @default(false)
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+}
+
+model JobVacancy {
+  id                  String    @id @default(uuid())
+  title               String
+  company             String
+  description         String    @db.Text
+  programId           String?
+  location            String?
+  salaryRange         String?
+  applicationDeadline DateTime?
+  contact             String?
+  link                String?
+  isPublished         Boolean   @default(false)
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+model Scholarship {
+  id           String    @id @default(uuid())
+  title        String
+  description  String    @db.Text
+  provider     String
+  programId    String?
+  deadline     DateTime?
+  requirements Json?
+  link         String?
+  image        String?
+  isPublished  Boolean   @default(false)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+// -----------------------------------------
+// 5. SPMB (MokletSPMB)
+// -----------------------------------------
+model SpmbBatch {
+  id          String    @id @default(uuid())
+  label       String
+  opensAt     DateTime?
+  closesAt    DateTime?
+  description String?   @db.Text
+  isActive    Boolean   @default(false)
+  sortOrder   Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model SpmbSetting {
+  id              String   @id @default(uuid())
+  registrationUrl String
+  requirements    Json?
+  flow            Json?
+  updatedBy       String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+// -----------------------------------------
+// 6. Interactive Services
+// -----------------------------------------
+model Inquiry {
+  id        String    @id @default(uuid())
+  name      String
+  email     String
+  phone     String?
+  category  String?
+  message   String    @db.Text
+  status    String    @default("NEW") // NEW, IN_PROGRESS, ANSWERED, CLOSED
+  reply     String?   @db.Text
+  repliedBy String?
+  repliedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model BotIntent {
+  id         String   @id @default(uuid())
+  intent     String   @unique
+  keywords   Json
+  answer     String   @db.Text
+  escalateTo String?
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model BotConversation {
+  id        String   @id @default(uuid())
+  sessionId String
+  userId    String?
+  messages  Json
+  escalated Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Feedback {
+  id           String   @id @default(uuid())
+  context      String?
+  contextRefId String?
+  rating       Int?
+  comment      String?  @db.Text
+  contact      String?
+  status       String   @default("NEW") // NEW, REVIEWED
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// -----------------------------------------
+// 7. Alumni
+// -----------------------------------------
+model AlumniRecord {
+  id             String   @id @default(uuid())
+  name           String
+  graduationYear Int
+  programId      String?
+  city           String?
+  province       String?
+  company        String?
+  position       String?
+  contactable    Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+// -----------------------------------------
+// 8. External Integration (Mexpo Trial Class)
+// -----------------------------------------
+model MexpoEvent {
+  id                   String   @id
+  name                 String
+  location             String
+  description          String   @db.Text
+  startDate            DateTime
+  endDate              DateTime
+  quota                Int
+  organizerName        String
+  createdBy            String
+  updatedBy            String
+  photo                String?
+  registrationStart    DateTime
+  registrationDeadline DateTime
+  approvedBy           String?
+  userEventRoles       Json?
+  isActive             Boolean  @default(true)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+}

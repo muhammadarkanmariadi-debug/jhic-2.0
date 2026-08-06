@@ -23,7 +23,7 @@ export default function Prestasi() {
             
             {/* Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-               <div className="bg-white p-10 rounded-3xl shadow-sm text-center relative overflow-hidden hover:-translate-y-2 transition-transform cursor-default">
+               <div className="bg-surface p-10 rounded-xl shadow-sm text-center relative overflow-hidden hover:-translate-y-2 transition-transform cursor-default">
                   <div className="absolute -top-5 -right-5 text-[120px] font-extrabold text-surface opacity-50 select-none pointer-events-none">#1</div>
                   <div className="relative z-10">
                      <div className="flex justify-center items-baseline">
@@ -34,7 +34,7 @@ export default function Prestasi() {
                   </div>
                </div>
 
-               <div className="bg-white p-10 rounded-3xl shadow-sm text-center relative overflow-hidden hover:-translate-y-2 transition-transform cursor-default">
+               <div className="bg-surface p-10 rounded-xl shadow-sm text-center relative overflow-hidden hover:-translate-y-2 transition-transform cursor-default">
                   <div className="absolute -top-5 -right-5 text-[120px] opacity-10 select-none pointer-events-none grayscale">🏆</div>
                   <div className="relative z-10">
                      <div className="flex justify-center items-baseline">
@@ -45,14 +45,14 @@ export default function Prestasi() {
                   </div>
                </div>
 
-               <div className="bg-accent p-10 rounded-3xl shadow-sm text-center relative overflow-hidden hover:-translate-y-2 transition-transform cursor-default">
+               <div className="bg-accent p-10 rounded-xl shadow-sm text-center relative overflow-hidden hover:-translate-y-2 transition-transform cursor-default">
                   <div className="absolute -top-5 -right-5 text-[120px] opacity-10 select-none pointer-events-none brightness-0 invert">🥇</div>
                   <div className="relative z-10">
                      <div className="flex justify-center items-baseline">
-                        <div className="text-5xl md:text-6xl font-extrabold text-white leading-none">320</div>
-                        <span className="text-3xl font-extrabold text-white">+</span>
+                        <div className="text-5xl md:text-6xl font-extrabold text-text-inverse leading-none">320</div>
+                        <span className="text-3xl font-extrabold text-text-inverse">+</span>
                      </div>
-                     <div className="text-sm text-white/80 font-bold mt-4 uppercase tracking-wider">Medali Emas</div>
+                     <div className="text-sm text-text-inverse/80 font-bold mt-4 uppercase tracking-wider">Medali Emas</div>
                   </div>
                </div>
             </div>
