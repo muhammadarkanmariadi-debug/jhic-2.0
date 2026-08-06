@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { featuredProgramsRouter } from "./routes/featuredPrograms.js";
 import { programUmumRouter } from "./routes/programUmum.js";
+import { schoolScheduleRouter } from "./routes/schoolSchedule.js";
 import { authRouter } from "./routes/auth.js";
 import { programsRouter } from "./routes/programs.js";
 import { curriculumVersionsRouter } from "./routes/curriculumVersions.js";
@@ -37,6 +38,7 @@ app.get("/api/health", async (_req, res) => {
 app.use("/api/auth", authRouter);
 app.use("/api/featured-programs", featuredProgramsRouter);
 app.use("/api/program-umum", programUmumRouter);
+app.use("/api/schedule", schoolScheduleRouter);
 app.use("/api/programs", programsRouter);
 app.use("/api/curriculum-versions", curriculumVersionsRouter);
 app.use("/api/partners", partnersRouter);
