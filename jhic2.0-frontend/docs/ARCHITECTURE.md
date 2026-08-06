@@ -47,7 +47,7 @@ src/
 | `app/` | Routing, layouts, page composition | `(main)/page.tsx`, `(main)/layout.tsx` (Header+Footer shell) |
 | `widgets/` | Complex, self-contained UI blocks | `layout/Header.tsx`, `layout/Footer.tsx`, `school/Hero.tsx`, `news/NewsGrid.tsx`, `ppdb/PPDBCta.tsx` |
 | `shared/ui/` | Atomic reusable components | `Button`, `Card`, `ContentCard`, `PageHeader`, `SectionHeader`, `Accordion`, `Modal`, `Pagination`, `Timeline`, `Breadcrumbs`, `AutoCarousel`, `OrgNode` |
-| `shared/types/` | Central TypeScript contracts | `NewsItem`, `EkskulItem`, `FasilitasItem`, `PrestasiItem`, `TestimonialItem`, `PartnerItem`, `FAQItem`, `ServiceDeskItem`, `JurusanData`, `ProgramDetail`, `TeacherProfile`, `MexpoEvent`, ... |
+| `shared/types/` | Central TypeScript contracts | `NewsItem`, `EkskulItem`, `FasilitasItem`, `PrestasiItem`, `TestimonialItem`, `PartnerItem`, `FAQItem`, `ServiceDeskItem`, `JurusanData`, `ProgramDetail`, `NavProgram`, `TeacherProfile`, `MexpoEvent`, ... |
 | `services/` | Data fetching & mock data | `trialClassData.ts` (Mexpo events), `dummyData.ts`, `productData.ts` |
 
 ---
@@ -62,6 +62,11 @@ Most public pages live in the `(main)` route group (shared Header/Footer layout)
     profil-sejarah, visi-misi, struktur-organisasi, profil-guru,
     akreditasi, fasilitas, prestasi, hubungan-industri, learning-culture
 /(main)/program/
+<<<<<<< HEAD
+    jurusan (hub — RPL/TKJ/PG tabs), [slug] (dynamic — TS/ICP/CCP/etc),
+    program-ts, icp, ccp (v1 static — migrate to [slug]),
+    ekstrakurikuler, tes-minat-bakat, trial-class
+=======
     program-umum, profil-konsentrasi-keahlian, persiapan-kelulusan,
     konsentrasi/[slug] (6 detail pages), icp, reguler, ccp,
     program-ts, ekstrakurikuler, tes-minat-bakat
@@ -70,6 +75,7 @@ Most public pages live in the `(main)` route group (shared Header/Footer layout)
                trial-class → /trial-class
 /(main)/karir                           (Karir & Prospek Kerja — MokletKarir)
 /(main)/organisasi                      (split from Ekstrakurikuler)
+>>>>>>> 15545e1c538bd293ea9ab1d42cf5cf1e1f64d4f2
 /(main)/alumni/
     profil-sebaran, testimoni
 /(main)/informasi/
@@ -98,6 +104,10 @@ Most public pages live in the `(main)` route group (shared Header/Footer layout)
 
 > **Assets:** All images are served **locally** from `/public/images/` (no remote hosts — `next.config.ts` `remotePatterns` is empty). Structure: `logo/`, `hero/`, `unsplash/`, `school/`, `avatars/`, `expertise/`, `kurikulum/`, `organisasi/`. Migration utilities live in `scripts/` (`download-images.mjs`, `replace-images.mjs`, `verify-local-images.mjs`); `scripts/image-map.json` records the URL→path mapping.
 
+**Dynamic program pages** (`/(main)/program/[slug]`):
+- Uses `generateStaticParams` from the programs API + ISR to prerender each program page at build/first-visit.
+- Existing hardcoded routes (`/program/icp`, `/program/ccp`, `/program/program-ts`) will be migrated to DB-seeded slugs served by `[slug]`. During transition, both work simultaneously — no broken links.
+
 ---
 
 ## 4. Data Flow
@@ -114,6 +124,36 @@ Page (src/app/...)  →  Widget (src/widgets/...)  →  shared/ui + shared/types
 
 - **Today:** pages/widgets consume mock data from `services/` (`dummyData.ts`, `productData.ts`, `trialClassData.ts`).
 - **Target:** `services/` becomes the only place that calls the backend API; page components should not fetch directly.
+
+### 4.1 Navigation Data Flow (Featured Programs)
+
+The Program navbar menu contains **static items** (Profil Jurusan, Kurikulum, Ekstrakurikuler, Trial Class) plus a **dynamic "Program Unggulan" group** (max 3 featured programs from the database).
+
+```
+(main)/layout.tsx (Server Component)
+  │
+  │  fetch("/api/programs/featured", {
+  │    next: { revalidate: 300, tags: ["nav-programs"] }
+  │  })
+  │
+  ▼
+NavProgram[] (id, slug, navLabel, icon)
+  │
+  │  passed as props
+  ▼
+<Header featuredPrograms={…} />  (Client Component — scroll/dropdown/mobile)
+  │
+  ▼
+SSR HTML contains complete nav (static + featured) on first paint — no loading gap
+```
+
+**Key guarantees:**
+- **Server-side fetch only.** The `fetch` happens in the server layout at build time (static) or on ISR revalidation — **never in the browser**. No client-side `useEffect` + `fetch`.
+- **No layout shift.** The complete navbar (static items + featured programs) is baked into the pre-rendered HTML. The browser receives a fully-formed `<header>` on first byte.
+- **Graceful degradation.** If the API is unreachable or returns empty, `featuredPrograms` defaults to `[]` — the dynamic group hides; static items remain intact. The page loads normally.
+- **Cache invalidation.** The admin CMS calls `revalidateTag("nav-programs")` after program create/update/delete. Between mutations, the cached result is reused across all 29+ pages.
+- **No forced dynamic.** The layout fetch uses ISR (not `cookies()`/`headers()`), so all static routes stay `○` (prerendered). No routes flip to SSR.
+- **Performance delta.** Per-page-view: zero additional requests. The only cost is one sub-ms indexed query (`WHERE isFeatured=true ORDER BY sortOrder LIMIT 3`) per revalidation window (60–300s), shared across every page.
 
 ---
 
