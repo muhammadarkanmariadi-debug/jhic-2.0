@@ -23,7 +23,7 @@ export default async function LombaPage() {
         description="Kompetisi dan ajang bergengsi untuk mengasah kemampuan siswa."
       />
 
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-surface">
         <div className="container max-w-[1100px] mx-auto px-4 md:px-6">
           <LombaList items={items} />
         </div>

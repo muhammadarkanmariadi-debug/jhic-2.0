@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { JobVacancyItem } from "@/shared/types";
 import { usePagination } from "@/shared/hooks/usePagination";
 import { Pagination } from "@/shared/ui/Pagination";
+import { Card } from "@/shared/ui/Card";
 import { Briefcase, MapPin, Calendar, ExternalLink, Search, Wallet } from "lucide-react";
 
 const programOptions = [
@@ -32,12 +33,12 @@ export function LokerList({ items }: { items: JobVacancyItem[] }) {
     <div className="w-full">
       <div className="flex flex-col md:flex-row gap-3 mb-10">
         <div className="relative flex-1">
-          <Search className="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-neutral-400 absolute left-4 top-1/2 -translate-y-1/2" />
           <input
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Cari lowongan, perusahaan, atau kata kunci..."
-            className="w-full rounded-xl border border-border-light pl-11 pr-4 py-3 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-accent/30"
+            className="w-full rounded-xl border border-border-light pl-11 pr-4 py-3 text-sm bg-surface focus:outline-none focus:ring-2 focus:ring-accent/30"
           />
         </div>
         <div className="flex gap-2">
@@ -47,8 +48,8 @@ export function LokerList({ items }: { items: JobVacancyItem[] }) {
               onClick={() => setProgram(opt.value)}
               className={`px-4 py-2 rounded-full text-sm font-bold border transition-all ${
                 program === opt.value
-                  ? "bg-accent text-white border-accent"
-                  : "bg-white text-text-muted border-border-light hover:border-accent hover:text-accent"
+                  ? "bg-accent text-text-inverse border-accent"
+                  : "bg-surface text-text-muted border-border-light hover:border-accent hover:text-accent"
               }`}
             >
               {opt.label}
@@ -58,17 +59,18 @@ export function LokerList({ items }: { items: JobVacancyItem[] }) {
       </div>
 
       {filtered.length === 0 ? (
-        <div className="text-center py-16 bg-white rounded-2xl border border-border-light">
-          <Briefcase className="w-12 h-12 text-gray-300 mx-auto mb-4" />
+        <div className="text-center py-16 bg-surface rounded-lg border border-border-light">
+          <Briefcase className="w-12 h-12 text-neutral-300 mx-auto mb-4" />
           <h3 className="text-lg font-bold text-text-main mb-2">Lowongan tidak ditemukan</h3>
           <p className="text-text-muted text-sm">Coba ubah kata kunci atau filter konsentrasi.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {currentItems.map((job) => (
-            <div
+            <Card
               key={job.id}
-              className="rounded-2xl border border-border-light bg-white p-6 shadow-sm hover:shadow-md transition-all flex flex-col"
+              hover
+              className="flex flex-col h-full"
             >
               <div className="flex items-start justify-between gap-3 mb-3">
                 <div className="flex items-center gap-3">
@@ -116,13 +118,13 @@ export function LokerList({ items }: { items: JobVacancyItem[] }) {
                     href={job.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 bg-accent text-white text-sm font-bold px-4 py-2 rounded-xl hover:bg-accent-hover"
+                    className="inline-flex items-center gap-1.5 bg-accent text-text-inverse text-sm font-bold px-4 py-2 rounded-xl hover:bg-accent-hover"
                   >
                     Lamar <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 )}
               </div>
-            </div>
+            </Card>
           ))}
         </div>
       )}

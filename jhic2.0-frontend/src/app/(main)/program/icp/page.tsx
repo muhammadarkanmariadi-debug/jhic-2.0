@@ -49,9 +49,9 @@ export default function ICPPage() {
           {icpExpertise.map((ex) => (
             <div
               key={ex.id}
-              className="rounded-2xl border border-border-light bg-white p-7 shadow-sm flex items-start gap-5 hover:shadow-md transition-all"
+              className="rounded-lg border border-border-light bg-surface p-7 shadow-sm flex items-start gap-5 hover:shadow-md transition-all"
             >
-              <div className="shrink-0 w-14 h-14 rounded-xl bg-accent text-white flex items-center justify-center">
+              <div className="shrink-0 w-14 h-14 rounded-xl bg-accent text-text-inverse flex items-center justify-center">
                 {ex.name.includes("Mobile") ? (
                   <Smartphone className="w-7 h-7" />
                 ) : (
@@ -80,9 +80,9 @@ export default function ICPPage() {
           {internationalPartners.map((p) => (
             <div
               key={p.name}
-              className="rounded-2xl bg-surface-alt border border-border-light p-7 hover:bg-white transition-colors"
+              className="rounded-lg bg-surface-alt border border-border-light p-7 hover:bg-surface transition-colors"
             >
-              <div className="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-xl bg-blue-600 text-text-inverse flex items-center justify-center mb-4">
                 <p.icon className="w-6 h-6" />
               </div>
               <h3 className="font-extrabold text-text-main mb-2">{p.name}</h3>

@@ -46,7 +46,7 @@ export default function ProfilKonsentrasiKeahlian() {
       />
 
       {/* 6 service cards (reference layout) */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-surface">
         <div className="container max-w-[1200px] mx-auto px-4 md:px-6">
           <SectionHeader
             eyebrow="Program Konsentrasi Keahlian"
@@ -62,9 +62,9 @@ export default function ProfilKonsentrasiKeahlian() {
                 <Link
                   key={card.slug}
                   href={`/program/konsentrasi/${card.slug}`}
-                  className="group relative rounded-2xl border border-border-light bg-white p-7 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all"
+                  className="group relative rounded-lg border border-border-light bg-surface p-7 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-5 group-hover:bg-accent group-hover:text-white transition-colors">
+                  <div className="w-14 h-14 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-5 group-hover:bg-accent group-hover:text-text-inverse transition-colors">
                     <Icon className="w-7 h-7" />
                   </div>
                   <h3 className="text-xl font-extrabold text-text-main mb-2">{card.title}</h3>

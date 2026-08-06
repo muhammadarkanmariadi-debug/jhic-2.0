@@ -36,7 +36,7 @@ function Input({
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
-      className="w-full rounded-lg border border-border-light px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-accent/30"
+      className="w-full rounded-lg border border-border-light px-3 py-2 text-sm bg-surface focus:outline-none focus:ring-2 focus:ring-accent/30"
     />
   );
 }
@@ -58,7 +58,7 @@ function TextArea({
       onChange={(e) => onChange(e.target.value)}
       rows={rows}
       placeholder={placeholder}
-      className="w-full rounded-lg border border-border-light px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-accent/30"
+      className="w-full rounded-lg border border-border-light px-3 py-2 text-sm bg-surface focus:outline-none focus:ring-2 focus:ring-accent/30"
     />
   );
 }
@@ -75,7 +75,7 @@ function ItemShell({
   children: React.ReactNode;
 }) {
   return (
-    <div className="rounded-xl bg-white border border-border-light p-3 space-y-2">
+    <div className="rounded-xl bg-surface border border-border-light p-3 space-y-2">
       <div className="flex items-center justify-between">
         <Label>
           {label} {index + 1}
@@ -105,7 +105,7 @@ export function SectionEditor({
   const setTitle = (v: string) => onChange({ ...section, title: v || undefined } as ContentSection);
 
   return (
-    <div className="rounded-2xl border border-border-light bg-gray-50 p-5 space-y-4">
+    <div className="rounded-lg border border-border-light bg-neutral-50 p-5 space-y-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="inline-block bg-accent/10 text-accent text-[11px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-full">
@@ -114,10 +114,10 @@ export function SectionEditor({
           <span className="text-xs text-text-muted font-semibold">Bagian</span>
         </div>
         <div className="flex items-center gap-1">
-          <button type="button" onClick={onMoveUp} className="p-1.5 rounded-lg hover:bg-white text-gray-500" aria-label="Naik">
+          <button type="button" onClick={onMoveUp} className="p-1.5 rounded-lg hover:bg-surface text-neutral-500" aria-label="Naik">
             <ChevronUp className="w-4 h-4" />
           </button>
-          <button type="button" onClick={onMoveDown} className="p-1.5 rounded-lg hover:bg-white text-gray-500" aria-label="Turun">
+          <button type="button" onClick={onMoveDown} className="p-1.5 rounded-lg hover:bg-surface text-neutral-500" aria-label="Turun">
             <ChevronDown className="w-4 h-4" />
           </button>
           <button type="button" onClick={onRemove} className="p-1.5 rounded-lg hover:bg-red-50 text-red-500" aria-label="Hapus">

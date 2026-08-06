@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth";
-import { LayoutDashboard, BookOpen, LogOut } from "lucide-react";
+import { LayoutDashboard, BookOpen, CalendarClock, LogOut } from "lucide-react";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const { user, loading, logout } = useAuth();
@@ -33,7 +33,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <Link
         href={href}
         className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-bold transition-colors ${
-          active ? "bg-accent text-white" : "text-text-muted hover:bg-bg-main hover:text-accent"
+          active ? "bg-accent text-text-inverse" : "text-text-muted hover:bg-bg-main hover:text-accent"
         }`}
       >
         {icon}
@@ -45,11 +45,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   return (
     <div className="min-h-screen bg-bg-main flex">
       {/* Sidebar */}
-      <aside className="w-64 bg-white border-r border-border-light p-5 flex-col gap-4 hidden md:flex sticky top-0 h-screen">
+      <aside className="w-64 bg-surface border-r border-border-light p-5 flex-col gap-4 hidden md:flex sticky top-0 h-screen">
         <div className="font-extrabold text-text-main text-lg px-3">Admin Panel</div>
         <nav className="space-y-1 flex-1">
           {navLink("/admin", "Dashboard", <LayoutDashboard className="w-4 h-4" />)}
           {navLink("/admin/program-umum", "Program Umum", <BookOpen className="w-4 h-4" />)}
+          {navLink("/admin/jadwal-sekolah", "Jadwal Sekolah", <CalendarClock className="w-4 h-4" />)}
         </nav>
         <div className="border-t border-border-light pt-4 px-3 space-y-3">
           <div>

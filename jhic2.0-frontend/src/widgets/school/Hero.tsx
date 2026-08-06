@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight, ChevronRight } from "lucide-react";
+import { Button } from "@/shared/ui/Button";
 
 export function Hero() {
   const words = ["Berstandar Global", "Berakhlak", "Kreatif", "Inovatif"];
@@ -29,7 +29,7 @@ export function Hero() {
         }
       `}</style>
       {/* Decorative Dashed Circle */}
-      <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full border border-dashed border-gray-300 opacity-50 md:h-[800px] md:w-[800px]"></div>
+      <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full border border-dashed border-neutral-300 opacity-50 md:h-[800px] md:w-[800px]"></div>
       
       <div className="mx-auto flex w-full max-w-[1400px] flex-col-reverse items-center justify-between gap-12 px-4 md:px-8 xl:flex-row">
         {/* Text Content */}
@@ -38,7 +38,7 @@ export function Hero() {
          
             Terakreditasi A &middot; ISO 9001:2015
           </span>
-          <p className="mb-2 text-lg font-bold tracking-tight text-gray-800 md:text-xl">
+          <p className="mb-2 text-lg font-bold tracking-tight text-neutral-800 md:text-xl">
             Selamat Datang di <span className="text-accent">SMK Telkom Malang!</span>
           </p>
           <h1 className="mb-6 text-4xl font-extrabold leading-[1.1] tracking-[-0.03em] text-text-main md:text-5xl xl:text-6xl flex flex-col items-center xl:items-start">
@@ -55,24 +55,27 @@ export function Hero() {
               ))}
             </span>
           </h1>
-          <p className="mb-10 text-base leading-[1.6] text-gray-600 md:text-lg">
+          <p className="mb-10 text-base leading-[1.6] text-neutral-600 md:text-lg">
             Pelopor SMK bidang Teknologi dan Informatika di Indonesia sejak 1992. Belajar coding, jaringan, dan gim langsung dari standar industri.
           </p>
           <div className="flex w-full flex-col max-w-lg mx-auto lg:mx-0  items-center gap-4 sm:flex-row xl:justify-start">
-            <Link
+            <Button
               href="/spmb"
-              className="flex h-14 w-full items-center justify-center gap-2 rounded-xl bg-accent px-8 text-[15.5px] font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-accent sm:w-auto"
+              size="lg"
+              className="w-full sm:w-auto"
+              icon={ArrowRight}
             >
               Daftar SPMB 2026
-              <ArrowRight className="h-5 w-5" />
-            </Link>
-            <Link
+            </Button>
+            <Button
               href="#programs"
-              className="flex h-14 w-full items-center justify-center gap-2 rounded-xl border-2 border-border-color bg-white px-8 text-[15.5px] font-bold text-text-main transition-all hover:border-gray-300 hover:bg-gray-50 sm:w-auto"
+              variant="secondary"
+              size="lg"
+              className="w-full sm:w-auto"
+              icon={ChevronRight}
             >
               Jelajahi Program
-              <ChevronRight className="h-5 w-5" />
-            </Link>
+            </Button>
           </div>
         </div>
 

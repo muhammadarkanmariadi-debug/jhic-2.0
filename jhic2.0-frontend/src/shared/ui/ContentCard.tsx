@@ -35,7 +35,7 @@ export function ContentCard({
     <Link 
       href={href} 
       onClick={handleClick}
-      className="bg-white rounded-2xl overflow-hidden border border-border-light shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group flex flex-col h-full text-left"
+      className="bg-surface rounded-xl overflow-hidden border border-border-light shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group flex flex-col h-full text-left"
     >
       <div className="relative h-48 overflow-hidden">
         <Image 
@@ -45,7 +45,7 @@ export function ContentCard({
           className="object-cover group-hover:scale-105 transition-transform duration-500" 
         />
         {category && (
-          <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-text-main text-xs font-bold px-3 py-1.5 rounded-full capitalize">
+          <div className="absolute top-4 left-4 bg-surface/90 backdrop-blur-sm text-text-main text-xs font-bold px-3 py-1.5 rounded-full capitalize">
             {category}
           </div>
         )}

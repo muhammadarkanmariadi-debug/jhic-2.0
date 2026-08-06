@@ -36,7 +36,7 @@ export function ImageGallery({ images, columns = 3 }: ImageGalleryProps) {
           <button
             key={idx}
             onClick={() => setActive(idx)}
-            className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-border-light bg-surface-alt shadow-sm"
+            className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-border-light bg-surface-alt shadow-sm"
             aria-label={`Lihat ${img.alt ?? "gambar"} (besar)`}
           >
             <Image
@@ -47,13 +47,13 @@ export function ImageGallery({ images, columns = 3 }: ImageGalleryProps) {
               className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
-              <span className="opacity-0 group-hover:opacity-100 text-white transition-opacity">
+              <span className="opacity-0 group-hover:opacity-100 text-text-inverse transition-opacity">
                 <ZoomIn className="w-6 h-6" />
               </span>
             </div>
             {img.caption && (
               <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                <div className="text-white text-xs font-semibold line-clamp-2">{img.caption}</div>
+                <div className="text-text-inverse text-xs font-semibold line-clamp-2">{img.caption}</div>
               </div>
             )}
           </button>
@@ -67,7 +67,7 @@ export function ImageGallery({ images, columns = 3 }: ImageGalleryProps) {
           onClick={() => setActive(null)}
         >
           <button
-            className="absolute top-4 right-4 text-white bg-white/10 hover:bg-white/20 rounded-full p-2.5"
+            className="absolute top-4 right-4 text-text-inverse bg-surface/10 hover:bg-surface/20 rounded-full p-2.5"
             onClick={() => setActive(null)}
             aria-label="Tutup"
           >
@@ -80,7 +80,7 @@ export function ImageGallery({ images, columns = 3 }: ImageGalleryProps) {
                   e.stopPropagation();
                   prev();
                 }}
-                className="absolute left-3 text-white bg-white/10 hover:bg-white/20 rounded-full p-2.5"
+                className="absolute left-3 text-text-inverse bg-surface/10 hover:bg-surface/20 rounded-full p-2.5"
                 aria-label="Sebelumnya"
               >
                 <ChevronLeft className="w-7 h-7" />
@@ -90,7 +90,7 @@ export function ImageGallery({ images, columns = 3 }: ImageGalleryProps) {
                   e.stopPropagation();
                   next();
                 }}
-                className="absolute right-3 text-white bg-white/10 hover:bg-white/20 rounded-full p-2.5"
+                className="absolute right-3 text-text-inverse bg-surface/10 hover:bg-surface/20 rounded-full p-2.5"
                 aria-label="Berikutnya"
               >
                 <ChevronRight className="w-7 h-7" />
@@ -98,7 +98,7 @@ export function ImageGallery({ images, columns = 3 }: ImageGalleryProps) {
             </>
           )}
           <div className="max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
-            <div className="relative aspect-[16/10] rounded-2xl overflow-hidden">
+            <div className="relative aspect-[16/10] rounded-lg overflow-hidden">
               <Image
                 src={images[active].src}
                 alt={images[active].alt ?? ""}
@@ -108,7 +108,7 @@ export function ImageGallery({ images, columns = 3 }: ImageGalleryProps) {
               />
             </div>
             {images[active].caption && (
-              <p className="text-center text-white/80 text-sm mt-3">{images[active].caption}</p>
+              <p className="text-center text-text-inverse/80 text-sm mt-3">{images[active].caption}</p>
             )}
           </div>
         </div>

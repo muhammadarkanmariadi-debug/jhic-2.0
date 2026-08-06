@@ -58,8 +58,8 @@ export default function ProdukTelkomPage() {
                   onClick={() => setActiveCategory(cat)}
                   className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${
                     activeCategory === cat 
-                      ? "bg-text-main text-white shadow-sm" 
-                      : "bg-white text-gray-500 border border-border-light hover:border-gray-300 hover:text-text-main"
+                      ? "bg-text-main text-text-inverse shadow-sm" 
+                      : "bg-surface text-neutral-500 border border-border-light hover:border-neutral-300 hover:text-text-main"
                   }`}
                 >
                   {cat}
@@ -70,11 +70,11 @@ export default function ProdukTelkomPage() {
             {/* Search Bar */}
             <div className="relative w-full md:w-80 shrink-0">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <Search className="h-4 w-4 text-gray-400" />
+                <Search className="h-4 w-4 text-neutral-400" />
               </div>
               <input
                 type="text"
-                className="block w-full pl-10 pr-4 py-3 rounded-xl border-2 border-border-light bg-white text-text-main focus:border-accent focus:ring-4 focus:ring-accent/10 transition-all shadow-sm outline-none font-medium text-sm"
+                className="block w-full pl-10 pr-4 py-3 rounded-xl border-2 border-border-light bg-surface text-text-main focus:border-accent focus:ring-4 focus:ring-accent/10 transition-all shadow-sm outline-none font-medium text-sm"
                 placeholder="Cari produk..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -112,7 +112,7 @@ export default function ProdukTelkomPage() {
                     className="object-cover"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-white/90 text-text-main backdrop-blur-md shadow-sm">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-surface/90 text-text-main backdrop-blur-md shadow-sm">
                       <Tag className="w-3.5 h-3.5 text-accent" />
                       {selectedProduct.category}
                     </span>
@@ -123,7 +123,7 @@ export default function ProdukTelkomPage() {
                   <h2 className="text-3xl font-extrabold text-text-main mb-4">
                     {selectedProduct.name}
                   </h2>
-                  <div className="prose prose-lg text-gray-600 mb-8 max-w-none leading-relaxed">
+                  <div className="prose prose-lg text-neutral-600 mb-8 max-w-none leading-relaxed">
                     <p>{selectedProduct.desc}</p>
                   </div>
                   
@@ -132,7 +132,7 @@ export default function ProdukTelkomPage() {
                       href={selectedProduct.link} 
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white px-6 py-3 rounded-xl font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-1"
+                      className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-text-inverse px-6 py-3 rounded-xl font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-1"
                     >
                       Buka Halaman Produk
                       <ArrowRight className="w-5 h-5" />
@@ -144,10 +144,10 @@ export default function ProdukTelkomPage() {
           </Modal>
 
           {filteredProducts.length === 0 && (
-            <div className="text-center py-20 bg-white rounded-2xl border border-border-light shadow-sm">
-              <Search className="w-12 h-12 text-gray-300 mx-auto mb-4" />
+            <div className="text-center py-20 bg-surface rounded-lg border border-border-light shadow-sm">
+              <Search className="w-12 h-12 text-neutral-300 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-text-main mb-2">Produk Tidak Ditemukan</h3>
-              <p className="text-gray-500">Coba gunakan kata kunci pencarian atau kategori yang lain.</p>
+              <p className="text-neutral-500">Coba gunakan kata kunci pencarian atau kategori yang lain.</p>
             </div>
           )}
 

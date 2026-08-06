@@ -9,6 +9,8 @@ import { z } from "zod";
 import { ArrowLeft, LogIn, Lock, Mail } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 import { ApiError } from "@/services/api";
+import { Status } from "@/shared/ui/Status";
+import { Button } from "@/shared/ui/Button";
 
 const loginSchema = z.object({
   email: z.string().email("Masukkan email yang valid"),
@@ -54,7 +56,7 @@ export default function LoginPage() {
   return (
     <main className="min-h-screen bg-bg-main flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
-        <div className="rounded-3xl border border-border-light bg-white p-8 md:p-10 shadow-sm">
+        <div className="rounded-xl border border-border-light bg-surface p-8 md:p-10 shadow-sm">
           <Link
             href="/"
             className="inline-flex items-center gap-1.5 text-sm font-bold text-text-muted hover:text-accent mb-6"
@@ -63,7 +65,7 @@ export default function LoginPage() {
           </Link>
 
           <div className="text-center mb-8">
-            <div className="w-14 h-14 rounded-2xl bg-accent text-white flex items-center justify-center mx-auto mb-4">
+            <div className="w-14 h-14 rounded-lg bg-accent text-text-inverse flex items-center justify-center mx-auto mb-4">
               <LogIn className="w-7 h-7" />
             </div>
             <h1 className="text-2xl font-extrabold text-text-main">Masuk Admin</h1>
@@ -73,9 +75,9 @@ export default function LoginPage() {
           </div>
 
           {error && (
-            <div className="mb-6 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm font-semibold px-4 py-3">
+            <Status variant="error" className="mb-6 w-full">
               {error}
-            </div>
+            </Status>
           )}
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
@@ -84,7 +86,7 @@ export default function LoginPage() {
                 Email
               </label>
               <div className="relative">
-                <Mail className="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                <Mail className="w-4 h-4 text-neutral-400 absolute left-4 top-1/2 -translate-y-1/2" />
                 <input
                   id="email"
                   type="email"
@@ -95,7 +97,7 @@ export default function LoginPage() {
                 />
               </div>
               {errors.email && (
-                <p className="text-xs text-red-600 mt-1 font-semibold">{errors.email.message}</p>
+                <p className="text-xs text-error mt-1 font-semibold">{errors.email.message}</p>
               )}
             </div>
 
@@ -104,7 +106,7 @@ export default function LoginPage() {
                 Password
               </label>
               <div className="relative">
-                <Lock className="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                <Lock className="w-4 h-4 text-neutral-400 absolute left-4 top-1/2 -translate-y-1/2" />
                 <input
                   id="password"
                   type="password"
@@ -115,17 +117,18 @@ export default function LoginPage() {
                 />
               </div>
               {errors.password && (
-                <p className="text-xs text-red-600 mt-1 font-semibold">{errors.password.message}</p>
+                <p className="text-xs text-error mt-1 font-semibold">{errors.password.message}</p>
               )}
             </div>
 
-            <button
+            <Button
               type="submit"
+              size="lg"
               disabled={submitting}
-              className="w-full bg-accent hover:bg-accent-hover disabled:opacity-50 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg hover:shadow-xl"
+              className="w-full"
             >
               {submitting ? "Memproses..." : "Masuk"}
-            </button>
+            </Button>
           </form>
 
           <p className="mt-6 text-xs text-center text-text-muted leading-relaxed">

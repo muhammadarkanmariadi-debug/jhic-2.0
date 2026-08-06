@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { ScholarshipItem } from "@/shared/types";
 import { usePagination } from "@/shared/hooks/usePagination";
 import { Pagination } from "@/shared/ui/Pagination";
+import { Card } from "@/shared/ui/Card";
 import { GraduationCap, Calendar, ExternalLink, CheckCircle2 } from "lucide-react";
 
 const programOptions = [
@@ -33,8 +34,8 @@ export function BeasiswaList({ items }: { items: ScholarshipItem[] }) {
             onClick={() => setProgram(opt.value)}
             className={`px-4 py-2 rounded-full text-sm font-bold border transition-all ${
               program === opt.value
-                ? "bg-accent text-white border-accent"
-                : "bg-white text-text-muted border-border-light hover:border-accent hover:text-accent"
+                ? "bg-accent text-text-inverse border-accent"
+                : "bg-surface text-text-muted border-border-light hover:border-accent hover:text-accent"
             }`}
           >
             {opt.label}
@@ -43,17 +44,18 @@ export function BeasiswaList({ items }: { items: ScholarshipItem[] }) {
       </div>
 
       {filtered.length === 0 ? (
-        <div className="text-center py-16 bg-white rounded-2xl border border-border-light">
-          <GraduationCap className="w-12 h-12 text-gray-300 mx-auto mb-4" />
+        <div className="text-center py-16 bg-surface rounded-lg border border-border-light">
+          <GraduationCap className="w-12 h-12 text-neutral-300 mx-auto mb-4" />
           <h3 className="text-lg font-bold text-text-main mb-2">Beasiswa tidak ditemukan</h3>
           <p className="text-text-muted text-sm">Coba filter konsentrasi yang lain.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {currentItems.map((b) => (
-            <div
+            <Card
               key={b.id}
-              className="rounded-2xl border border-border-light bg-white p-6 shadow-sm hover:shadow-md transition-all flex flex-col"
+              hover
+              className="flex flex-col h-full"
             >
               <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
                 <GraduationCap className="w-6 h-6" />
@@ -90,13 +92,13 @@ export function BeasiswaList({ items }: { items: ScholarshipItem[] }) {
                     href={b.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 bg-accent text-white text-sm font-bold px-4 py-2 rounded-xl hover:bg-accent-hover"
+                    className="inline-flex items-center gap-1.5 bg-accent text-text-inverse text-sm font-bold px-4 py-2 rounded-xl hover:bg-accent-hover"
                   >
                     Daftar <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 )}
               </div>
-            </div>
+            </Card>
           ))}
         </div>
       )}

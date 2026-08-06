@@ -5,6 +5,7 @@ import Link from "next/link";
 import { CompetitionItem } from "@/shared/types";
 import { usePagination } from "@/shared/hooks/usePagination";
 import { Pagination } from "@/shared/ui/Pagination";
+import { Card } from "@/shared/ui/Card";
 import { Trophy, MapPin, Calendar, ExternalLink } from "lucide-react";
 
 export function LombaList({ items }: { items: CompetitionItem[] }) {
@@ -14,8 +15,8 @@ export function LombaList({ items }: { items: CompetitionItem[] }) {
 
   if (items.length === 0) {
     return (
-      <div className="text-center py-16 bg-white rounded-2xl border border-border-light">
-        <Trophy className="w-12 h-12 text-gray-300 mx-auto mb-4" />
+      <div className="text-center py-16 bg-surface rounded-lg border border-border-light">
+        <Trophy className="w-12 h-12 text-neutral-300 mx-auto mb-4" />
         <p className="text-text-muted">Belum ada lomba yang diumumkan.</p>
       </div>
     );
@@ -25,9 +26,10 @@ export function LombaList({ items }: { items: CompetitionItem[] }) {
     <div className="w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {currentItems.map((c) => (
-          <div
+          <Card
             key={c.id}
-            className="rounded-2xl border border-border-light bg-white p-6 shadow-sm hover:shadow-md transition-all flex flex-col"
+            hover
+            className="flex flex-col h-full"
           >
             <div className="flex items-start justify-between gap-3 mb-3">
               <div className="flex items-center gap-3">
@@ -77,13 +79,13 @@ export function LombaList({ items }: { items: CompetitionItem[] }) {
                   href={c.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 bg-accent text-white text-sm font-bold px-4 py-2 rounded-xl hover:bg-accent-hover"
+                  className="inline-flex items-center gap-1.5 bg-accent text-text-inverse text-sm font-bold px-4 py-2 rounded-xl hover:bg-accent-hover"
                 >
                   Info & Daftar <ExternalLink className="w-3.5 h-3.5" />
                 </Link>
               )}
             </div>
-          </div>
+          </Card>
         ))}
       </div>
 

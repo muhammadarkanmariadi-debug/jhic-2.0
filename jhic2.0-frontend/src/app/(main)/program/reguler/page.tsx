@@ -37,7 +37,7 @@ export default function RegulerPage() {
             .map((ex) => (
               <div
                 key={ex.id}
-                className="relative rounded-2xl border border-border-light bg-white p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
+                className="relative rounded-lg border border-border-light bg-surface p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
               >
                 <div className="inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wide text-accent bg-accent/5 px-3 py-1 rounded-full mb-5">
                   <MousePointerClick className="w-3.5 h-3.5" /> Pilihan

@@ -36,7 +36,7 @@ export function ProgramTemplate({
       />
 
       {/* Program Description */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-surface">
         <div className="container max-w-[1100px] mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
             <div>
@@ -48,7 +48,7 @@ export function ProgramTemplate({
                 className="mb-0"
               />
             </div>
-            <div className="relative aspect-[4/3] w-full max-w-[480px] mx-auto lg:mx-0 rounded-3xl overflow-hidden shadow-lg">
+            <div className="relative aspect-[4/3] w-full max-w-[480px] mx-auto lg:mx-0 rounded-xl overflow-hidden shadow-lg">
               <Image src={content.image} alt={content.title} fill className="object-cover" />
             </div>
           </div>
@@ -66,7 +66,7 @@ export function ProgramTemplate({
               {content.learningJourney.map((stage, idx) => (
                 <div
                   key={stage.grade}
-                  className="relative rounded-2xl border border-border-light bg-white p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
+                  className="relative rounded-lg border border-border-light bg-surface p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
                 >
                   <div className="inline-flex items-center gap-2 bg-accent/5 text-accent text-xs font-extrabold uppercase tracking-wide px-3 py-1.5 rounded-full mb-5">
                     <BookOpen className="w-4 h-4" />
@@ -104,9 +104,9 @@ export function ProgramTemplate({
               {content.graduateProfile.map((profile) => (
                 <div
                   key={profile.title}
-                  className="rounded-2xl bg-surface-alt border border-border-light p-7 text-center hover:bg-white transition-colors"
+                  className="rounded-lg bg-surface-alt border border-border-light p-7 text-center hover:bg-surface transition-colors"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-accent text-white flex items-center justify-center mx-auto mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-accent text-text-inverse flex items-center justify-center mx-auto mb-4">
                     <GraduationCap className="w-6 h-6" />
                   </div>
                   <h3 className="font-extrabold text-text-main mb-2">{profile.title}</h3>
@@ -122,7 +122,7 @@ export function ProgramTemplate({
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-20 bg-accent text-white relative overflow-hidden">
+      <section className="py-16 md:py-20 bg-accent text-text-inverse relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-5 pointer-events-none"
           style={{
@@ -131,7 +131,7 @@ export function ProgramTemplate({
           }}
         ></div>
         <div className="container max-w-[800px] mx-auto px-4 md:px-6 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-1.5 rounded-full text-sm font-bold mb-6 border border-white/20">
+          <div className="inline-flex items-center gap-2 bg-surface/20 px-4 py-1.5 rounded-full text-sm font-bold mb-6 border border-white/20">
             <Briefcase className="w-4 h-4" /> Siap Jadi Bagian dari Kami?
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
@@ -139,7 +139,7 @@ export function ProgramTemplate({
           </h2>
           <a
             href={ctaHref}
-            className="inline-flex items-center gap-2 bg-white text-accent hover:bg-surface-alt font-extrabold px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+            className="inline-flex items-center gap-2 bg-surface text-accent hover:bg-surface-alt font-extrabold px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
           >
             {ctaLabel}
             <ArrowRight className="w-5 h-5" />

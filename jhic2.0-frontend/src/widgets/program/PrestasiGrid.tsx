@@ -73,8 +73,8 @@ export function PrestasiGrid() {
             onClick={() => setActiveTab(tab.id as 'all' | 'akademik' | 'non-akademik')}
             className={`px-6 py-3 rounded-full font-bold transition-all ${
               activeTab === tab.id
-                ? 'bg-text-main text-white'
-                : 'bg-white text-text-muted border border-border-color hover:border-text-main hover:text-text-main shadow-sm'
+                ? 'bg-text-main text-text-inverse'
+                : 'bg-surface text-text-muted border border-border-color hover:border-text-main hover:text-text-main shadow-sm'
             }`}
           >
             {tab.label}

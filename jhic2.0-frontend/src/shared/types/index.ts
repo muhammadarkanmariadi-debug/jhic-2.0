@@ -1,14 +1,17 @@
 import { LucideIcon } from 'lucide-react';
 
 export interface NewsItem {
-  id: string;
+  id: string | number;
   title: string;
   desc: string;
   image: string;
   date: string;
   category: string;
+  categoryLabel?: string;
+  badgeColor?: string;
+  slug?: string;
   author?: string;
-  content?: string;
+  content?: string | string[];
 }
 
 export interface EkskulItem {
@@ -52,7 +55,10 @@ export interface TestimonialItem {
   name: string;
   role: string;
   content: string;
+  text?: string;
   avatar: string;
+  avatarInitials?: string;
+  avatarBg?: string;
   companyLogo?: string;
 }
 
@@ -77,6 +83,8 @@ export interface ServiceDeskItem {
   icon?: string;
   status: "Operational" | "Maintenance" | "Degraded" | string;
   href: string;
+  color?: string;
+  bgColor?: string;
 }
 
 export interface JurusanDetail {
@@ -346,6 +354,66 @@ export interface CurriculumTab {
   icon?: string; // lucide icon name
   intro?: string;
   sections: ContentSection[];
+}
+
+// ---- Content CMS v2 — shared types for admin-customizable content ----
+
+/** Konsentrasi Keahlian landing card (consumed by konsentrasiData.ts). */
+export interface KonsentrasiCard {
+  slug: string;
+  title: string;
+  description: string;
+  icon?: string;
+  tabs?: { title: string; sections: ContentSection[] }[];
+  sections?: ContentSection[];
+}
+
+/** Small program meta used by the konsentrasi switcher. */
+export interface KonsentrasiProgramMeta {
+  code: ProgramCode;
+  label: string;
+  desc: string;
+}
+
+export interface KarirProspek {
+  title: string;
+  description: string;
+  salaryRange?: string;
+  skills?: string[];
+}
+
+export interface KarirContent {
+  code: ProgramCode;
+  portalUrl?: string;
+  timeline: TimelineEvent[];
+  prospek: KarirProspek[];
+}
+
+/** Unified timeline event (single source for karir/ppdb/curriculum timelines). */
+export interface TimelineEvent {
+  title: string;
+  description?: string;
+  icon?: string;
+  [key: string]: unknown;
+}
+
+/** Chatbot intent (moved from services/botData.ts to shared). */
+export interface BotIntent {
+  id?: string;
+  patterns: string[];
+  answer: string;
+  followUp?: string[];
+  isActive?: boolean;
+}
+
+/** Organisasi chart node (struktur-organisasi). */
+export interface OrgChartNode {
+  id: string;
+  name: string;
+  title: string;
+  image?: string;
+  level?: string;
+  children?: OrgChartNode[];
 }
 
 

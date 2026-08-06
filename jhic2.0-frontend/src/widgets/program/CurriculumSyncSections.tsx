@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { SectionHeader } from "@/shared/ui/SectionHeader";
+import { Card } from "@/shared/ui/Card";
 import { Handshake, Award, BadgeCheck, CalendarRange } from "lucide-react";
 import {
   curriculumSyncPartners,
@@ -42,9 +43,10 @@ export function CurriculumSyncSections({ active }: { active: ProgramCode }) {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {partners.map((partner) => (
-              <div
+              <Card
                 key={partner.id}
-                className="rounded-2xl border border-border-light bg-white p-6 shadow-sm flex flex-col items-center text-center hover:shadow-md hover:-translate-y-1 transition-all"
+                hover
+                className="flex flex-col items-center text-center"
               >
                 <div className="w-16 h-16 rounded-xl bg-surface-alt flex items-center justify-center mb-4 overflow-hidden">
                   {partner.logo ? (
@@ -65,7 +67,7 @@ export function CurriculumSyncSections({ active }: { active: ProgramCode }) {
                   Tahun Ajaran {partner.academicYear}
                 </div>
                 <p className="text-sm text-text-muted leading-relaxed">{partner.description}</p>
-              </div>
+              </Card>
             ))}
           </div>
         )}
@@ -87,9 +89,10 @@ export function CurriculumSyncSections({ active }: { active: ProgramCode }) {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {expertise.map((ex) => (
-              <div
+              <Card
                 key={ex.id}
-                className="rounded-2xl border border-border-light bg-white p-6 shadow-sm flex items-start gap-5 hover:shadow-md transition-all"
+                hover
+                className="flex items-start gap-5"
               >
                 <div className="shrink-0 w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center">
                   <Award className="w-6 h-6" />
@@ -105,7 +108,7 @@ export function CurriculumSyncSections({ active }: { active: ProgramCode }) {
                   </div>
                   <p className="text-sm text-text-muted leading-relaxed">{ex.description}</p>
                 </div>
-              </div>
+              </Card>
             ))}
           </div>
         )}
@@ -127,9 +130,9 @@ export function CurriculumSyncSections({ active }: { active: ProgramCode }) {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certs.map((cert) => (
-              <div
+              <Card
                 key={cert.id}
-                className="rounded-2xl border border-border-light bg-white p-6 shadow-sm hover:shadow-md transition-all"
+                hover
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div className="shrink-0 w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center">
@@ -143,7 +146,7 @@ export function CurriculumSyncSections({ active }: { active: ProgramCode }) {
                   </div>
                 </div>
                 <h3 className="font-bold text-text-main leading-snug">{cert.name}</h3>
-              </div>
+              </Card>
             ))}
           </div>
         )}

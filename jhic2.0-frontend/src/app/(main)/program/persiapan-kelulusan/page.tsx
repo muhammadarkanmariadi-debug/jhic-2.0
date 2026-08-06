@@ -28,7 +28,7 @@ export default function PersiapanKelulusanPage() {
         description="Program pembekalan kompetensi dan kesiapan siswa menjelang kelulusan dan memasuki dunia kerja atau perkuliahan."
       />
 
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-surface">
         <div className="container max-w-[1200px] mx-auto px-4 md:px-6">
           <TabbedCurriculumContent tabs={persiapanKelulusanTabs} layout="grid" iconMap={iconMap} />
         </div>

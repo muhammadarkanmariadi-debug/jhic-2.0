@@ -39,12 +39,12 @@ export function Pagination({
         forcePage={currentPage - 1}
         previousLabel={<ChevronLeft className="w-5 h-5" />}
         containerClassName="flex flex-wrap items-center justify-center gap-2"
-        pageLinkClassName="w-10 h-10 rounded-xl flex items-center justify-center border border-border-light bg-white text-text-main hover:bg-gray-50 font-medium transition-colors cursor-pointer select-none"
-        activeLinkClassName="bg-accent text-white border-accent shadow-sm font-bold hover:bg-accent-hover hover:text-white"
-        previousLinkClassName="w-10 h-10 rounded-xl flex items-center justify-center border border-border-light bg-white text-text-main hover:bg-gray-50 font-medium transition-colors cursor-pointer select-none"
-        nextLinkClassName="w-10 h-10 rounded-xl flex items-center justify-center border border-border-light bg-white text-text-main hover:bg-gray-50 font-medium transition-colors cursor-pointer select-none"
-        disabledLinkClassName="opacity-50 cursor-not-allowed hover:bg-white"
-        breakLinkClassName="w-10 h-10 rounded-xl flex items-center justify-center font-medium text-gray-500 select-none"
+        pageLinkClassName="w-10 h-10 rounded-xl flex items-center justify-center border border-border-light bg-surface text-text-main hover:bg-neutral-50 font-medium transition-colors cursor-pointer select-none"
+        activeLinkClassName="bg-accent text-text-inverse border-accent shadow-sm font-bold hover:bg-accent-hover hover:text-text-inverse"
+        previousLinkClassName="w-10 h-10 rounded-xl flex items-center justify-center border border-border-light bg-surface text-text-main hover:bg-neutral-50 font-medium transition-colors cursor-pointer select-none"
+        nextLinkClassName="w-10 h-10 rounded-xl flex items-center justify-center border border-border-light bg-surface text-text-main hover:bg-neutral-50 font-medium transition-colors cursor-pointer select-none"
+        disabledLinkClassName="opacity-50 cursor-not-allowed hover:bg-surface"
+        breakLinkClassName="w-10 h-10 rounded-xl flex items-center justify-center font-medium text-neutral-500 select-none"
         renderOnZeroPageCount={null}
       />
     </div>

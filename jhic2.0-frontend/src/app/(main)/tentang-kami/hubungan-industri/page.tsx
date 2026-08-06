@@ -55,7 +55,7 @@ export default function HubunganIndustri() {
       case 'Software House': return 'bg-green-100 text-green-700';
       case 'Hosting & Cloud': return 'bg-purple-100 text-purple-700';
       case 'Creative & Design': return 'bg-orange-100 text-orange-700';
-      default: return 'bg-gray-100 text-gray-700';
+      default: return 'bg-neutral-100 text-neutral-700';
     }
   };
 
@@ -88,14 +88,14 @@ export default function HubunganIndustri() {
       />
 
       {/* Hub sub-menu: Direktori Mitra / Loker / Beasiswa */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-12 md:py-16 bg-surface">
         <div className="container max-w-[1200px] mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link
               href="#direktori"
-              className="group rounded-2xl border border-border-light bg-white p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex items-center gap-5"
+              className="group rounded-lg border border-border-light bg-surface p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex items-center gap-5"
             >
-              <div className="w-14 h-14 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-white transition-colors">
+              <div className="w-14 h-14 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-text-inverse transition-colors">
                 <Building2 className="w-7 h-7" />
               </div>
               <div className="flex-1">
@@ -106,9 +106,9 @@ export default function HubunganIndustri() {
             </Link>
             <Link
               href="/loker"
-              className="group rounded-2xl border border-border-light bg-white p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex items-center gap-5"
+              className="group rounded-lg border border-border-light bg-surface p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex items-center gap-5"
             >
-              <div className="w-14 h-14 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-white transition-colors">
+              <div className="w-14 h-14 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-text-inverse transition-colors">
                 <Briefcase className="w-7 h-7" />
               </div>
               <div className="flex-1">
@@ -119,9 +119,9 @@ export default function HubunganIndustri() {
             </Link>
             <Link
               href="/beasiswa"
-              className="group rounded-2xl border border-border-light bg-white p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex items-center gap-5"
+              className="group rounded-lg border border-border-light bg-surface p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex items-center gap-5"
             >
-              <div className="w-14 h-14 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-white transition-colors">
+              <div className="w-14 h-14 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-text-inverse transition-colors">
                 <GraduationCap className="w-7 h-7" />
               </div>
               <div className="flex-1">
@@ -143,17 +143,17 @@ export default function HubunganIndustri() {
             
             {/* Bento Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-               <div className="bg-accent text-white border-none p-8 flex items-center gap-6 rounded-xl shadow-sm">
-                  <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+               <div className="bg-accent text-text-inverse border-none p-8 flex items-center gap-6 rounded-xl shadow-sm">
+                  <div className="w-14 h-14 rounded-full bg-surface/20 flex items-center justify-center flex-shrink-0">
                      <Building2 className="w-7 h-7" />
                   </div>
                   <div>
                      <div className="text-4xl font-extrabold mb-1">500+</div>
-                     <div className="text-white/80 font-medium">Mitra Industri</div>
+                     <div className="text-text-inverse/80 font-medium">Mitra Industri</div>
                   </div>
                </div>
                <Card className="p-8 flex items-center gap-6 border-border-light hover:-translate-y-1 transition-transform cursor-default">
-                  <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center flex-shrink-0 text-white border border-accent/20">
+                  <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center flex-shrink-0 text-text-inverse border border-accent/20">
                      <MapPin className="w-7 h-7" />
                   </div>
                   <div>
@@ -162,7 +162,7 @@ export default function HubunganIndustri() {
                   </div>
                </Card>
                <Card className="p-8 flex items-center gap-6 border-border-light hover:-translate-y-1 transition-transform cursor-default">
-                  <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center flex-shrink-0 text-white border border-accent/20">
+                  <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center flex-shrink-0 text-text-inverse border border-accent/20">
                      <Layers className="w-7 h-7" />
                   </div>
                   <div>
@@ -222,7 +222,7 @@ export default function HubunganIndustri() {
                <div className="flex-1">
                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {filteredPartners.length > 0 ? filteredPartners.map((partner, index) => (
-                     <Card key={index} className="flex flex-col">
+                     <Card key={index} className="flex flex-col p-6">
                         <div className="flex items-start gap-4 mb-4">
                            <div className="w-12 h-12 rounded-xl overflow-hidden bg-border-color flex-shrink-0">
                               <Image src={partner.logo} alt={partner.name} width={48} height={48} className="object-cover" />
@@ -251,8 +251,8 @@ export default function HubunganIndustri() {
                         </div>
                      </Card>
                   )) : (
-                     <div className="col-span-full py-12 text-center bg-white rounded-2xl border border-border-light">
-                        <Building2 className="w-12 h-12 text-gray-300 mx-auto mb-4" />
+                     <div className="col-span-full py-12 text-center bg-surface rounded-lg border border-border-light">
+                        <Building2 className="w-12 h-12 text-neutral-300 mx-auto mb-4" />
                         <h4 className="text-lg font-bold text-text-main mb-2">Mitra Tidak Ditemukan</h4>
                         <p className="text-text-muted">Coba sesuaikan pencarian atau filter untuk melihat mitra lainnya.</p>
                      </div>

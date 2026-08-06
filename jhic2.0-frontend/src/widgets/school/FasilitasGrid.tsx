@@ -110,7 +110,7 @@ export function FasilitasGrid() {
 
   return (
     <>
-      <div className="mb-10 flex flex-col md:flex-row md:items-center justify-between gap-6 bg-white p-4 rounded-2xl border border-border-light shadow-sm">
+      <div className="mb-10 flex flex-col md:flex-row md:items-center justify-between gap-6 bg-surface p-4 rounded-lg border border-border-light shadow-sm">
         <div className="flex flex-wrap gap-2">
           {[
             { id: 'all', label: 'Semua' },
@@ -123,7 +123,7 @@ export function FasilitasGrid() {
               onClick={() => setActiveTab(tab.id as any)}
               className={`px-5 py-2.5 rounded-xl text-sm font-bold transition-colors ${
                 activeTab === tab.id
-                  ? 'bg-accent text-white'
+                  ? 'bg-accent text-text-inverse'
                   : 'bg-surface-alt text-text-muted hover:bg-border-color hover:text-text-main'
               }`}
             >
@@ -158,8 +158,8 @@ export function FasilitasGrid() {
           ))}
         </div>
       ) : (
-        <div className="text-center py-20 bg-white rounded-3xl border border-border-light border-dashed">
-          <div className="w-20 h-20 rounded-full bg-red-100 text-accent flex items-center justify-center mx-auto mb-6">
+        <div className="text-center py-20 bg-surface rounded-xl border border-border-light border-dashed">
+          <div className="w-20 h-20 rounded-full bg-info-soft text-info flex items-center justify-center mx-auto mb-6">
             <Search className="w-10 h-10" />
           </div>
           <h3 className="text-2xl font-extrabold text-text-main mb-2">Fasilitas tidak ditemukan</h3>
@@ -179,10 +179,10 @@ export function FasilitasGrid() {
             className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
             onClick={() => setSelectedFacility(null)}
           ></div>
-          <div className="relative w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh] animate-in fade-in zoom-in-95 duration-200">
+          <div className="relative w-full max-w-4xl bg-surface rounded-xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh] animate-in fade-in zoom-in-95 duration-200">
             <button
               onClick={() => setSelectedFacility(null)}
-              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-text-main transition-colors"
+              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-surface/20 backdrop-blur-md flex items-center justify-center text-text-inverse hover:bg-surface hover:text-text-main transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -206,8 +206,8 @@ export function FasilitasGrid() {
               </p>
               
               <div className="space-y-4">
-                <div className="flex items-center gap-4 p-4 rounded-2xl bg-surface-alt border border-border-light">
-                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-accent shadow-sm flex-shrink-0">
+                <div className="flex items-center gap-4 p-4 rounded-lg bg-surface-alt border border-border-light">
+                  <div className="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-accent shadow-sm flex-shrink-0">
                     <User className="w-5 h-5" />
                   </div>
                   <div>
@@ -215,8 +215,8 @@ export function FasilitasGrid() {
                     <div className="font-extrabold text-text-main">{selectedFacility.capacity}</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-4 p-4 rounded-2xl bg-surface-alt border border-border-light">
-                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-accent shadow-sm flex-shrink-0">
+                <div className="flex items-center gap-4 p-4 rounded-lg bg-surface-alt border border-border-light">
+                  <div className="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-accent shadow-sm flex-shrink-0">
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>

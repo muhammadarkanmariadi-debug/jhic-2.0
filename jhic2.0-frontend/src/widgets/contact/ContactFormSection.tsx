@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
+import { Button } from '@/shared/ui/Button';
+import { Status } from '@/shared/ui/Status';
 
 export function ContactFormSection() {
   const [formData, setFormData] = useState({
@@ -38,7 +40,7 @@ export function ContactFormSection() {
   };
 
   return (
-    <div className="bg-white rounded-3xl shadow-sm border border-border-light overflow-hidden flex flex-col lg:flex-row">
+    <div className="bg-surface rounded-xl shadow-sm border border-border-light overflow-hidden flex flex-col lg:flex-row">
       
       {/* Contact Info Side */}
       <div className="w-full lg:w-2/5 bg-surface p-10 md:p-12 relative overflow-hidden flex flex-col justify-between">
@@ -54,7 +56,7 @@ export function ContactFormSection() {
           
           <div className="flex flex-col gap-8">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-accent shadow-sm shrink-0 border border-border-light">
+              <div className="w-12 h-12 rounded-xl bg-surface flex items-center justify-center text-accent shadow-sm shrink-0 border border-border-light">
                 <Phone className="w-5 h-5" />
               </div>
               <div>
@@ -64,7 +66,7 @@ export function ContactFormSection() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-accent shadow-sm shrink-0 border border-border-light">
+              <div className="w-12 h-12 rounded-xl bg-surface flex items-center justify-center text-accent shadow-sm shrink-0 border border-border-light">
                 <Mail className="w-5 h-5" />
               </div>
               <div>
@@ -74,7 +76,7 @@ export function ContactFormSection() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-accent shadow-sm shrink-0 border border-border-light">
+              <div className="w-12 h-12 rounded-xl bg-surface flex items-center justify-center text-accent shadow-sm shrink-0 border border-border-light">
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
@@ -100,7 +102,7 @@ export function ContactFormSection() {
                 value={formData.name}
                 onChange={e => setFormData({...formData, name: e.target.value})}
               />
-              {errors.name && <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.name}</p>}
+              {errors.name && <p className="text-error text-xs mt-1.5 font-medium">{errors.name}</p>}
             </div>
             
             <div className="flex-1">
@@ -112,7 +114,7 @@ export function ContactFormSection() {
                 value={formData.phone}
                 onChange={e => setFormData({...formData, phone: e.target.value.replace(/\D/g, '')})}
               />
-              {errors.phone && <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.phone}</p>}
+              {errors.phone && <p className="text-error text-xs mt-1.5 font-medium">{errors.phone}</p>}
             </div>
           </div>
           
@@ -125,7 +127,7 @@ export function ContactFormSection() {
               value={formData.email}
               onChange={e => setFormData({...formData, email: e.target.value})}
             />
-            {errors.email && <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.email}</p>}
+            {errors.email && <p className="text-error text-xs mt-1.5 font-medium">{errors.email}</p>}
           </div>
           
           <div>
@@ -141,7 +143,7 @@ export function ContactFormSection() {
               <option value="kerja-sama">Kerja Sama Industri</option>
               <option value="lainnya">Lainnya</option>
             </select>
-            {errors.category && <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.category}</p>}
+            {errors.category && <p className="text-error text-xs mt-1.5 font-medium">{errors.category}</p>}
           </div>
           
           <div>
@@ -152,18 +154,18 @@ export function ContactFormSection() {
               value={formData.message}
               onChange={e => setFormData({...formData, message: e.target.value})}
             ></textarea>
-            {errors.message && <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.message}</p>}
+            {errors.message && <p className="text-error text-xs mt-1.5 font-medium">{errors.message}</p>}
           </div>
           
-          <button type="submit" className="bg-accent hover:bg-accent-hover text-white font-bold py-4 rounded-xl transition-colors flex items-center justify-center gap-2 w-full mt-2">
+          <Button type="submit" size="lg" className="w-full mt-2">
             Kirim Pesan
             <Send className="w-5 h-5" />
-          </button>
+          </Button>
           
           {success && (
-            <div className="bg-emerald-50 text-emerald-700 p-4 rounded-xl text-sm font-bold text-center border border-emerald-200 mt-2">
+            <Status variant="success" className="mt-2 w-full">
               Pesan Anda berhasil dikirim! Tim kami akan segera merespons.
-            </div>
+            </Status>
           )}
         </form>
       </div>

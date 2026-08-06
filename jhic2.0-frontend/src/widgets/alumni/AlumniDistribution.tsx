@@ -12,7 +12,7 @@ export function AlumniDistribution() {
   ];
 
   return (
-    <div className="bg-white rounded-3xl border border-border-light shadow-sm overflow-hidden">
+    <div className="bg-surface rounded-xl border border-border-light shadow-sm overflow-hidden">
       {/* Top Panel */}
       <div className="flex flex-col md:flex-row border-b border-border-light">
         <div className="p-8 md:p-10 border-b md:border-b-0 md:border-r border-border-light bg-surface min-w-[300px]">
@@ -20,7 +20,7 @@ export function AlumniDistribution() {
           <div className="text-text-muted font-bold text-lg uppercase tracking-wider">Total Alumni</div>
         </div>
         
-        <div className="p-8 md:p-10 flex-1 flex flex-col justify-center bg-white">
+        <div className="p-8 md:p-10 flex-1 flex flex-col justify-center bg-surface">
           <div className="flex w-full h-4 rounded-full overflow-hidden mb-6 bg-surface-alt border border-border-color">
              <div className="h-full bg-accent hover:opacity-90 transition-opacity" style={{ width: '65%' }} title="65% Bekerja di IT"></div>
              <div className="h-full bg-blue-600 hover:opacity-90 transition-opacity" style={{ width: '20%' }} title="20% Melanjutkan Kuliah"></div>
@@ -57,7 +57,7 @@ export function AlumniDistribution() {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {topCities.map((city, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-2xl border border-border-light shadow-sm flex flex-col justify-center hover:border-accent transition-colors">
+              <div key={idx} className="bg-surface p-6 rounded-lg border border-border-light shadow-sm flex flex-col justify-center hover:border-accent transition-colors">
                 <div className="text-accent font-extrabold text-3xl mb-2">{city.count}</div>
                 <div className="font-bold text-text-main text-lg mb-1.5">{city.name}</div>
                 <div className="text-sm text-text-muted leading-relaxed">{city.desc}</div>
@@ -67,7 +67,7 @@ export function AlumniDistribution() {
         </div>
 
         {/* Categories Sidebar */}
-        <div className="w-full lg:w-96 bg-white border-t lg:border-t-0 lg:border-l border-border-light flex flex-col">
+        <div className="w-full lg:w-96 bg-surface border-t lg:border-t-0 lg:border-l border-border-light flex flex-col">
           <div className="p-6 md:p-8 border-b border-border-light font-bold text-text-main text-xl">
             Kategori Tempat Kerja
           </div>
@@ -86,7 +86,7 @@ export function AlumniDistribution() {
             <div className="w-full h-px bg-border-light"></div>
 
             <div className="flex gap-4 items-start">
-              <div className="w-12 h-12 rounded-xl bg-accent text-white flex items-center justify-center shrink-0 border border-accent/20">
+              <div className="w-12 h-12 rounded-xl bg-accent text-text-inverse flex items-center justify-center shrink-0 border border-accent/20">
                 <Rocket className="w-6 h-6" />
               </div>
               <div>
@@ -98,7 +98,7 @@ export function AlumniDistribution() {
             <div className="w-full h-px bg-border-light"></div>
 
             <div className="flex gap-4 items-start">
-              <div className="w-12 h-12 rounded-xl bg-accent text-white flex items-center justify-center shrink-0 border border-accent/20">
+              <div className="w-12 h-12 rounded-xl bg-accent text-text-inverse flex items-center justify-center shrink-0 border border-accent/20">
                 <Briefcase className="w-6 h-6" />
               </div>
               <div>

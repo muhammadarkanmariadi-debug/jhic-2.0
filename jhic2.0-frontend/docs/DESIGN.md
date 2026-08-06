@@ -10,21 +10,48 @@ The **specific, detailed** design knowledge for the frontend. The source of trut
 
 ### 1.1 Colors
 
+> **Naming note (DC-10):** tokens below are the **conceptual** names. Tailwind utilities are generated from `globals.css` `--color-*` variables, so the **utility** class is the variable name verbatim — e.g. `--color-surface` → `bg-surface`/`text-surface`; `--color-text-main` → `text-text-main`/`bg-text-main`; `--color-border-light` → `border-border-light`; `--color-bg-main` → `bg-bg-main`. Prefer the prefixed utility names in code.
+
 | Token | Value | Usage |
 |---|---|---|
-| `bg-main` | `#F8F9FB` | Page background (default) |
-| `surface` | `#ffffff` | Cards, sections, elevated panels |
-| `surface-alt` | `#FAFAFA` | Alternate section background |
-| `border-color` | `#E5E7EB` | Default borders |
-| `border-light` | `#EEF0F3` | Subtle/light borders (e.g. footer) |
-| `text-main` | `#111827` | Primary text |
-| `text-muted` | `#6B7280` | Secondary/muted text |
-| `text-light` | `#9CA3AF` | Tertiary/placeholder text |
-| `text-inverse` | `#ffffff` | Text on accent/dark surfaces |
-| `accent` | `#D71920` | Brand red — CTAs, active states, emphasis |
-| `accent-hover` | `color-mix(in srgb, #D71920 84%, #000)` | Hover state for accent |
-| `accent-text` | `#ffffff` | Text on accent |
+| `bg-main` | `#F8F9FB` | Page background (default) — utility `bg-bg-main` |
+| `surface` | `#ffffff` | Cards, sections, elevated panels — utility `bg-surface` |
+| `surface-alt` | `#FAFAFA` | Alternate section background — utility `bg-surface-alt` |
+| `border-color` | `#E5E7EB` | Default borders — utility `border-border-color` |
+| `border-light` | `#EEF0F3` | Subtle/light borders (e.g. footer) — utility `border-border-light` |
+| `text-main` | `#111827` | Primary text — utility `text-text-main` |
+| `text-muted` | `#6B7280` | Secondary/muted text — utility `text-text-muted` |
+| `text-light` | `#9CA3AF` | Tertiary/placeholder text — utility `text-text-light` |
+| `text-inverse` | `#ffffff` | Text on accent/dark surfaces — utility `text-text-inverse` |
+| `accent` | `#D71920` | Brand red — CTAs, active states, emphasis — utility `bg-accent`/`text-accent` |
+| `accent-hover` | `color-mix(in srgb, #D71920 84%, #000)` | Hover state for accent — utility `bg-accent-hover` |
+| `accent-text` | `#ffffff` | Text on accent — utility `text-accent-text` |
 | `secondary-action` | `#ffffff` | Secondary button surface |
+
+**Neutral gray ramp (DC-03)** — use these instead of raw Tailwind `gray-*`:
+
+| Class | Value |
+|---|---|
+| `neutral-0` | `#ffffff` |
+| `neutral-50` | `#F9FAFB` |
+| `neutral-100` | `#F3F4F6` |
+| `neutral-200` | `#E5E7EB` |
+| `neutral-300` | `#D1D5DB` |
+| `neutral-400` | `#9CA3AF` |
+| `neutral-500` | `#6B7280` |
+| `neutral-600` | `#4B5563` |
+| `neutral-700` | `#374151` |
+| `neutral-800` | `#1F2937` |
+| `neutral-900` | `#111827` |
+
+**Semantic (DC-03)** — status/feedback colors. Do **not** use raw `red-*`/`emerald-*`/`green-*` for statuses:
+
+| Utility | Value |
+|---|---|
+| `success` / `success-strong` / `success-soft` | `#16A34A` / `#15803D` / `#F0FDF4` |
+| `error` / `error-strong` / `error-soft` / `error-border` | `#DC2626` / `#B91C1C` / `#FEF2F2` / `#FECACA` |
+| `warning` / `warning-soft` | `#D97706` / `#FFFBEB` |
+| `info` / `info-soft` | `#2563EB` / `#EFF6FF` |
 
 ### 1.2 Typography
 
@@ -39,7 +66,17 @@ The **specific, detailed** design knowledge for the frontend. The source of trut
 | `text-2xl` | `clamp(26px, 3.6vw, 38px)` |
 | `text-3xl` | `clamp(32px, 5.6vw, 60px)` |
 
+**Display scale (DC-06)** — for large hero/page headings only (migrate `text-4xl/5xl/6xl` + `text-[Npx]` hero text here; do **not** redefine `text-4xl/5xl/6xl` — they are in use as section-title sizes):
+
+| Token | Value |
+|---|---|
+| `text-display-sm` | `clamp(34px, 4.2vw, 48px)` |
+| `text-display-md` | `clamp(44px, 5.4vw, 64px)` |
+| `text-display-lg` | `clamp(56px, 6.6vw, 88px)` |
+
 > Font is loaded via `next/font/google` in `src/app/layout.tsx` (`Plus_Jakarta_Sans`, variable `--font-plus-jakarta`). Body defaults: `line-height: 1.6`, `antialiased`, `overflow-x-hidden`.
+>
+> **Display sizes (DC-06):** hero/page headings use the `text-display-*` tokens above. The legacy `text-4xl/5xl/6xl` classes (Tailwind defaults) still exist on some section headings — leave them as section-title sizes; use `text-display-*` for new hero text, and replace raw `text-[Npx]` heading sizes as encountered.
 
 ### 1.3 Spacing
 
@@ -54,6 +91,8 @@ The **specific, detailed** design knowledge for the frontend. The source of trut
 | `radius-lg` | 18px |
 | `radius-xl` | 26px |
 | `radius-pill` | 999px (pill buttons, avatars) |
+
+> **Note:** `rounded-xl` maps to the `radius-xl` **token (26px)**, not Tailwind's default 12px — the token overrides it. `rounded-2xl` (16px) and `rounded-3xl` (24px) are **not** in the scale and must be migrated (DC-05); avoid `rounded-[Npx]`.
 
 ### 1.5 Shadows / Elevation
 
@@ -72,6 +111,13 @@ The **specific, detailed** design knowledge for the frontend. The source of trut
 |---|---|
 | `container-max` | 1200px |
 | `container-hero` | 1280px |
+
+**Container utilities (DC-09)** — token-backed, ready to use:
+
+| Class | Width | Padding |
+|---|---|---|
+| `container-main` | `max-width: var(--container-max)` (1200px) | `1rem` / `1.5rem` (≥768px), centered |
+| `container-hero` | `max-width: var(--container-hero)` (1280px) | same |
 
 ### 1.7 Animations
 
@@ -92,15 +138,16 @@ The **specific, detailed** design knowledge for the frontend. The source of trut
 | Component | Purpose |
 |---|---|
 | `Button` | Variants `primary`/`secondary`/`ghost`; sizes `sm`/`md`/`lg`; optional icon (left/right); `rounded-pill`, focus ring, hover lift |
-| `Card` / `ContentCard` | Content containers |
+| `Card` / `ContentCard` | Content containers. `Card`: `bg-surface border-border-light rounded-xl shadow-sm`; **no default padding** (set via className) and optional `hover` prop for lift+shadow. `ContentCard`: image/category/read-more link card |
 | `PageHeader` | Page hero: breadcrumbs + large bold title + description (align left/center) |
-| `SectionHeader` | Section heading: uppercase accent eyebrow + title with 3px accent underline + description |
+| `SectionHeader` | Section heading: uppercase accent eyebrow or `pill` chip + title with 3px accent underline + description |
 | `Breadcrumbs` | Navigation trail |
 | `Accordion` | Expandable FAQ/collapsible sections |
 | `Modal` | Overlay dialog |
 | `Pagination` | Paged lists (react-paginate) |
 | `Timeline` | Vertical step timelines (e.g. PPDB flow) |
 | `AutoCarousel` | Auto-advancing carousel |
+| `Status` | Semantic feedback alert (success/error/warning/info) using DC-03 tokens — used for login error, graduation result, etc. |
 | `OrgNode` | Org-chart nodes (structure organisasi) |
 
 ## 4. Widget Patterns (`src/widgets/`)

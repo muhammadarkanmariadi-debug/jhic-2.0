@@ -50,8 +50,8 @@ export function NewsGrid() {
               onClick={() => setFilter(cat.id)}
               className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${
                 filter === cat.id 
-                  ? 'bg-accent text-white shadow-md' 
-                  : 'bg-white text-text-muted border border-border-light hover:border-accent hover:text-accent'
+                  ? 'bg-accent text-text-inverse shadow-md' 
+                  : 'bg-surface text-text-muted border border-border-light hover:border-accent hover:text-accent'
               }`}
             >
               {cat.label}
@@ -64,10 +64,10 @@ export function NewsGrid() {
       {filteredNews.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {currentItems.map((news) => (
-            <Link key={news.id} href={`/informasi/berita/${news.slug}`} className="bg-white rounded-2xl overflow-hidden border border-border-light shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group flex flex-col h-full">
+            <Link key={news.id} href={`/informasi/berita/${news.slug}`} className="bg-surface rounded-lg overflow-hidden border border-border-light shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group flex flex-col h-full">
               <div className="relative h-48 overflow-hidden">
                 <Image src={news.image} alt={news.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-text-main text-xs font-bold px-3 py-1.5 rounded-full capitalize">
+                <div className="absolute top-4 left-4 bg-surface/90 backdrop-blur-sm text-text-main text-xs font-bold px-3 py-1.5 rounded-full capitalize">
                   {news.category}
                 </div>
               </div>
@@ -84,7 +84,7 @@ export function NewsGrid() {
           ))}
         </div>
       ) : (
-        <div className="text-center py-16 bg-white rounded-3xl border border-border-light border-dashed">
+        <div className="text-center py-16 bg-surface rounded-xl border border-border-light border-dashed">
           <div className="w-16 h-16 rounded-full bg-surface-alt flex items-center justify-center mx-auto mb-4 text-text-muted">
             <Search className="w-8 h-8" />
           </div>

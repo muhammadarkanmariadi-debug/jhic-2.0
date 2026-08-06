@@ -57,8 +57,8 @@ export function JurusanTabs({ active }: { active: ProgramCode }) {
                   { title: 'Algoritma &\nStruktur Data', icon: <GitMerge className="w-5 h-5" /> },
                   { title: 'Pemrograman\nBerorientasi Objek', icon: <Code2 className="w-5 h-5" /> },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 p-4 border border-dashed border-border-color rounded-xl bg-white hover:border-accent transition-colors">
-                    <div className="w-11 h-11 rounded-lg bg-accent text-white flex items-center justify-center shrink-0">
+                  <div key={i} className="flex items-center gap-4 p-4 border border-dashed border-border-color rounded-xl bg-surface hover:border-accent transition-colors">
+                    <div className="w-11 h-11 rounded-lg bg-accent text-text-inverse flex items-center justify-center shrink-0">
                       {item.icon}
                     </div>
                     <span className="text-sm font-bold text-text-muted leading-snug whitespace-pre-line">{item.title}</span>
@@ -77,7 +77,7 @@ export function JurusanTabs({ active }: { active: ProgramCode }) {
                 {programDetails.RPL.careers.map((item, idx) => {
                   const Icon = item.icon;
                   return (
-                    <div key={idx} className="bg-white border border-border-light rounded-2xl p-6 shadow-sm flex flex-col shrink-0 w-[280px] snap-center hover:shadow-md hover:-translate-y-1 transition-all">
+                    <div key={idx} className="bg-surface border border-border-light rounded-lg p-6 shadow-sm flex flex-col shrink-0 w-[280px] snap-center hover:shadow-md hover:-translate-y-1 transition-all">
                       <div className={`w-12 h-12 rounded-xl ${item.iconBgClass} ${item.iconColorClass} flex items-center justify-center mb-5`}>
                         <Icon className="w-6 h-6" />
                       </div>
@@ -137,8 +137,8 @@ export function JurusanTabs({ active }: { active: ProgramCode }) {
                   { title: 'Administrasi\nInfrastruktur Jaringan', icon: <Server className="w-5 h-5" /> },
                   { title: 'Administrasi\nSistem Server', icon: <DatabaseBackup className="w-5 h-5" /> },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 p-4 border border-dashed border-border-color rounded-xl bg-white hover:border-accent transition-colors">
-                    <div className="w-11 h-11 rounded-lg bg-accent text-white flex items-center justify-center shrink-0">
+                  <div key={i} className="flex items-center gap-4 p-4 border border-dashed border-border-color rounded-xl bg-surface hover:border-accent transition-colors">
+                    <div className="w-11 h-11 rounded-lg bg-accent text-text-inverse flex items-center justify-center shrink-0">
                       {item.icon}
                     </div>
                     <span className="text-sm font-bold text-text-muted leading-snug whitespace-pre-line">{item.title}</span>
@@ -157,7 +157,7 @@ export function JurusanTabs({ active }: { active: ProgramCode }) {
                 {programDetails.TKJ.careers.map((item, idx) => {
                   const Icon = item.icon;
                   return (
-                    <div key={idx} className="bg-white border border-border-light rounded-2xl p-6 shadow-sm flex flex-col shrink-0 w-[280px] snap-center hover:shadow-md hover:-translate-y-1 transition-all">
+                    <div key={idx} className="bg-surface border border-border-light rounded-lg p-6 shadow-sm flex flex-col shrink-0 w-[280px] snap-center hover:shadow-md hover:-translate-y-1 transition-all">
                       <div className={`w-12 h-12 rounded-xl ${item.iconBgClass} ${item.iconColorClass} flex items-center justify-center mb-5`}>
                         <Icon className="w-6 h-6" />
                       </div>
@@ -217,8 +217,8 @@ export function JurusanTabs({ active }: { active: ProgramCode }) {
                   { title: 'Pembuatan\nAset 2D & 3D', icon: <Paintbrush className="w-5 h-5" /> },
                   { title: 'Pemrograman\nGame Engine', icon: <FileCode2 className="w-5 h-5" /> },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 p-4 border border-dashed border-border-color rounded-xl bg-white hover:border-accent transition-colors">
-                    <div className="w-11 h-11 rounded-lg bg-accent text-white flex items-center justify-center shrink-0">
+                  <div key={i} className="flex items-center gap-4 p-4 border border-dashed border-border-color rounded-xl bg-surface hover:border-accent transition-colors">
+                    <div className="w-11 h-11 rounded-lg bg-accent text-text-inverse flex items-center justify-center shrink-0">
                       {item.icon}
                     </div>
                     <span className="text-sm font-bold text-text-muted leading-snug whitespace-pre-line">{item.title}</span>
@@ -237,7 +237,7 @@ export function JurusanTabs({ active }: { active: ProgramCode }) {
                 {programDetails.PG.careers.map((item, idx) => {
                   const Icon = item.icon;
                   return (
-                    <div key={idx} className="bg-white border border-border-light rounded-2xl p-6 shadow-sm flex flex-col shrink-0 w-[280px] snap-center hover:shadow-md hover:-translate-y-1 transition-all">
+                    <div key={idx} className="bg-surface border border-border-light rounded-lg p-6 shadow-sm flex flex-col shrink-0 w-[280px] snap-center hover:shadow-md hover:-translate-y-1 transition-all">
                       <div className={`w-12 h-12 rounded-xl ${item.iconBgClass} ${item.iconColorClass} flex items-center justify-center mb-5`}>
                         <Icon className="w-6 h-6" />
                       </div>

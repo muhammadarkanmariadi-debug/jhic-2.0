@@ -10,6 +10,7 @@ import {
 import { ApiError } from "@/services/api";
 import { SectionEditor } from "./SectionEditor";
 import { SectionTypeMenu } from "./SectionTypeMenu";
+import { Button } from "@/shared/ui/Button";
 import { Save, ArrowLeft } from "lucide-react";
 
 const ICON_OPTIONS = [
@@ -126,7 +127,7 @@ export function TabForm({ token, initial, onSaved }: TabFormProps) {
       )}
 
       {/* Meta */}
-      <div className="rounded-2xl border border-border-light bg-white p-6 space-y-4">
+      <div className="rounded-lg border border-border-light bg-surface p-6 space-y-4">
         <h2 className="font-extrabold text-text-main text-lg">Informasi Tab</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
@@ -138,7 +139,7 @@ export function TabForm({ token, initial, onSaved }: TabFormProps) {
               disabled={!!initial}
               onChange={(e) => setKey(e.target.value)}
               placeholder="contoh: bilingual"
-              className="w-full rounded-lg border border-border-light px-3 py-2 text-sm bg-white disabled:bg-gray-100 disabled:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30"
+              className="w-full rounded-lg border border-border-light px-3 py-2 text-sm bg-surface disabled:bg-neutral-100 disabled:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-accent/30"
             />
           </div>
           <div>
@@ -149,7 +150,7 @@ export function TabForm({ token, initial, onSaved }: TabFormProps) {
               value={label}
               onChange={(e) => setLabel(e.target.value)}
               placeholder="contoh: Moklet Bilingual"
-              className="w-full rounded-lg border border-border-light px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-accent/30"
+              className="w-full rounded-lg border border-border-light px-3 py-2 text-sm bg-surface focus:outline-none focus:ring-2 focus:ring-accent/30"
             />
           </div>
           <div>
@@ -159,7 +160,7 @@ export function TabForm({ token, initial, onSaved }: TabFormProps) {
             <select
               value={icon}
               onChange={(e) => setIcon(e.target.value)}
-              className="w-full rounded-lg border border-border-light px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-accent/30"
+              className="w-full rounded-lg border border-border-light px-3 py-2 text-sm bg-surface focus:outline-none focus:ring-2 focus:ring-accent/30"
             >
               {ICON_OPTIONS.map((opt) => (
                 <option key={opt} value={opt}>
@@ -176,7 +177,7 @@ export function TabForm({ token, initial, onSaved }: TabFormProps) {
               type="number"
               value={sortOrder}
               onChange={(e) => setSortOrder(Number(e.target.value))}
-              className="w-full rounded-lg border border-border-light px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-accent/30"
+              className="w-full rounded-lg border border-border-light px-3 py-2 text-sm bg-surface focus:outline-none focus:ring-2 focus:ring-accent/30"
             />
           </div>
         </div>
@@ -188,7 +189,7 @@ export function TabForm({ token, initial, onSaved }: TabFormProps) {
             value={intro}
             onChange={(e) => setIntro(e.target.value)}
             rows={3}
-            className="w-full rounded-lg border border-border-light px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-accent/30"
+            className="w-full rounded-lg border border-border-light px-3 py-2 text-sm bg-surface focus:outline-none focus:ring-2 focus:ring-accent/30"
           />
         </div>
         <label className="flex items-center gap-2 text-sm font-semibold text-text-main cursor-pointer">
@@ -203,7 +204,7 @@ export function TabForm({ token, initial, onSaved }: TabFormProps) {
       </div>
 
       {/* Sections */}
-      <div className="rounded-2xl border border-border-light bg-white p-6 space-y-4">
+      <div className="rounded-lg border border-border-light bg-surface p-6 space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="font-extrabold text-text-main text-lg">Bagian Konten</h2>
           <SectionTypeMenu onAdd={addSection} />
@@ -236,14 +237,14 @@ export function TabForm({ token, initial, onSaved }: TabFormProps) {
         >
           <ArrowLeft className="w-4 h-4" /> Kembali
         </button>
-        <button
+        <Button
           type="button"
           onClick={save}
           disabled={saving}
-          className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover disabled:opacity-50 text-white font-bold px-6 py-3 rounded-xl transition-all shadow-lg"
+          className="shadow-lg"
         >
           <Save className="w-4 h-4" /> {saving ? "Menyimpan..." : "Simpan"}
-        </button>
+        </Button>
       </div>
     </div>
   );

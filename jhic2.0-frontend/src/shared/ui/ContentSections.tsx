@@ -51,7 +51,7 @@ export function ContentSections({ sections }: { sections: ContentSection[] }) {
                       <p className="text-text-muted leading-relaxed">{section.text}</p>
                     </div>
                     <div className="lg:col-span-2">
-                      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-sm">
+                      <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-sm">
                         <Image src={section.image.src} alt={section.image.alt ?? ""} fill className="object-cover" />
                       </div>
                     </div>
@@ -87,7 +87,7 @@ export function ContentSections({ sections }: { sections: ContentSection[] }) {
                     return (
                       <div
                         key={i}
-                        className="rounded-2xl border border-border-light bg-white p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
+                        className="rounded-lg border border-border-light bg-surface p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
                       >
                         <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-4">
                           <Icon className="w-6 h-6" />
@@ -109,7 +109,7 @@ export function ContentSections({ sections }: { sections: ContentSection[] }) {
                   {section.items.map((track, i) => (
                     <div
                       key={i}
-                      className="rounded-2xl border border-border-light bg-white shadow-sm overflow-hidden hover:shadow-md transition-all"
+                      className="rounded-lg border border-border-light bg-surface shadow-sm overflow-hidden hover:shadow-md transition-all"
                     >
                       {track.image && (
                         <div className="relative aspect-[16/9] bg-surface-alt overflow-hidden">
@@ -158,9 +158,9 @@ export function ContentSections({ sections }: { sections: ContentSection[] }) {
             return (
               <div key={idx} className="overflow-x-auto">
                 <SectionTitle title={section.title} />
-                <table className="w-full text-left border-collapse rounded-2xl overflow-hidden shadow-sm border border-border-light">
+                <table className="w-full text-left border-collapse rounded-lg overflow-hidden shadow-sm border border-border-light">
                   <thead>
-                    <tr className="bg-accent text-white">
+                    <tr className="bg-accent text-text-inverse">
                       {section.headers.map((h, i) => (
                         <th key={i} className="px-4 py-3 text-sm font-bold whitespace-nowrap">
                           {h}
@@ -170,7 +170,7 @@ export function ContentSections({ sections }: { sections: ContentSection[] }) {
                   </thead>
                   <tbody>
                     {section.rows.map((row, r) => (
-                      <tr key={r} className={r % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                      <tr key={r} className={r % 2 === 0 ? "bg-surface" : "bg-neutral-50"}>
                         {row.map((cell, c) => (
                           <td key={c} className="px-4 py-3 text-sm text-text-muted border-t border-border-light">
                             {cell}
@@ -204,7 +204,7 @@ export function ContentSections({ sections }: { sections: ContentSection[] }) {
                   {section.items.map((t, i) => (
                     <figure
                       key={i}
-                      className="rounded-2xl border border-border-light bg-white p-6 shadow-sm flex flex-col"
+                      className="rounded-lg border border-border-light bg-surface p-6 shadow-sm flex flex-col"
                     >
                       <div className="flex gap-0.5 text-amber-400 mb-4">
                         {Array.from({ length: 5 }).map((_, s) => (
@@ -232,7 +232,7 @@ export function ContentSections({ sections }: { sections: ContentSection[] }) {
                   {section.items.map((b, i) => (
                     <span
                       key={i}
-                      className="inline-flex items-center gap-2 rounded-full border border-border-light bg-white px-4 py-2 text-sm font-bold text-text-main shadow-sm"
+                      className="inline-flex items-center gap-2 rounded-full border border-border-light bg-surface px-4 py-2 text-sm font-bold text-text-main shadow-sm"
                     >
                       <CheckCircle2 className="w-4 h-4 text-accent" />
                       {b}
@@ -250,7 +250,7 @@ export function ContentSections({ sections }: { sections: ContentSection[] }) {
                   {section.items.map((p, i) => (
                     <div
                       key={i}
-                      className="rounded-2xl border border-border-light bg-white p-5 shadow-sm flex flex-col items-center text-center"
+                      className="rounded-lg border border-border-light bg-surface p-5 shadow-sm flex flex-col items-center text-center"
                     >
                       <div className="w-20 h-20 rounded-xl bg-surface-alt flex items-center justify-center overflow-hidden mb-4">
                         {p.logo ? (

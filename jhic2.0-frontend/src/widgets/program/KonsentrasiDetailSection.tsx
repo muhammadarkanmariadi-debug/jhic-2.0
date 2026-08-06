@@ -37,7 +37,7 @@ export function KonsentrasiDetailSection() {
       </section>
 
       {/* Partner sinkronisasi, expertise, sertifikasi (JHI-v2-02) */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-surface">
         <div className="container max-w-[1200px] mx-auto px-4 md:px-6">
           <CurriculumSyncSections active={active} />
         </div>

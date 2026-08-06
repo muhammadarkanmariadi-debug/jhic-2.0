@@ -43,9 +43,9 @@ export function LivingCostCalculator() {
   };
 
   return (
-    <div className="rounded-3xl border border-border-light bg-white p-8 shadow-sm">
+    <div className="rounded-xl border border-border-light bg-surface p-8 shadow-sm">
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-12 h-12 rounded-xl bg-accent text-white flex items-center justify-center">
+        <div className="w-12 h-12 rounded-xl bg-accent text-text-inverse flex items-center justify-center">
           <Calculator className="w-6 h-6" />
         </div>
         <div>
@@ -138,7 +138,7 @@ export function LivingCostCalculator() {
                 onClick={() => toggleOther(opt.value)}
                 className={`rounded-full border px-4 py-2 text-sm font-bold transition-all ${
                   other.includes(opt.value)
-                    ? "border-accent bg-accent text-white"
+                    ? "border-accent bg-accent text-text-inverse"
                     : "border-border-light text-text-muted hover:border-accent/40"
                 }`}
               >
@@ -149,10 +149,10 @@ export function LivingCostCalculator() {
         </div>
 
         {/* Result */}
-        <div className="rounded-2xl bg-accent text-white p-6 flex items-center justify-between">
+        <div className="rounded-lg bg-accent text-text-inverse p-6 flex items-center justify-between">
           <div>
-            <div className="text-sm font-semibold text-white/80">Estimasi Total per Bulan</div>
-            <div className="text-xs text-white/60">Belum termasuk biaya semester & perlengkapan</div>
+            <div className="text-sm font-semibold text-text-inverse/80">Estimasi Total per Bulan</div>
+            <div className="text-xs text-text-inverse/60">Belum termasuk biaya semester & perlengkapan</div>
           </div>
           <div className="text-3xl font-extrabold">
             Rp {total.toLocaleString("id-ID")}

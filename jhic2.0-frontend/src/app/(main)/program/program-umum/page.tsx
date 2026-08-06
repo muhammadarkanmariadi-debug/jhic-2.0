@@ -33,7 +33,7 @@ export default async function ProgramUmumPage() {
         description="Program penguatan kurikulum yang melengkapi pembelajaran akademik — bahasa, karakter, dan proyek kolaboratif."
       />
 
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-surface">
         <div className="container max-w-[1200px] mx-auto px-4 md:px-6">
           <TabbedCurriculumContent tabs={tabs} layout="grid" iconMap={iconMap} />
         </div>

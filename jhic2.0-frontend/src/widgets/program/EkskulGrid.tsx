@@ -92,7 +92,7 @@ export function EkskulGrid() {
             placeholder="Cari ekstrakurikuler..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-14 pr-6 py-4 rounded-full border border-border-light bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all text-base"
+            className="w-full pl-14 pr-6 py-4 rounded-full border border-border-light bg-surface shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all text-base"
          />
       </div>
 
@@ -108,8 +108,8 @@ export function EkskulGrid() {
             onClick={() => setActiveTab(tab.id as any)}
             className={`px-6 py-2.5 rounded-full font-bold transition-all text-sm ${
               activeTab === tab.id
-                ? 'bg-text-main text-white'
-                : 'bg-white text-text-muted border border-border-color hover:border-text-main hover:text-text-main shadow-sm'
+                ? 'bg-text-main text-text-inverse'
+                : 'bg-surface text-text-muted border border-border-color hover:border-text-main hover:text-text-main shadow-sm'
             }`}
           >
             {tab.label}
@@ -132,8 +132,8 @@ export function EkskulGrid() {
          ))}
          </div>
       ) : (
-         <div className="text-center py-20 bg-white rounded-3xl border border-border-light border-dashed">
-            <div className="w-20 h-20 rounded-full bg-red-100 text-accent flex items-center justify-center mx-auto mb-6">
+         <div className="text-center py-20 bg-surface rounded-xl border border-border-light border-dashed">
+            <div className="w-20 h-20 rounded-full bg-info-soft text-info flex items-center justify-center mx-auto mb-6">
                <Search className="w-10 h-10" />
             </div>
             <h3 className="text-2xl font-extrabold text-text-main mb-2">Tidak ditemukan</h3>
@@ -153,10 +153,10 @@ export function EkskulGrid() {
             className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
             onClick={() => setSelectedEkskul(null)}
           ></div>
-          <div className="relative w-full max-w-lg bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh] animate-in fade-in zoom-in-95 duration-200">
+          <div className="relative w-full max-w-lg bg-surface rounded-xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh] animate-in fade-in zoom-in-95 duration-200">
             <button
               onClick={() => setSelectedEkskul(null)}
-              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-black/30 transition-colors"
+              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/10 backdrop-blur-md flex items-center justify-center text-text-inverse hover:bg-black/30 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>

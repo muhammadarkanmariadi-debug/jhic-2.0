@@ -39,7 +39,7 @@ export function TestimonialMarquee() {
        <div className="flex w-max animate-[marquee_30s_linear_infinite] hover:[animation-play-state:paused] py-4">
          <div className="flex items-center gap-8 px-4">
             {testimonials.map(item => (
-               <div key={item.id} className="w-[350px] shrink-0 bg-white p-8 rounded-3xl border border-border-light hover:-translate-y-2 hover:shadow-lg transition-all duration-300">
+               <div key={item.id} className="w-[350px] shrink-0 bg-surface p-8 rounded-xl border border-border-light hover:-translate-y-2 hover:shadow-lg transition-all duration-300">
                  <div className="text-accent/10 mb-5">
                    <Quote className="w-12 h-12 fill-current" />
                  </div>
@@ -57,7 +57,7 @@ export function TestimonialMarquee() {
          {/* Duplicate for seamless infinite scroll */}
          <div className="flex items-center gap-8 px-4" aria-hidden="true">
             {testimonials.map(item => (
-               <div key={`dup-${item.id}`} className="w-[350px] shrink-0 bg-white p-8 rounded-3xl border border-border-light hover:-translate-y-2 hover:shadow-lg transition-all duration-300">
+               <div key={`dup-${item.id}`} className="w-[350px] shrink-0 bg-surface p-8 rounded-xl border border-border-light hover:-translate-y-2 hover:shadow-lg transition-all duration-300">
                  <div className="text-accent/10 mb-5">
                    <Quote className="w-12 h-12 fill-current" />
                  </div>

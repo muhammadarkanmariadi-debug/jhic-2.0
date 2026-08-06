@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { PageHeader } from "@/shared/ui/PageHeader";
 import { Pagination } from "@/shared/ui/Pagination";
+import { Card } from "@/shared/ui/Card";
 import { usePagination } from "@/shared/hooks/usePagination";
 import { UserRound } from "lucide-react";
 import { teacherProfiles, teacherCategoryLabels } from "@/services/teacherData";
@@ -40,7 +41,7 @@ export default function ProfilGuruPage() {
         description="Mengenal para pendidik dan tenaga kependidikan SMK Telkom Malang yang berdedikasi membimbing setiap siswa."
       />
 
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-surface">
         <div className="container max-w-[1200px] mx-auto px-4 md:px-6">
           {/* Filter */}
           <div className="flex flex-wrap justify-center gap-2 mb-12">
@@ -50,8 +51,8 @@ export default function ProfilGuruPage() {
                 onClick={() => setActiveFilter(f.key)}
                 className={`px-5 py-2.5 rounded-full text-sm font-bold border transition-all ${
                   activeFilter === f.key
-                    ? "bg-accent text-white border-accent shadow-md"
-                    : "bg-white text-text-muted border-border-light hover:border-accent hover:text-accent"
+                    ? "bg-accent text-text-inverse border-accent shadow-md"
+                    : "bg-surface text-text-muted border-border-light hover:border-accent hover:text-accent"
                 }`}
               >
                 {f.label}
@@ -62,9 +63,9 @@ export default function ProfilGuruPage() {
           {/* Teacher card grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {currentItems.map((teacher) => (
-              <div
+              <Card
                 key={teacher.id}
-                className="rounded-2xl border border-border-light bg-white shadow-sm overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all"
+                className="overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all"
               >
                 <div className="aspect-square bg-surface-alt flex items-center justify-center overflow-hidden">
                   {teacher.image ? (
@@ -76,7 +77,7 @@ export default function ProfilGuruPage() {
                       className="w-full h-full object-cover object-top"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-gray-300">
+                    <div className="w-full h-full flex items-center justify-center text-neutral-300">
                       <UserRound className="w-24 h-24" />
                     </div>
                   )}
@@ -88,7 +89,7 @@ export default function ProfilGuruPage() {
                   <h3 className="font-extrabold text-text-main leading-snug">{teacher.name}</h3>
                   <p className="text-sm text-text-muted mt-1">{teacher.position}</p>
                 </div>
-              </div>
+              </Card>
             ))}
           </div>
 

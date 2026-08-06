@@ -39,8 +39,8 @@ export function Tabs({ tabs, layout = "pills", className = "" }: TabsProps) {
               role="tab"
               className={`px-5 py-2.5 rounded-full text-sm font-bold border transition-all ${
                 active.key === tab.key
-                  ? "bg-accent text-white border-accent shadow-md"
-                  : "bg-white text-text-muted border-border-light hover:border-accent hover:text-accent"
+                  ? "bg-accent text-text-inverse border-accent shadow-md"
+                  : "bg-surface text-text-muted border-border-light hover:border-accent hover:text-accent"
               }`}
             >
               {tab.label}
@@ -59,10 +59,10 @@ export function Tabs({ tabs, layout = "pills", className = "" }: TabsProps) {
               onClick={() => setActiveKey(tab.key)}
               aria-selected={active.key === tab.key}
               role="tab"
-              className={`rounded-2xl border p-4 text-center transition-all ${
+              className={`rounded-lg border p-4 text-center transition-all ${
                 active.key === tab.key
                   ? "border-accent bg-accent/5 text-accent shadow-sm"
-                  : "border-border-light bg-white text-text-muted hover:border-accent/40"
+                  : "border-border-light bg-surface text-text-muted hover:border-accent/40"
               }`}
             >
               {tab.icon && <div className="flex justify-center mb-2">{tab.icon}</div>}

@@ -21,7 +21,7 @@ export default async function BeasiswaPage() {
         title="Info Beasiswa"
         description="Beasiswa pendidikan dan pelatihan untuk mendukung prestasi siswa SMK Telkom Malang."
       />
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-surface">
         <div className="container max-w-[1200px] mx-auto px-4 md:px-6">
           <BeasiswaList items={items} />
         </div>

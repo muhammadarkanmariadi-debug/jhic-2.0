@@ -52,8 +52,8 @@ export default function CCPPage() {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                {features.map((feature, index) => (
-                   <Card key={index} className="p-8 hover:-translate-y-2 transition-transform cursor-default bg-white flex flex-col md:flex-row items-start gap-6 shadow-sm border border-border-light">
-                      <div className="shrink-0 w-16 h-16 rounded-2xl bg-accent text-white flex items-center justify-center border border-accent/20 shadow-sm">
+                   <Card key={index} className="p-8 hover:-translate-y-2 transition-transform cursor-default bg-surface flex flex-col md:flex-row items-start gap-6 shadow-sm border border-border-light">
+                      <div className="shrink-0 w-16 h-16 rounded-lg bg-accent text-text-inverse flex items-center justify-center border border-accent/20 shadow-sm">
                         {feature.icon}
                      </div>
                      <div>
@@ -68,16 +68,16 @@ export default function CCPPage() {
          </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-accent text-white relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-accent text-text-inverse relative overflow-hidden">
          {/* Background Decoration */}
          <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
          
          <div className="container max-w-[1000px] mx-auto px-4 md:px-6 text-center relative z-10">
             <h2 className="text-3xl md:text-4xl font-extrabold mb-6">Wujudkan Mimpimu Menjadi Developer Profesional</h2>
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-10">
+            <p className="text-neutral-300 text-lg max-w-2xl mx-auto mb-10">
                Belajar langsung dari praktisi, bangun portofoliomu, dan melangkah pasti menuju masa depan.
             </p>
-            <a href="/spmb" className="inline-flex items-center gap-2 bg-white text-accent hover:bg-surface-alt font-extrabold px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+            <a href="/spmb" className="inline-flex items-center gap-2 bg-surface text-accent hover:bg-surface-alt font-extrabold px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
                Gabung CCP Sekarang
             </a>
          </div>

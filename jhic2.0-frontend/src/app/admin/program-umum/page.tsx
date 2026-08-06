@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useAuth } from "@/lib/auth";
 import { programUmumAdminApi, ProgramUmumRecord } from "@/services/programUmumAdmin";
 import { Plus, Pencil, Trash2 } from "lucide-react";
+import { Button } from "@/shared/ui/Button";
+import { Status } from "@/shared/ui/Status";
 
 export default function ProgramUmumListPage() {
   const { token } = useAuth();
@@ -73,21 +75,23 @@ export default function ProgramUmumListPage() {
           <h1 className="text-2xl font-extrabold text-text-main">Program Umum</h1>
           <p className="text-sm text-text-muted mt-1">Kelola tab konten Program Umum (CRUD).</p>
         </div>
-        <Link
+        <Button
           href="/admin/program-umum/new"
-          className="inline-flex items-center gap-2 bg-accent text-white text-sm font-bold px-4 py-2.5 rounded-xl hover:bg-accent-hover"
+          size="sm"
+          icon={Plus}
+          iconPosition="left"
         >
-          <Plus className="w-4 h-4" /> Tab Baru
-        </Link>
+          Tab Baru
+        </Button>
       </div>
 
       {error && (
-        <div className="rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm font-semibold px-4 py-3">
+        <Status variant="error" className="w-full">
           {error}
-        </div>
+        </Status>
       )}
 
-      <div className="rounded-2xl border border-border-light bg-white overflow-hidden shadow-sm">
+      <div className="rounded-lg border border-border-light bg-surface overflow-hidden shadow-sm">
         {loading ? (
           <div className="p-8 text-center text-text-muted font-semibold">Memuat...</div>
         ) : items.length === 0 ? (
@@ -98,7 +102,7 @@ export default function ProgramUmumListPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
               <thead>
-                <tr className="bg-gray-50 border-b border-border-light text-text-muted text-xs uppercase tracking-wide">
+                <tr className="bg-neutral-50 border-b border-border-light text-text-muted text-xs uppercase tracking-wide">
                   <th className="px-4 py-3 font-bold">Label</th>
                   <th className="px-4 py-3 font-bold">Key</th>
                   <th className="px-4 py-3 font-bold">Urutan</th>
@@ -109,7 +113,7 @@ export default function ProgramUmumListPage() {
               </thead>
               <tbody>
                 {items.map((item) => (
-                  <tr key={item.id} className="border-b border-border-light last:border-0 hover:bg-gray-50">
+                  <tr key={item.id} className="border-b border-border-light last:border-0 hover:bg-neutral-50">
                     <td className="px-4 py-3 font-bold text-text-main">{item.label}</td>
                     <td className="px-4 py-3 text-text-muted">
                       <code className="bg-bg-main px-1.5 py-0.5 rounded">{item.key}</code>
@@ -122,7 +126,7 @@ export default function ProgramUmumListPage() {
                         className={`inline-block text-xs font-bold px-2.5 py-1 rounded-full ${
                           item.isActive
                             ? "bg-emerald-50 text-emerald-700"
-                            : "bg-gray-100 text-gray-500"
+                            : "bg-neutral-100 text-neutral-500"
                         }`}
                       >
                         {item.isActive ? "Aktif" : "Nonaktif"}

@@ -26,7 +26,7 @@ export function Header() {
     }
   };
 
-  const navItems = [
+const navItems = [
     { name: "Beranda", href: "/", icon: Home },
     {
       name: "Tentang Kami",
@@ -58,22 +58,21 @@ export function Header() {
       icon: Book,
       dropdownGroups: [
         {
-          title: "Program",
+          title: "Program Unggulan",
           items: [
-            { name: "Program Umum", href: "/program/program-umum" },
-            { name: "Program Konsentrasi Keahlian", href: "/program/profil-konsentrasi-keahlian" },
-            { name: "Persiapan Kelulusan", href: "/program/persiapan-kelulusan" },
+            { name: "Profil Konsentrasi Keahlian", href: "/program/profil-konsentrasi-keahlian" },
             { name: "Program ICP", href: "/program/icp" },
             { name: "Program Reguler", href: "/program/reguler" },
+            { name: "Program Umum", href: "/program/program-umum" },
+            { name: "Persiapan Kelulusan", href: "/program/persiapan-kelulusan" },
             { name: "Karir & Prospek Kerja", href: "/karir" },
           ]
         },
         {
-          title: "Program Unggulan",
+          title: "Program Yayasan",
           items: [
-            { name: "Coding Class Program (CCP)", href: "/program/ccp" },
             { name: "Teknologi Siber 2.1", href: "/program/program-ts" },
-
+            { name: "Coding Class Program (CCP)", href: "/program/ccp" },
           ]
         },
         {
@@ -85,7 +84,6 @@ export function Header() {
         }
       ],
     },
-
     {
       name: "Alumni",
       icon: GraduationCap,
@@ -111,6 +109,7 @@ export function Header() {
         {
           title: "Layanan",
           items: [
+            { name: "Jadwal Sekolah", href: "/informasi/jadwal-sekolah" },
             { name: "Penerapan K3", href: "/informasi/penerapan-k3" },
             { name: "Akomodasi", href: "/akomodasi" },
             { name: "FAQ", href: "/hubungi-kami/faq" },
@@ -118,16 +117,13 @@ export function Header() {
             { name: "Beri Masukan", href: "/hubungi-kami/ulasan" },
           ]
         },
-
       ],
     },
     { name: "Trial Class", href: "/trial-class", icon: Home },
-
   ];
-
   return (
     <header
-      className={`sticky top-0 z-60 w-full transition-all duration-300 ease-in-out ${isScrolled ? "bg-white shadow-sm xl:bg-transparent xl:shadow-none" : ""
+      className={`sticky top-0 z-60 w-full transition-all duration-300 ease-in-out ${isScrolled ? "bg-surface shadow-sm xl:bg-transparent xl:shadow-none" : ""
         }`}
     >
       <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-4 py-4 md:px-8 xl:py-6">
@@ -150,7 +146,7 @@ export function Header() {
         {/* Desktop Nav */}
         <nav
           aria-label="Primary"
-          className={`hidden xl:flex items-center rounded-full border border-border-light bg-white px-4 py-1.5 shadow-sm transition-all duration-400 ease-in-out ${isScrolled ? "py-2 shadow-[0_12px_40px_rgba(0,0,0,0.12)]" : ""
+          className={`hidden xl:flex items-center rounded-full border border-border-light bg-surface px-4 py-1.5 shadow-sm transition-all duration-400 ease-in-out ${isScrolled ? "py-2 shadow-[0_12px_40px_rgba(0,0,0,0.12)]" : ""
             }`}
         >
           <Link
@@ -167,20 +163,20 @@ export function Header() {
                 {item.dropdownGroups || item.dropdown ? (
                   <>
                     <button
-                      className="flex items-center gap-1 whitespace-nowrap rounded-lg px-2.5 py-2 text-[13.5px] font-semibold text-gray-700 hover:bg-gray-100 hover:text-text-main focus-visible:outline-accent/30 focus-visible:outline-2"
+                      className="flex items-center gap-1 whitespace-nowrap rounded-lg px-2.5 py-2 text-[13.5px] font-semibold text-neutral-700 hover:bg-neutral-100 hover:text-text-main focus-visible:outline-accent/30 focus-visible:outline-2"
                       aria-haspopup="true"
                     >
                       {item.name}
                       <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />
                     </button>
-                    <div className="invisible absolute left-0 top-full mt-2 flex min-w-[200px] flex-col rounded-xl border border-border-light bg-white p-2 text-sm opacity-0 shadow-lg transition-all group-hover:visible group-hover:opacity-100">
+                    <div className="invisible absolute left-0 top-full mt-2 flex min-w-[200px] flex-col rounded-xl border border-border-light bg-surface p-2 text-sm opacity-0 shadow-lg transition-all group-hover:visible group-hover:opacity-100">
                       {item.dropdownGroups ? (
                         <div className="flex gap-2">
                           {item.dropdownGroups.map(group => (
                             <div key={group.title} className="flex flex-col min-w-[200px] p-2 border-l first:border-l-0 border-border-light">
-                              <div className="px-2 mb-2 text-[11px] font-extrabold text-gray-400 uppercase tracking-wider">{group.title}</div>
+                              <div className="px-2 mb-2 text-[11px] font-extrabold text-neutral-400 uppercase tracking-wider">{group.title}</div>
                               {group.items.map(drop => (
-                                <Link key={drop.name} href={drop.href} className="rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50 hover:text-accent font-medium">
+                                <Link key={drop.name} href={drop.href} className="rounded-lg px-3 py-2 text-neutral-700 hover:bg-neutral-50 hover:text-accent font-medium">
                                   {drop.name}
                                 </Link>
                               ))}
@@ -192,7 +188,7 @@ export function Header() {
                           <Link
                             key={drop.name}
                             href={drop.href}
-                            className="rounded-lg px-4 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-accent font-medium"
+                            className="rounded-lg px-4 py-2.5 text-neutral-700 hover:bg-neutral-50 hover:text-accent font-medium"
                           >
                             {drop.name}
                           </Link>
@@ -203,7 +199,7 @@ export function Header() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="whitespace-nowrap rounded-lg px-2.5 py-2 text-[13.5px] font-semibold text-gray-700 hover:bg-gray-100 hover:text-text-main focus-visible:outline-accent/30 focus-visible:outline-2"
+                    className="whitespace-nowrap rounded-lg px-2.5 py-2 text-[13.5px] font-semibold text-neutral-700 hover:bg-neutral-100 hover:text-text-main focus-visible:outline-accent/30 focus-visible:outline-2"
                   >
                     {item.name}
                   </Link>
@@ -213,7 +209,7 @@ export function Header() {
           </ul>
           <Link
             href="/spmb"
-            className="ml-2 hidden md:inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-accent px-4 py-1.5 text-[13.5px] font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-accent-hover group"
+            className="ml-2 hidden md:inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-accent px-4 py-1.5 text-[13.5px] font-bold text-text-inverse shadow-sm transition-all hover:-translate-y-0.5 hover:bg-accent-hover group"
 
           >
             Daftar SPMB
@@ -226,7 +222,7 @@ export function Header() {
 
           <Link
             href="/spmb"
-            className={`hidden md:inline-flex items-center gap-2 overflow-hidden whitespace-nowrap rounded-full bg-accent px-4 py-0 text-[14px] font-bold text-white shadow-[0_8px_20px_rgba(215,25,32,0.26)] transition-all duration-400 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-accent group ${isScrolled ? "xl:w-0 xl:px-0 xl:opacity-0 xl:pointer-events-none h-0" : "h-[42px]"
+            className={`hidden md:inline-flex items-center gap-2 overflow-hidden whitespace-nowrap rounded-full bg-accent px-4 py-0 text-[14px] font-bold text-text-inverse shadow-[0_8px_20px_rgba(215,25,32,0.26)] transition-all duration-400 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-accent group ${isScrolled ? "xl:w-0 xl:px-0 xl:opacity-0 xl:pointer-events-none h-0" : "h-[42px]"
               }`}
             download
           >
@@ -237,20 +233,20 @@ export function Header() {
           <div
             role="group"
             aria-label="Ganti bahasa"
-            className={`hidden md:inline-flex rounded-full border border-border-light bg-gray-100 p-1 shadow-sm transition-all duration-400 overflow-hidden ${isScrolled ? "xl:w-0 xl:px-0 xl:opacity-0 xl:pointer-events-none" : ""
+            className={`hidden md:inline-flex rounded-full border border-border-light bg-neutral-100 p-1 shadow-sm transition-all duration-400 overflow-hidden ${isScrolled ? "xl:w-0 xl:px-0 xl:opacity-0 xl:pointer-events-none" : ""
               }`}
           >
-            <button className="rounded-full bg-white px-3 py-1.5 text-[13px] font-bold text-accent shadow-sm" aria-pressed="true">
+            <button className="rounded-full bg-surface px-3 py-1.5 text-[13px] font-bold text-accent shadow-sm" aria-pressed="true">
               ID
             </button>
-            <button className="rounded-full px-3 py-1.5 text-[13px] font-bold text-gray-500 hover:text-gray-700" aria-pressed="false">
+            <button className="rounded-full px-3 py-1.5 text-[13px] font-bold text-neutral-500 hover:text-neutral-700" aria-pressed="false">
               EN
             </button>
           </div>
 
           {/* Hamburger Menu Button */}
           <button
-            className="relative z-[110] flex h-11 w-11 items-center justify-center rounded-xl border border-border-color bg-white text-text-main xl:hidden"
+            className="relative z-[110] flex h-11 w-11 items-center justify-center rounded-xl border border-border-color bg-surface text-text-main xl:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Buka menu"
             aria-expanded={mobileMenuOpen}
@@ -261,7 +257,7 @@ export function Header() {
 
         {/* Backdrop for Mobile Menu */}
         <div
-          className={`fixed inset-0 z-[85] bg-gray-900/40 backdrop-blur-[2px] transition-all duration-300 xl:hidden ${mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+          className={`fixed inset-0 z-[85] bg-neutral-900/40 backdrop-blur-[2px] transition-all duration-300 xl:hidden ${mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
             }`}
           onClick={() => setMobileMenuOpen(false)}
           aria-hidden="true"
@@ -271,7 +267,7 @@ export function Header() {
         <nav
           id="mobile-menu"
           aria-label="Mobile Navigation"
-          className={`fixed top-0 right-0 bottom-0 z-[90] flex w-[min(340px,88vw)] flex-col bg-white shadow-[-12px_0_40px_rgba(17,24,39,0.14)] transition-transform duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] xl:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          className={`fixed top-0 right-0 bottom-0 z-[90] flex w-[min(340px,88vw)] flex-col bg-surface shadow-[-12px_0_40px_rgba(17,24,39,0.14)] transition-transform duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] xl:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"
             }`}
         >
           {/* Top Section */}
@@ -280,7 +276,7 @@ export function Header() {
               <Image src="/images/logo/logo_hitam.png" alt="Logo" width={110} height={31} className="h-auto w-[110px]" />
             </Link>
             <button
-              className="grid h-[38px] w-[38px] place-items-center rounded-[10px] bg-gray-100 text-gray-700 transition-colors hover:bg-accent hover:text-white"
+              className="grid h-[38px] w-[38px] place-items-center rounded-[10px] bg-neutral-100 text-neutral-700 transition-colors hover:bg-accent hover:text-text-inverse"
               onClick={() => setMobileMenuOpen(false)}
               aria-label="Tutup menu"
             >
@@ -306,7 +302,7 @@ export function Header() {
                         </span>
                         {item.name}
                         <ChevronDown
-                          className={`ml-auto h-[15px] w-[15px] transition-all duration-300 ${openDropdown === item.name ? "rotate-180 text-accent" : "text-gray-400"
+                          className={`ml-auto h-[15px] w-[15px] transition-all duration-300 ${openDropdown === item.name ? "rotate-180 text-accent" : "text-neutral-400"
                             }`}
                         />
                       </button>
@@ -319,12 +315,12 @@ export function Header() {
                             {item.dropdownGroups ? (
                               item.dropdownGroups.map((group, idx) => (
                                 <div key={group.title} className={idx !== 0 ? "mt-4" : ""}>
-                                  <div className="px-[14px] mb-1.5 text-[11px] font-extrabold text-gray-400 uppercase tracking-wider">{group.title}</div>
+                                  <div className="px-[14px] mb-1.5 text-[11px] font-extrabold text-neutral-400 uppercase tracking-wider">{group.title}</div>
                                   {group.items.map((drop) => (
                                     <Link
                                       key={drop.name}
                                       href={drop.href}
-                                      className="block rounded-lg px-[14px] py-[9px] text-[14px] font-semibold text-gray-600 transition-colors hover:bg-bg-main hover:text-accent"
+                                      className="block rounded-lg px-[14px] py-[9px] text-[14px] font-semibold text-neutral-600 transition-colors hover:bg-bg-main hover:text-accent"
                                       onClick={() => setMobileMenuOpen(false)}
                                     >
                                       {drop.name}
@@ -337,7 +333,7 @@ export function Header() {
                                 <Link
                                   key={drop.name}
                                   href={drop.href}
-                                  className="block rounded-lg px-[14px] py-[11px] text-[14px] font-semibold text-gray-500 transition-colors hover:bg-bg-main hover:text-accent"
+                                  className="block rounded-lg px-[14px] py-[11px] text-[14px] font-semibold text-neutral-500 transition-colors hover:bg-bg-main hover:text-accent"
                                   onClick={() => setMobileMenuOpen(false)}
                                 >
                                   {drop.name}
@@ -365,11 +361,11 @@ export function Header() {
             </ul>
           </div>
 
-          <div className="shrink-0 border-t border-border-light bg-gray-50 p-[16px_20px_22px]">
+          <div className="shrink-0 border-t border-border-light bg-neutral-50 p-[16px_20px_22px]">
             <div className="flex flex-col gap-2">
               <Link
                 href="/brosur.pdf"
-                className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-accent px-4 py-[14px] font-bold text-white transition-colors hover:bg-accent-hover"
+                className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-accent px-4 py-[14px] font-bold text-text-inverse transition-colors hover:bg-accent-hover"
                 onClick={() => setMobileMenuOpen(false)}
                 download
               >
@@ -378,7 +374,7 @@ export function Header() {
               </Link>
               <Link
                 href="/spmb"
-                className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-accent px-4 py-[14px] font-bold text-white transition-colors hover:bg-accent-hover"
+                className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-accent px-4 py-[14px] font-bold text-text-inverse transition-colors hover:bg-accent-hover"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Daftar SPMB 2026
@@ -386,9 +382,9 @@ export function Header() {
               </Link>
             </div>
 
-            <div className="mt-3 flex w-full justify-center rounded-full border border-border-light bg-white p-1 shadow-sm">
-              <button className="flex-1 rounded-full bg-white py-[6px] text-[13px] font-bold text-accent shadow-sm">ID</button>
-              <button className="flex-1 rounded-full py-[6px] text-[13px] font-bold text-gray-500 hover:text-gray-700">EN</button>
+            <div className="mt-3 flex w-full justify-center rounded-full border border-border-light bg-surface p-1 shadow-sm">
+              <button className="flex-1 rounded-full bg-surface py-[6px] text-[13px] font-bold text-accent shadow-sm">ID</button>
+              <button className="flex-1 rounded-full py-[6px] text-[13px] font-bold text-neutral-500 hover:text-neutral-700">EN</button>
             </div>
           </div>
         </nav>

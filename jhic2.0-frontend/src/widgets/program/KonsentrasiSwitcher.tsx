@@ -26,8 +26,8 @@ export function KonsentrasiSwitcher({ active, onChange }: KonsentrasiSwitcherPro
             aria-pressed={isActive}
             className={`px-7 py-3 rounded-full border-2 font-bold text-sm transition-all ${
               isActive
-                ? "bg-accent text-white border-accent shadow-[0_8px_20px_rgba(215,25,32,0.25)]"
-                : "bg-white text-text-muted border-border-light hover:border-accent hover:text-accent"
+                ? "bg-accent text-text-inverse border-accent shadow-[0_8px_20px_rgba(215,25,32,0.25)]"
+                : "bg-surface text-text-muted border-border-light hover:border-accent hover:text-accent"
             }`}
           >
             {p.label}

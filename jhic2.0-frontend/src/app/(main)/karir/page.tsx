@@ -25,7 +25,7 @@ export default function KarirPage() {
         description="Timeline belajar dan prospek karier beserta kisaran gaji setiap Konsentrasi Keahlian di SMK Telkom Malang."
       />
 
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-surface">
         <div className="container max-w-[1100px] mx-auto px-4 md:px-6">
           <div className="text-center mb-8">
             <div className="w-16 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
@@ -55,7 +55,7 @@ export default function KarirPage() {
       </section>
 
       {/* Prospek Karier & Gaji */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-surface">
         <div className="container max-w-[1100px] mx-auto px-4 md:px-6">
           <SectionHeader
             eyebrow="Prospek Karier & Gaji"
@@ -68,7 +68,7 @@ export default function KarirPage() {
             {content.prospek.map((p, i) => (
               <div
                 key={i}
-                className="rounded-2xl border border-border-light bg-white p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
+                className="rounded-lg border border-border-light bg-surface p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
               >
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0">
@@ -88,7 +88,7 @@ export default function KarirPage() {
       </section>
 
       {/* Portal Karier (JHI-06) */}
-      <section className="py-16 md:py-20 bg-accent text-white relative overflow-hidden">
+      <section className="py-16 md:py-20 bg-accent text-text-inverse relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-5 pointer-events-none"
           style={{
@@ -97,20 +97,20 @@ export default function KarirPage() {
           }}
         ></div>
         <div className="container max-w-[900px] mx-auto px-4 md:px-6 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-1.5 rounded-full text-sm font-bold mb-6 border border-white/20">
+          <div className="inline-flex items-center gap-2 bg-surface/20 px-4 py-1.5 rounded-full text-sm font-bold mb-6 border border-white/20">
             <Rocket className="w-4 h-4" /> Portal Karier
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
             Jelajahi Portal Karier {content.code}
           </h2>
-          <p className="text-white/90 text-lg max-w-2xl mx-auto mb-8">
+          <p className="text-text-inverse/90 text-lg max-w-2xl mx-auto mb-8">
             Lihat lowongan, magang, dan peluang karier langsung dari mitra industri kami.
           </p>
           <a
             href={portalUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white text-accent font-extrabold px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+            className="inline-flex items-center gap-2 bg-surface text-accent font-extrabold px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
           >
             Kunjungi Portal Karier
             <ExternalLink className="w-5 h-5" />

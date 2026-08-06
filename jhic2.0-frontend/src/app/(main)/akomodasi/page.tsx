@@ -25,7 +25,7 @@ export default function AkomodasiPage() {
       />
 
       {/* Estimasi Biaya Hidup */}
-      <section className="py-16 md:py-24 bg-white relative">
+      <section className="py-16 md:py-24 bg-surface relative">
         <div className="container max-w-[1200px] mx-auto px-4 md:px-6">
           <SectionHeader
             eyebrow="Perencanaan Finansial"
@@ -37,7 +37,7 @@ export default function AkomodasiPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
             {livingCosts.map((item, idx) => (
-              <div key={idx} className="rounded-2xl border border-border-light bg-white p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
+              <div key={idx} className="rounded-lg border border-border-light bg-surface p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
                 <div className={`w-14 h-14 rounded-xl ${item.color} flex items-center justify-center mb-5`}>
                   <item.icon className="w-7 h-7" />
                 </div>
@@ -52,7 +52,7 @@ export default function AkomodasiPage() {
             ))}
           </div>
 
-          <div className="mt-10 bg-gray-50 border border-border-light rounded-2xl p-6 flex items-start gap-4">
+          <div className="mt-10 bg-neutral-50 border border-border-light rounded-lg p-6 flex items-start gap-4">
             <div className="shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mt-1">
               <Info className="w-5 h-5" />
             </div>
@@ -95,20 +95,20 @@ export default function AkomodasiPage() {
 
               <div className="space-y-6">
                 {kosRecommendations.map((kos, idx) => (
-                  <div key={idx} className="flex gap-4 p-5 rounded-2xl bg-white border border-border-light hover:border-accent/30 transition-colors shadow-sm">
+                  <div key={idx} className="flex gap-4 p-5 rounded-lg bg-surface border border-border-light hover:border-accent/30 transition-colors shadow-sm">
                     <div className="w-12 h-12 shrink-0 rounded-full bg-accent/10 text-accent flex items-center justify-center mt-1">
                       <MapPin className="w-6 h-6" />
                     </div>
                     <div>
                       <h3 className="text-lg font-bold text-text-main mb-1">{kos.area}</h3>
-                      <div className="flex flex-wrap items-center gap-3 text-sm font-semibold text-gray-500 mb-3">
+                      <div className="flex flex-wrap items-center gap-3 text-sm font-semibold text-neutral-500 mb-3">
                         <span className="flex items-center gap-1.5"><Bus className="w-4 h-4" /> {kos.distance}</span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-neutral-300"></span>
                         <span className="flex items-center gap-1.5 text-accent"><Wallet className="w-4 h-4" /> {kos.price}</span>
                       </div>
                       <ul className="flex flex-wrap gap-2">
                         {kos.features.map((feature, fIdx) => (
-                          <li key={fIdx} className="bg-gray-50 text-gray-600 text-[13px] px-3 py-1 rounded-full font-medium border border-gray-100">
+                          <li key={fIdx} className="bg-neutral-50 text-neutral-600 text-[13px] px-3 py-1 rounded-full font-medium border border-neutral-100">
                             {feature}
                           </li>
                         ))}
@@ -120,7 +120,7 @@ export default function AkomodasiPage() {
             </div>
 
             <div className="w-full lg:w-1/2">
-              <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-square lg:aspect-auto lg:h-[600px] border border-border-light">
+              <div className="relative rounded-xl overflow-hidden shadow-xl aspect-square lg:aspect-auto lg:h-[600px] border border-border-light">
                 <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-blue-500/20 mix-blend-multiply z-10"></div>
                 <Image
                   src="/images/unsplash/photo-1555854877-bab0e564b8d5.jpg"
@@ -136,7 +136,7 @@ export default function AkomodasiPage() {
       </section>
 
       {/* Rekomendasi Makanan */}
-      <section className="py-16 md:py-24 bg-white relative">
+      <section className="py-16 md:py-24 bg-surface relative">
         <div className="container max-w-[1200px] mx-auto px-4 md:px-6">
           <SectionHeader
             eyebrow="Kuliner & Konsumsi"
@@ -148,8 +148,8 @@ export default function AkomodasiPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {foodRecommendations.map((food, idx) => (
-              <div key={idx} className="group relative overflow-hidden rounded-2xl border border-border-light bg-white p-6 shadow-sm hover:shadow-md transition-all flex items-start gap-5">
-                <div className="w-16 h-16 shrink-0 rounded-2xl bg-orange-50 text-orange-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <div key={idx} className="group relative overflow-hidden rounded-lg border border-border-light bg-surface p-6 shadow-sm hover:shadow-md transition-all flex items-start gap-5">
+                <div className="w-16 h-16 shrink-0 rounded-lg bg-orange-50 text-orange-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <food.icon className="w-8 h-8" />
                 </div>
                 <div>

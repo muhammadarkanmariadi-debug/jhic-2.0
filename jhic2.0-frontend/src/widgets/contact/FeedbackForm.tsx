@@ -7,6 +7,8 @@ import { z } from "zod";
 import { Star, Send, CheckCircle2 } from "lucide-react";
 import { feedbackApi } from "@/services/feedback";
 import { ApiError } from "@/services/api";
+import { Button } from "@/shared/ui/Button";
+import { Status } from "@/shared/ui/Status";
 
 const formSchema = z.object({
   context: z.string().optional(),
@@ -58,8 +60,8 @@ export function FeedbackForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-3xl border border-emerald-200 bg-emerald-50 p-10 text-center">
-        <CheckCircle2 className="w-14 h-14 text-emerald-600 mx-auto mb-4" />
+      <div className="rounded-xl border border-success/30 bg-success-soft p-10 text-center">
+        <CheckCircle2 className="w-14 h-14 text-success mx-auto mb-4" />
         <h2 className="text-2xl font-extrabold text-text-main mb-2">Terima kasih atas masukan Anda!</h2>
         <p className="text-text-muted">
           Ulasan Anda sangat berharga untuk meningkatkan kualitas layanan kami.
@@ -69,14 +71,14 @@ export function FeedbackForm() {
   }
 
   return (
-    <div className="rounded-3xl border border-border-light bg-white p-8 shadow-sm">
+    <div className="rounded-xl border border-border-light bg-surface p-8 shadow-sm">
       <h2 className="text-2xl font-extrabold text-text-main mb-2">Beri Masukan</h2>
       <p className="text-text-muted mb-8">Bagikan pengalaman dan saran Anda kepada kami.</p>
 
       {status === "error" && (
-        <div className="mb-6 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm font-semibold px-4 py-3">
+        <Status variant="error" className="mb-6 w-full">
           {errorMsg}
-        </div>
+        </Status>
       )}
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
@@ -94,7 +96,7 @@ export function FeedbackForm() {
               >
                 <Star
                   className={`w-9 h-9 transition-colors ${
-                    n <= rating ? "fill-amber-400 text-amber-400" : "text-gray-300"
+                    n <= rating ? "fill-amber-400 text-amber-400" : "text-neutral-300"
                   }`}
                 />
               </button>
@@ -109,7 +111,7 @@ export function FeedbackForm() {
           </label>
           <select
             {...register("context")}
-            className="w-full rounded-xl border border-border-light px-4 py-3 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-accent/30"
+            className="w-full rounded-xl border border-border-light px-4 py-3 text-sm bg-surface focus:outline-none focus:ring-2 focus:ring-accent/30"
           >
             <option value="">Pilih topik</option>
             {CONTEXTS.map((c) => (
@@ -127,10 +129,10 @@ export function FeedbackForm() {
             {...register("comment")}
             rows={5}
             placeholder="Tulis masukan, saran, atau keluhan Anda di sini..."
-            className="w-full rounded-xl border border-border-light px-4 py-3 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-accent/30"
+            className="w-full rounded-xl border border-border-light px-4 py-3 text-sm bg-surface focus:outline-none focus:ring-2 focus:ring-accent/30"
           />
           {errors.comment && (
-            <p className="text-xs text-red-600 mt-1 font-semibold">{errors.comment.message}</p>
+            <p className="text-xs text-error mt-1 font-semibold">{errors.comment.message}</p>
           )}
         </div>
 
@@ -142,17 +144,17 @@ export function FeedbackForm() {
           <input
             {...register("contact")}
             placeholder="Email atau nomor telepon"
-            className="w-full rounded-xl border border-border-light px-4 py-3 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-accent/30"
+            className="w-full rounded-xl border border-border-light px-4 py-3 text-sm bg-surface focus:outline-none focus:ring-2 focus:ring-accent/30"
           />
         </div>
 
-        <button
+        <Button
           type="submit"
           disabled={status === "submitting"}
-          className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover disabled:opacity-50 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg"
+          className="shadow-lg"
         >
           <Send className="w-4 h-4" /> {status === "submitting" ? "Mengirim..." : "Kirim Masukan"}
-        </button>
+        </Button>
       </form>
     </div>
   );
