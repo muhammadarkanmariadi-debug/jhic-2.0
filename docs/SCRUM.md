@@ -2,28 +2,80 @@
 
 This document outlines the detailed Scrum methodology and Sprint plan for the development of JHIC 2.0 (Moklet SIGAP).
 
-## Roadmap ←→ PHASE.md
+## 🚧 Sprint Prioritas — Belum Selesai (Kerjakan Dulu)
 
-The site is currently a **prototype** (PHASE.md **Stage 0**). `PHASE.md` explains the stages in plain language; the sprints below are how we execute them:
+> Semua pekerjaan yang **belum selesai** dikumpulkan di bagian paling atas supaya tim fokus dulu ke sini.
+> Detail lengkap per fitur: **`CMS_GAP_SHEET.md`** · Penjelasan tahap proyek dalam bahasa sederhana: **`PHASE.md`**.
 
-| PHASE.md stage | What it means | Where it lives in this doc | Status |
+### Sprint CMS-0 · Persiapan Database (PALING PENTING — kerjakan pertama)
+
+Tanpa langkah ini, semua halaman admin dan login tidak bisa dipakai (masih eror 500).
+
+| Kode | Dev | Pekerjaan | Rincian | Bobot | Prioritas | Status |
+|---|---|---|---|---|---|---|
+| CMS-v2-00 | Haikal | Siapkan database + akun admin | Buat tabel database, isi data awal (peran & izin admin), uji login Super Admin, pastikan semua API tidak eror lagi | 5 | Kritis | Belum |
+| CMS-v2-00b | Akira | Pastikan build tidak rusak | Frontend `npm run build` + `npm run lint`, backend `npm run build` — semuanya hijau | 2 | Tinggi | Belum |
+
+**Langkah detail CMS-v2-00 (sederhana):**
+1. Jalankan `prisma migrate dev` → membuat semua tabel di database.
+2. Jalankan `prisma db seed` → membuat akun admin, peran (role), dan izin (termasuk `schedule.manage`).
+3. Login Super Admin di `/login` (email `admin@smktelkom-mlg.sch.id`, sandi `Admin123!`).
+4. Jalankan `npm run smoke` → semua endpoint berhasil (tidak ada lagi 500).
+
+### Sprint CMS-1 · Menyiapkan Tipe Data (sebagian sudah selesai)
+
+| Kode | Dev | Fitur | Rincian | Bobot | Prioritas | Status |
+|---|---|---|---|---|---|---|
+| CMS-v2-01 | Haikal | Kurikulum | Tambah tipe: KonsentrasiCard, KonsentrasiProgramMeta, KarirContent, KarirProspek, TimelineEvent (di `index.ts`) | 2 | Tinggi | Selesai |
+| CMS-v2-02 | Akira | Berita | Perbaiki tipe `NewsItem` (tambah slug, kategori, badge, konten berbentuk daftar) | 2 | Tinggi | Selesai |
+| CMS-v2-03 | Alfara | Hubin | Beri tipe pada data `hubinData` (loker, beasiswa, lomba, partner) | 1 | Tinggi | Belum |
+| CMS-v2-04 | Iqbal | Orang | Perbaiki tipe Testimonial, FAQ, ServiceDesk; tambah tipe `OrgChartNode` | 2 | Tinggi | Selesai |
+| CMS-v2-05 | Arkan | Academic-Life | Beri tipe pada `dummyData` (akomodasi, produk, trial class, kuis) | 2 | Sedang | Belum |
+
+### Sprint CMS-2 · Halaman Admin (staff bisa edit konten)
+
+| Kode | Dev | Fitur | Rincian | Bobot | Prioritas | Status |
+|---|---|---|---|---|---|---|
+| CMS-v2-06 | Haikal | Admin Kurikulum | Buat model + API Konsentrasi & Karir, lalu halaman admin kurikulum | 8 | Tinggi | Belum |
+| CMS-v2-07 | Akira | Admin Berita | API berita (model sudah ada) + editor admin (teks kaya / WYSIWYG) | 5 | Tinggi | Belum |
+| CMS-v2-08 | Alfara | Admin Hubin | Halaman admin loker, beasiswa, lomba, partner (API sudah ada) | 5 | Tinggi | Belum |
+| CMS-v2-09 | Iqbal | Admin Orang | Admin guru, fasilitas, prestasi, ekskul, testimoni, FAQ, service desk, struktur organisasi | 8 | Tinggi | Belum |
+| CMS-v2-10 | Arkan | Admin Academic-Life | Model + API + admin akomodasi, produk, kuis | 5 | Sedang | Belum |
+
+### Sprint CMS-3 · Sambungkan Halaman Publik + Uji
+
+| Kode | Dev | Fitur | Rincian | Bobot | Prioritas | Status |
+|---|---|---|---|---|---|---|
+| CMS-v2-11 | Haikal | Publik Kurikulum/Karir | Halaman publik mengambil data dari API (bukan teks contoh) | 3 | Tinggi | Belum |
+| CMS-v2-12 | Akira | Publik Berita/Kelulusan | Halaman berita & persiapan kelulusan dari API | 3 | Tinggi | Belum |
+| CMS-v2-13 | Alfara | Publik Hubin | Pastikan loker/beasiswa/lomba memakai data asli dari API | 2 | Tinggi | Belum |
+| CMS-v2-14 | Iqbal | Publik Orang | Guru, fasilitas, prestasi, testimoni, FAQ, struktur dari API | 3 | Tinggi | Belum |
+| CMS-v2-15 | Arkan | Publik Academic-Life | Akomodasi, produk, trial class, kuis dari API | 3 | Sedang | Belum |
+
+---
+
+## Peta Tahap (Roadmap) ←→ PHASE.md
+
+Situs saat ini masih **prototipe** (PHASE.md **Tahap 0**). `PHASE.md` menjelaskan tahap-tahap dalam bahasa sederhana; sprint-sprint di bawah adalah cara tim mengerjakannya:
+
+| Tahap (PHASE.md) | Artinya | Ada di bagian mana dokumen ini | Status |
 |---|---|---|---|
-| Stage 0 — First draft | static prototype (current) | all public pages | ✅ live as prototype |
-| Stage 1 — Consistent look | shared design system & UI | Design Consistency (DC-01..10) | ✅ mostly done |
-| Stage 2 — The engine | storage + sign-in + rules | Backend Core (JHI-01/02) + CMS-2 | 🟡 code done, DB off |
-| Stage 3 — Staff edit content | editing screens per feature | Epic: Content CMS v2 (CMS-v1..3) | 🔵 in progress |
-| Stage 4 — Show latest info | wire pages to the content | Epic: Content CMS v2 — Sprint CMS-3 | 🔵 planned |
-| Stage 5 — Interactive features | bot / feedback / quiz / grad-check / PPDB | JHI-03/12..14 + SPMB epic | 🟡 partial |
-| Stage 6 — Check & launch | QA, E2E, go live | JHI-15 + final pass | ⚪ pending |
+| Tahap 0 — Contoh awal | prototipe (kondisi sekarang) | semua halaman publik | ✅ sudah tampil |
+| Tahap 1 — Tampilan seragam | sistem desain & komponen bersama | Desain Konsisten (DC-01..10) | ✅ hampir selesai |
+| Tahap 2 — Mesin di belakang | penyimpanan + login + aturan | Backend Core (JHI-01/02) + CMS-2 | 🟡 kode jadi, DB belum |
+| Tahap 3 — Staff bisa edit | layar edit per fitur | Sprint Prioritas CMS-0..3 | 🔵 sedang dikerjakan |
+| Tahap 4 — Tampilkan info terbaru | sambungkan halaman ke konten | Sprint CMS-3 | 🔵 direncanakan |
+| Tahap 5 — Fitur interaktif | bot / masukan / kuis / cek kelulusan / PPDB | JHI-03/12..14 + SPMB | 🟡 sebagian |
+| Tahap 6 — Cek & rilis | QA, E2E, go live | JHI-15 + final | ⚪ belum |
 
-## Team Roles
+## Tim (5 Developer)
 
-The development team consists of 5 developers, each able to work both frontend and backend, and each owning separate features:
-- **Haikal**: Kurikulum & Program content
-- **Akira**: News / Berita & Kelulusan
+Tim terdiri dari 5 developer. Semua bisa mengerjakan frontend dan backend, masing-masing memegang fitur yang berbeda:
+- **Haikal**: Kurikulum & konten Program
+- **Akira**: Berita / Kelulusan
 - **Alfara**: Hubin (loker, beasiswa, lomba, partner)
-- **Iqbal**: "Orang" content (guru, fasilitas, prestasi, ekskul, testimoni, FAQ, org chart)
-- **Arkan**: Academic-Life (akomodasi, produk, trial class, quiz)
+- **Iqbal**: Konten "Orang" (guru, fasilitas, prestasi, ekskul, testimoni, FAQ, struktur organisasi)
+- **Arkan**: Academic-Life (akomodasi, produk, trial class, kuis)
 
 ## Epic: Curriculum Team v2 Revisions (High Priority)
 
@@ -192,38 +244,5 @@ The development team consists of 5 developers, each able to work both frontend a
 - **Severity:** Medium
 - **Effort:** S
 
-## Epic: Content CMS v2 (Admin Customizable)
-
-**Goal:** make every public content list admin-editable (backend + admin CMS + public fetch). Each feature is owned **end-to-end by one dev** (frontend + backend). Shared types live in `src/shared/types/index.ts` (see CMS-v2 type tasks). The backend `schema.prisma` already models most content (News, Facility, Achievement, Extracurricular, TeacherProfile, Testimonial, FaqItem, ServiceDeskStatus, Partner, CurriculumSyncPartner, Expertise, Certification, FeaturedProgram, ProgramUmumProgram, SchoolSchedule, Competition, JobVacancy, Scholarship, BotIntent, MexpoEvent, Feedback); tasks below wire the missing routes/admin/public.
-
-### Sprint CMS-1 · Foundation & Types (all devs, parallel)
-
-| Task ID | Dev | Feature | Scope | Points | Priority | Status |
-|---|---|---|---|---|---|---|
-| CMS-v2-01 | Haikal | Kurikulum | index.ts: `KonsentrasiCard`, `KonsentrasiProgramMeta`, `KarirContent`, `KarirProspek`, `TimelineEvent` | 2 | High | Done |
-| CMS-v2-02 | Akira | News & Kelulusan | index.ts: realign `NewsItem` (slug/categoryLabel/badgeColor/content[]) | 2 | High | Done |
-| CMS-v2-03 | Alfara | Hubin | annotate `hubinData` with shared `JobVacancyItem`/`ScholarshipItem`/`CompetitionItem`/`IndustryPartner` | 1 | High | Planned |
-| CMS-v2-04 | Iqbal | People | index.ts: realign `TestimonialItem`, `FAQItem`, `ServiceDeskItem`, add `OrgChartNode` | 2 | High | Done |
-| CMS-v2-05 | Arkan | Academic-Life | annotate `dummyData` (akomodasi/produk/trial/quiz) with shared types | 2 | Medium | Planned |
-
-### Sprint CMS-2 · Backend + Admin CRUD (parallel)
-
-| ID | Dev | Feature | Scope | Points | Priority | Status |
-|---|---|---|---|---|---|---|
-| CMS-v2-06 | Haikal | Kurikulum CMS | Prisma models (Konsentrasi, Karir) + routes/serv + admin konsentrasi | 8 | High | Planned |
-| CMS-v2-07 | Akira | Berita CMS | News API (model exists) + admin berita editor | 5 | High | Planned |
-| CMS-v2-08 | Alfara | Hubin admin | admin loker/beasiswa/lomba/partner UI (routes exist) | 5 | High | Planned |
-| CMS-v2-09 | Iqbal | Orang CMS | admin guru/fasilitas/prestasi/ekskul/testimoni/faq/service/org chart | 8 | High | Planned |
-| CMS-v2-10 | Arkan | Academic-Life CMS | Prisma models (Product, Akomodasi, Quiz) + routes + admin | 5 | Medium | Planned |
-
-### Sprint CMS-3 · Public wiring + QA (parallel)
-
-| ID | Dev | Content | Scope | Points | Priority | Status |
-|---|---|---|---|---|---|---|
-| CMS-v2-11 | Haikal | Wire public kurikulum/karir to API | service + page fetch + token | 3 | High | Planned |
-| CMS-v2-12 | Akira | Wire public berita + persiapan-kelulusan to API | service + SSG from API | 3 | High | Planned |
-| CMS-v2-13 | Alfara | Wire public loker/beasiswa/lomba to API | replace fallback with live CRUD | 2 | High | Planned |
-| CMS-v2-14 | Iqbal | Wire public people pages to API | guru, fasilitas, prestasi, testimoni, faq, org | 3 | High | Planned |
-| CMS-v2-15 | Arkan | Wire public akomodasi/produk/trial/quiz to API | service + page fetch | 3 | Medium | Planned |
-
-> Note: this replaces the generic Dev1–5 assignees in the older epics with the real team (Haikal, Akira, Alfara, Iqbal, Arkan). The `## Design Consistency Revisions` section above is untouched.
+> **Sprint CMS (Content CMS v2)** sudah dipindah ke bagian **paling atas** dokumen ini
+> (lihat "🚧 Sprint Prioritas — Belum Selesai"). Detail lengkap per fitur ada di `CMS_GAP_SHEET.md`.
