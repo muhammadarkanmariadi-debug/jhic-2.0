@@ -23,7 +23,7 @@ async function main() {
     { name: "Admin Hubin", division: DIVISIONS.HUBIN, permissions: [PERMISSIONS.LOKER_MANAGE, PERMISSIONS.BEASISWA_MANAGE, PERMISSIONS.PARTNER_MANAGE] },
     { name: "Admin Humas", division: DIVISIONS.HUMAS, permissions: [PERMISSIONS.PARTNER_SYNC_MANAGE, PERMISSIONS.GURU_MANAGE, PERMISSIONS.LOMBA_MANAGE] },
     { name: "Admin Kesiswaan", division: DIVISIONS.KESISWAAN, permissions: [PERMISSIONS.EKSKUL_MANAGE, PERMISSIONS.ORGANISASI_MANAGE] },
-    { name: "Admin Konten", division: DIVISIONS.KONTEN, permissions: [PERMISSIONS.NEWS_MANAGE] },
+    { name: "Admin Konten", division: DIVISIONS.KONTEN, permissions: [PERMISSIONS.NEWS_MANAGE, PERMISSIONS.SCHEDULE_MANAGE] },
     { name: "Admin SPMB", division: DIVISIONS.SPMB, permissions: [PERMISSIONS.SPMB_MANAGE] },
     { name: "Admin Support", division: DIVISIONS.SUPPORT, permissions: [PERMISSIONS.SUPPORT_REPLY] },
   ];

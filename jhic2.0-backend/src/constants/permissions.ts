@@ -13,6 +13,7 @@ export const PERMISSIONS = {
   EKSKUL_MANAGE: "ekskul.manage", // Admin Kesiswaan
   ORGANISASI_MANAGE: "organisasi.manage", // Admin Kesiswaan
   NEWS_MANAGE: "news.manage", // Admin Konten
+  SCHEDULE_MANAGE: "schedule.manage", // Admin Konten (Jadwal Sekolah)
   SPMB_MANAGE: "spmb.manage", // Admin SPMB
   SUPPORT_REPLY: "support.reply", // Admin Support
 } as const;

@@ -2,14 +2,28 @@
 
 This document outlines the detailed Scrum methodology and Sprint plan for the development of JHIC 2.0 (Moklet SIGAP).
 
+## Roadmap ←→ PHASE.md
+
+The site is currently a **prototype** (PHASE.md **Stage 0**). `PHASE.md` explains the stages in plain language; the sprints below are how we execute them:
+
+| PHASE.md stage | What it means | Where it lives in this doc | Status |
+|---|---|---|---|
+| Stage 0 — First draft | static prototype (current) | all public pages | ✅ live as prototype |
+| Stage 1 — Consistent look | shared design system & UI | Design Consistency (DC-01..10) | ✅ mostly done |
+| Stage 2 — The engine | storage + sign-in + rules | Backend Core (JHI-01/02) + CMS-2 | 🟡 code done, DB off |
+| Stage 3 — Staff edit content | editing screens per feature | Epic: Content CMS v2 (CMS-v1..3) | 🔵 in progress |
+| Stage 4 — Show latest info | wire pages to the content | Epic: Content CMS v2 — Sprint CMS-3 | 🔵 planned |
+| Stage 5 — Interactive features | bot / feedback / quiz / grad-check / PPDB | JHI-03/12..14 + SPMB epic | 🟡 partial |
+| Stage 6 — Check & launch | QA, E2E, go live | JHI-15 + final pass | ⚪ pending |
+
 ## Team Roles
 
-The development team consists of 5 developers:
-- **Dev 1**: Backend Infrastructure & Core Integrations
-- **Dev 2**: Security (Auth), RBAC, & Backend Feature Logic
-- **Dev 3**: Frontend Architecture & UI Restructuring (SPMB, Kurikulum)
-- **Dev 4**: Data Integration, External APIs & Feedback UI
-- **Dev 5**: UI Components, Interactive Elements & QA
+The development team consists of 5 developers, each able to work both frontend and backend, and each owning separate features:
+- **Haikal**: Kurikulum & Program content
+- **Akira**: News / Berita & Kelulusan
+- **Alfara**: Hubin (loker, beasiswa, lomba, partner)
+- **Iqbal**: "Orang" content (guru, fasilitas, prestasi, ekskul, testimoni, FAQ, org chart)
+- **Arkan**: Academic-Life (akomodasi, produk, trial class, quiz)
 
 ## Epic: Curriculum Team v2 Revisions (High Priority)
 
@@ -105,3 +119,111 @@ The development team consists of 5 developers:
 2. **Daily Standup:** 15-minute sync daily to discuss progress, plan for the day, and flag blockers.
 3. **Sprint Review:** End of sprint demo for stakeholders (School administration).
 4. **Sprint Retrospective:** Post-sprint analysis on team efficiency and process improvements.
+
+## Design Consistency Revisions
+
+### [DC-01] Adopt a single shared `Card` primitive across all card islands
+- **Page(s):** LombaList, LokerList, BeasiswaList, EkskulGrid, JurusanTabs, CurriculumSyncSections, ContentSections, ProgramTemplate, NewsGrid, AlumniDistribution, FasilitasGrid, FeaturedPrograms, TestimonialMarquee, PPDB*
+- **Issue:** Card island `bg-white rounded-2xl/3xl border border-border-light shadow-sm` hand-rolled across 20+ widgets; `Card` (rounded-xl=26px) and `ContentCard` (rounded-2xl=16px) already disagree.
+- **Fix:** Extract one `Card` primitive on a radius token (map 2xl/3xl→radius-lg/xl), unify `Card`/`ContentCard`, and migrate the widget islands to it.
+- **Severity:** High
+- **Effort:** Low
+
+### [DC-02] Adopt the shared `Button` component (currently 0 imports)
+- **Page(s):** all public pages + login + admin/program-umum (Hero, Programs, PPDBCta, Login, FeedbackForm, K3Table, TrialClass, hubs, ...)
+- **Issue:** `shared/ui/Button` is dead code; every CTA is inline `bg-accent hover:bg-accent-hover ... rounded-xl px-4/8 py-3.5/4 text-white` with inconsistent size/radius/shadow.
+- **Fix:** Replace inline CTAs with `<Button variant size>`; make primary = `rounded-pill` + `shadow-accent` per DESIGN.md §5.
+- **Severity:** High
+- **Effort:** L
+
+### [DC-03] Add neutral-gray and semantic tokens to `globals.css`
+- **Page(s):** Header, Footer, all content sections (design-wide)
+- **Issue:** No neutral gray scale or success/error/warning tokens exist → 100+ raw `text-gray-*`/`bg-gray-*`/`border-gray-*` and raw `emerald-*`/`red-*` values.
+- **Fix:** Define `--color-neutral-*` and `--color-success/error/warning` in `globals.css` + DESIGN.md; replace raw grays with neutral tokens.
+- **Severity:** High
+- **Effort:** M
+
+### [DC-04] Replace raw `text-white` / `bg-white` with existing inverse/surface tokens
+- **Page(s):** design-wide (~100 occurrences each)
+- **Issue:** `text-white` and `bg-white` bypass `text-text-inverse`/`text-accent-text`/`bg-surface` which already exist as tokens.
+- **Fix:** Swap to token names; reserve `text-white` only for accent-glass overlays if needed after tokens added.
+- **Severity:** High
+- **Effort:** M
+
+### [DC-05] Enforce radius scale (off-scale `rounded-2xl/3xl/[N]px`)
+- **Page(s):** design-wide (~100 occurrences)
+- **Issue:** only radius-sm/md/lg/xl/pill are defined; code uses `rounded-2xl`(16px), `rounded-3xl`(24px), `rounded-[24px/20px/32px/10px]`.
+- **Fix:** Map straight to radius tokens (2xl/3xl→lg/xl); ban `rounded-[Npx]`.
+- **Severity:** High
+- **Effort:** M
+
+### [DC-06] Typography scale discipline (arbitrary `text-[Npx]` + `4xl/5xl/6xl`)
+- **Page(s):** Header, Footer, Features, Headmaster, Partners, Testimonials, Hero, News, JurusanTabs, Prestasi, akreditasi, PPDBCta, EkskulGrid, ...
+- **Issue:** tokens cap at `text-3xl`; code uses `text-[10..80px]` (~60+) and `text-4xl/5xl/6xl` (raw Tailwind).
+- **Fix:** Extend documented display tokens above 3xl and replace arbitrary sizes with scale steps.
+- **Severity:** High
+- **Effort:** M
+
+### [DC-07] Semantic status pattern for errors/success/warnings
+- **Page(s):** login (76), GraduationCheck (72), FasilitasGrid (162), K3Table (62), etc.
+- **Issue:** each page invents its own status colors (red-50/red-200/red-700 vs emerald-500/600) with no shared token/component.
+- **Fix:** Add `success/error/warning` tokens + a status/alert component; use for login error, graduation result, callouts, clickout errors.
+- **Severity:** High
+- **Effort:** S
+
+### [DC-08] Route section eyebrows + section spacing through `SectionHeader`
+- **Page(s):** Features, Headmaster, Partners, Testimonials, akomodasi, karir, ccp, program-*, berita
+- **Issue:** eyebrow pill `rounded-full bg-accent/10 px-4 py-1.5 text-4xl font-bold text-accent` copy-pasted (4+ places) instead of `SectionHeader` (1 import); section `py-16|<py-20/...>` inconsistent.
+- **Fix:** adopt `SectionHeader` across sections; align section vertical rhythm to one spacing step.
+- **Severity:** Medium
+- **Effort:** M
+
+### [DC-09] Standardize container width handling
+- **Page(s):** berita/[slug] (`max-w-7xl`), struktur-organisasi (`max-w-[1150px]`), PageHeader (`max-w-[1200px]`), CTA (`max-w-[720px]`)
+- **Issue:** no token-backed container class; each page guesses.
+- **Fix:** expose `container-max/hero` tokens + a `Container` helper receiving `max-w-[1200px]`/`max-w-7xl`.
+- **Severity:** Medium
+- **Effort:** S
+
+### [DC-10] Sync DESIGN.md token docs with `globals.css`
+- **Page(s):** root `jhic2.0-frontend/docs/DESIGN.md` + root `docs/DESIGN.md`
+- **Issue:** DESIGN.md lists token names (`bg-main`, `surface`, `text-muted`, `border-light`) that do not match actual utilities (`bg-bg-main`, `bg-surface`, `text-text-muted`, `border-border-light`); also missing neutral/semantic/display/container tokens and the note that `rounded-xl`=26px is a token override.
+- **Fix:** align doc names to real utility names and document new tokens added in DC-03/DC-06/DC-09.
+- **Severity:** Medium
+- **Effort:** S
+
+## Epic: Content CMS v2 (Admin Customizable)
+
+**Goal:** make every public content list admin-editable (backend + admin CMS + public fetch). Each feature is owned **end-to-end by one dev** (frontend + backend). Shared types live in `src/shared/types/index.ts` (see CMS-v2 type tasks). The backend `schema.prisma` already models most content (News, Facility, Achievement, Extracurricular, TeacherProfile, Testimonial, FaqItem, ServiceDeskStatus, Partner, CurriculumSyncPartner, Expertise, Certification, FeaturedProgram, ProgramUmumProgram, SchoolSchedule, Competition, JobVacancy, Scholarship, BotIntent, MexpoEvent, Feedback); tasks below wire the missing routes/admin/public.
+
+### Sprint CMS-1 · Foundation & Types (all devs, parallel)
+
+| Task ID | Dev | Feature | Scope | Points | Priority | Status |
+|---|---|---|---|---|---|---|
+| CMS-v2-01 | Haikal | Kurikulum | index.ts: `KonsentrasiCard`, `KonsentrasiProgramMeta`, `KarirContent`, `KarirProspek`, `TimelineEvent` | 2 | High | Done |
+| CMS-v2-02 | Akira | News & Kelulusan | index.ts: realign `NewsItem` (slug/categoryLabel/badgeColor/content[]) | 2 | High | Done |
+| CMS-v2-03 | Alfara | Hubin | annotate `hubinData` with shared `JobVacancyItem`/`ScholarshipItem`/`CompetitionItem`/`IndustryPartner` | 1 | High | Planned |
+| CMS-v2-04 | Iqbal | People | index.ts: realign `TestimonialItem`, `FAQItem`, `ServiceDeskItem`, add `OrgChartNode` | 2 | High | Done |
+| CMS-v2-05 | Arkan | Academic-Life | annotate `dummyData` (akomodasi/produk/trial/quiz) with shared types | 2 | Medium | Planned |
+
+### Sprint CMS-2 · Backend + Admin CRUD (parallel)
+
+| ID | Dev | Feature | Scope | Points | Priority | Status |
+|---|---|---|---|---|---|---|
+| CMS-v2-06 | Haikal | Kurikulum CMS | Prisma models (Konsentrasi, Karir) + routes/serv + admin konsentrasi | 8 | High | Planned |
+| CMS-v2-07 | Akira | Berita CMS | News API (model exists) + admin berita editor | 5 | High | Planned |
+| CMS-v2-08 | Alfara | Hubin admin | admin loker/beasiswa/lomba/partner UI (routes exist) | 5 | High | Planned |
+| CMS-v2-09 | Iqbal | Orang CMS | admin guru/fasilitas/prestasi/ekskul/testimoni/faq/service/org chart | 8 | High | Planned |
+| CMS-v2-10 | Arkan | Academic-Life CMS | Prisma models (Product, Akomodasi, Quiz) + routes + admin | 5 | Medium | Planned |
+
+### Sprint CMS-3 · Public wiring + QA (parallel)
+
+| ID | Dev | Content | Scope | Points | Priority | Status |
+|---|---|---|---|---|---|---|
+| CMS-v2-11 | Haikal | Wire public kurikulum/karir to API | service + page fetch + token | 3 | High | Planned |
+| CMS-v2-12 | Akira | Wire public berita + persiapan-kelulusan to API | service + SSG from API | 3 | High | Planned |
+| CMS-v2-13 | Alfara | Wire public loker/beasiswa/lomba to API | replace fallback with live CRUD | 2 | High | Planned |
+| CMS-v2-14 | Iqbal | Wire public people pages to API | guru, fasilitas, prestasi, testimoni, faq, org | 3 | High | Planned |
+| CMS-v2-15 | Arkan | Wire public akomodasi/produk/trial/quiz to API | service + page fetch | 3 | Medium | Planned |
+
+> Note: this replaces the generic Dev1–5 assignees in the older epics with the real team (Haikal, Akira, Alfara, Iqbal, Arkan). The `## Design Consistency Revisions` section above is untouched.

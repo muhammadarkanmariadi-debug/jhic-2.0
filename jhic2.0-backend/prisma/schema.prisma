@@ -295,6 +295,20 @@ model ProgramUmumProgram {
   updatedAt DateTime  @updatedAt
 }
 
+// Jadwal Sekolah (school-hours timetable) — CMS-managed via Admin Konten.
+// `days` is a JSON array: [{ name: "Senin", blocks: [{ label: "Jam Masuk", start: "07:00", end: null }, ...] }]
+model SchoolSchedule {
+  id          String   @id @default(uuid())
+  title       String
+  description String?  @db.Text
+  days        Json // SchoolDay[] (see services/schoolScheduleService.ts)
+  isActive    Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  updatedBy   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
 // -----------------------------------------
 // 4. Hubin Expansion (MokletHubin)
 // -----------------------------------------
